@@ -1,6 +1,5 @@
-# SaigonRide_SE_Project
+# SaigonRide – Distributed Vehicle Rental System
 
-Project Description: SaigonRide – Distributed Vehicle Rental System
 1. Background
 Ho Chi Minh City is rapidly modernizing its public transit ecosystem to reduce traffic congestion and carbon emissions. As part of this initiative, SaigonRide is conceived as a distributed network of public bicycles and electric scooters. The system allows for high flexibility, enabling users to unlock a vehicle at one station (e.g., District 1) and return it to any other station within the network (e.g., District 2).
 
