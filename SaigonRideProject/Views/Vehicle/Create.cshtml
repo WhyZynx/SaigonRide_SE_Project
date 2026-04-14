@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "Create Vehicle";
+}
+
+<div class="container mt-5">
+    <div class="card shadow">
+        <div class="card-body">
+            <h3 class="mb-4">Create Vehicle</h3>
+
+            <form method="post" asp-controller="Vehicle" asp-action="Create">
+                <div class="mb-3">
+                    <label>Vehicle Type</label>
+                    <select name="VehicleType" class="form-control">
+                        <option value="Bike">Bike</option>
+                        <option value="Scooter">Scooter</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label>Status</label>
+                    <select name="Status" class="form-control">
+                        <option value="Available">Available</option>
+                        <option value="Maintenance">Maintenance</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label>Price Per Minute</label>
+                    <input type="number" step="0.01" name="PricePerMinute" class="form-control" required />
+                </div>
+
+                <div class="mb-3">
+                    <label>Station ID</label>
+                    <input type="number" name="StationId" class="form-control" required />
+                </div>
+
+                <button type="submit" class="btn btn-primary">
+                    Create
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

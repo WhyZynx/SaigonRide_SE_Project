@@ -1,0 +1,36 @@
+﻿@model List<SaigonRideProject.Models.Vehicle>
+
+@{
+    ViewData["Title"] = "Vehicle List";
+}
+
+<div class="container mt-5">
+    <div class="d-flex justify-content-between mb-3">
+        <h3>Vehicle List</h3>
+        <a asp-action="Create" class="btn btn-success">Add Vehicle</a>
+    </div>
+
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Type</th>
+                <th>Status</th>
+                <th>Price</th>
+                <th>Station</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var vehicle in Model)
+            {
+                <tr>
+                    <td>@vehicle.Id</td>
+                    <td>@vehicle.VehicleType</td>
+                    <td>@vehicle.Status</td>
+                    <td>@vehicle.PricePerMinute</td>
+                    <td>@vehicle.StationId</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
