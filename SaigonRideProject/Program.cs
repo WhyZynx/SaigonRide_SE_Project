@@ -15,9 +15,11 @@ public partial class Program
                 builder.Configuration.GetConnectionString("DefaultConnection")
             ));
 
-        builder.Services.AddSession();
-
         builder.Services.AddScoped<EmailService>();
+        builder.Services.AddScoped<FileUploadService>();
+        builder.Services.AddScoped<PassportService>();
+
+        builder.Services.AddSession();
 
         var app = builder.Build();
 

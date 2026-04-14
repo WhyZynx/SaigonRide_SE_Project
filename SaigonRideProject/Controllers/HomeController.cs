@@ -21,5 +21,15 @@ namespace SaigonRideProject.Controllers
 
             return View(stations);
         }
+
+        public IActionResult UserDashboard()
+        {
+            return View();
+        }
+
+        public IActionResult AdminDashboard()
+        {
+            return View();
+        }
     }
 }

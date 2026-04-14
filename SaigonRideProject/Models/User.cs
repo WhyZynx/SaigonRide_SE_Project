@@ -19,6 +19,9 @@ namespace SaigonRideProject.Models
         [Required]
         public required string UserType { get; set; }
 
+        [Required]
+        public string Role { get; set; } = "User";
+
         public bool IsVerified { get; set; }
 
         public string? PassportNumber { get; set; }

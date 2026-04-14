@@ -60,6 +60,7 @@ namespace SaigonRideProject.Controllers
             user.PasswordHash = HashPassword(user.PasswordHash);
             user.IsVerified = false;
             user.PassportStatus = "Pending";
+            user.Role = "User";
 
             _context.Users.Add(user);
 
@@ -123,8 +124,14 @@ namespace SaigonRideProject.Controllers
             HttpContext.Session.SetInt32("UserId", user.Id);
             HttpContext.Session.SetString("Email", user.Email);
             HttpContext.Session.SetString("UserType", user.UserType);
+            HttpContext.Session.SetString("Role", user.Role);
 
-            return RedirectToAction("Index", "Home");
+            if (user.UserType == "Tourist")
+            {
+                return RedirectToAction("UploadPassport", "Passport");
+            }
+
+            return RedirectToAction("SelectPayment", "Payment");
         }
 
         public IActionResult Login()
@@ -156,10 +163,15 @@ namespace SaigonRideProject.Controllers
             HttpContext.Session.SetInt32("UserId", user.Id);
             HttpContext.Session.SetString("Email", user.Email);
             HttpContext.Session.SetString("UserType", user.UserType);
+            HttpContext.Session.SetString("Role", user.Role);
 
-            return RedirectToAction("Index", "Home");
+            if (user.Role == "Admin")
+            {
+                return RedirectToAction("AdminDashboard", "Home");
+            }
+
+            return RedirectToAction("UserDashboard", "Home");
         }
-
         public IActionResult Logout()
         {
             HttpContext.Session.Clear();

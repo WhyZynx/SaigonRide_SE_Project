@@ -42,12 +42,32 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxWZXJpZnlPdHAuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Admin/Documents/A. Học tập/2025-2026/Công nghệ phần mềm/Đồ án CK/SaigonRideProject/SaigonRideProject/Views/Home/AdminDashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBZG1pbkRhc2hib2FyZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Admin/Documents/A. Học tập/2025-2026/Công nghệ phần mềm/Đồ án CK/SaigonRideProject/SaigonRideProject/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Admin/Documents/A. Học tập/2025-2026/Công nghệ phần mềm/Đồ án CK/SaigonRideProject/SaigonRideProject/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Admin/Documents/A. Học tập/2025-2026/Công nghệ phần mềm/Đồ án CK/SaigonRideProject/SaigonRideProject/Views/Home/UserDashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxVc2VyRGFzaGJvYXJkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Admin/Documents/A. Học tập/2025-2026/Công nghệ phần mềm/Đồ án CK/SaigonRideProject/SaigonRideProject/Views/Passport/UploadPassport.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFzc3BvcnRcVXBsb2FkUGFzc3BvcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Admin/Documents/A. Học tập/2025-2026/Công nghệ phần mềm/Đồ án CK/SaigonRideProject/SaigonRideProject/Views/Payment/Pay.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudFxQYXkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Admin/Documents/A. Học tập/2025-2026/Công nghệ phần mềm/Đồ án CK/SaigonRideProject/SaigonRideProject/Views/Payment/SelectPayment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudFxTZWxlY3RQYXltZW50LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Admin/Documents/A. Học tập/2025-2026/Công nghệ phần mềm/Đồ án CK/SaigonRideProject/SaigonRideProject/Views/Shared/Error.cshtml]
