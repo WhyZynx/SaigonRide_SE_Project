@@ -1,8 +1,4 @@
-﻿@{
-    ViewData["Title"] = "Login";
-}
-
-<div class="container mt-5">
+﻿<div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-5">
             <div class="card shadow">
@@ -16,15 +12,21 @@
                         </div>
                     }
 
-                    <form method="post" asp-controller="Account" asp-action="Login">
+                    <form method="post" asp-action="Login" asp-controller="Account">
                         <div class="mb-3">
                             <label>Email</label>
-                            <input type="email" name="email" class="form-control" required />
+                            <input type="email"
+                                   name="email"
+                                   class="form-control"
+                                   required />
                         </div>
 
                         <div class="mb-3">
                             <label>Password</label>
-                            <input type="password" name="password" class="form-control" required />
+                            <input type="password"
+                                   name="password"
+                                   class="form-control"
+                                   required />
                         </div>
 
                         <button type="submit" class="btn btn-primary w-100">
@@ -34,7 +36,7 @@
 
                     <div class="text-center mt-3">
                         <a asp-controller="Account" asp-action="Register">
-                            Create account
+                            Don’t have an account? Register
                         </a>
                     </div>
                 </div>

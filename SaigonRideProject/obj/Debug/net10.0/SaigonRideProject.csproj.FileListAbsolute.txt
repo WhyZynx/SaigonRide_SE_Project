@@ -224,3 +224,6 @@ C:\Users\Admin\Documents\A. Học tập\2025-2026\Công nghệ phần mềm\Đ�
 C:\Users\Admin\Documents\A. Học tập\2025-2026\Công nghệ phần mềm\Đồ án CK\SaigonRideProject\SaigonRideProject\obj\Debug\net10.0\SaigonRideProject.genruntimeconfig.cache
 C:\Users\Admin\Documents\A. Học tập\2025-2026\Công nghệ phần mềm\Đồ án CK\SaigonRideProject\SaigonRideProject\obj\Debug\net10.0\ref\SaigonRideProject.dll
 C:\Users\Admin\Documents\A. Học tập\2025-2026\Công nghệ phần mềm\Đồ án CK\SaigonRideProject\SaigonRideProject\obj\Debug\net10.0\SaigonRideProject.sourcelink.json
+C:\Users\Admin\Documents\A. Học tập\2025-2026\Công nghệ phần mềm\Đồ án CK\SaigonRideProject\SaigonRideProject\bin\Debug\net10.0\BouncyCastle.Cryptography.dll
+C:\Users\Admin\Documents\A. Học tập\2025-2026\Công nghệ phần mềm\Đồ án CK\SaigonRideProject\SaigonRideProject\bin\Debug\net10.0\MailKit.dll
+C:\Users\Admin\Documents\A. Học tập\2025-2026\Công nghệ phần mềm\Đồ án CK\SaigonRideProject\SaigonRideProject\bin\Debug\net10.0\MimeKit.dll

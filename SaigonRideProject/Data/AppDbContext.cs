@@ -16,6 +16,8 @@ namespace SaigonRideProject.Data
 
         public DbSet<Station> Stations { get; set; }
 
+        public DbSet<OtpVerification> OtpVerifications { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Vehicle>()

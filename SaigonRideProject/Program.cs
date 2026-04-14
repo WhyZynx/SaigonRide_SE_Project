@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using SaigonRideProject.Data;
+using SaigonRideProject.Services;
 
 public partial class Program
 {
@@ -15,6 +16,8 @@ public partial class Program
             ));
 
         builder.Services.AddSession();
+
+        builder.Services.AddScoped<EmailService>();
 
         var app = builder.Build();
 

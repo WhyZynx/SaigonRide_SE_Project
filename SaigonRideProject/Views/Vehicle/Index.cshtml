@@ -1,36 +1,41 @@
-﻿@model List<SaigonRideProject.Models.Vehicle>
-
-@{
-    ViewData["Title"] = "Vehicle List";
+﻿@{
+    ViewData["Title"] = "Vehicles";
 }
 
-<div class="container mt-5">
-    <div class="d-flex justify-content-between mb-3">
-        <h3>Vehicle List</h3>
-        <a asp-action="Create" class="btn btn-success">Add Vehicle</a>
-    </div>
+<div class="container mt-4">
+    <h2 class="mb-4 text-center">Our Vehicles</h2>
 
-    <table class="table table-bordered table-striped">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Type</th>
-                <th>Status</th>
-                <th>Price</th>
-                <th>Station</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var vehicle in Model)
-            {
-                <tr>
-                    <td>@vehicle.Id</td>
-                    <td>@vehicle.VehicleType</td>
-                    <td>@vehicle.Status</td>
-                    <td>@vehicle.PricePerMinute</td>
-                    <td>@vehicle.StationId</td>
-                </tr>
-            }
-        </tbody>
-    </table>
+    <div class="row">
+
+        <div class="col-md-6 mb-4">
+            <div class="card shadow-sm h-100">
+                <img src="~/hình/standardbike.png"
+                     class="card-img-top"
+                     style="height:300px; object-fit:cover;"
+                     alt="Standard Bike" />
+
+                <div class="card-body text-center">
+                    <h4>Standard Bike</h4>
+                    <p class="mb-2">Comfortable and eco-friendly</p>
+                    <h5>500 VND / minute</h5>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-4">
+            <div class="card shadow-sm h-100">
+                <img src="~/images/scooter.png"
+                     class="card-img-top"
+                     style="height:300px; object-fit:cover;"
+                     alt="E-Scooter" />
+
+                <div class="card-body text-center">
+                    <h4>E-Scooter</h4>
+                    <p class="mb-2">Fast and convenient for city rides</p>
+                    <h5>1,500 VND / minute</h5>
+                </div>
+            </div>
+        </div>
+
+    </div>
 </div>

@@ -1,8 +1,21 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model List<SaigonRideProject.Models.Station>
+@if (Context.Session.GetString("Email") != null)
+{
+    <div class="alert alert-success">
+        Welcome, @Context.Session.GetString("Email")
+    </div>
 }
+<div class="container mt-4">
+    <div class="text-center mb-5">
+        <h1>Welcome to SaigonRide</h1>
+        <p>Smart Urban Mobility for Locals and Tourists</p>
 
-<div class="text-center mt-5">
-    <h1>Welcome to SaigonRide</h1>
-    <p>Distributed Vehicle Rental System</p>
+        <a asp-controller="Account" asp-action="Register" class="btn btn-primary me-2">
+            Sign Up
+        </a>
+
+        <a asp-controller="Account" asp-action="Login" class="btn btn-outline-dark">
+            Login
+        </a>
+    </div>
 </div>
