@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Account</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Material Symbols -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style_creatacc.css">
+</head>
+<body class="bg-background text-on-surface min-h-screen flex items-stretch">
+  <main class="flex flex-col md:flex-row w-full min-h-screen">
+    
+    <!-- Left Side -->
+    <section class="hidden md:flex md:w-1/2 relative flex-col justify-between p-16 overflow-hidden">
+      <div class="absolute inset-0 z-0">
+        <img class="w-full h-full object-cover" 
+             src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSRIKpcej9DMUtnDkFl_Qhw0kfu5599bvfBS300OqcQwMApZw64edZM45RWt89lEO5l0QeIYitH6xzlCYzoh4tvNwc2OX-4K-W_P689ebGA9eCzzXqKs7xxXENE-7-Vowc2NpkFH0N6la2uJLSAewCcH3_fsEaiyZVK-cvWcWeEaf6JN1YUP8WE9uK300eyl60-T_wVMr7Z7LTSoA3T-6BJBxrWBSVb8MRNgZJGpTbY5ZdUR4SUkMnFHWd-Cf4Qv0SalJMB_-i0S4" 
+             alt="Saigon city skyline">
+        <div class="absolute inset-0 bg-gradient-to-br from-primary/40 to-transparent"></div>
+      </div>
+
+      <div class="relative z-10">
+        <div class="flex items-center gap-2 mb-12">
+          <span class="text-3xl font-black text-white tracking-tighter">SaigonRide</span>
+        </div>
+      </div>
+
+      <div class="relative z-10 glass-panel p-10 rounded-xl max-w-xl self-start">
+        <h1 class="text-4xl lg:text-5xl font-extrabold text-primary tracking-tight mb-4 leading-tight">
+          Welcome to SaigonRide
+        </h1>
+        <p class="text-on-surface-variant text-lg leading-relaxed mb-8">
+          Explore the city your way. Green, flexible, and stylish transportation solution in the heart of Saigon.
+        </p>
+        <div class="flex items-center gap-4 pt-6">
+          <div class="flex -space-x-3">
+            <img class="w-10 h-10 rounded-full border-2 border-surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgjAloqP3GTuwTZ4u9YM-buGNFhg-TVv0h6ZAbV145uiYdnNzLdMTVi_XggU8KEsXqR_o0OsRSBX2q2lY8Pm3SpGHVnpRb_XD3j0ZaojoscispVjlKUeThnff1ZbhfpDstdmQGFSP3nKy9lAJuQeWt1I5_2Jw1NZKpnTBLLs9VSfdDPibbiqNEK7wENwqGB6Q2dm6kBlBpBUvYuclzAN9_ppzG4lEK0tymbMRpMC5CJa1gsGCvs4zquYnShAFxOdtOSFHVGOeZKeU" alt="">
+            <img class="w-10 h-10 rounded-full border-2 border-surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjIHTdpWVZRCPi6UU_gs_-eryvTgZQpzPpT7vlGOwf-AE7Js_VPI4bPNaDOrj_2llx2c7El6zO7xr5yLfZs73UmsaDaj-azSOSG1wcND9Uiwi0JZopJm1iSZ8vpcIvJ6jR2xNkNPNdUq0UuPBcM8OsJ2TIbKdMWMFba8R2JHFLeby8m1xN09FS52R3mD_cfVzms0neWHqpnrgl_kHfdoLXcZ9Veiy23BbZi86AcbOhYlVqiYRcjBC5pHNQ7_5SE2JFtGEEdPyykLM" alt="">
+            <img class="w-10 h-10 rounded-full border-2 border-surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkZ9rSwDwsOALOtsKvKx5hRc90arZkTS0vuA5RBTRCT3LEB15WwCsbFZ5B74qt-2i14AFCn2C0qoR0ZoXJIhSOnoV-rdgr5-cvOWLV8H-obqvG9ZQXyqBW9wvlA6XmcOZx4PzqiO9uasQMm0s5yaTA5ah8KKRvIp9ZETI_rwdetrA7D7hW08BAf53-XkwZmne7NZSCu5RsnPPm3VHAn58NxDMJZtQr8hMKDA5_StliFujIy0hyEz5BVu2kNCDw5rOi37_M0gEjbeA" alt="">
+          </div>
+          <span class="text-sm font-semibold text-on-surface">Join 12k+ active riders in Saigon</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Right Side - Form -->
+    <section class="w-full md:w-1/2 bg-surface-container-low flex items-center justify-center p-8 md:p-16">
+      <div class="w-full max-w-lg bg-surface-container-lowest p-10 rounded-xl shadow-[0_24px_48px_rgba(25,27,35,0.06)]">
+        <div class="mb-10">
+          <h2 class="text-3xl font-bold text-on-surface mb-2">Create Your Account</h2>
+          <p class="text-on-surface-variant">Start your journey across the city's heartbeat.</p>
+        </div>
+
+        <form class="space-y-6">
+          <!-- Full Name -->
+          <div class="space-y-2">
+            <label class="text-sm font-bold text-on-surface-variant ml-1">Full Name</label>
+            <div class="relative">
+              <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline text-xl">person</span>
+              <input type="text" class="input-field" placeholder="John Doe">
+            </div>
+          </div>
+
+          <!-- Phone & Email -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="space-y-2">
+              <label class="text-sm font-bold text-on-surface-variant ml-1">Phone Number</label>
+              <div class="flex gap-2">
+                <div class="w-20 bg-surface-variant rounded-lg flex items-center justify-center text-on-surface font-medium text-sm">+84</div>
+                <input type="tel" class="input-field flex-1" placeholder="901 234 567">
+              </div>
+            </div>
+            <div class="space-y-2">
+              <label class="text-sm font-bold text-on-surface-variant ml-1">Email</label>
+              <input type="email" class="input-field" placeholder="email@example.com">
+            </div>
+          </div>
+
+          <!-- Passwords -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="space-y-2">
+              <label class="text-sm font-bold text-on-surface-variant ml-1">Password</label>
+              <input type="password" class="input-field" placeholder="••••••••">
+            </div>
+            <div class="space-y-2">
+              <label class="text-sm font-bold text-on-surface-variant ml-1">Confirm Password</label>
+              <input type="password" class="input-field" placeholder="••••••••">
+            </div>
+          </div>
+
+          <!-- Payment Methods -->
+          <div class="space-y-3">
+            <label class="text-sm font-bold text-on-surface-variant ml-1">Preferred Payment Methods</label>
+            <div class="flex flex-wrap gap-3">
+              <button type="button" class="payment-btn">💳 MoMo</button>
+              <button type="button" class="payment-btn">🏦 VNPay</button>
+              <button type="button" class="payment-btn">💵 Cash</button>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-signup w-full">Sign Up</button>
+
+          <p class="text-center text-sm text-on-surface-variant mt-6">
+            Already have an account? 
+            <a href="login.html" class="text-primary font-bold hover:underline">Login</a>
+          </p>
+
+        </form>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
