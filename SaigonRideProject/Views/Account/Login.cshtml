@@ -1,4 +1,7 @@
-﻿<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+﻿@{
+    Layout = null;
+}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
@@ -177,24 +180,41 @@
             </div>
         }
 
-        <form>
-            <label class="form-label" style="margin-bottom: 8px; display: block;">Email Address</label>
+        <form method="post" action="/Account/Login">
+            <label class="form-label" style="margin-bottom: 8px; display: block;">
+                Email Address
+            </label>
+
             <div class="input-group">
                 <i class="fa fa-envelope"></i>
-                <input type="email" class="form-control-custom" placeholder="name@company.com">
+                <input type="email"
+                       name="email"
+                       class="form-control-custom"
+                       placeholder="name@company.com"
+                       required>
             </div>
 
             <div class="label-group">
                 <label class="form-label">Password</label>
                 <a href="#" class="forgot-link">Forgot?</a>
             </div>
+
             <div class="input-group">
                 <i class="fa fa-lock"></i>
-                <input type="password" class="form-control-custom" placeholder="••••••••">
+                <input type="password"
+                       name="password"
+                       class="form-control-custom"
+                       placeholder="••••••••"
+                       required>
             </div>
 
-            <button type="submit" class="btn-login">Log In</button>
-            <a href="#" class="btn-signup">Sign Up</a>
+            <button type="submit" class="btn-login">
+                Log In
+            </button>
+
+            <a href="/Account/Register" class="btn-signup">
+                Sign Up
+            </a>
         </form>
 
         <p class="footer-text">
