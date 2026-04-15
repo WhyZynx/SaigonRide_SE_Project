@@ -1,46 +1,205 @@
-﻿<div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-5">
-            <div class="card shadow">
-                <div class="card-body">
-                    <h3 class="text-center mb-4">Login</h3>
+﻿<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-                    @if (ViewBag.Error != null)
-                    {
-                        <div class="alert alert-danger">
-                            @ViewBag.Error
-                        </div>
-                    }
+<style>
+    * { box-sizing: border-box; }
+    
+    body {
+        background: #f8f9fa;
+        font-family: 'Inter', sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        margin: 0;
+        padding: 15px; 
+    }
 
-                    <form method="post" asp-action="Login" asp-controller="Account">
-                        <div class="mb-3">
-                            <label>Email</label>
-                            <input type="email"
-                                   name="email"
-                                   class="form-control"
-                                   required />
-                        </div>
+    .login-wrapper {
+        width: 100%;
+        max-width: 1000px;
+        background: #fff;
+        border-radius: 30px;
+        overflow: hidden;
+        display: flex;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+    }
 
-                        <div class="mb-3">
-                            <label>Password</label>
-                            <input type="password"
-                                   name="password"
-                                   class="form-control"
-                                   required />
-                        </div>
+    .left-side {
+        width: 50%;
+        background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('https://images.unsplash.com/photo-1519501025264-65ba15a82390?q=80&w=1000') no-repeat center center;
+        background-size: cover;
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        min-height: 600px;
+    }
 
-                        <button type="submit" class="btn btn-primary w-100">
-                            Login
-                        </button>
-                    </form>
+    .glass-card {
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        padding: 25px;
+        border-radius: 20px;
+        color: white;
+    }
 
-                    <div class="text-center mt-3">
-                        <a asp-controller="Account" asp-action="Register">
-                            Don’t have an account? Register
-                        </a>
-                    </div>
-                </div>
-            </div>
+    .right-side {
+        width: 50%;
+        padding: 60px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .form-header h2 { font-weight: 700; color: #111; margin: 0 0 5px 0; }
+    .form-header p { color: #666; margin-bottom: 30px; font-size: 14px; }
+
+    .label-group {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 8px;
+    }
+
+    .form-label { 
+        font-weight: 600; 
+        font-size: 11px; 
+        text-transform: uppercase; 
+        color: #444;
+        margin: 0;
+    }
+
+    .forgot-link {
+        font-size: 11px;
+        font-weight: 700;
+        color: #3b5c74;
+        text-decoration: none;
+    }
+
+    .input-group {
+        position: relative;
+        margin-bottom: 20px;
+    }
+
+    .input-group i {
+        position: absolute;
+        left: 18px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #999;
+    }
+
+    .form-control-custom {
+        width: 100%;
+        padding: 14px 14px 14px 45px;
+        background: #f0f2f5;
+        border: 2px solid transparent;
+        border-radius: 15px;
+        font-size: 14px;
+        transition: 0.3s;
+    }
+
+    .form-control-custom:focus {
+        outline: none;
+        background: #fff;
+        border-color: #3b5c74;
+    }
+
+    .btn-login {
+        width: 100%;
+        padding: 14px;
+        background: #3b5c74;
+        color: white;
+        border: none;
+        border-radius: 15px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .btn-signup {
+        width: 100%;
+        padding: 14px;
+        background: #e2e8f0;
+        color: #475569;
+        border: none;
+        border-radius: 15px;
+        font-weight: 600;
+        margin-top: 12px;
+        text-decoration: none;
+        display: block;
+        text-align: center;
+    }
+
+    .footer-text {
+        text-align: center;
+        font-size: 11px;
+        color: #888;
+        margin-top: 25px;
+        line-height: 1.5;
+    }
+
+    @@media (max-width: 850px) {
+        .login-wrapper {
+            flex-direction: column;
+            border-radius: 20px;
+        }
+        .left-side {
+            display: none; 
+        }
+        .right-side {
+            width: 100%;
+            padding: 40px 25px; 
+        }
+        .form-header h2 { font-size: 24px; }
+    }
+</style>
+
+<div class="login-wrapper">
+    <div class="left-side">
+        <div class="glass-card">
+            <h2>Experience the Saigon Ride.</h2>
+            <p>Seamlessly navigate Saigon with eco-friendly rides and premium comfort.</p>
         </div>
+    </div>
+
+    <div class="right-side">
+        <div class="form-header">
+            <h2>Welcome back</h2>
+            <p>Please enter your details to sign in</p>
+        </div>
+        @if (ViewBag.Error != null) {
+            <div class="alert alert-danger" style="color: red; margin-bottom: 15px; font-size: 14px;">
+                @ViewBag.Error
+            </div>
+        }
+
+        <form>
+            <label class="form-label" style="margin-bottom: 8px; display: block;">Email Address</label>
+            <div class="input-group">
+                <i class="fa fa-envelope"></i>
+                <input type="email" class="form-control-custom" placeholder="name@company.com">
+            </div>
+
+            <div class="label-group">
+                <label class="form-label">Password</label>
+                <a href="#" class="forgot-link">Forgot?</a>
+            </div>
+            <div class="input-group">
+                <i class="fa fa-lock"></i>
+                <input type="password" class="form-control-custom" placeholder="••••••••">
+            </div>
+
+            <button type="submit" class="btn-login">Log In</button>
+            <a href="#" class="btn-signup">Sign Up</a>
+        </form>
+
+        <p class="footer-text">
+            By logging in, you agree to our <br> 
+            <strong>Terms of Service</strong> and <strong>Privacy Policy</strong>.
+        </p>
     </div>
 </div>
