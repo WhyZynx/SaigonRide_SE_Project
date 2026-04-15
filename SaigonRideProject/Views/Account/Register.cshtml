@@ -1,64 +1,112 @@
 ﻿@model SaigonRideProject.Models.User
 
-<div class="container mt-5">
-    <div class="card shadow">
-        <div class="card-body">
-            <h3>Register</h3>
+@{
+    Layout = "_Layout";
+}
 
-            @if (ViewBag.Error != null)
-            {
-                <div class="alert alert-danger">
-                    @ViewBag.Error
-                </div>
-            }
+<div class="container-fluid py-5">
+    <div class="row justify-content-center">
+        <div class="col-12 col-xl-10">
+            <div class="card border-0 shadow-lg overflow-hidden" style="border-radius: 40px;">
+                <div class="row g-0">
+                    
+                    <div class="col-md-5 d-none d-md-flex flex-column p-5 text-white" 
+                         style="background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('/img/HCM.png') center/cover no-repeat; min-height: 750px;">
+                        
+                        <div class="mb-5">
+                            <h1 class="fw-bold display-5 mb-2" style="letter-spacing: -1.5px;">Saigon<span class="fw-light">Ride</span></h1>
+                            <p class="opacity-75 lead" style="font-size: 1rem;">Discover the hidden gems of Ho Chi Minh City on two wheels.</p>
+                        </div>
 
-            <form method="post">
-                <div class="mb-3">
-                    <label>Full Name</label>
-                    <input asp-for="FullName" class="form-control" required />
-                </div>
-
-                <div class="mb-3">
-                    <label>Email</label>
-                    <input asp-for="Email" class="form-control" required />
-                </div>
-
-                <div class="mb-3">
-                    <label>Password</label>
-                    <input asp-for="PasswordHash" type="password" class="form-control" required />
-                </div>
-
-                <div class="mb-3">
-                    <label>Confirm Password</label>
-                    <input name="confirmPassword" type="password" class="form-control" required />
-                </div>
-
-                <div class="mb-3">
-                    <label>User Type</label>
-                    <select asp-for="UserType"
-                            class="form-select"
-                            id="userType"
-                            onchange="togglePassportField()"
-                            required>
-                        <option value="">Select User Type</option>
-                        <option value="Local">Local</option>
-                        <option value="Tourist">Tourist</option>
-                    </select>
-                </div>
-
-                <div id="passportSection" style="display:none;">
-                    <div class="mb-3">
-                        <label>Passport Number</label>
-                        <input asp-for="PassportNumber"
-                               class="form-control"
-                               id="passportInput" />
+                        <div class="mt-auto p-4" 
+                             style="background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 30px;">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="bg-white bg-opacity-25 rounded-circle p-3 me-3 d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                                    <i class="fa-solid fa-bicycle fs-5"></i>
+                                </div>
+                                <div>
+                                    <h6 class="fw-bold mb-0">2,400+ Bikes</h6>
+                                    <small class="opacity-75" style="font-size: 11px;">Stationed across all districts</small>
+                                </div>
+                            </div>
+                            <div class="progress mb-3" style="height: 6px; background: rgba(255,255,255,0.2); border-radius: 10px;">
+                                <div class="progress-bar bg-white" style="width: 65%"></div>
+                            </div>
+                            <p class="small mb-0 opacity-75" style="font-style: italic; font-size: 12px;">"The most effortless way to navigate through the bustling energy of Saigon."</p>
+                        </div>
                     </div>
-                </div>
 
-                <button type="submit" class="btn btn-primary">
-                    Register
-                </button>
-            </form>
+                    <div class="col-md-7 bg-white p-4 p-lg-5">
+                        <div class="mb-4">
+                            <h2 class="fw-bold text-dark mb-1">Create your account</h2>
+                            <p class="text-muted small">Start your journey across the city's heartbeat.</p>
+                        </div>
+
+                        @if (ViewBag.Error != null)
+                        {
+                            <div class="alert alert-danger border-0 small py-2 rounded-3 mb-4 shadow-sm">
+                                <i class="fa-solid fa-circle-exclamation me-2"></i> @ViewBag.Error
+                            </div>
+                        }
+
+                        <form method="post">
+                            <div class="row g-3">
+                                <div class="col-md-6 mb-2">
+                                    <label class="form-label small fw-bold text-secondary text-uppercase" style="font-size: 11px;">Full Name</label>
+                                    <input asp-for="FullName" class="form-control border-0 bg-light py-3 px-4 shadow-none" 
+                                           style="border-radius: 15px; background-color: #f0f2f5 !important;" placeholder="Username" required />
+                                </div>
+
+                                <div class="col-md-6 mb-2">
+                                    <label class="form-label small fw-bold text-secondary text-uppercase" style="font-size: 11px;">Email Address</label>
+                                    <input asp-for="Email" class="form-control border-0 bg-light py-3 px-4 shadow-none" 
+                                           style="border-radius: 15px; background-color: #f0f2f5 !important;" placeholder="abc@example.com" required />
+                                </div>
+                            </div>
+
+                            <div class="mb-3 mt-2">
+                                <label class="form-label small fw-bold text-secondary text-uppercase" style="font-size: 11px;">Password</label>
+                                <input asp-for="PasswordHash" type="password" class="form-control border-0 bg-light py-3 px-4 shadow-none" 
+                                       style="border-radius: 15px; background-color: #f0f2f5 !important;" placeholder="••••••••" required />
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label small fw-bold text-secondary text-uppercase" style="font-size: 11px;">Confirm Password</label>
+                                <input name="confirmPassword" type="password" class="form-control border-0 bg-light py-3 px-4 shadow-none" 
+                                       style="border-radius: 15px; background-color: #f0f2f5 !important;" placeholder="••••••••" required />
+                            </div>
+
+                            <div class="mb-4 pt-2">
+                                <label class="form-label small fw-bold text-secondary text-uppercase mb-3" style="font-size: 11px;">Select Traveler Type</label>
+                                <select asp-for="UserType" class="form-select border-0 bg-light py-3 px-4 shadow-none" 
+                                        id="userType" onchange="togglePassportField()" style="border-radius: 15px; background-color: #f0f2f5 !important;" required>
+                                    <option value="">Select User Type</option>
+                                    <option value="Local">Local User</option>
+                                    <option value="Tourist">Tourist</option>
+                                </select>
+                            </div>
+
+                            <div id="passportSection" style="display:none;" class="mb-4">
+                                <label class="form-label small fw-bold text-secondary text-uppercase" style="font-size: 11px;">Passport Number</label>
+                                <input asp-for="PassportNumber" class="form-control border-0 bg-light py-3 px-4 shadow-none" 
+                                       id="passportInput" style="border-radius: 15px; border-left: 5px solid #446881 !important; background-color: #f0f2f5 !important;" 
+                                       placeholder="Enter passport for Tourist" />
+                            </div>
+
+                            <div class="d-grid mt-5">
+                                <button type="submit" class="btn border-0 py-3 rounded-pill fw-bold text-white shadow" 
+                                        style="background-color: #446881;">
+                                    Register Account
+                                </button>
+                            </div>
+                        </form>
+
+                        <div class="mt-4 text-center">
+                            <p class="small text-muted">Already have an account? <a href="/Account/Login" class="text-dark fw-bold text-decoration-none border-bottom border-dark border-opacity-25">Log In</a></p>
+                        </div>
+                    </div>
+                </div> 
+            </div> 
         </div>
     </div>
 </div>

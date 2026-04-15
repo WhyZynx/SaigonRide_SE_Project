@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SaigonRideProject.Data;
+using SaigonRideProject.Models;
 
 namespace SaigonRideProject.Controllers
 {
@@ -21,6 +22,42 @@ namespace SaigonRideProject.Controllers
         public IActionResult Create()
         {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(Station station)
+        {
+            _context.Stations.Add(station);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Edit(int id)
+        {
+            var station = _context.Stations.Find(id);
+            return View(station);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Station station)
+        {
+            _context.Stations.Update(station);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Delete(int id)
+        {
+            var station = _context.Stations.Find(id);
+            return View(station);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(Station station)
+        {
+            _context.Stations.Remove(station);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }
