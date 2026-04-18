@@ -79,12 +79,66 @@ namespace SaigonRideProject.Controllers
             if (userId == 0)
                 return RedirectToAction("Login", "Account");
 
-            var rental = _rentalService.StartRental(userId, vehicleId, stationId);
+            var user = _context.Users.Find(userId);
+            if (user == null)
+                return NotFound();
 
-            if (rental == null)
-                return BadRequest("Cannot start rental");
+            if (user.IsLocked)
+                return BadRequest("Account is locked. Please top up.");
 
-            return RedirectToAction("Current", new { id = rental.Id });
+            if (user.Balance <= 0)
+                return BadRequest("Insufficient balance.");
+
+            var activeRental = _context.Rentals
+                .FirstOrDefault(x => x.UserId == userId && x.Status == "InProgress");
+
+            if (activeRental != null)
+                return BadRequest("You already have an active rental.");
+
+            var vehicle = _context.Vehicles
+                .FirstOrDefault(v => v.Id == vehicleId);
+
+            if (vehicle == null)
+                return BadRequest("Vehicle not found.");
+
+            if (vehicle.Status != "Available")
+                return BadRequest("Vehicle is not available.");
+
+            if (vehicle.StationId != stationId)
+                return BadRequest("Vehicle does not belong to this station.");
+
+            var station = _context.Stations.Find(stationId);
+            if (station == null)
+                return BadRequest("Station not found.");
+
+            if (station.CurrentInventory <= 0)
+                return BadRequest("No vehicles available at this station.");
+
+            using (var transaction = _context.Database.BeginTransaction())
+            {
+                try
+                {
+                    var rental = _rentalService.StartRental(userId, vehicleId, stationId);
+
+                    if (rental == null)
+                        return BadRequest("Cannot start rental.");
+
+                    vehicle.Status = "InUse";
+
+                    station.CurrentInventory -= 1;
+
+                    _context.SaveChanges();
+
+                    transaction.Commit();
+
+                    return RedirectToAction("Current", new { id = rental.Id });
+                }
+                catch
+                {
+                    transaction.Rollback();
+                    return BadRequest("Error while starting rental.");
+                }
+            }
         }
 
         public IActionResult Current(int id)
@@ -136,6 +190,14 @@ namespace SaigonRideProject.Controllers
             if (rental == null)
                 return NotFound();
 
+            var user = _context.Users.Find(rental.UserId);
+
+            if (user == null)
+                return NotFound();
+
+            if (user.IsLocked)
+                return BadRequest("Account is locked.");
+
             var station = _context.Stations.FirstOrDefault(s => s.Id == returnStationId);
 
             if (station == null)
@@ -147,8 +209,16 @@ namespace SaigonRideProject.Controllers
             decimal discount = (station.CurrentInventory * 1.0m / station.Capacity) < 0.2m ? 0.15m : 0m;
             var finalAmount = baseAmount * (1 - discount);
 
+            if (user.Balance < finalAmount)
+                return BadRequest("Not enough balance to complete payment.");
+
             var strategy = PaymentFactory.GetStrategy(paymentMethod);
             var message = strategy.Pay(finalAmount);
+
+            user.Balance -= finalAmount;
+
+            if (user.Balance < 0)
+                user.IsLocked = true;
 
             rental.EndTime = DateTime.Now;
             rental.ReturnStationId = returnStationId;
@@ -159,6 +229,9 @@ namespace SaigonRideProject.Controllers
 
             rental.PaymentMethod = paymentMethod;
             rental.Status = "Completed";
+
+            rental.Vehicle.Status = "Available";
+            rental.Vehicle.StationId = returnStationId;
 
             station.CurrentInventory += 1;
 
@@ -180,7 +253,7 @@ namespace SaigonRideProject.Controllers
             int userId = HttpContext.Session.GetInt32("UserId") ?? 0;
 
             if (userId == 0)
-                return RedirectToAction("Login", "Account");
+                return RedirectToAction("UserDashboard", "Home");
 
             var rentals = _context.Rentals
                 .Include(r => r.Vehicle)

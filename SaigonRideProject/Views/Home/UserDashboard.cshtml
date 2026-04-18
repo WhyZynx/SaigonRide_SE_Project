@@ -1,23 +1,53 @@
-﻿<h2>Welcome to SaigonRide 🚲</h2>
+﻿@model SaigonRideProject.Models.User
+
+<h2>Welcome to SaigonRide 🚲</h2>
 
 <div class="row mt-4">
 
-    <div class="col-md-4">
-        <a href="/Rental/StationList" class="btn btn-outline-primary w-100">
-            Find Stations
-        </a>
+    <div class="col-md-6">
+        <div class="card p-3 shadow-sm">
+            <h5>Wallet</h5>
+
+            <h3 class="text-primary">
+                @Model.Balance.ToString("N0") VND
+            </h3>
+
+            @if (Model.IsLocked)
+            {
+                <p class="text-danger"><strong>Account Locked</strong></p>
+            }
+            else
+            {
+                <p class="text-success"><strong>Active</strong></p>
+            }
+
+            <form method="post" action="/User/TopUp">
+                <div class="input-group">
+                    <input type="number" name="amount" class="form-control" placeholder="Enter amount" />
+                    <button class="btn btn-primary">Top Up</button>
+                </div>
+            </form>
+
+            <small class="text-muted">Demo mode</small>
+        </div>
     </div>
 
-    <div class="col-md-4">
-        <a href="/Rental/Current" class="btn btn-outline-success w-100">
-            My Trip
-        </a>
-    </div>
+    <div class="col-md-6">
+        <div class="card p-3 shadow-sm">
+            <h5>Quick Actions</h5>
 
-    <div class="col-md-4">
-        <a href="/Rental/History" class="btn btn-outline-dark w-100">
-            History
-        </a>
+            <a href="/Rental/StationList" class="btn btn-outline-primary w-100 mb-2">
+                Find Stations
+            </a>
+
+            <a href="/Rental/CurrentActive" class="btn btn-outline-success w-100 mb-2">
+                My Trip
+            </a>
+
+            <a href="/Rental/History" class="btn btn-outline-dark w-100">
+                History
+            </a>
+        </div>
     </div>
 
 </div>

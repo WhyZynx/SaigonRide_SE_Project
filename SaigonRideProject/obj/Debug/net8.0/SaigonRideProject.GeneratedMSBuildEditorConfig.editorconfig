@@ -1,7 +1,5 @@
 is_global = true
 build_property.TargetFramework = net8.0
-build_property.TargetFrameworkIdentifier = .NETCoreApp
-build_property.TargetFrameworkVersion = v8.0
 build_property.TargetPlatformMinVersion = 
 build_property.UsingMicrosoftNETSdkWeb = true
 build_property.ProjectTypeGuids = 
@@ -19,8 +17,6 @@ build_property.SupportLocalizedComponentNames =
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
 build_property.MSBuildProjectDirectory = C:\Users\Admin\Documents\A. Học tập\2025-2026\Công nghệ phần mềm\Đồ án CK\SaigonRideProject\SaigonRideProject
 build_property._RazorSourceGeneratorDebug = 
-build_property.EffectiveAnalysisLevelStyle = 8.0
-build_property.EnableCodeStyleSeverity = 
 
 [C:/Users/Admin/Documents/A. Học tập/2025-2026/Công nghệ phần mềm/Đồ án CK/SaigonRideProject/SaigonRideProject/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
@@ -70,12 +66,36 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudFxTZWxlY3RQYXltZW50LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Admin/Documents/A. Học tập/2025-2026/Công nghệ phần mềm/Đồ án CK/SaigonRideProject/SaigonRideProject/Views/Rental/Current.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVudGFsXEN1cnJlbnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Admin/Documents/A. Học tập/2025-2026/Công nghệ phần mềm/Đồ án CK/SaigonRideProject/SaigonRideProject/Views/Rental/History.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVudGFsXEhpc3RvcnkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Admin/Documents/A. Học tập/2025-2026/Công nghệ phần mềm/Đồ án CK/SaigonRideProject/SaigonRideProject/Views/Rental/PaymentSuccess.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVudGFsXFBheW1lbnRTdWNjZXNzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Admin/Documents/A. Học tập/2025-2026/Công nghệ phần mềm/Đồ án CK/SaigonRideProject/SaigonRideProject/Views/Rental/StationDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVudGFsXFN0YXRpb25EZXRhaWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Admin/Documents/A. Học tập/2025-2026/Công nghệ phần mềm/Đồ án CK/SaigonRideProject/SaigonRideProject/Views/Rental/StationList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVudGFsXFN0YXRpb25MaXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Admin/Documents/A. Học tập/2025-2026/Công nghệ phần mềm/Đồ án CK/SaigonRideProject/SaigonRideProject/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Admin/Documents/A. Học tập/2025-2026/Công nghệ phần mềm/Đồ án CK/SaigonRideProject/SaigonRideProject/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Admin/Documents/A. Học tập/2025-2026/Công nghệ phần mềm/Đồ án CK/SaigonRideProject/SaigonRideProject/Views/Station/Detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhdGlvblxEZXRhaWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Admin/Documents/A. Học tập/2025-2026/Công nghệ phần mềm/Đồ án CK/SaigonRideProject/SaigonRideProject/Views/Station/Index.cshtml]

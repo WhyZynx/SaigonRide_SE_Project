@@ -29,5 +29,9 @@ namespace SaigonRideProject.Models
         public string? PassportImageUrl { get; set; }
 
         public string PassportStatus { get; set; } = "Pending";
+
+        public decimal Balance { get; set; } = 0;
+
+        public bool IsLocked { get; set; } = false;
     }
 }

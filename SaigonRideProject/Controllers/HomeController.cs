@@ -23,11 +23,17 @@ namespace SaigonRideProject.Controllers
 
         public IActionResult UserDashboard()
         {
-            var stations = _context.Stations
-                .Include(s => s.Vehicles)
-                .ToList();
+            var userId = HttpContext.Session.GetInt32("UserId");
 
-            return View(stations);
+            if (userId == null)
+                return RedirectToAction("Login", "Account");
+
+            var user = _context.Users.Find(userId);
+
+            if (user == null)
+                return NotFound();
+
+            return View(user);
         }
 
         public IActionResult AdminDashboard()

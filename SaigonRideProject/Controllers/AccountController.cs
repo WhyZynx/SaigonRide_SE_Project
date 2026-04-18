@@ -159,6 +159,8 @@ namespace SaigonRideProject.Controllers
                 ViewBag.Error = "Please verify OTP first";
                 return View();
             }
+            HttpContext.Session.SetInt32("UserId", user.Id);
+            HttpContext.Session.SetString("Balance", user.Balance.ToString());
 
             SetUserSession(user);
 
