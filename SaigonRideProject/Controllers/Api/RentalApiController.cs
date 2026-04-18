@@ -17,14 +17,14 @@ namespace SaigonRideProject.Controllers.Api
         [HttpPost("create")]
         public IActionResult Create(int userId, int vehicleId, int stationId)
         {
-            var rental = _rentalService.Create(userId, vehicleId, stationId);
+            var rental = _rentalService.StartRental(userId, vehicleId, stationId);
             return Ok(rental);
         }
 
         [HttpPost("complete")]
         public IActionResult Complete(int rentalId, int returnStationId)
         {
-            var fare = _rentalService.Complete(rentalId, returnStationId);
+            var fare = _rentalService.EndRental(rentalId, returnStationId);
             return Ok(new { fare });
         }
 

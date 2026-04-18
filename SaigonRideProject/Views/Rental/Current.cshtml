@@ -1,0 +1,78 @@
+﻿@model SaigonRideProject.ViewModels.CurrentTripViewModel
+
+<div class="container mt-4">
+
+    <h2>Currently Riding</h2>
+
+    <div class="card p-3">
+
+        <h4>@Model.VehicleName</h4>
+
+        <p>
+            Start: @Model.StartTime <br />
+            Price: @Model.PricePerMinute VND/min
+        </p>
+
+        <h5 id="timer">00:00:00</h5>
+        <h5 id="cost">0 VND</h5>
+
+        <label>Return Station</label>
+
+        <select id="returnStation" class="form-control">
+            @foreach (var s in ViewBag.Stations)
+            {
+                <option value="@s.id">
+                    @s.name (@s.currentCount / @s.capacity)
+                </option>
+            }
+        </select>
+
+        <button class="btn btn-danger mt-3" onclick="openBill()">
+            End Trip
+        </button>
+
+    </div>
+
+    <div id="map" style="height:400px;margin-top:20px;"></div>
+
+</div>
+
+<!-- MODAL -->
+<div class="modal fade" id="billModal">
+    <div class="modal-dialog">
+        <div class="modal-content p-3">
+
+            <h4>Bill</h4>
+
+            <div id="bill"></div>
+
+            <select id="paymentMethod" class="form-control mt-2">
+                <option value="Cash">Cash</option>
+                <option value="MoMo">MoMo</option>
+                <option value="VNPay">VNPay</option>
+            </select>
+
+            <form id="form" method="post" action="/Rental/ConfirmPayment">
+
+                <input name="rentalId" value="@Model.Id" type="hidden" />
+                <input name="returnStationId" id="rs" type="hidden" />
+                <input name="amount" id="amount" type="hidden" />
+                <input name="paymentMethod" id="pm" type="hidden" />
+
+                <button type="button" onclick="confirmPay()" class="btn btn-success mt-3 w-100">
+                    Confirm
+                </button>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    window.startTime = "@Model.StartTime.ToString("yyyy-MM-ddTHH:mm:ss")";
+    window.price = @Model.PricePerMinute;
+    window.stations = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(ViewBag.Stations));
+</script>
+
+<script src="~/js/rental/currentTrip.js"></script>

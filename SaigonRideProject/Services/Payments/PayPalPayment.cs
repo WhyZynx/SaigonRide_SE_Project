@@ -2,6 +2,9 @@
 {
     public class PayPalPayment : IPaymentStrategy
     {
-        public bool Pay(decimal amount) => true;
+        public string Pay(decimal amount)
+        {
+            return "Paid " + amount + " VND via PayPal";
+        }
     }
 }

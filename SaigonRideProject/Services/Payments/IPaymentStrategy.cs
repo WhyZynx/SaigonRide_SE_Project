@@ -2,6 +2,6 @@
 {
     public interface IPaymentStrategy
     {
-        bool Pay(decimal amount);
+        string Pay(decimal amount);
     }
 }

@@ -1,0 +1,59 @@
+﻿@model List<SaigonRideProject.ViewModels.StationMapViewModel>
+
+<div class="container mt-4">
+
+    <h2>Nearby Stations</h2>
+
+    <div id="map" style="height:450px;width:100%;" class="mb-4"></div>
+
+    <div class="row">
+
+        @foreach (var s in Model)
+        {
+            <div class="col-md-4 mb-3">
+
+                <div class="card p-3" onclick="focusStation(@s.Latitude, @s.Longitude)">
+
+                    <h5>@s.Name</h5>
+                    <p>@s.Address</p>
+
+                    <a class="btn btn-primary w-100"
+                           href="/Rental/StationDetail/@s.Id">
+                        View
+                    </a>
+
+                </div>
+
+            </div>
+        }
+
+    </div>
+
+</div>
+
+<script>
+
+    let map;
+
+    function initMap() {
+
+        map = L.map('map').setView([10.7769, 106.7009], 13);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+
+        const stations = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model));
+
+        stations.forEach(s => {
+            L.marker([s.latitude, s.longitude])
+                .addTo(map)
+                .bindPopup(s.name);
+        });
+    }
+
+    function focusStation(lat, lng) {
+        map.setView([lat, lng], 16);
+    }
+
+    window.onload = initMap;
+
+</script>

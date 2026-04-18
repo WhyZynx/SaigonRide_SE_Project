@@ -1,7 +1,10 @@
 ﻿namespace SaigonRideProject.Services.Payments
 {
-    public class MomoPayment : IPaymentStrategy
+    public class MoMoPayment : IPaymentStrategy
     {
-        public bool Pay(decimal amount) => true;
+        public string Pay(decimal amount)
+        {
+            return "Paid " + amount + " VND via MoMo";
+        }
     }
 }

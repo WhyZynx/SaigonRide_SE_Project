@@ -12,7 +12,6 @@ namespace SaigonRideProject.Controllers
         {
             _context = context;
         }
-
         public IActionResult Index()
         {
             var stations = _context.Stations
@@ -24,11 +23,23 @@ namespace SaigonRideProject.Controllers
 
         public IActionResult UserDashboard()
         {
-            return View();
+            var stations = _context.Stations
+                .Include(s => s.Vehicles)
+                .ToList();
+
+            return View(stations);
         }
 
         public IActionResult AdminDashboard()
         {
+            var totalStations = _context.Stations.Count();
+            var totalVehicles = _context.Vehicles.Count();
+            var activeRentals = _context.Rentals.Count(r => r.EndTime == null);
+
+            ViewBag.TotalStations = totalStations;
+            ViewBag.TotalVehicles = totalVehicles;
+            ViewBag.ActiveRentals = activeRentals;
+
             return View();
         }
     }

@@ -1,128 +1,23 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <title>User Dashboard</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-</head>
+﻿<h2>Welcome to SaigonRide 🚲</h2>
 
-<body>
+<div class="row mt-4">
 
-    <h2>User Dashboard - SaigonRide</h2>
+    <div class="col-md-4">
+        <a href="/Rental/StationList" class="btn btn-outline-primary w-100">
+            Find Stations
+        </a>
+    </div>
 
-    <nav>
-        <button onclick="loadStations()">Home (Stations)</button>
-        <button onclick="loadVehicles()">My Trip (Vehicles)</button>
-        <button onclick="logout()">Logout</button>
-    </nav>
+    <div class="col-md-4">
+        <a href="/Rental/Current" class="btn btn-outline-success w-100">
+            My Trip
+        </a>
+    </div>
 
-    <hr>
+    <div class="col-md-4">
+        <a href="/Rental/History" class="btn btn-outline-dark w-100">
+            History
+        </a>
+    </div>
 
-    <div id="content"></div>
-
-    <script>
-
-        let currentRentalId = null;
-
-        /* ================= HOME - STATIONS ================= */
-        function loadStations() {
-        $.get("/api/stations", function(data) {
-
-        let html = "<h3>Stations</h3>";
-
-        data.forEach(s => {
-        html += `
-        <div>
-        <b>${s.name}</b> - Capacity: ${s.capacity}
-        <button onclick="viewVehicles()">View Vehicles</button>
-        </div>
-        <hr>
-        `;
-        });
-
-        $("#content").html(html);
-        });
-        }
-
-        /* ================= VEHICLES ================= */
-        function loadVehicles() {
-        $.get("/api/vehicles/available", function(data) {
-
-        let html = "<h3>Available Vehicles</h3>";
-
-        data.forEach(v => {
-        html += `
-        <div>
-        <b>${v.category}</b> - ${v.status} - ${v.baseRatePerMinute ?? v.pricePerMinute}
-        <button onclick="startTrip(${v.id})">Unlock</button>
-        </div>
-        <hr>
-        `;
-        });
-
-        $("#content").html(html);
-        });
-        }
-
-        /* ================= START TRIP ================= */
-        function startTrip(vehicleId) {
-
-        let userId = sessionStorage.getItem("userId") || 1;
-
-        $.post("/api/rental/create", {
-        userId: userId,
-        vehicleId: vehicleId,
-        stationId: 1
-        }, function(res) {
-
-        currentRentalId = res.id;
-
-        alert("Trip started!");
-
-        $("#content").html(`
-        <h3>Trip Started</h3>
-        <p>Rental ID: ${res.id}</p>
-        <button onclick="endTrip()">Return Vehicle</button>
-        `);
-        });
-        }
-
-        /* ================= END TRIP ================= */
-        function endTrip() {
-
-        $.post("/api/rental/complete", {
-        rentalId: currentRentalId,
-        returnStationId: 1
-        }, function(res) {
-
-        $("#content").html(`
-        <h3>Trip Completed</h3>
-        <p>Fare: ${res.fare}</p>
-        <button onclick="pay()">Pay Now</button>
-        `);
-        });
-        }
-
-        /* ================= PAYMENT ================= */
-        function pay() {
-
-        $.post("/api/rental/pay", {
-        rentalId: currentRentalId
-        }, function(res) {
-
-        if(res.success) {
-        $("#content").html("<h3>Payment Successful</h3>");
-        } else {
-        $("#content").html("<h3>Payment Failed</h3>");
-        }
-        });
-        }
-
-        /* ================= LOGOUT ================= */
-        function logout() {
-        window.location.href = "/Account/Logout";
-        }
-
-    </script>
-
-</body>
-</html>
+</div>

@@ -54,8 +54,23 @@ namespace SaigonRideProject.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<decimal>("BaseAmount")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("DiscountPercent")
+                        .HasPrecision(5, 2)
+                        .HasColumnType("decimal(5,2)");
+
                     b.Property<DateTime?>("EndTime")
                         .HasColumnType("datetime2");
+
+                    b.Property<decimal>("FinalAmount")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("PaymentMethod")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("PickupStationId")
                         .HasColumnType("int");
@@ -69,10 +84,6 @@ namespace SaigonRideProject.Migrations
                     b.Property<string>("Status")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<decimal>("TotalFare")
-                        .HasPrecision(18, 2)
-                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("UserId")
                         .HasColumnType("int");
@@ -101,13 +112,27 @@ namespace SaigonRideProject.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("Capacity")
                         .HasColumnType("int");
 
                     b.Property<int>("CurrentInventory")
                         .HasColumnType("int");
 
+                    b.Property<double>("Latitude")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Longitude")
+                        .HasColumnType("float");
+
                     b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Status")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -119,16 +144,68 @@ namespace SaigonRideProject.Migrations
                         new
                         {
                             Id = 1,
-                            Capacity = 20,
-                            CurrentInventory = 10,
-                            Name = "District 1 Station"
+                            Address = "Le Loi, District 1, HCMC",
+                            Capacity = 15,
+                            CurrentInventory = 5,
+                            Latitude = 10.772,
+                            Longitude = 106.69799999999999,
+                            Name = "Ben Thanh Station",
+                            Status = "Active"
                         },
                         new
                         {
                             Id = 2,
+                            Address = "Vo Van Tan, District 3, HCMC",
                             Capacity = 15,
-                            CurrentInventory = 5,
-                            Name = "District 3 Station"
+                            CurrentInventory = 6,
+                            Latitude = 10.782500000000001,
+                            Longitude = 106.69,
+                            Name = "District 3 Hub",
+                            Status = "Active"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Address = "Dien Bien Phu, Binh Thanh, HCMC",
+                            Capacity = 12,
+                            CurrentInventory = 4,
+                            Latitude = 10.803100000000001,
+                            Longitude = 106.715,
+                            Name = "Binh Thanh Station",
+                            Status = "Active"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Address = "Vo Nguyen Giap, Thu Duc City",
+                            Capacity = 20,
+                            CurrentInventory = 10,
+                            Latitude = 10.85,
+                            Longitude = 106.77,
+                            Name = "Thu Duc Station",
+                            Status = "Active"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Address = "Cong Hoa, Tan Binh, HCMC",
+                            Capacity = 18,
+                            CurrentInventory = 7,
+                            Latitude = 10.801,
+                            Longitude = 106.652,
+                            Name = "Tan Binh Station",
+                            Status = "Active"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Address = "Nguyen Van Linh, District 7",
+                            Capacity = 15,
+                            CurrentInventory = 8,
+                            Latitude = 10.7295,
+                            Longitude = 106.721,
+                            Name = "District 7 Station",
+                            Status = "Active"
                         });
                 });
 
@@ -199,6 +276,10 @@ namespace SaigonRideProject.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("PlateNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<decimal>("PricePerMinute")
                         .HasPrecision(10, 2)
                         .HasColumnType("decimal(10,2)");
@@ -224,6 +305,7 @@ namespace SaigonRideProject.Migrations
                         new
                         {
                             Id = 1,
+                            PlateNumber = "BK-001",
                             PricePerMinute = 500m,
                             StationId = 1,
                             Status = "Available",
@@ -232,6 +314,7 @@ namespace SaigonRideProject.Migrations
                         new
                         {
                             Id = 2,
+                            PlateNumber = "BK-002",
                             PricePerMinute = 500m,
                             StationId = 1,
                             Status = "Available",
@@ -240,6 +323,52 @@ namespace SaigonRideProject.Migrations
                         new
                         {
                             Id = 3,
+                            PlateNumber = "BK-003",
+                            PricePerMinute = 500m,
+                            StationId = 1,
+                            Status = "Available",
+                            VehicleType = "Bike"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            PlateNumber = "SC-001",
+                            PricePerMinute = 1500m,
+                            StationId = 1,
+                            Status = "Available",
+                            VehicleType = "E-Scooter"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            PlateNumber = "SC-002",
+                            PricePerMinute = 1500m,
+                            StationId = 1,
+                            Status = "Available",
+                            VehicleType = "E-Scooter"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            PlateNumber = "BK-101",
+                            PricePerMinute = 500m,
+                            StationId = 2,
+                            Status = "Available",
+                            VehicleType = "Bike"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            PlateNumber = "BK-102",
+                            PricePerMinute = 500m,
+                            StationId = 2,
+                            Status = "Available",
+                            VehicleType = "Bike"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            PlateNumber = "SC-101",
                             PricePerMinute = 1500m,
                             StationId = 2,
                             Status = "Available",
@@ -247,9 +376,136 @@ namespace SaigonRideProject.Migrations
                         },
                         new
                         {
-                            Id = 4,
+                            Id = 9,
+                            PlateNumber = "BK-201",
+                            PricePerMinute = 500m,
+                            StationId = 3,
+                            Status = "Available",
+                            VehicleType = "Bike"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            PlateNumber = "BK-202",
+                            PricePerMinute = 500m,
+                            StationId = 3,
+                            Status = "Available",
+                            VehicleType = "Bike"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            PlateNumber = "SC-201",
                             PricePerMinute = 1500m,
-                            StationId = 2,
+                            StationId = 3,
+                            Status = "Available",
+                            VehicleType = "E-Scooter"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            PlateNumber = "BK-301",
+                            PricePerMinute = 500m,
+                            StationId = 4,
+                            Status = "Available",
+                            VehicleType = "Bike"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            PlateNumber = "BK-302",
+                            PricePerMinute = 500m,
+                            StationId = 4,
+                            Status = "Available",
+                            VehicleType = "Bike"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            PlateNumber = "SC-301",
+                            PricePerMinute = 1500m,
+                            StationId = 4,
+                            Status = "Available",
+                            VehicleType = "E-Scooter"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            PlateNumber = "SC-302",
+                            PricePerMinute = 1500m,
+                            StationId = 4,
+                            Status = "Available",
+                            VehicleType = "E-Scooter"
+                        },
+                        new
+                        {
+                            Id = 16,
+                            PlateNumber = "BK-401",
+                            PricePerMinute = 500m,
+                            StationId = 5,
+                            Status = "Available",
+                            VehicleType = "Bike"
+                        },
+                        new
+                        {
+                            Id = 17,
+                            PlateNumber = "BK-402",
+                            PricePerMinute = 500m,
+                            StationId = 5,
+                            Status = "Available",
+                            VehicleType = "Bike"
+                        },
+                        new
+                        {
+                            Id = 18,
+                            PlateNumber = "SC-401",
+                            PricePerMinute = 1500m,
+                            StationId = 5,
+                            Status = "Available",
+                            VehicleType = "E-Scooter"
+                        },
+                        new
+                        {
+                            Id = 19,
+                            PlateNumber = "BK-501",
+                            PricePerMinute = 500m,
+                            StationId = 6,
+                            Status = "Available",
+                            VehicleType = "Bike"
+                        },
+                        new
+                        {
+                            Id = 20,
+                            PlateNumber = "BK-502",
+                            PricePerMinute = 500m,
+                            StationId = 6,
+                            Status = "Available",
+                            VehicleType = "Bike"
+                        },
+                        new
+                        {
+                            Id = 21,
+                            PlateNumber = "BK-503",
+                            PricePerMinute = 500m,
+                            StationId = 6,
+                            Status = "Available",
+                            VehicleType = "Bike"
+                        },
+                        new
+                        {
+                            Id = 22,
+                            PlateNumber = "SC-501",
+                            PricePerMinute = 1500m,
+                            StationId = 6,
+                            Status = "Available",
+                            VehicleType = "E-Scooter"
+                        },
+                        new
+                        {
+                            Id = 23,
+                            PlateNumber = "SC-502",
+                            PricePerMinute = 1500m,
+                            StationId = 6,
                             Status = "Available",
                             VehicleType = "E-Scooter"
                         });

@@ -1,0 +1,21 @@
+﻿@model Station
+
+<h2>@Model.Name</h2>
+
+<h3>Vehicles</h3>
+
+@foreach (var v in Model.Vehicles)
+{
+    <div>
+        <b>@v.VehicleType</b> - @v.Status
+
+        @if (v.Status == "Available")
+        {
+            <form method="post" action="/Rental/Start">
+                <input type="hidden" name="vehicleId" value="@v.Id" />
+                <input type="hidden" name="stationId" value="@Model.Id" />
+                <button>Rent</button>
+            </form>
+        }
+    </div>
+}

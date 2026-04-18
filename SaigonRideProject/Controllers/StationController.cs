@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using SaigonRideProject.Data;
 using SaigonRideProject.Models;
 
@@ -58,6 +59,15 @@ namespace SaigonRideProject.Controllers
             _context.Stations.Remove(station);
             _context.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public IActionResult Detail(int id)
+        {
+            var station = _context.Stations
+                .Include(s => s.Vehicles)
+                .FirstOrDefault(s => s.Id == id);
+
+            return View(station);
         }
     }
 }

@@ -1,42 +1,37 @@
-﻿using SaigonRideProject.Models;
-using SaigonRideProject.Services.Payments;
-using SaigonRideProject.Services.Pricing;
+﻿using Microsoft.EntityFrameworkCore;
 using SaigonRideProject.Data;
+using SaigonRideProject.Models;
+using SaigonRideProject.Services.Pricing;
 
 namespace SaigonRideProject.Services
 {
     public class RentalService
     {
         private readonly AppDbContext _context;
-        private readonly IPricingStrategy _pricing;
 
-        public RentalService(AppDbContext context,
-                             IPricingStrategy pricing)
+        public RentalService(AppDbContext context)
         {
             _context = context;
-            _pricing = pricing;
         }
 
-        public Rental Create(int userId, int vehicleId, int stationId)
+        public Rental StartRental(int userId, int vehicleId, int stationId)
         {
-            var vehicle = _context.Vehicles.Find(vehicleId);
+            var vehicle = _context.Vehicles.FirstOrDefault(v => v.Id == vehicleId);
+            var station = _context.Stations.FirstOrDefault(s => s.Id == stationId);
 
-            if (vehicle == null)
-                throw new Exception("Vehicle not found");
+            if (vehicle == null || station == null)
+                return null;
 
-            if (vehicle.Status != "Available")
-                throw new Exception("Vehicle not available");
+            vehicle.Status = "Rented";
+            station.CurrentInventory--;
 
             var rental = new Rental
             {
                 UserId = userId,
                 VehicleId = vehicleId,
                 PickupStationId = stationId,
-                StartTime = DateTime.Now,
-                Status = "InProgress"
+                StartTime = DateTime.Now
             };
-
-            vehicle.Status = "InTransit";
 
             _context.Rentals.Add(rental);
             _context.SaveChanges();
@@ -44,34 +39,35 @@ namespace SaigonRideProject.Services
             return rental;
         }
 
-        public decimal Complete(int rentalId, int returnStationId)
+        public bool EndRental(int rentalId, int returnStationId)
         {
-            var rental = _context.Rentals.Find(rentalId)
-                ?? throw new Exception("Rental not found");
+            var rental = _context.Rentals
+                .Include(r => r.Vehicle)
+                .FirstOrDefault(r => r.Id == rentalId);
 
-            var vehicle = _context.Vehicles.Find(rental.VehicleId)
-                ?? throw new Exception("Vehicle not found");
+            if (rental == null) return false;
 
-            var station = _context.Stations.Find(returnStationId)
-                ?? throw new Exception("Station not found");
+            var returnStation = _context.Stations.FirstOrDefault(s => s.Id == returnStationId);
+            var pickup = _context.Stations.FirstOrDefault(s => s.Id == rental.PickupStationId);
 
+            if (returnStation == null || pickup == null) return false;
+
+            // ===== VEHICLE =====
+            rental.Vehicle.Status = "Available";
+
+            // ===== INVENTORY =====
+            returnStation.CurrentInventory++;
+
+            // ❌ KHÔNG TRỪ pickup nữa (đã trừ khi start)
+            // pickup.CurrentInventory--;
+
+            // ===== RENTAL =====
             rental.EndTime = DateTime.Now;
-
-            var duration = rental.EndTime.Value - rental.StartTime;
-
-            var fare = _pricing.Calculate(vehicle, duration, station);
-
-            rental.TotalFare = fare;
             rental.ReturnStationId = returnStationId;
-            rental.Status = "Completed";
-
-            vehicle.Status = "Available";
 
             _context.SaveChanges();
 
-            return fare;
+            return true;
         }
-
-     
     }
 }
