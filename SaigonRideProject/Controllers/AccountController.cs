@@ -20,17 +20,28 @@ namespace SaigonRideProject.Controllers
             _emailService = emailService;
         }
 
+        private void SetUserSession(User user)
+        {
+            HttpContext.Session.SetInt32("UserId", user.Id);
+            HttpContext.Session.SetString("Email", user.Email);
+            HttpContext.Session.SetString("UserType", user.UserType);
+            HttpContext.Session.SetString("Role", user.Role);
+        }
+
         public IActionResult Register()
         {
             return View();
         }
-
         [HttpPost]
         public IActionResult Register(User user, string confirmPassword)
         {
-            Console.WriteLine("REGISTER POST CALLED");
-            if (string.IsNullOrEmpty(user.PasswordHash) ||
-                user.PasswordHash.Length < 6)
+            if (string.IsNullOrWhiteSpace(user.Email))
+            {
+                ViewBag.Error = "Email is required";
+                return View(user);
+            }
+
+            if (user.PasswordHash is null || user.PasswordHash.Length < 6)
             {
                 ViewBag.Error = "Password must be at least 6 characters";
                 return View(user);
@@ -48,16 +59,15 @@ namespace SaigonRideProject.Controllers
                 return View(user);
             }
 
-            if (user.UserType == "Tourist" &&
-                string.IsNullOrEmpty(user.PassportNumber))
+            if (user.UserType == "Tourist" && string.IsNullOrWhiteSpace(user.PassportNumber))
             {
                 ViewBag.Error = "Passport is required for tourists";
                 return View(user);
             }
 
-            string rawPassword = user.PasswordHash;
+            var rawPassword = user.PasswordHash;
 
-            user.PasswordHash = HashPassword(user.PasswordHash);
+            user.PasswordHash = HashPassword(rawPassword);
             user.IsVerified = false;
             user.PassportStatus = "Pending";
             user.Role = "User";
@@ -91,16 +101,14 @@ namespace SaigonRideProject.Controllers
         {
             var email = HttpContext.Session.GetString("VerifyEmail");
 
-            if (email == null)
-            {
+            if (string.IsNullOrEmpty(email))
                 return RedirectToAction("Register");
-            }
 
-            var otp = _context.OtpVerifications
-                .FirstOrDefault(o =>
-                    o.Email == email &&
-                    o.OtpCode == otpCode &&
-                    o.ExpiryTime > DateTime.Now);
+            var otp = _context.OtpVerifications.FirstOrDefault(o =>
+                o.Email == email &&
+                o.OtpCode == otpCode &&
+                o.ExpiryTime > DateTime.Now)
+                ?? null;
 
             if (otp == null)
             {
@@ -108,30 +116,23 @@ namespace SaigonRideProject.Controllers
                 return View();
             }
 
-            var user = _context.Users
-                .FirstOrDefault(u => u.Email == email);
+            var user = _context.Users.FirstOrDefault(u => u.Email == email)
+                ?? null;
 
             if (user == null)
-            {
                 return RedirectToAction("Register");
-            }
 
             user.IsVerified = true;
 
             _context.OtpVerifications.Remove(otp);
             _context.SaveChanges();
 
-            HttpContext.Session.SetInt32("UserId", user.Id);
-            HttpContext.Session.SetString("Email", user.Email);
-            HttpContext.Session.SetString("UserType", user.UserType);
-            HttpContext.Session.SetString("Role", user.Role);
+            SetUserSession(user);
 
             if (user.UserType == "Tourist")
-            {
                 return RedirectToAction("UploadPassport", "Passport");
-            }
 
-            return RedirectToAction("SelectPayment", "Payment");
+            return RedirectToAction("UserDashboard", "Home");
         }
 
         public IActionResult Login()
@@ -142,11 +143,10 @@ namespace SaigonRideProject.Controllers
         [HttpPost]
         public IActionResult Login(string email, string password)
         {
-            string hashedPassword = HashPassword(password);
+            var hashed = HashPassword(password);
 
             var user = _context.Users.FirstOrDefault(u =>
-                u.Email == email &&
-                u.PasswordHash == hashedPassword);
+                u.Email == email && u.PasswordHash == hashed);
 
             if (user == null)
             {
@@ -160,17 +160,11 @@ namespace SaigonRideProject.Controllers
                 return View();
             }
 
-            HttpContext.Session.SetInt32("UserId", user.Id);
-            HttpContext.Session.SetString("Email", user.Email);
-            HttpContext.Session.SetString("UserType", user.UserType);
-            HttpContext.Session.SetString("Role", user.Role);
+            SetUserSession(user);
 
-            if (user.Role == "Admin")
-            {
-                return RedirectToAction("AdminDashboard", "Home");
-            }
-
-            return RedirectToAction("UserDashboard", "Home");
+            return user.Role == "Admin"
+                ? RedirectToAction("AdminDashboard", "Home")
+                : RedirectToAction("UserDashboard", "Home");
         }
         public IActionResult Logout()
         {
@@ -178,19 +172,14 @@ namespace SaigonRideProject.Controllers
             return RedirectToAction("Login");
         }
 
-        private string GenerateOtp()
+        private static string GenerateOtp()
         {
-            Random random = new Random();
-            return random.Next(100000, 999999).ToString();
+            return Random.Shared.Next(100000, 999999).ToString();
         }
 
-        private string HashPassword(string password)
+        private static string HashPassword(string password)
         {
-            using SHA256 sha256 = SHA256.Create();
-
-            byte[] bytes = sha256.ComputeHash(
-                Encoding.UTF8.GetBytes(password));
-
+            var bytes = SHA256.HashData(Encoding.UTF8.GetBytes(password));
             return Convert.ToBase64String(bytes);
         }
     }

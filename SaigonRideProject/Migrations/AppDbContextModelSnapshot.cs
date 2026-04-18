@@ -46,7 +46,7 @@ namespace SaigonRideProject.Migrations
                     b.ToTable("OtpVerifications");
                 });
 
-            modelBuilder.Entity("SaigonRideProject.Models.Payment", b =>
+            modelBuilder.Entity("SaigonRideProject.Models.Rental", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -54,23 +54,43 @@ namespace SaigonRideProject.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<decimal>("Amount")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<DateTime?>("EndTime")
+                        .HasColumnType("datetime2");
 
-                    b.Property<string>("Method")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("RentalId")
+                    b.Property<int>("PickupStationId")
                         .HasColumnType("int");
+
+                    b.Property<int?>("ReturnStationId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("StartTime")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Status")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<decimal>("TotalFare")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("VehicleId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
-                    b.ToTable("Payments");
+                    b.HasIndex("PickupStationId");
+
+                    b.HasIndex("ReturnStationId");
+
+                    b.HasIndex("UserId");
+
+                    b.HasIndex("VehicleId");
+
+                    b.ToTable("Rentals");
                 });
 
             modelBuilder.Entity("SaigonRideProject.Models.Station", b =>
@@ -94,6 +114,22 @@ namespace SaigonRideProject.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Stations");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Capacity = 20,
+                            CurrentInventory = 10,
+                            Name = "District 1 Station"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Capacity = 15,
+                            CurrentInventory = 5,
+                            Name = "District 3 Station"
+                        });
                 });
 
             modelBuilder.Entity("SaigonRideProject.Models.User", b =>
@@ -183,6 +219,74 @@ namespace SaigonRideProject.Migrations
                     b.HasIndex("StationId");
 
                     b.ToTable("Vehicles");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            PricePerMinute = 500m,
+                            StationId = 1,
+                            Status = "Available",
+                            VehicleType = "Bike"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            PricePerMinute = 500m,
+                            StationId = 1,
+                            Status = "Available",
+                            VehicleType = "Bike"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            PricePerMinute = 1500m,
+                            StationId = 2,
+                            Status = "Available",
+                            VehicleType = "E-Scooter"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            PricePerMinute = 1500m,
+                            StationId = 2,
+                            Status = "Available",
+                            VehicleType = "E-Scooter"
+                        });
+                });
+
+            modelBuilder.Entity("SaigonRideProject.Models.Rental", b =>
+                {
+                    b.HasOne("SaigonRideProject.Models.Station", "PickupStation")
+                        .WithMany()
+                        .HasForeignKey("PickupStationId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("SaigonRideProject.Models.Station", "ReturnStation")
+                        .WithMany()
+                        .HasForeignKey("ReturnStationId")
+                        .OnDelete(DeleteBehavior.NoAction);
+
+                    b.HasOne("SaigonRideProject.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("SaigonRideProject.Models.Vehicle", "Vehicle")
+                        .WithMany()
+                        .HasForeignKey("VehicleId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("PickupStation");
+
+                    b.Navigation("ReturnStation");
+
+                    b.Navigation("User");
+
+                    b.Navigation("Vehicle");
                 });
 
             modelBuilder.Entity("SaigonRideProject.Models.Vehicle", b =>
@@ -190,7 +294,7 @@ namespace SaigonRideProject.Migrations
                     b.HasOne("SaigonRideProject.Models.Station", "Station")
                         .WithMany("Vehicles")
                         .HasForeignKey("StationId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Station");

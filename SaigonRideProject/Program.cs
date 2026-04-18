@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using SaigonRideProject.Data;
 using SaigonRideProject.Services;
+using SaigonRideProject.Services.Pricing;
 
 public partial class Program
 {
@@ -18,6 +19,8 @@ public partial class Program
         builder.Services.AddScoped<EmailService>();
         builder.Services.AddScoped<FileUploadService>();
         builder.Services.AddScoped<PassportService>();
+        builder.Services.AddScoped<IPricingStrategy, DefaultPricingService>();
+        builder.Services.AddScoped<RentalService>();
 
         builder.Services.AddSession();
 

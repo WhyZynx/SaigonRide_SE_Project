@@ -1,1 +1,85 @@
-[]
+[
+  {
+    "ContainingType": "SaigonRideProject.Controllers.Api.RentalApiController",
+    "Method": "Complete",
+    "RelativePath": "api/rental/complete",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "rentalId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "returnStationId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SaigonRideProject.Controllers.Api.RentalApiController",
+    "Method": "Create",
+    "RelativePath": "api/rental/create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "vehicleId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "stationId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SaigonRideProject.Controllers.Api.StationApiController",
+    "Method": "GetAll",
+    "RelativePath": "api/stations",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SaigonRideProject.Controllers.Api.VehicleApiController",
+    "Method": "GetAvailable",
+    "RelativePath": "api/vehicles/available",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SaigonRideProject.Controllers.Api.VehicleApiController",
+    "Method": "GetByStation",
+    "RelativePath": "api/vehicles/by-station",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "stationId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
