@@ -19,7 +19,6 @@ namespace SaigonRideProject.Controllers
         }
 
         [HttpPost]
-        [HttpPost]
         public IActionResult TopUp(decimal amount, string method)
         {
             var userId = HttpContext.Session.GetInt32("UserId");
