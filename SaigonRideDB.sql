@@ -8,10 +8,20 @@ DBCC CHECKIDENT ('Users', RESEED, 0);
 SELECT * FROM Users
 SELECT * FROM OtpVerifications
 SELECT * FROM WalletTransactions
+SELECT * FROM Rentals
+SELECT * FROM Stations
+SELECT * FROM Vehicles
 
 DELETE FROM OtpVerifications;
 DELETE FROM Stations;
 DELETE FROM Vehicles;
+DELETE FROM Rentals;
+
+UPDATE Rentals SET Status = 'Completed' WHERE Id = 17
+UPDATE Users SET Balance = 0 WHERE id = 2
 
 DELETE FROM Users
 WHERE Role = 'User'
+
+DELETE FROM Rentals WHERE Id = 7 
+DELETE FROM WalletTransactions
