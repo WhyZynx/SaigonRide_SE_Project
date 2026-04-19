@@ -1,10 +1,12 @@
-﻿namespace SaigonRideProject.Services.Payments
+﻿using SaigonRideProject.Services.Payment;
+
+namespace SaigonRideProject.Services.Payments
 {
     public class ApplePayPayment : IPaymentStrategy
     {
         public string Pay(decimal amount)
         {
-            return $"Paid {amount} VND via ApplePay";
+            return $"Paid {amount} via ApplePay";
         }
     }
 }

@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SaigonRideProject.Data;
+using SaigonRideProject.ViewModels;
 
 namespace SaigonRideProject.Controllers
 {
@@ -14,26 +15,37 @@ namespace SaigonRideProject.Controllers
         }
         public IActionResult Index()
         {
-            var stations = _context.Stations
-                .Include(s => s.Vehicles)
-                .ToList();
+            var userId = HttpContext.Session.GetInt32("UserId");
 
-            return View(stations);
+            if (userId == null)
+                return View("Index"); 
+
+            return RedirectToAction("UserDashboard");
         }
 
         public IActionResult UserDashboard()
         {
             var userId = HttpContext.Session.GetInt32("UserId");
 
-            if (userId == null)
-                return RedirectToAction("Login", "Account");
-
             var user = _context.Users.Find(userId);
 
-            if (user == null)
-                return NotFound();
+            var stations = _context.Stations.ToList();
 
-            return View(user);
+            var model = new UserDashboardViewModel
+            {
+                User = user,
+                Stations = stations.Select(s => new StationMapViewModel
+                {
+                    Id = s.Id,
+                    Name = s.Name,
+                    Address = s.Address,
+                    Latitude = s.Latitude,
+                    Longitude = s.Longitude,
+                    AvailableCount = s.CurrentInventory
+                }).ToList()
+            };
+
+            return View(model);
         }
 
         public IActionResult AdminDashboard()

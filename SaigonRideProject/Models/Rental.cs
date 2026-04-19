@@ -19,12 +19,11 @@
         public DateTime StartTime { get; set; }
         public DateTime? EndTime { get; set; }
 
-        // Pricing
         public decimal BaseAmount { get; set; }
         public decimal DiscountPercent { get; set; }
         public decimal FinalAmount { get; set; }
 
-        // Payment
+  
         public string? PaymentMethod { get; set; }
 
         public string Status { get; set; } = "InProgress";

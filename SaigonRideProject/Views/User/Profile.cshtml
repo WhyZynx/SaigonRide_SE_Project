@@ -1,0 +1,22 @@
+﻿@model SaigonRideProject.Models.User
+
+<div class="container mt-4">
+
+    <h2>👤 Profile</h2>
+
+    <div class="card p-3 shadow-sm">
+
+        <p><b>Full Name:</b> @Model.FullName</p>
+        <p><b>Email:</b> @Model.Email</p>
+        <p><b>User Type:</b> @Model.UserType</p>
+        <p><b>Role:</b> @Model.Role</p>
+        <p><b>Balance:</b> @Model.Balance.ToString("N0") VND</p>
+
+        <p>
+            <b>Status:</b>
+            @(Model.IsLocked ? "Locked" : "Active")
+        </p>
+
+    </div>
+
+</div>

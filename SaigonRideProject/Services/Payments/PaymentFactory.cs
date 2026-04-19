@@ -2,17 +2,29 @@
 
 namespace SaigonRideProject.Services.Payment
 {
-    public class PaymentFactory
+    public static class PaymentFactory
     {
-        public static IPaymentStrategy GetStrategy(string method)
+        public static IPaymentStrategy GetStrategy(string userType, string method)
         {
-            return method switch
+            return userType switch
             {
-                "Cash" => new CashPayment(),
-                "MoMo" => new MoMoPayment(),
-                "VNPay" => new VNPayPayment(),
-                "PayPal" => new PayPalPayment(),
-                _ => throw new Exception("Invalid payment method")
+                "Local" => method switch
+                {
+                    "MoMo" => new MoMoPayment(),
+                    "VNPay" => new VNPayPayment(),
+                    "Cash" => new CashPayment(),
+                    _ => throw new Exception("Invalid Local method")
+                },
+
+                "Tourist" => method switch
+                {
+                    "ApplePay" => new ApplePayPayment(),
+                    "PayPal" => new PayPalPayment(),
+                    "Cash" => new CashPayment(),
+                    _ => throw new Exception("Invalid Tourist method")
+                },
+
+                _ => throw new Exception("Invalid user type")
             };
         }
     }

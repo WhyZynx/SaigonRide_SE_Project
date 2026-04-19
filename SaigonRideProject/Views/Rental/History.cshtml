@@ -2,31 +2,37 @@
 
 <div class="container mt-4">
 
-    <h2>Rental History</h2>
+    <h2>Trip History</h2>
 
-    <table class="table table-bordered mt-3">
+    <table class="table table-striped mt-3">
 
         <thead>
             <tr>
                 <th>Vehicle</th>
                 <th>Start</th>
                 <th>End</th>
-                <th>Amount</th>
+                <th>Base</th>
+                <th>Discount</th>
+                <th>Total</th>
                 <th>Payment</th>
             </tr>
         </thead>
 
         <tbody>
+
             @foreach (var r in Model)
             {
                 <tr>
                     <td>@r.VehicleId</td>
                     <td>@r.StartTime</td>
                     <td>@r.EndTime</td>
-                    <td>@r.FinalAmount.ToString("N0") VND</td>
+                    <td>@r.BaseAmount.ToString("N0")</td>
+                    <td>@r.DiscountPercent %</td>
+                    <td><b>@r.FinalAmount.ToString("N0")</b></td>
                     <td>@r.PaymentMethod</td>
                 </tr>
             }
+
         </tbody>
 
     </table>

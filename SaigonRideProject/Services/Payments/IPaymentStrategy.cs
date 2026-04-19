@@ -1,4 +1,4 @@
-﻿namespace SaigonRideProject.Services.Payments
+﻿namespace SaigonRideProject.Services.Payment
 {
     public interface IPaymentStrategy
     {

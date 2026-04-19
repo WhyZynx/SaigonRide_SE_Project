@@ -6,39 +6,39 @@
     <p>@Model.Station.Address</p>
 
     <div class="alert alert-info">
-        Capacity: @Model.Capacity <br />
-        Current Inventory: @Model.CurrentInventory <br />
-        Available Vehicles: @Model.AvailableCount
+        Capacity: @Model.Capacity |
+        Available: @Model.AvailableCount
     </div>
 
-    <div id="map" style="height:400px;width:100%;margin-bottom:20px"></div>
+    <div id="map" style="height:400px;margin-bottom:20px"></div>
 
     <div class="row">
 
         @foreach (var v in Model.Vehicles)
         {
-            <div class="col-md-4 mb-3">
+            <div class="col-md-4">
 
-                <div class="card p-3">
+                <div class="card p-3 mb-3">
 
                     <h5>@v.VehicleType</h5>
 
                     <p>
-                        ID: @v.Id <br />
                         Plate: @v.PlateNumber <br />
-                        Price: @v.PricePerMinute VND/min
+                        Price: @v.PricePerMinute / min
                     </p>
 
                     @if (v.Status == "Available")
                     {
                         <a class="btn btn-success w-100"
                                href="/Rental/Start?vehicleId=@v.Id&stationId=@Model.Station.Id">
-                            Rent Now
+                            Rent
                         </a>
                     }
                     else
                     {
-                        <button class="btn btn-secondary w-100" disabled>Not Available</button>
+                        <button class="btn btn-secondary w-100" disabled>
+                            Not Available
+                        </button>
                     }
 
                 </div>

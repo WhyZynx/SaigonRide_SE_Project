@@ -20,6 +20,7 @@ namespace SaigonRideProject.Data
 
         public DbSet<Rental> Rentals { get; set; }
 
+        public DbSet<WalletTransaction> WalletTransactions { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -40,10 +41,19 @@ namespace SaigonRideProject.Data
                 .Property(r => r.DiscountPercent)
                 .HasPrecision(5, 2);
 
+            modelBuilder.Entity<WalletTransaction>()
+                .Property(w => w.Amount)
+                .HasPrecision(18, 2);
+
+            modelBuilder.Entity<WalletTransaction>()
+                .HasOne<User>()
+                .WithMany()
+                .HasForeignKey(w => w.UserId)
+                .OnDelete(DeleteBehavior.NoAction);
+
             modelBuilder.Entity<Rental>()
                 .HasIndex(r => r.UserId)
-                .HasFilter("[Status] = 'InProgress'")
-                .IsUnique();
+                .HasFilter("[Status] = 'InProgress'");
 
             modelBuilder.Entity<Vehicle>()
                 .HasOne(v => v.Station)

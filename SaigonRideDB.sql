@@ -7,7 +7,7 @@ DBCC CHECKIDENT ('Users', RESEED, 0);
 
 SELECT * FROM Users
 SELECT * FROM OtpVerifications
-SELECT * FROM Payments
+SELECT * FROM WalletTransactions
 
 DELETE FROM OtpVerifications;
 DELETE FROM Stations;

@@ -21,6 +21,7 @@ public partial class Program
         builder.Services.AddScoped<PassportService>();
         builder.Services.AddScoped<IPricingStrategy, DefaultPricingService>();
         builder.Services.AddScoped<RentalService>();
+        builder.Services.AddScoped<WalletService>();
 
         builder.Services.AddSession();
 

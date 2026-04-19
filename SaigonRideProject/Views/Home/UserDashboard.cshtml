@@ -1,53 +1,155 @@
-﻿@model SaigonRideProject.Models.User
+﻿@model SaigonRideProject.ViewModels.UserDashboardViewModel
 
-<h2>Welcome to SaigonRide 🚲</h2>
+<div class="container mt-4">
 
-<div class="row mt-4">
+    <h2>Welcome, @Model.User.FullName 🚲</h2>
 
-    <div class="col-md-6">
-        <div class="card p-3 shadow-sm">
-            <h5>Wallet</h5>
+    <div class="row mt-4">
 
-            <h3 class="text-primary">
-                @Model.Balance.ToString("N0") VND
-            </h3>
+        <div class="col-md-4">
 
-            @if (Model.IsLocked)
-            {
-                <p class="text-danger"><strong>Account Locked</strong></p>
-            }
-            else
-            {
-                <p class="text-success"><strong>Active</strong></p>
-            }
+            <div class="card p-3 shadow-sm">
 
-            <form method="post" action="/User/TopUp">
-                <div class="input-group">
-                    <input type="number" name="amount" class="form-control" placeholder="Enter amount" />
-                    <button class="btn btn-primary">Top Up</button>
-                </div>
-            </form>
+                <h5>Wallet Balance</h5>
 
-            <small class="text-muted">Demo mode</small>
+                <h3 class="text-primary">
+                    @Model.User.Balance.ToString("N0") VND
+                </h3>
+
+                <p class="text-muted">
+                    Status:
+                    @if (Model.User.IsLocked)
+                    {
+                        <span class="text-danger">Locked</span>
+                    }
+                    else
+                    {
+                        <span class="text-success">Active</span>
+                    }
+                </p>
+
+                <form method="post" action="/User/TopUp">
+
+                    <input type="number"
+                           name="amount"
+                           class="form-control mb-2"
+                           placeholder="Enter amount" />
+
+                    <select name="method" class="form-control mb-2">
+
+                        <option value="MoMo">MoMo</option>
+                        <option value="VNPay">VNPay</option>
+                        <option value="Cash">Cash</option>
+
+                    </select>
+
+                    <button class="btn btn-primary w-100">
+                        Top Up
+                    </button>
+
+                </form>
+
+            </div>
+
+            <div class="card p-3 mt-3 shadow-sm">
+
+                <h5>Quick Actions</h5>
+
+                <a href="/Rental/StationList" class="btn btn-outline-primary w-100 mb-2">
+                    Find Stations
+                </a>
+
+                <a href="/Rental/Current" class="btn btn-outline-success w-100 mb-2">
+                    My Trip
+                </a>
+
+                <a href="/Rental/History" class="btn btn-outline-dark w-100">
+                    History
+                </a>
+
+            </div>
+
         </div>
-    </div>
 
-    <div class="col-md-6">
-        <div class="card p-3 shadow-sm">
-            <h5>Quick Actions</h5>
+        <div class="col-md-8">
 
-            <a href="/Rental/StationList" class="btn btn-outline-primary w-100 mb-2">
-                Find Stations
-            </a>
+            <div id="map" style="height:500px;border-radius:10px;"></div>
 
-            <a href="/Rental/CurrentActive" class="btn btn-outline-success w-100 mb-2">
-                My Trip
-            </a>
-
-            <a href="/Rental/History" class="btn btn-outline-dark w-100">
-                History
-            </a>
         </div>
+
     </div>
 
 </div>
+
+    <!-- MAP + STATIONS -->
+    <div class="col-md-8">
+
+        <div id="map" style="height:500px;width:100%;" class="mb-3"></div>
+
+        <div class="row">
+
+            @foreach (var s in Model.Stations)
+            {
+                <div class="col-md-6 mb-3">
+
+                    <div class="card p-3 shadow-sm"
+                         onclick="focusStation(@s.Latitude, @s.Longitude)">
+
+                        <h5>@s.Name</h5>
+                        <p>@s.Address</p>
+
+                        <p>
+                            Available: <b>@s.AvailableCount</b><br />
+                            Status:
+                            <span class="badge bg-info">@s.Status</span>
+                        </p>
+
+                        <a class="btn btn-primary w-100"
+                               href="/Rental/StationDetail/@s.Id">
+                            View Station
+                        </a>
+
+                    </div>
+
+                </div>
+            }
+
+        </div>
+
+    </div>
+
+<script>
+
+    let map;
+
+    function initMap() {
+
+        map = L.map('map').setView([10.7769, 106.7009], 13);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png')
+            .addTo(map);
+
+        const stations = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.Stations));
+
+        stations.forEach(s => {
+
+            const popup = `
+                <b>${s.Name}</b><br/>
+                ${s.Address}<br/>
+                Available: ${s.AvailableCount}<br/>
+                Status: ${s.Status}
+            `;
+
+            L.marker([s.Latitude, s.Longitude])
+                .addTo(map)
+                .bindPopup(popup);
+        });
+    }
+
+    function focusStation(lat, lng) {
+        map.setView([lat, lng], 16);
+    }
+
+    window.onload = initMap;
+
+</script>

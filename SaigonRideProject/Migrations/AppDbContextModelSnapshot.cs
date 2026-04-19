@@ -98,7 +98,6 @@ namespace SaigonRideProject.Migrations
                     b.HasIndex("ReturnStationId");
 
                     b.HasIndex("UserId")
-                        .IsUnique()
                         .HasFilter("[Status] = 'InProgress'");
 
                     b.HasIndex("VehicleId");
@@ -650,6 +649,39 @@ namespace SaigonRideProject.Migrations
                         });
                 });
 
+            modelBuilder.Entity("SaigonRideProject.Models.WalletTransaction", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<decimal>("Amount")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Method")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("WalletTransactions");
+                });
+
             modelBuilder.Entity("SaigonRideProject.Models.Rental", b =>
                 {
                     b.HasOne("SaigonRideProject.Models.Station", "PickupStation")
@@ -693,6 +725,15 @@ namespace SaigonRideProject.Migrations
                         .IsRequired();
 
                     b.Navigation("Station");
+                });
+
+            modelBuilder.Entity("SaigonRideProject.Models.WalletTransaction", b =>
+                {
+                    b.HasOne("SaigonRideProject.Models.User", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("SaigonRideProject.Models.Station", b =>

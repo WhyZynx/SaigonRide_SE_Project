@@ -10,11 +10,16 @@ namespace SaigonRideProject.Controllers
     public class RentalController : Controller
     {
         private readonly RentalService _rentalService;
+        private readonly WalletService _walletService;
         private readonly AppDbContext _context;
 
-        public RentalController(RentalService rentalService, AppDbContext context)
+        public RentalController(
+            RentalService rentalService,
+            WalletService walletService,
+            AppDbContext context)
         {
             _rentalService = rentalService;
+            _walletService = walletService;
             _context = context;
         }
 
@@ -27,7 +32,9 @@ namespace SaigonRideProject.Controllers
                     Name = s.Name,
                     Address = s.Address,
                     Latitude = s.Latitude,
-                    Longitude = s.Longitude
+                    Longitude = s.Longitude,
+                    AvailableCount = s.Vehicles.Count(v => v.Status == "Available"),
+                    Capacity = s.Capacity
                 })
                 .ToList();
 
@@ -74,70 +81,47 @@ namespace SaigonRideProject.Controllers
 
         public IActionResult Start(int vehicleId, int stationId)
         {
-            int userId = HttpContext.Session.GetInt32("UserId") ?? 0;
+            var userId = HttpContext.Session.GetInt32("UserId");
 
-            if (userId == 0)
+            if (userId == null)
                 return RedirectToAction("Login", "Account");
 
             var user = _context.Users.Find(userId);
-            if (user == null)
-                return NotFound();
 
-            if (user.IsLocked)
-                return BadRequest("Account is locked. Please top up.");
+            if (user == null || user.IsLocked)
+                return BadRequest("Account locked");
 
-            if (user.Balance <= 0)
-                return BadRequest("Insufficient balance.");
+            _rentalService.ValidateCanRent(userId.Value);
 
-            var activeRental = _context.Rentals
-                .FirstOrDefault(x => x.UserId == userId && x.Status == "InProgress");
+            var vehicle = _context.Vehicles.FirstOrDefault(v => v.Id == vehicleId);
+            var station = _context.Stations.FirstOrDefault(s => s.Id == stationId);
 
-            if (activeRental != null)
-                return BadRequest("You already have an active rental.");
-
-            var vehicle = _context.Vehicles
-                .FirstOrDefault(v => v.Id == vehicleId);
-
-            if (vehicle == null)
-                return BadRequest("Vehicle not found.");
+            if (vehicle == null || station == null)
+                return BadRequest("Invalid data");
 
             if (vehicle.Status != "Available")
-                return BadRequest("Vehicle is not available.");
+                return BadRequest("Vehicle not available");
 
-            if (vehicle.StationId != stationId)
-                return BadRequest("Vehicle does not belong to this station.");
+            using var transaction = _context.Database.BeginTransaction();
 
-            var station = _context.Stations.Find(stationId);
-            if (station == null)
-                return BadRequest("Station not found.");
-
-            if (station.CurrentInventory <= 0)
-                return BadRequest("No vehicles available at this station.");
-
-            using (var transaction = _context.Database.BeginTransaction())
+            try
             {
-                try
-                {
-                    var rental = _rentalService.StartRental(userId, vehicleId, stationId);
+                var rental = _rentalService.StartRental(userId.Value, vehicleId, stationId);
 
-                    if (rental == null)
-                        return BadRequest("Cannot start rental.");
+                vehicle.Status = "InUse";
 
-                    vehicle.Status = "InUse";
+                station.CurrentInventory = Math.Max(0, station.CurrentInventory - 1);
 
-                    station.CurrentInventory -= 1;
+                _context.SaveChanges();
 
-                    _context.SaveChanges();
+                transaction.Commit();
 
-                    transaction.Commit();
-
-                    return RedirectToAction("Current", new { id = rental.Id });
-                }
-                catch
-                {
-                    transaction.Rollback();
-                    return BadRequest("Error while starting rental.");
-                }
+                return RedirectToAction("Current", new { id = rental.Id });
+            }
+            catch
+            {
+                transaction.Rollback();
+                return BadRequest("Failed to start rental");
             }
         }
 
@@ -150,10 +134,8 @@ namespace SaigonRideProject.Controllers
             if (rental == null || rental.Vehicle == null)
                 return NotFound();
 
-            var pickup = _context.Stations.FirstOrDefault(s => s.Id == rental.PickupStationId);
-
-            if (pickup == null)
-                return NotFound();
+            var pickup = _context.Stations
+                .FirstOrDefault(s => s.Id == rental.PickupStationId);
 
             var model = new CurrentTripViewModel
             {
@@ -170,10 +152,10 @@ namespace SaigonRideProject.Controllers
                 {
                     id = s.Id,
                     name = s.Name,
-                    capacity = s.Capacity,
-                    currentCount = s.CurrentInventory,
                     latitude = s.Latitude,
-                    longitude = s.Longitude
+                    longitude = s.Longitude,
+                    capacity = s.Capacity,
+                    currentCount = s.CurrentInventory
                 })
                 .ToList();
 
@@ -181,54 +163,43 @@ namespace SaigonRideProject.Controllers
         }
 
         [HttpPost]
-        public IActionResult ConfirmPayment(int rentalId, int returnStationId, decimal amount, string paymentMethod)
+        public IActionResult ConfirmPayment(int rentalId, int returnStationId, string paymentMethod)
         {
             var rental = _context.Rentals
                 .Include(r => r.Vehicle)
-                .FirstOrDefault(x => x.Id == rentalId);
+                .FirstOrDefault(r => r.Id == rentalId);
 
-            if (rental == null)
-                return NotFound();
+            if (rental == null) return NotFound();
 
             var user = _context.Users.Find(rental.UserId);
+            var station = _context.Stations.Find(returnStationId);
 
-            if (user == null)
-                return NotFound();
+            if (user == null || station == null)
+                return BadRequest("Invalid data");
 
-            if (user.IsLocked)
-                return BadRequest("Account is locked.");
+            var minutes = (DateTime.Now - rental.StartTime).TotalMinutes;
 
-            var station = _context.Stations.FirstOrDefault(s => s.Id == returnStationId);
+            var baseAmount = (decimal)minutes * rental.Vehicle.PricePerMinute;
 
-            if (station == null)
-                return NotFound();
+            var discount = station.CurrentInventory < (station.Capacity * 0.2m)
+                ? 0.15m
+                : 0m;
 
-            var duration = (DateTime.Now - rental.StartTime).TotalMinutes;
-            var baseAmount = (decimal)duration * rental.Vehicle.PricePerMinute;
-
-            decimal discount = (station.CurrentInventory * 1.0m / station.Capacity) < 0.2m ? 0.15m : 0m;
             var finalAmount = baseAmount * (1 - discount);
 
-            if (user.Balance < finalAmount)
-                return BadRequest("Not enough balance to complete payment.");
+            if (!_walletService.CanPay(user, finalAmount))
+                return RedirectToAction("TopUp", "User");
 
-            var strategy = PaymentFactory.GetStrategy(paymentMethod);
-            var message = strategy.Pay(finalAmount);
+            var strategy = PaymentFactory.GetStrategy(user.UserType, paymentMethod);
 
-            user.Balance -= finalAmount;
-
-            if (user.Balance < 0)
-                user.IsLocked = true;
+            _walletService.Pay(user, finalAmount, paymentMethod);
 
             rental.EndTime = DateTime.Now;
-            rental.ReturnStationId = returnStationId;
-
+            rental.Status = "Completed";
             rental.BaseAmount = baseAmount;
             rental.DiscountPercent = discount;
             rental.FinalAmount = finalAmount;
-
             rental.PaymentMethod = paymentMethod;
-            rental.Status = "Completed";
 
             rental.Vehicle.Status = "Available";
             rental.Vehicle.StationId = returnStationId;
@@ -236,8 +207,6 @@ namespace SaigonRideProject.Controllers
             station.CurrentInventory += 1;
 
             _context.SaveChanges();
-
-            TempData["PaymentMessage"] = message;
 
             return RedirectToAction("PaymentSuccess", new { amount = finalAmount });
         }
@@ -250,10 +219,10 @@ namespace SaigonRideProject.Controllers
 
         public IActionResult History()
         {
-            int userId = HttpContext.Session.GetInt32("UserId") ?? 0;
+            var userId = HttpContext.Session.GetInt32("UserId") ?? 0;
 
             if (userId == 0)
-                return RedirectToAction("UserDashboard", "Home");
+                return RedirectToAction("Index", "Home");
 
             var rentals = _context.Rentals
                 .Include(r => r.Vehicle)

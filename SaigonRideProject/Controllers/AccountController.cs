@@ -160,7 +160,8 @@ namespace SaigonRideProject.Controllers
                 return View();
             }
             HttpContext.Session.SetInt32("UserId", user.Id);
-            HttpContext.Session.SetString("Balance", user.Balance.ToString());
+            HttpContext.Session.SetString("UserName", user.FullName);
+            HttpContext.Session.SetString("Balance", user.Balance.ToString("N0"));
 
             SetUserSession(user);
 

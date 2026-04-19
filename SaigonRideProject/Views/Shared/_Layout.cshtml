@@ -1,4 +1,11 @@
-﻿<!DOCTYPE html>
+﻿@using SaigonRideProject.Data
+@inject AppDbContext _context
+
+@{
+    var userId = Context.Session.GetInt32("UserId");
+    var user = _context.Users.FirstOrDefault(x => x.Id == userId);
+}
+<!DOCTYPE html>
 <html>
 <head>
     <title>SaigonRide</title>
@@ -8,36 +15,41 @@
 
 <body>
 
-    @if (Context.Session.GetString("UserId") != null)
+    @if (userId != null)
     {
-        var balance = Context.Session.GetString("Balance");
+        <nav class="navbar navbar-dark bg-dark px-3">
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
-            <div class="container-fluid">
+            <a class="navbar-brand" href="/Home/Index">
+                🚲 SaigonRide
+            </a>
 
-                <a class="navbar-brand" href="/Home/UserDashboard">
-                    SaigonRide 🚲
+            <div class="d-flex align-items-center gap-3">
+
+                <a class="btn btn-outline-light btn-sm" href="/Home/Index">
+                    Home
                 </a>
 
-                <div class="d-flex align-items-center">
+                <a class="btn btn-outline-light btn-sm" href="/Rental/History">
+                    History
+                </a>
 
-                    @if (balance != null)
-                    {
-                        <span class="me-3">
-                            💰 <strong>@balance VND</strong>
-                        </span>
-                    }
+                <a class="btn btn-outline-light btn-sm" href="/Rental/Current">
+                    My Trip
+                </a>
 
-                    <a href="/Home/UserDashboard" class="btn btn-outline-primary me-2">
-                        Home
-                    </a>
+                @if (user != null)
+                {
+                    <span class="text-white">
+                        💰 @user.Balance.ToString("N0") VND
+                    </span>
 
-                    <a href="/Account/Logout" class="btn btn-outline-danger">
-                        Logout
-                    </a>
+                    <span class="badge bg-info">
+                        @user.FullName
+                    </span>
+                }
 
-                </div>
             </div>
+
         </nav>
     }
     else
