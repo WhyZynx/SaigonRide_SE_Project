@@ -49,21 +49,53 @@
     </div>
 
 </div>
-
 <script>
+
+    let map;
+    let userMarker;
 
     function initMap() {
 
-        const pos = [@Model.Station.Latitude, @Model.Station.Longitude];
+        const stationPos = [@Model.Station.Latitude, @Model.Station.Longitude];
 
-        const map = L.map('map').setView(pos, 15);
+        map = L.map('map').setView(stationPos, 15);
 
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png')
+            .addTo(map);
 
-        L.marker(pos)
+        L.marker(stationPos)
             .addTo(map)
             .bindPopup("@Model.Station.Name");
 
+        if (navigator.geolocation) {
+
+            navigator.geolocation.getCurrentPosition(
+                function (pos) {
+
+                    const userPos = [
+                        pos.coords.latitude,
+                        pos.coords.longitude
+                    ];
+
+                    userMarker = L.marker(userPos, {
+                        icon: L.icon({
+                            iconUrl: "https://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+                        })
+                    })
+                    .addTo(map)
+                    .bindPopup("You are here")
+                    .openPopup();
+
+                    L.polyline([userPos, stationPos], {
+                        color: 'blue'
+                    }).addTo(map);
+
+                },
+                function () {
+                    console.log("Cannot get location");
+                }
+            );
+        }
     }
 
     window.onload = initMap;

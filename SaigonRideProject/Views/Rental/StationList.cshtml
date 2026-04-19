@@ -37,28 +37,43 @@
 </div>
 
 <script>
-
     let map;
+    let userMarker;
 
     function initMap() {
 
         map = L.map('map').setView([10.7769, 106.7009], 13);
 
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png')
+            .addTo(map);
 
         const stations = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model));
 
         stations.forEach(s => {
+
             L.marker([s.latitude, s.longitude])
                 .addTo(map)
-                .bindPopup(s.name);
+                .bindPopup(`<b>${s.name}</b>`);
         });
-    }
 
-    function focusStation(lat, lng) {
-        map.setView([lat, lng], 16);
-    }
+        if (navigator.geolocation) {
 
-    window.onload = initMap;
+            navigator.geolocation.getCurrentPosition(pos => {
+
+                const userPos = [pos.coords.latitude, pos.coords.longitude];
+
+                userMarker = L.marker(userPos, {
+                    icon: L.icon({
+                        iconUrl: "https://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+                    })
+                })
+                .addTo(map)
+                .bindPopup("You are here");
+
+                map.setView(userPos, 14);
+
+            });
+        }
+    }
 
 </script>

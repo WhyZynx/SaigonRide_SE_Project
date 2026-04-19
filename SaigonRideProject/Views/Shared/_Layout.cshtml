@@ -4,6 +4,7 @@
 @{
     var userId = Context.Session.GetInt32("UserId");
     var user = _context.Users.FirstOrDefault(x => x.Id == userId);
+    var hasTrip = ViewBag.HasActiveRental as bool? ?? false;
 }
 <!DOCTYPE html>
 <html>
@@ -32,10 +33,24 @@
                 <a class="btn btn-outline-light btn-sm" href="/Rental/History">
                     History
                 </a>
+                
+                @if (hasTrip)
+                {
+                    <a class="btn btn-outline-light btn-sm" href="/Rental/Current">
+                        My Trip
+                    </a>
+                }
+                else
+                {
+                    <a class="btn btn-outline-light btn-sm disabled"
+                           href="#"
+                           tabindex="-1"
+                           aria-disabled="true"
+                           onclick="return false;">
+                        My Trip
+                    </a>
+                }
 
-                <a class="btn btn-outline-light btn-sm" href="/Rental/Current">
-                    My Trip
-                </a>
 
                 @if (user != null)
                 {
@@ -46,7 +61,15 @@
                     <span class="badge bg-info">
                         @user.FullName
                     </span>
+
+                    <a class="btn btn-outline-light btn-sm" href="/User/Profile">
+                        Profile
+                    </a>
                 }
+
+                <a class="btn btn-danger btn-sm" href="/Home/Index">
+                    Logout
+                </a>
 
             </div>
 
