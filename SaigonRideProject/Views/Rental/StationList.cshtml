@@ -51,7 +51,7 @@
 
         stations.forEach(s => {
 
-            L.marker([s.latitude, s.longitude])
+            L.marker([s.Latitude, s.Longitude])
                 .addTo(map)
                 .bindPopup(`<b>${s.name}</b>`);
         });
@@ -75,5 +75,5 @@
             });
         }
     }
-
+    window.onload = initMap;
 </script>
