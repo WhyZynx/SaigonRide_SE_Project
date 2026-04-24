@@ -1,0 +1,67 @@
+﻿@model List<SaigonRideProject.ViewModels.AdminTransactionViewModel>
+
+<table class="table table-hover table-bordered align-middle">
+    <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>User</th>
+            <th>Type</th>
+            <th>Amount</th>
+            <th>Method</th>
+            <th>Time</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var t in Model)
+        {
+            <tr style="cursor:pointer;">
+                <td>#@t.Id</td>
+
+                <td>
+                    <b>@t.UserName</b>
+                </td>
+
+                <!-- TYPE BADGE -->
+                <td>
+                    @if (t.Type == "TopUp")
+                    {
+                        <span class="badge bg-success">TopUp</span>
+                    }
+                    else if (t.Type == "Payment")
+                    {
+                        <span class="badge bg-danger">Payment</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-info">Refund</span>
+                    }
+                </td>
+
+                <!-- AMOUNT -->
+                <td>
+                    @if (t.Type == "Payment")
+                    {
+                        <span class="text-danger fw-bold">
+                            -@t.Amount.ToString("N0")
+                        </span>
+                    }
+                    else
+                    {
+                        <span class="text-success fw-bold">
+                            +@t.Amount.ToString("N0")
+                        </span>
+                    }
+                </td>
+
+                <td>
+                    <span class="text-muted">@t.Method</span>
+                </td>
+
+                <td>
+                    <small>@t.CreatedAt.ToString("dd/MM/yyyy HH:mm")</small>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

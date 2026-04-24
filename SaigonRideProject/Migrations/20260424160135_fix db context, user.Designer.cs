@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SaigonRideProject.Data;
 
@@ -11,9 +12,11 @@ using SaigonRideProject.Data;
 namespace SaigonRideProject.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260424160135_fix db context, user")]
+    partial class fixdbcontextuser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -88,6 +91,9 @@ namespace SaigonRideProject.Migrations
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("UserId1")
+                        .HasColumnType("int");
+
                     b.Property<int>("VehicleId")
                         .HasColumnType("int");
 
@@ -99,6 +105,8 @@ namespace SaigonRideProject.Migrations
 
                     b.HasIndex("UserId")
                         .HasFilter("[Status] = 'InProgress'");
+
+                    b.HasIndex("UserId1");
 
                     b.HasIndex("VehicleId");
 
@@ -697,10 +705,14 @@ namespace SaigonRideProject.Migrations
                         .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("SaigonRideProject.Models.User", "User")
-                        .WithMany("Rentals")
+                        .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
+
+                    b.HasOne("SaigonRideProject.Models.User", null)
+                        .WithMany("Rentals")
+                        .HasForeignKey("UserId1");
 
                     b.HasOne("SaigonRideProject.Models.Vehicle", "Vehicle")
                         .WithMany()

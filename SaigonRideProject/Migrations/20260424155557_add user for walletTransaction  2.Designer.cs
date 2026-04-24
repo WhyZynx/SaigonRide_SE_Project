@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SaigonRideProject.Data;
 
@@ -11,9 +12,11 @@ using SaigonRideProject.Data;
 namespace SaigonRideProject.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260424155557_add user for walletTransaction  2")]
+    partial class adduserforwalletTransaction2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -676,9 +679,14 @@ namespace SaigonRideProject.Migrations
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
+                    b.Property<int>("UserId1")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("UserId");
+
+                    b.HasIndex("UserId1");
 
                     b.ToTable("WalletTransactions");
                 });
@@ -697,7 +705,7 @@ namespace SaigonRideProject.Migrations
                         .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("SaigonRideProject.Models.User", "User")
-                        .WithMany("Rentals")
+                        .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
@@ -730,10 +738,16 @@ namespace SaigonRideProject.Migrations
 
             modelBuilder.Entity("SaigonRideProject.Models.WalletTransaction", b =>
                 {
-                    b.HasOne("SaigonRideProject.Models.User", "User")
-                        .WithMany("WalletTransactions")
+                    b.HasOne("SaigonRideProject.Models.User", null)
+                        .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("SaigonRideProject.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId1")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("User");
@@ -742,13 +756,6 @@ namespace SaigonRideProject.Migrations
             modelBuilder.Entity("SaigonRideProject.Models.Station", b =>
                 {
                     b.Navigation("Vehicles");
-                });
-
-            modelBuilder.Entity("SaigonRideProject.Models.User", b =>
-                {
-                    b.Navigation("Rentals");
-
-                    b.Navigation("WalletTransactions");
                 });
 #pragma warning restore 612, 618
         }

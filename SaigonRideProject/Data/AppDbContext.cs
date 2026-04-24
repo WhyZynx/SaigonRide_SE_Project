@@ -25,6 +25,10 @@ namespace SaigonRideProject.Data
         {
             base.OnModelCreating(modelBuilder);
 
+            modelBuilder.Entity<User>()
+               .Property(u => u.Balance)
+               .HasPrecision(18, 2);
+
             modelBuilder.Entity<Vehicle>()
                 .Property(v => v.PricePerMinute)
                 .HasPrecision(10, 2);
@@ -46,9 +50,9 @@ namespace SaigonRideProject.Data
                 .HasPrecision(18, 2);
 
             modelBuilder.Entity<WalletTransaction>()
-                .HasOne<User>()
-                .WithMany()
-                .HasForeignKey(w => w.UserId)
+                .HasOne(t => t.User)
+                .WithMany(u => u.WalletTransactions)
+                .HasForeignKey(t => t.UserId)
                 .OnDelete(DeleteBehavior.NoAction);
 
             modelBuilder.Entity<Rental>()
@@ -63,7 +67,7 @@ namespace SaigonRideProject.Data
 
             modelBuilder.Entity<Rental>()
                 .HasOne(r => r.User)
-                .WithMany()
+                .WithMany(u => u.Rentals)
                 .HasForeignKey(r => r.UserId)
                 .OnDelete(DeleteBehavior.NoAction);
 

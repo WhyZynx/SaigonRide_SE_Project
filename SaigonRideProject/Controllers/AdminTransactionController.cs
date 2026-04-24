@@ -16,23 +16,47 @@ namespace SaigonRideProject.Controllers
 
         public IActionResult Index()
         {
-            var data = _context.Rentals
-                .Include(r => r.User)
-                .Include(r => r.Vehicle)
-                .Where(r => r.Status == "Completed")
-                .Select(r => new AdminTransactionViewModel
+            var data = _context.WalletTransactions
+                .Include(t => t.User)
+                .Select(t => new AdminTransactionViewModel
                 {
-                    Id = r.Id,
-                    UserName = r.User.FullName,
-                    Amount = r.FinalAmount,
-                    VehicleType = r.Vehicle.VehicleType,
-                    EndTime = r.EndTime ?? DateTime.Now,
-                    PaymentMethod = r.PaymentMethod
-                })
-                .OrderByDescending(r => r.EndTime)
-                .ToList();
+                    Id = t.Id,
+                    UserName = t.User.FullName,
+                    Amount = t.Amount,
+                    Type = t.Type,
+                    Method = t.Method,
+                    CreatedAt = t.CreatedAt
+                }).ToList();
 
             return View(data);
+        }
+
+        [HttpGet]
+        public IActionResult Filter(string search, string type)
+        {
+            var data = _context.WalletTransactions
+                .Include(t => t.User)
+                .AsQueryable();
+
+            if (!string.IsNullOrEmpty(search))
+                data = data.Where(x =>
+                    x.User.FullName.Contains(search) ||
+                    x.Id.ToString().Contains(search));
+
+            if (!string.IsNullOrEmpty(type))
+                data = data.Where(x => x.Type == type);
+
+            var result = data.Select(t => new AdminTransactionViewModel
+            {
+                Id = t.Id,
+                UserName = t.User.FullName,
+                Amount = t.Amount,
+                Type = t.Type,
+                Method = t.Method,
+                CreatedAt = t.CreatedAt
+            }).ToList();
+
+            return PartialView("_TransactionTable", result);
         }
     }
 }

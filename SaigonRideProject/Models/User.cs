@@ -33,5 +33,7 @@ namespace SaigonRideProject.Models
         public decimal Balance { get; set; } = 0;
 
         public bool IsLocked { get; set; } = false;
+        public List<WalletTransaction> WalletTransactions { get; set; } = new List<WalletTransaction>();
+        public List<Rental> Rentals { get; set; } = new List<Rental>();
     }
 }
