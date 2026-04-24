@@ -1,0 +1,53 @@
+﻿@model SaigonRideProject.ViewModels.UserViewModel
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card shadow-sm">
+    <div class="card-header bg-warning">
+        Edit User
+    </div>
+
+    <div class="card-body">
+        <form method="post">
+
+            <input type="hidden" name="Id" value="@Model.Id" />
+
+            <div class="mb-3">
+                <label>Full Name</label>
+                <input name="FullName" value="@Model.FullName" class="form-control" />
+            </div>
+
+            <div class="mb-3">
+                <label>Email</label>
+                <input value="@Model.Email" class="form-control" disabled />
+            </div>
+
+            <div class="mb-3">
+                <label>User Type</label>
+                <select name="UserType" class="form-select">
+                    <option selected>@Model.UserType</option>
+                    <option value="Local">Local</option>
+                    <option value="Tourist">Tourist</option>
+                </select>
+            </div>
+
+            <div class="form-check mb-2">
+                <input name="IsVerified" type="checkbox" class="form-check-input"
+                @(Model.IsVerified ? "checked" : "") />
+                <label>Verified</label>
+            </div>
+
+            <div class="form-check mb-3">
+                <input name="IsLocked" type="checkbox" class="form-check-input"
+                @(Model.IsLocked ? "checked" : "") />
+                <label>Lock Account</label>
+            </div>
+
+            <button class="btn btn-warning">Save</button>
+            <a href="/AdminUser" class="btn btn-secondary">Cancel</a>
+
+        </form>
+    </div>
+</div>

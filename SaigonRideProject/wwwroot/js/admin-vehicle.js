@@ -18,12 +18,10 @@ function loadVehicles() {
         });
 }
 
-// 🔥 REALTIME SEARCH (debounce chuẩn)
 document.getElementById("searchBox").addEventListener("input", function () {
     clearTimeout(timeout);
     timeout = setTimeout(loadVehicles, 250);
 });
 
-// 🔥 FILTER REALTIME (KHÔNG RESET, CHẠY NGAY)
 document.getElementById("vehicleType").addEventListener("change", loadVehicles);
 document.getElementById("status").addEventListener("change", loadVehicles);

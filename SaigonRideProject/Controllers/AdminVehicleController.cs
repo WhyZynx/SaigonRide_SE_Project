@@ -149,7 +149,17 @@ namespace SaigonRideProject.Controllers
 
             var vehicle = _context.Vehicles
                 .Include(v => v.Station)
-                .FirstOrDefault(v => v.Id == id);
+                .Where(v => v.Id == id)
+                .Select(v => new AdminVehicleViewModel
+                {
+                    Id = v.Id,
+                    VehicleType = v.VehicleType,
+                    PlateNumber = v.PlateNumber,
+                    Status = v.Status,
+                    PricePerMinute = v.PricePerMinute,
+                    StationId = v.StationId,
+                })
+                .FirstOrDefault();
 
             if (vehicle == null) return NotFound();
 

@@ -1,0 +1,48 @@
+﻿@model SaigonRideProject.Models.User
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card shadow-sm">
+    <div class="card-header bg-primary text-white">
+        User Detail
+    </div>
+
+    <div class="card-body">
+
+        <p><b>ID:</b> @Model.Id</p>
+        <p><b>Name:</b> @Model.FullName</p>
+        <p><b>Email:</b> @Model.Email</p>
+        <p><b>User Type:</b> @Model.UserType</p>
+
+        <p><b>Balance:</b> @Model.Balance</p>
+
+        <p>
+            <b>Status:</b>
+            @if (Model.IsLocked)
+            {
+                <span class="badge bg-danger">Suspended</span>
+            }
+            else
+            {
+                <span class="badge bg-success">Active</span>
+            }
+        </p>
+
+        <p>
+            <b>Verification:</b>
+            @if (Model.IsVerified)
+            {
+                <span class="badge bg-success">Verified</span>
+            }
+            else
+            {
+                <span class="badge bg-warning">Pending</span>
+            }
+        </p>
+
+        <a href="/AdminUser" class="btn btn-secondary">Back</a>
+
+    </div>
+</div>
