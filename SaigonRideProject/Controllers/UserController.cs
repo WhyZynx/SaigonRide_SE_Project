@@ -91,5 +91,20 @@ namespace SaigonRideProject.Controllers
 
             return View(user);
         }
+
+        public IActionResult Transactions()
+        {
+            var userId = HttpContext.Session.GetInt32("UserId");
+
+            if (userId == null)
+                return RedirectToAction("Login", "Account");
+
+            var data = _context.WalletTransactions
+                .Where(x => x.UserId == userId)
+                .OrderByDescending(x => x.CreatedAt)
+                .ToList();
+
+            return View(data);
+        }
     }
 }

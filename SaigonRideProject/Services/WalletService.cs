@@ -27,7 +27,7 @@ namespace SaigonRideProject.Services
             _context.WalletTransactions.Add(new WalletTransaction
             {
                 UserId = user.Id,
-                Amount = -amount, 
+                Amount = amount, 
                 Type = "Payment",
                 Method = method,
                 CreatedAt = DateTime.Now
