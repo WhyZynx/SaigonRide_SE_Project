@@ -1,0 +1,94 @@
+﻿@model SaigonRideProject.ViewModels.ReportViewModel
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h3 class="mb-4">System Report</h3>
+
+<div class="mb-3">
+    <a href="?days=1" class="btn btn-outline-secondary btn-sm">Today</a>
+    <a href="?days=7" class="btn btn-outline-secondary btn-sm">7 Days</a>
+    <a href="?days=30" class="btn btn-success btn-sm">30 Days</a>
+</div>
+
+<div class="row mb-4">
+
+    <div class="col-md-4">
+        <div class="card p-3 shadow-sm">
+            <b>Standard Bike</b>
+            <h5>@Model.BikeRevenue.ToString("N0") đ</h5>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card p-3 shadow-sm">
+            <b>E-Scooter</b>
+            <h5>@Model.ScooterRevenue.ToString("N0") đ</h5>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card p-3 shadow-sm bg-light">
+            <b>Total Revenue</b>
+            <h4 class="text-success">@Model.TotalRevenue.ToString("N0") đ</h4>
+        </div>
+    </div>
+
+</div>
+
+<h5>Revenue by Station</h5>
+
+<table class="table table-bordered">
+    <thead class="table-dark">
+        <tr>
+            <th>Station</th>
+            <th>Bike</th>
+            <th>Scooter</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var s in Model.StationRevenues)
+        {
+            <tr>
+                <td>@s.StationName</td>
+                <td>@s.BikeRevenue.ToString("N0")</td>
+                <td>@s.ScooterRevenue.ToString("N0")</td>
+                <td><b>@s.Total.ToString("N0")</b></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h5 class="mt-4">Station Usage Status</h5>
+
+<table class="table table-bordered">
+    <thead class="table-dark">
+        <tr>
+            <th>Station</th>
+            <th>Capacity</th>
+            <th>Current</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var s in Model.StationStatuses)
+        {
+            <tr class="@(s.Status == "Low" ? "table-danger" : "")">
+                <td>@s.StationName</td>
+                <td>@s.Capacity</td>
+                <td>@s.Current</td>
+                <td>
+                    @if (s.Status == "Low")
+                    {
+                        <span class="badge bg-danger">Low</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-success">Normal</span>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

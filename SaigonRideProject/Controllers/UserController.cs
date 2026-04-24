@@ -62,16 +62,13 @@ namespace SaigonRideProject.Controllers
                 return BadRequest("Invalid amount");
 
             var strategy = PaymentFactory.GetStrategy(user.UserType, method);
-
             var message = strategy.Pay(amount);
 
-            user.Balance += amount;
-
-            _context.SaveChanges();
+            _walletService.TopUp(user, amount, method);
 
             TempData["PaymentMessage"] = message;
 
-            return RedirectToAction("UserDashboard", "Home");
+            return RedirectToAction("UserDashboard", "User");
         }
 
         public IActionResult Profile()
