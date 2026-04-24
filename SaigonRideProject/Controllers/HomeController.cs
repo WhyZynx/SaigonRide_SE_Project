@@ -18,15 +18,10 @@ namespace SaigonRideProject.Controllers
         }
         public IActionResult Index()
         {
-            var userId = HttpContext.Session.GetInt32("UserId");
-
-            if (userId == null)
-                return RedirectToAction("Login", "Account");
-
-            return RedirectToAction("UserDashboard");
+            return View();
         }
 
-        
+
 
         public IActionResult Dashboard()
         {

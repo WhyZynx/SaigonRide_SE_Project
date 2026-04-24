@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using SaigonRideProject.Data;
-using System.Linq;
+using SaigonRideProject.ViewModels;
+using Microsoft.EntityFrameworkCore;
 
 namespace SaigonRideProject.Controllers
 {
@@ -17,18 +17,66 @@ namespace SaigonRideProject.Controllers
 
         public IActionResult Dashboard()
         {
-            if (HttpContext.Session.GetString("Role") != "Admin")
-            {
-                return RedirectToAction("Login", "Account");
-            }
-            ViewBag.Users = _context.Users.Count();
-            ViewBag.Vehicles = _context.Vehicles.Count();
-            ViewBag.Stations = _context.Stations.Count();
-            ViewBag.Revenue = _context.Rentals
-                .Where(r => r.Status == "Completed")
+            var today = DateTime.Today;
+
+            var todayRevenue = _context.Rentals
+                .Where(r => r.Status == "Completed" && r.EndTime >= today)
                 .Sum(r => (decimal?)r.FinalAmount) ?? 0;
 
-            return View();
+            var activeRentals = _context.Rentals
+                .Count(r => r.Status == "InProgress");
+
+            var availableVehicles = _context.Vehicles
+                .Count(v => v.Status == "Available");
+
+            var totalTransactions = _context.WalletTransactions.Count();
+
+            var lowStations = _context.Stations
+                .Where(s => s.CurrentInventory < s.Capacity * 0.2)
+                .Select(s => new StationStatusViewModel
+                {
+                    StationName = s.Name,
+                    Capacity = s.Capacity,
+                    Current = s.CurrentInventory,
+                    Status = "Low"
+                }).ToList();
+
+            var recentTransactions = _context.WalletTransactions
+                .Include(t => t.User)
+                .OrderByDescending(t => t.CreatedAt)
+                .Take(5)
+                .Select(t => new AdminTransactionViewModel
+                {
+                    Id = t.Id,
+                    UserName = t.User.FullName,
+                    Amount = t.Amount,
+                    Type = t.Type,
+                    CreatedAt = t.CreatedAt
+                }).ToList();
+
+            var liveRentals = _context.Rentals
+                .Include(r => r.User)
+                .Include(r => r.Vehicle)
+                .Where(r => r.Status == "InProgress")
+                .Select(r => new LiveRentalViewModel
+                {
+                    UserName = r.User.FullName,
+                    Vehicle = r.Vehicle.PlateNumber,
+                    StartTime = r.StartTime
+                }).ToList();
+
+            var model = new AdminDashboardViewModel
+            {
+                TodayRevenue = todayRevenue,
+                ActiveRentals = activeRentals,
+                AvailableVehicles = availableVehicles,
+                TotalTransactions = totalTransactions,
+                LowStations = lowStations,
+                RecentTransactions = recentTransactions,
+                LiveRentals = liveRentals
+            };
+
+            return View(model);
         }
 
         public IActionResult Lock(int id)

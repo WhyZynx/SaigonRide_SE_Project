@@ -1,37 +1,114 @@
-﻿@{
+﻿@model SaigonRideProject.ViewModels.AdminDashboardViewModel
+@{
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Dashboard</h2>
+<h3 class="mb-4">Dashboard</h3>
 
-<div class="row">
+<!-- KPI -->
+<div class="row g-3 mb-4">
 
     <div class="col-md-3">
-        <div class="card p-3">
-            <h5>Users</h5>
-            <h3>@ViewBag.Users</h3>
+        <div class="card">
+            <div class="card-body">
+                <small class="text-muted">Today Revenue</small>
+                <h5 class="text-success">@Model.TodayRevenue.ToString("N0") đ</h5>
+            </div>
         </div>
     </div>
 
     <div class="col-md-3">
-        <div class="card p-3">
-            <h5>Vehicles</h5>
-            <h3>@ViewBag.Vehicles</h3>
+        <div class="card">
+            <div class="card-body">
+                <small class="text-muted">Active Rentals</small>
+                <h5>@Model.ActiveRentals</h5>
+            </div>
         </div>
     </div>
 
     <div class="col-md-3">
-        <div class="card p-3">
-            <h5>Stations</h5>
-            <h3>@ViewBag.Stations</h3>
+        <div class="card">
+            <div class="card-body">
+                <small class="text-muted">Available Vehicles</small>
+                <h5>@Model.AvailableVehicles</h5>
+            </div>
         </div>
     </div>
 
     <div class="col-md-3">
-        <div class="card p-3">
-            <h5>Revenue</h5>
-            <h3>@ViewBag.Revenue VND</h3>
+        <div class="card">
+            <div class="card-body">
+                <small class="text-muted">Total Transactions</small>
+                <h5>@Model.TotalTransactions</h5>
+            </div>
         </div>
+    </div>
+
+</div>
+
+<!-- ALERT -->
+@if (Model.LowStations.Any())
+{
+    <div class="alert alert-danger">
+        Low Inventory:
+        @foreach (var s in Model.LowStations)
+        {
+            <span class="badge bg-danger">@s.StationName</span>
+        }
+    </div>
+}
+
+<!-- LIVE + TRANSACTION -->
+<div class="row g-4">
+
+    <!-- LIVE RENTAL -->
+    <div class="col-md-6">
+        <h5>Live Rentals</h5>
+        <table class="table table-bordered">
+            <thead class="table-dark">
+                <tr>
+                    <th>User</th>
+                    <th>Vehicle</th>
+                    <th>Start</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var r in Model.LiveRentals)
+                {
+                    <tr>
+                        <td>@r.UserName</td>
+                        <td>@r.Vehicle</td>
+                        <td>@r.StartTime.ToString("HH:mm dd/MM")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <!-- TRANSACTION -->
+    <div class="col-md-6">
+        <h5>Recent Transactions</h5>
+        <table class="table table-bordered">
+            <thead class="table-dark">
+                <tr>
+                    <th>User</th>
+                    <th>Type</th>
+                    <th>Amount</th>
+                    <th>Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var t in Model.RecentTransactions)
+                {
+                    <tr>
+                        <td>@t.UserName</td>
+                        <td>@t.Type</td>
+                        <td>@t.Amount</td>
+                        <td>@t.CreatedAt.ToString("HH:mm dd/MM")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
     </div>
 
 </div>
