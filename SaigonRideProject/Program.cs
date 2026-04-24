@@ -22,6 +22,8 @@ public partial class Program
         builder.Services.AddScoped<IPricingStrategy, DefaultPricingService>();
         builder.Services.AddScoped<RentalService>();
         builder.Services.AddScoped<WalletService>();
+        builder.Services.AddAuthentication();
+        builder.Services.AddAuthorization();
 
         builder.Services.AddSession();
 
@@ -30,11 +32,16 @@ public partial class Program
         app.UseStaticFiles();
         app.UseRouting();
         app.UseSession();
+        app.UseAuthentication();
+        app.UseAuthorization();
 
         app.MapControllerRoute(
             name: "default",
             pattern: "{controller=Home}/{action=Index}/{id?}");
 
+        app.MapControllerRoute(
+        name: "admin",
+        pattern: "admin/{controller=Admin}/{action=Dashboard}/{id?}");
         app.Run();
     }
 }

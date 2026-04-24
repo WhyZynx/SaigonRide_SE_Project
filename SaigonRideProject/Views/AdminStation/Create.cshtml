@@ -1,0 +1,37 @@
+﻿@model SaigonRideProject.ViewModels.AdminStationViewModel
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Create Station</h2>
+
+<form method="post">
+
+    <div>
+        <label>Name</label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+
+    <div>
+        <label>Address</label>
+        <input asp-for="Address" class="form-control" />
+    </div>
+
+    <div>
+        <label>Capacity</label>
+        <input asp-for="Capacity" class="form-control" />
+    </div>
+
+    <div>
+        <label>Latitude</label>
+        <input asp-for="Latitude" class="form-control" />
+    </div>
+
+    <div>
+        <label>Longitude</label>
+        <input asp-for="Longitude" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-success mt-2">Save</button>
+</form>

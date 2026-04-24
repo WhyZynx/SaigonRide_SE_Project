@@ -1,0 +1,100 @@
+﻿@model List<SaigonRideProject.ViewModels.AdminTransactionViewModel>
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h3>Transaction Management</h3>
+
+<!-- FILTER BAR -->
+<form method="get" class="row mb-3">
+
+    <div class="col-md-3">
+        <input type="date" name="fromDate" class="form-control" />
+    </div>
+
+    <div class="col-md-3">
+        <input type="date" name="toDate" class="form-control" />
+    </div>
+
+    <div class="col-md-3">
+        <select name="method" class="form-control">
+            <option value="">All Methods</option>
+            <option>Cash</option>
+            <option>Card</option>
+            <option>Wallet</option>
+        </select>
+    </div>
+
+    <div class="col-md-3">
+        <button class="btn btn-primary w-100">Filter</button>
+    </div>
+
+</form>
+
+<!-- SUMMARY CARDS -->
+<div class="row mb-3">
+
+    <div class="col-md-4">
+        <div class="card p-3 bg-light">
+            <h6>Total Transactions</h6>
+            <h4>@Model.Count</h4>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card p-3 bg-light">
+            <h6>Total Revenue</h6>
+            <h4>
+                @Model.Sum(x => x.Amount).ToString("N0") VND
+            </h4>
+        </div>
+    </div>
+
+</div>
+
+<!-- TABLE -->
+<table class="table table-striped table-bordered">
+    <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>User</th>
+            <th>Vehicle</th>
+            <th>Amount</th>
+            <th>Method</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var t in Model)
+        {
+            <tr>
+                <td>@t.Id</td>
+                <td>@t.UserName</td>
+                <td>@t.VehicleType</td>
+
+                <td class="fw-bold text-success">
+                    @t.Amount.ToString("N0")
+                </td>
+
+                <td>
+                    @if (t.PaymentMethod == "Cash")
+                    {
+                        <span class="badge bg-primary">Cash</span>
+                    }
+                    else if (t.PaymentMethod == "Card")
+                    {
+                        <span class="badge bg-info">Card</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-secondary">@t.PaymentMethod</span>
+                    }
+                </td>
+
+                <td>@t.EndTime.ToString("dd/MM/yyyy HH:mm")</td>
+            </tr>
+        }
+    </tbody>
+</table>

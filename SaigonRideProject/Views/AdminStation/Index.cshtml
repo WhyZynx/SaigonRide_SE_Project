@@ -1,0 +1,33 @@
+﻿@model List<SaigonRideProject.ViewModels.AdminStationViewModel>
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h3 class="mb-0">Station Management</h3>
+    <a class="btn btn-primary" href="/AdminStation/Create">+ Add Station</a>
+</div>
+
+<!-- FILTER -->
+<div class="row g-2 mb-3">
+    <div class="col-md-6">
+        <input type="text" id="searchBox" class="form-control"
+               placeholder="Search station name or address..." />
+    </div>
+
+    <div class="col-md-4">
+        <select id="status" class="form-select">
+            <option value="">All Status</option>
+            <option value="Active">Active</option>
+            <option value="Inactive">Inactive</option>
+        </select>
+    </div>
+</div>
+
+<!-- TABLE -->
+<div id="stationTable">
+    @Html.Partial("_StationTable", Model)
+</div>
+
+<script src="~/js/admin-station.js"></script>

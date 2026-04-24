@@ -1,0 +1,41 @@
+﻿@model SaigonRideProject.ViewModels.AdminVehicleViewModel
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h3>Add Vehicle</h3>
+
+<form method="post">
+
+    <div class="mb-3">
+        <label>Vehicle Type</label>
+        <input class="form-control" name="VehicleType" />
+    </div>
+
+    <div class="mb-3">
+        <label>Plate Number</label>
+        <input class="form-control" name="PlateNumber" />
+    </div>
+
+    <div class="mb-3">
+        <label>Status</label>
+        <select class="form-control" name="Status">
+            <option>Available</option>
+            <option>InUse</option>
+            <option>Maintenance</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label>Price Per Minute</label>
+        <input class="form-control" name="PricePerMinute" />
+    </div>
+
+    <div class="mb-3">
+        <label>Station Id</label>
+        <input class="form-control" name="StationId" />
+    </div>
+
+    <button class="btn btn-success">Create</button>
+</form>

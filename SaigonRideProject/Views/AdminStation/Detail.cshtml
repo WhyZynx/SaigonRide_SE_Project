@@ -1,0 +1,25 @@
+﻿@model SaigonRideProject.ViewModels.AdminStationViewModel
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Station Detail</h2>
+
+<div>
+    <p><b>Name:</b> @Model.Name</p>
+    <p><b>Address:</b> @Model.Address</p>
+    <p><b>Capacity:</b> @Model.Capacity</p>
+    <p><b>Current Inventory:</b> @Model.CurrentInventory</p>
+    <p><b>Lat:</b> @Model.Latitude</p>
+    <p><b>Lng:</b> @Model.Longitude</p>
+</div>
+
+<h3>Vehicles</h3>
+
+<ul>
+    @foreach (var v in Model.Vehicles)
+    {
+        <li>@v.VehicleType - @v.PlateNumber - @v.Status</li>
+    }
+</ul>

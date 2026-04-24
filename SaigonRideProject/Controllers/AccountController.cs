@@ -132,7 +132,7 @@ namespace SaigonRideProject.Controllers
             if (user.UserType == "Tourist")
                 return RedirectToAction("UploadPassport", "Passport");
 
-            return RedirectToAction("UserDashboard", "Home");
+            return RedirectToAction("UserDashboard", "User");
         }
 
         public IActionResult Login()
@@ -166,8 +166,8 @@ namespace SaigonRideProject.Controllers
             SetUserSession(user);
 
             return user.Role == "Admin"
-                ? RedirectToAction("AdminDashboard", "Home")
-                : RedirectToAction("UserDashboard", "Home");
+                ? RedirectToAction("Dashboard", "Admin")
+                : RedirectToAction("UserDashboard", "User");
         }
         public IActionResult Logout()
         {

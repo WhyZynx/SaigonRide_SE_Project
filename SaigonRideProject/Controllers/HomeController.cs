@@ -26,44 +26,18 @@ namespace SaigonRideProject.Controllers
             return RedirectToAction("UserDashboard");
         }
 
-        public IActionResult UserDashboard()
+        
+
+        public IActionResult Dashboard()
         {
+            ViewBag.TotalUsers = _context.Users.Count();
+            ViewBag.TotalVehicles = _context.Vehicles.Count();
+            ViewBag.TotalStations = _context.Stations.Count();
+            ViewBag.ActiveRentals = _context.Rentals.Count(r => r.Status == "InProgress");
 
-            
-            var userId = HttpContext.Session.GetInt32("UserId");
-            var hasTrip = _rentalService.HasActiveRental(userId.Value);
-
-
-            var user = _context.Users.Find(userId);
-
-            var stations = _context.Stations.ToList();
-
-            var model = new UserDashboardViewModel
-            {
-                User = user,
-                Stations = stations.Select(s => new StationMapViewModel
-                {
-                    Id = s.Id,
-                    Name = s.Name,
-                    Address = s.Address,
-                    Latitude = s.Latitude,
-                    Longitude = s.Longitude,
-                    AvailableCount = s.CurrentInventory
-                }).ToList()
-            };
-
-            return View(model);
-        }
-
-        public IActionResult AdminDashboard()
-        {
-            var totalStations = _context.Stations.Count();
-            var totalVehicles = _context.Vehicles.Count();
-            var activeRentals = _context.Rentals.Count(r => r.EndTime == null);
-
-            ViewBag.TotalStations = totalStations;
-            ViewBag.TotalVehicles = totalVehicles;
-            ViewBag.ActiveRentals = activeRentals;
+            ViewBag.TotalRevenue = _context.Rentals
+                .Where(r => r.Status == "Completed")
+                .Sum(r => r.FinalAmount);
 
             return View();
         }

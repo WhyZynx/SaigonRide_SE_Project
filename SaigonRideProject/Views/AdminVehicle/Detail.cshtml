@@ -1,0 +1,16 @@
+﻿@model SaigonRideProject.ViewModels.AdminVehicleViewModel
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h3>Vehicle Detail</h3>
+
+<ul class="list-group">
+    <li class="list-group-item">ID: @Model.Id</li>
+    <li class="list-group-item">Type: @Model.VehicleType</li>
+    <li class="list-group-item">Plate: @Model.PlateNumber</li>
+    <li class="list-group-item">Status: @Model.Status</li>
+    <li class="list-group-item">Price/Min: @Model.PricePerMinute</li>
+    <li class="list-group-item">Station: @Model.StationId</li>
+</ul>

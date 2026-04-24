@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SaigonRideProject.Data;
+using System.Linq;
 
 namespace SaigonRideProject.Controllers
 {
@@ -12,39 +14,43 @@ namespace SaigonRideProject.Controllers
             _context = context;
         }
 
-        public IActionResult PassportRequests()
-        {
-            var list = _context.Users
-                .Where(x => x.UserType == "Tourist" && x.PassportStatus == "Pending")
-                .ToList();
 
-            return View(list);
+        public IActionResult Dashboard()
+        {
+            if (HttpContext.Session.GetString("Role") != "Admin")
+            {
+                return RedirectToAction("Login", "Account");
+            }
+            ViewBag.Users = _context.Users.Count();
+            ViewBag.Vehicles = _context.Vehicles.Count();
+            ViewBag.Stations = _context.Stations.Count();
+            ViewBag.Revenue = _context.Rentals
+                .Where(r => r.Status == "Completed")
+                .Sum(r => (decimal?)r.FinalAmount) ?? 0;
+
+            return View();
         }
 
-        public IActionResult Approve(int id)
+        public IActionResult Lock(int id)
         {
-            var user = _context.Users.FirstOrDefault(x => x.Id == id);
-
-            if (user == null)
-                return RedirectToAction("PassportRequests");
-
-            user.PassportStatus = "Approved";
-            _context.SaveChanges();
-
-            return RedirectToAction("PassportRequests");
+            var user = _context.Users.Find(id);
+            if (user != null)
+            {
+                user.IsLocked = true;
+                _context.SaveChanges();
+            }
+            return RedirectToAction("Index");
         }
 
-        public IActionResult Reject(int id)
+        public IActionResult Unlock(int id)
         {
-            var user = _context.Users.FirstOrDefault(x => x.Id == id);
-
-            if (user == null)
-                return NotFound();
-
-            user.PassportStatus = "Rejected";
-            _context.SaveChanges();
-
-            return RedirectToAction("PassportRequests");
+            var user = _context.Users.Find(id);
+            if (user != null)
+            {
+                user.IsLocked = false;
+                _context.SaveChanges();
+            }
+            return RedirectToAction("Index");
         }
     }
 }

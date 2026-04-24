@@ -34,12 +34,60 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxWZXJpZnlPdHAuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/A. Học tập/2025-2026/Công nghệ phần mềm/Đồ án CK/SaigonRideProject/SaigonRideProject/Views/Admin/PassportRequests.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUGFzc3BvcnRSZXF1ZXN0cy5jc2h0bWw=
+[C:/Users/Admin/Documents/A. Học tập/2025-2026/Công nghệ phần mềm/Đồ án CK/SaigonRideProject/SaigonRideProject/Views/AdminStation/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5TdGF0aW9uXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/A. Học tập/2025-2026/Công nghệ phần mềm/Đồ án CK/SaigonRideProject/SaigonRideProject/Views/Home/AdminDashboard.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBZG1pbkRhc2hib2FyZC5jc2h0bWw=
+[C:/Users/Admin/Documents/A. Học tập/2025-2026/Công nghệ phần mềm/Đồ án CK/SaigonRideProject/SaigonRideProject/Views/AdminStation/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5TdGF0aW9uXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Admin/Documents/A. Học tập/2025-2026/Công nghệ phần mềm/Đồ án CK/SaigonRideProject/SaigonRideProject/Views/AdminStation/Detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5TdGF0aW9uXERldGFpbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Admin/Documents/A. Học tập/2025-2026/Công nghệ phần mềm/Đồ án CK/SaigonRideProject/SaigonRideProject/Views/AdminStation/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5TdGF0aW9uXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Admin/Documents/A. Học tập/2025-2026/Công nghệ phần mềm/Đồ án CK/SaigonRideProject/SaigonRideProject/Views/AdminStation/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5TdGF0aW9uXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Admin/Documents/A. Học tập/2025-2026/Công nghệ phần mềm/Đồ án CK/SaigonRideProject/SaigonRideProject/Views/AdminStation/_StationTable.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5TdGF0aW9uXF9TdGF0aW9uVGFibGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Admin/Documents/A. Học tập/2025-2026/Công nghệ phần mềm/Đồ án CK/SaigonRideProject/SaigonRideProject/Views/AdminTransaction/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5UcmFuc2FjdGlvblxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Admin/Documents/A. Học tập/2025-2026/Công nghệ phần mềm/Đồ án CK/SaigonRideProject/SaigonRideProject/Views/AdminVehicle/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5WZWhpY2xlXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Admin/Documents/A. Học tập/2025-2026/Công nghệ phần mềm/Đồ án CK/SaigonRideProject/SaigonRideProject/Views/AdminVehicle/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5WZWhpY2xlXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Admin/Documents/A. Học tập/2025-2026/Công nghệ phần mềm/Đồ án CK/SaigonRideProject/SaigonRideProject/Views/AdminVehicle/Detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5WZWhpY2xlXERldGFpbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Admin/Documents/A. Học tập/2025-2026/Công nghệ phần mềm/Đồ án CK/SaigonRideProject/SaigonRideProject/Views/AdminVehicle/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5WZWhpY2xlXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Admin/Documents/A. Học tập/2025-2026/Công nghệ phần mềm/Đồ án CK/SaigonRideProject/SaigonRideProject/Views/AdminVehicle/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5WZWhpY2xlXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Admin/Documents/A. Học tập/2025-2026/Công nghệ phần mềm/Đồ án CK/SaigonRideProject/SaigonRideProject/Views/AdminVehicle/_VehicleTable.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5WZWhpY2xlXF9WZWhpY2xlVGFibGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Admin/Documents/A. Học tập/2025-2026/Công nghệ phần mềm/Đồ án CK/SaigonRideProject/SaigonRideProject/Views/Admin/Dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRGFzaGJvYXJkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Admin/Documents/A. Học tập/2025-2026/Công nghệ phần mềm/Đồ án CK/SaigonRideProject/SaigonRideProject/Views/Home/Index.cshtml]
@@ -48,10 +96,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Admin/Documents/A. Học tập/2025-2026/Công nghệ phần mềm/Đồ án CK/SaigonRideProject/SaigonRideProject/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Admin/Documents/A. Học tập/2025-2026/Công nghệ phần mềm/Đồ án CK/SaigonRideProject/SaigonRideProject/Views/Home/UserDashboard.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxVc2VyRGFzaGJvYXJkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Admin/Documents/A. Học tập/2025-2026/Công nghệ phần mềm/Đồ án CK/SaigonRideProject/SaigonRideProject/Views/Passport/UploadPassport.cshtml]
@@ -86,6 +130,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Admin/Documents/A. Học tập/2025-2026/Công nghệ phần mềm/Đồ án CK/SaigonRideProject/SaigonRideProject/Views/Shared/_AdminLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BZG1pbkxheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Admin/Documents/A. Học tập/2025-2026/Công nghệ phần mềm/Đồ án CK/SaigonRideProject/SaigonRideProject/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -104,6 +152,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Admin/Documents/A. Học tập/2025-2026/Công nghệ phần mềm/Đồ án CK/SaigonRideProject/SaigonRideProject/Views/User/TopUpPage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxUb3BVcFBhZ2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Admin/Documents/A. Học tập/2025-2026/Công nghệ phần mềm/Đồ án CK/SaigonRideProject/SaigonRideProject/Views/User/UserDashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxVc2VyRGFzaGJvYXJkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Admin/Documents/A. Học tập/2025-2026/Công nghệ phần mềm/Đồ án CK/SaigonRideProject/SaigonRideProject/Views/Vehicle/Create.cshtml]

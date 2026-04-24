@@ -1,0 +1,43 @@
+﻿@model SaigonRideProject.ViewModels.AdminVehicleViewModel
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h3>Edit Vehicle</h3>
+
+<form method="post">
+
+    <input type="hidden" name="Id" value="@Model.Id" />
+
+    <div class="mb-3">
+        <label>Vehicle Type</label>
+        <input class="form-control" name="VehicleType" value="@Model.VehicleType" />
+    </div>
+
+    <div class="mb-3">
+        <label>Plate Number</label>
+        <input class="form-control" name="PlateNumber" value="@Model.PlateNumber" />
+    </div>
+
+    <div class="mb-3">
+        <label>Status</label>
+        <select class="form-control" name="Status">
+            <option selected="@("Available" == Model.Status)">Available</option>
+            <option selected="@("InUse" == Model.Status)">InUse</option>
+            <option selected="@("Maintenance" == Model.Status)">Maintenance</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label>Price Per Minute</label>
+        <input class="form-control" name="PricePerMinute" value="@Model.PricePerMinute" />
+    </div>
+
+    <div class="mb-3">
+        <label>Station Id</label>
+        <input class="form-control" name="StationId" value="@Model.StationId" />
+    </div>
+
+    <button class="btn btn-primary">Save</button>
+</form>

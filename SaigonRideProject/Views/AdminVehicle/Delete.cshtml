@@ -1,0 +1,24 @@
+﻿@model SaigonRideProject.ViewModels.AdminVehicleViewModel
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h3>Delete Vehicle</h3>
+
+<div class="alert alert-danger">
+    Are you sure you want to delete this vehicle?
+</div>
+
+<ul>
+    <li>Type: @Model.VehicleType</li>
+    <li>Plate: @Model.PlateNumber</li>
+    <li>Status: @Model.Status</li>
+</ul>
+
+<form method="post">
+    <input type="hidden" name="Id" value="@Model.Id" />
+
+    <button class="btn btn-danger">Delete</button>
+    <a class="btn btn-secondary" href="/AdminVehicle">Cancel</a>
+</form>

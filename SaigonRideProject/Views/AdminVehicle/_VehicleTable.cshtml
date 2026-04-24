@@ -1,0 +1,50 @@
+﻿@model List<SaigonRideProject.ViewModels.AdminVehicleViewModel>
+
+<table class="table table-striped table-hover table-bordered align-middle">
+    <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Type</th>
+            <th>Plate Number</th>
+            <th>Status</th>
+            <th>Price/Min</th>
+            <th>Station</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var v in Model)
+        {
+            <tr>
+                <td>@v.Id</td>
+                <td>@v.VehicleType</td>
+                <td>@v.PlateNumber</td>
+
+                <td>
+                    @if (v.Status == "Available")
+                    {
+                        <span class="badge bg-success">Available</span>
+                    }
+                    else if (v.Status == "InUse")
+                    {
+                        <span class="badge bg-warning text-dark">In Use</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-secondary">@v.Status</span>
+                    }
+                </td>
+
+                <td>@v.PricePerMinute</td>
+                <td>@v.StationId</td>
+
+                <td class="text-nowrap">
+                    <a class="btn btn-sm btn-warning" href="/AdminVehicle/Edit/@v.Id">Edit</a>
+                    <a class="btn btn-sm btn-info" href="/AdminVehicle/Detail/@v.Id">Detail</a>
+                    <a class="btn btn-sm btn-danger" href="/AdminVehicle/Delete/@v.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

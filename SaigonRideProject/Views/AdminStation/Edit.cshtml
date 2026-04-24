@@ -1,0 +1,34 @@
+﻿@model SaigonRideProject.ViewModels.AdminStationViewModel
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Edit Station</h2>
+
+<form method="post">
+
+    <input type="hidden" asp-for="Id" />
+
+    <div>
+        <label>Name</label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+
+    <div>
+        <label>Address</label>
+        <input asp-for="Address" class="form-control" />
+    </div>
+
+    <div>
+        <label>Capacity</label>
+        <input asp-for="Capacity" class="form-control" />
+    </div>
+
+    <div>
+        <label>Current Inventory</label>
+        <input asp-for="CurrentInventory" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-2">Update</button>
+</form>
