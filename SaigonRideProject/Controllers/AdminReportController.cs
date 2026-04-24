@@ -61,20 +61,54 @@ namespace SaigonRideProject.Controllers
             return View(vm);
         }
 
-        public IActionResult Export()
+        public IActionResult ExportRevenue(int days = 30)
         {
-            var data = _context.Rentals.ToList();
+            var fromDate = DateTime.Now.AddDays(-days);
 
-            var csv = "Id,Amount\n";
+            var data = _context.Rentals
+                .Where(r => r.EndTime != null && r.EndTime >= fromDate)
+                .Include(r => r.Vehicle)
+                .Include(r => r.PickupStation)
+                .ToList();
 
-            foreach (var r in data)
+            var csv = "Station,Bike Revenue,Scooter Revenue,Total\n";
+
+            var grouped = data
+                .GroupBy(r => r.PickupStation.Name)
+                .Select(g => new
+                {
+                    Station = g.Key,
+                    Bike = g.Where(x => x.Vehicle.VehicleType == "Bike").Sum(x => x.FinalAmount),
+                    Scooter = g.Where(x => x.Vehicle.VehicleType == "E-Scooter").Sum(x => x.FinalAmount),
+                    Total = g.Sum(x => x.FinalAmount)
+                });
+
+            foreach (var item in grouped)
             {
-                csv += $"{r.Id},{r.FinalAmount}\n";
+                csv += $"{item.Station},{item.Bike},{item.Scooter},{item.Total}\n";
             }
 
             return File(System.Text.Encoding.UTF8.GetBytes(csv),
                 "text/csv",
-                "report.csv");
+                $"Revenue_Report_{days}days.csv");
+        }
+
+        public IActionResult ExportInventory()
+        {
+            var stations = _context.Stations.ToList();
+
+            var csv = "Station,Capacity,Current,Status\n";
+
+            foreach (var s in stations)
+            {
+                var status = s.CurrentInventory < (s.Capacity * 0.2) ? "Low" : "Normal";
+
+                csv += $"{s.Name},{s.Capacity},{s.CurrentInventory},{status}\n";
+            }
+
+            return File(System.Text.Encoding.UTF8.GetBytes(csv),
+                "text/csv",
+                "Inventory_Report.csv");
         }
     }
 }
