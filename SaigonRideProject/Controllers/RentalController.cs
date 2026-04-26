@@ -82,10 +82,23 @@ namespace SaigonRideProject.Controllers
 
         public IActionResult Start(int vehicleId, int stationId)
         {
+
             var userId = HttpContext.Session.GetInt32("UserId");
 
             if (userId == null)
                 return RedirectToAction("Login", "Account");
+
+            var activeRental = _context.Rentals
+                .FirstOrDefault(r =>
+                    r.UserId == userId.Value &&
+                    r.Status == "InProgress" &&
+                    r.EndTime == null
+                );
+
+            if (activeRental != null)
+            {
+                return RedirectToAction("Current", new { id = activeRental.Id });
+            }
 
             var user = _context.Users.Find(userId);
 
@@ -124,6 +137,27 @@ namespace SaigonRideProject.Controllers
                 transaction.Rollback();
                 return BadRequest("Failed to start rental");
             }
+        }
+
+        [HttpGet]
+        public IActionResult GetActiveRental()
+        {
+            var userId = HttpContext.Session.GetInt32("UserId");
+
+            if (userId == null)
+                return Json(null);
+
+            var rental = _context.Rentals
+                .Where(r => r.UserId == userId && r.Status == "InProgress")
+                .Select(r => new
+                {
+                    r.Id,
+                    r.StartTime,
+                    r.Vehicle.PricePerMinute
+                })
+                .FirstOrDefault();
+
+            return Json(rental);
         }
 
         public IActionResult Current(int id)
