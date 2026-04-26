@@ -107,7 +107,7 @@ namespace SaigonRideProject.Data
                 .HasOne(t => t.User)
                 .WithMany(u => u.WalletTransactions)
                 .HasForeignKey(t => t.UserId)
-                .OnDelete(DeleteBehavior.NoAction);
+                .OnDelete(DeleteBehavior.Cascade);
 
             // ================= SEED ADMIN =================
             modelBuilder.Entity<User>().HasData(

@@ -13,7 +13,7 @@
 <form method="post" enctype="multipart/form-data">
 
     <label>
-        @(userType == "Local" ? "CCCD Number" : "Passport Number")
+        @(userType == "Local" ? "CCCD Number (12 digits)" : "Passport Number (6–12 alphanumeric)")
     </label>
 
     <input type="text" name="identityNumber" class="form-control" required />

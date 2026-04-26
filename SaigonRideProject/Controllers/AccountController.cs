@@ -2,6 +2,7 @@
 using SaigonRideProject.Data;
 using SaigonRideProject.Models;
 using SaigonRideProject.Services;
+using SaigonRideProject.ViewModels;
 
 namespace SaigonRideProject.Controllers
 {
@@ -33,25 +34,34 @@ namespace SaigonRideProject.Controllers
         }
 
         [HttpPost]
-        public IActionResult Register(User user, string confirmPassword)
+        public IActionResult Register(RegisterViewModel model)
         {
-            if (user.PasswordHash != confirmPassword)
+            if (!ModelState.IsValid)
+                return View(model);
+
+            if (model.Password != model.ConfirmPassword)
             {
                 ViewBag.Error = "Passwords do not match";
-                return View(user);
+                return View(model);
             }
 
-            if (_context.Users.Any(u => u.Email == user.Email))
+            if (_context.Users.Any(u => u.Email == model.Email))
             {
                 ViewBag.Error = "Email already exists";
-                return View(user);
+                return View(model);
             }
 
-            user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(user.PasswordHash);
-            user.IsVerified = false;
-            user.Role = "User";
-            user.IdentityType = "None";
-            user.PassportStatus = "Pending";
+            var user = new User
+            {
+                FullName = model.FullName,
+                Email = model.Email,
+                PasswordHash = BCrypt.Net.BCrypt.HashPassword(model.Password),
+                IsVerified = false,
+                Role = "User",
+                UserType = "Pending",
+                IdentityType = null,
+                PassportStatus = "Pending"
+            };
 
             _context.Users.Add(user);
             _context.SaveChanges();
@@ -71,6 +81,11 @@ namespace SaigonRideProject.Controllers
         [HttpPost]
         public IActionResult SelectUserType(string userType)
         {
+            if (userType != "Local" && userType != "Tourist")
+            {
+                ViewBag.Error = "Invalid user type";
+                return View();
+            }
             var userId = HttpContext.Session.GetInt32("TempUserId");
 
             if (userId == null)
@@ -146,16 +161,38 @@ namespace SaigonRideProject.Controllers
         public IActionResult IdentityVerification(string identityNumber, IFormFile file)
         {
             var userId = HttpContext.Session.GetInt32("UserId");
-
             if (userId == null)
                 return RedirectToAction("Login");
-
             var user = _context.Users.Find(userId);
+
+            if (user == null)
+            {
+                return RedirectToAction("Login");
+            }
+
+            // ================= VALIDATION =================
 
             if (string.IsNullOrWhiteSpace(identityNumber))
             {
                 ViewBag.Error = "Identity number is required";
                 return View();
+            }
+
+            if (user.UserType == "Local")
+            {
+                if (!System.Text.RegularExpressions.Regex.IsMatch(identityNumber, @"^\d{12}$"))
+                {
+                    ViewBag.Error = "CCCD must be exactly 12 digits";
+                    return View();
+                }
+            }
+            else if (user.UserType == "Tourist")
+            {
+                if (!System.Text.RegularExpressions.Regex.IsMatch(identityNumber, @"^[A-Z0-9]{6,12}$"))
+                {
+                    ViewBag.Error = "Passport format is invalid";
+                    return View();
+                }
             }
 
             if (file == null || file.Length == 0)
@@ -164,8 +201,8 @@ namespace SaigonRideProject.Controllers
                 return View();
             }
 
-            var extension = Path.GetExtension(file.FileName).ToLower();
             var allowed = new[] { ".jpg", ".png", ".pdf" };
+            var extension = Path.GetExtension(file.FileName).ToLower();
 
             if (!allowed.Contains(extension))
             {
@@ -175,12 +212,11 @@ namespace SaigonRideProject.Controllers
 
             if (file.Length > 5 * 1024 * 1024)
             {
-                ViewBag.Error = "File too large";
+                ViewBag.Error = "File too large (max 5MB)";
                 return View();
             }
 
             var folder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/uploads/identity");
-
             if (!Directory.Exists(folder))
                 Directory.CreateDirectory(folder);
 
@@ -194,8 +230,10 @@ namespace SaigonRideProject.Controllers
 
             user.IdentityNumber = identityNumber;
             user.IdentityImageUrl = "/uploads/identity/" + fileName;
+
             user.IdentityType = user.UserType == "Local" ? "CCCD" : "Passport";
-            user.PassportStatus = "Pending";
+
+            user.PassportStatus = "Pending"; // admin approve later
 
             _context.SaveChanges();
 
@@ -219,7 +257,13 @@ namespace SaigonRideProject.Controllers
         {
             var user = _context.Users.FirstOrDefault(u => u.Email == email);
 
-            if (user == null || !BCrypt.Net.BCrypt.Verify(password, user.PasswordHash))
+            if (user == null)
+            {
+                ViewBag.Error = "Invalid email or password";
+                return View();
+            }
+
+            if (!BCrypt.Net.BCrypt.Verify(password, user.PasswordHash))
             {
                 ViewBag.Error = "Invalid email or password";
                 return View();
@@ -228,6 +272,24 @@ namespace SaigonRideProject.Controllers
             if (!user.IsVerified)
             {
                 ViewBag.Error = "Please verify OTP first";
+                return View();
+            }
+
+            if (string.IsNullOrEmpty(user.UserType))
+            {
+                ViewBag.Error = "Please complete onboarding (User Type)";
+                return View();
+            }
+
+            if (string.IsNullOrEmpty(user.IdentityNumber))
+            {
+                ViewBag.Error = "Please complete identity verification";
+                return View();
+            }
+
+            if (user.PassportStatus != "Approved")
+            {
+                ViewBag.Error = "Identity verification is pending approval";
                 return View();
             }
 

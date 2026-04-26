@@ -1,5 +1,4 @@
-﻿@model SaigonRideProject.Models.User
-
+﻿@model SaigonRideProject.ViewModels.RegisterViewModel
 @{
     Layout = "_Layout";
 }
@@ -66,7 +65,7 @@
 
                             <div class="mb-3 mt-2">
                                 <label class="form-label small fw-bold text-secondary text-uppercase" style="font-size: 11px;">Password</label>
-                                <input asp-for="PasswordHash" type="password" class="form-control border-0 bg-light py-3 px-4 shadow-none" 
+                                <input asp-for="Password" type="password" class="form-control border-0 bg-light py-3 px-4 shadow-none" 
                                        style="border-radius: 15px; background-color: #f0f2f5 !important;" placeholder="••••••••" required />
                             </div>
 
@@ -74,16 +73,6 @@
                                 <label class="form-label small fw-bold text-secondary text-uppercase" style="font-size: 11px;">Confirm Password</label>
                                 <input name="confirmPassword" type="password" class="form-control border-0 bg-light py-3 px-4 shadow-none" 
                                        style="border-radius: 15px; background-color: #f0f2f5 !important;" placeholder="••••••••" required />
-                            </div>
-
-                            <div class="mb-4 pt-2">
-                                <label class="form-label small fw-bold text-secondary text-uppercase mb-3" style="font-size: 11px;">Select Traveler Type</label>
-                                <select asp-for="UserType" class="form-select border-0 bg-light py-3 px-4 shadow-none" 
-                                        id="userType" onchange="togglePassportField()" style="border-radius: 15px; background-color: #f0f2f5 !important;" required>
-                                    <option value="">Select User Type</option>
-                                    <option value="Local">Local User</option>
-                                    <option value="Tourist">Tourist</option>
-                                </select>
                             </div>
 
                             <div class="d-grid mt-5">
