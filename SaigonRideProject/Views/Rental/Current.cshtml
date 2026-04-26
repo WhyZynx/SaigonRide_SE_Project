@@ -47,9 +47,18 @@
             <div id="bill"></div>
 
             <select id="paymentMethod" class="form-control mt-2">
-                <option value="Cash">Cash</option>
-                <option value="MoMo">MoMo</option>
-                <option value="VNPay">VNPay</option>
+                @if (Model.UserType == "Local")
+                {
+                    <option value="MoMo">MoMo</option>
+                    <option value="VNPay">VNPay</option>
+                    <option value="Cash">Cash</option>
+                }
+                else
+                {
+                    <option value="PayPal">PayPal</option>
+                    <option value="ApplePay">Apple Pay</option>
+                    <option value="Cash">Cash</option>
+                }
             </select>
 
             <form id="form" method="post" action="/Rental/ConfirmPayment">

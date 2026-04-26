@@ -8,5 +8,7 @@
         public decimal PricePerMinute { get; set; }
         public double PickupLat { get; set; }
         public double PickupLng { get; set; }
+        public string UserType { get; set; } = string.Empty;  
+
     }
 }
