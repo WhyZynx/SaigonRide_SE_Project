@@ -1,0 +1,30 @@
+﻿@{
+    Layout = "_Layout";
+    var userType = Context.Session.GetString("UserType");
+}
+
+<h2>Identity Verification</h2>
+
+@if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger">@ViewBag.Error</div>
+}
+
+<form method="post" enctype="multipart/form-data">
+
+    <label>
+        @(userType == "Local" ? "CCCD Number" : "Passport Number")
+    </label>
+
+    <input type="text" name="identityNumber" class="form-control" required />
+
+    <label class="mt-3">
+        Upload @(userType == "Local" ? "CCCD" : "Passport")
+    </label>
+
+    <input type="file" name="file" class="form-control" required />
+
+    <button type="submit" class="btn btn-success mt-3">
+        Submit
+    </button>
+</form>

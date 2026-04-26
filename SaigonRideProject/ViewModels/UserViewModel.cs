@@ -10,7 +10,9 @@
         public bool IsVerified { get; set; }
         public bool IsLocked { get; set; }
 
-        public string PassportNumber { get; set; }
+        public string? IdentityNumber { get; set; }
+        public string? IdentityImageUrl { get; set; }
+        public string IdentityType { get; set; } = "None";
         public string PassportStatus { get; set; }
 
         public decimal Balance { get; set; }

@@ -86,13 +86,6 @@
                                 </select>
                             </div>
 
-                            <div id="passportSection" style="display:none;" class="mb-4">
-                                <label class="form-label small fw-bold text-secondary text-uppercase" style="font-size: 11px;">Passport Number</label>
-                                <input asp-for="PassportNumber" class="form-control border-0 bg-light py-3 px-4 shadow-none" 
-                                       id="passportInput" style="border-radius: 15px; border-left: 5px solid #446881 !important; background-color: #f0f2f5 !important;" 
-                                       placeholder="Enter passport for Tourist" />
-                            </div>
-
                             <div class="d-grid mt-5">
                                 <button type="submit" class="btn border-0 py-3 rounded-pill fw-bold text-white shadow" 
                                         style="background-color: #446881;">
@@ -110,20 +103,3 @@
         </div>
     </div>
 </div>
-
-<script>
-    function togglePassportField() {
-        let userType = document.getElementById("userType").value;
-        let passportSection = document.getElementById("passportSection");
-
-        if (userType === "Tourist") {
-            passportSection.style.display = "block";
-        } else {
-            passportSection.style.display = "none";
-        }
-    }
-
-    window.onload = function () {
-        togglePassportField();
-    };
-</script>

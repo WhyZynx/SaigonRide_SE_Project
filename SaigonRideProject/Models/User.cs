@@ -23,10 +23,9 @@ namespace SaigonRideProject.Models
         public string Role { get; set; } = "User";
 
         public bool IsVerified { get; set; }
-
-        public string? PassportNumber { get; set; }
-
-        public string? PassportImageUrl { get; set; }
+        public string? IdentityNumber { get; set; }
+        public string? IdentityImageUrl { get; set; }
+        public string IdentityType { get; set; } = "None";
 
         public string PassportStatus { get; set; } = "Pending";
 

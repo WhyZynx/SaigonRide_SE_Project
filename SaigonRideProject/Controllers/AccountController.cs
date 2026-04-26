@@ -2,8 +2,6 @@
 using SaigonRideProject.Data;
 using SaigonRideProject.Models;
 using SaigonRideProject.Services;
-using System.Security.Cryptography;
-using System.Text;
 
 namespace SaigonRideProject.Controllers
 {
@@ -12,9 +10,7 @@ namespace SaigonRideProject.Controllers
         private readonly AppDbContext _context;
         private readonly EmailService _emailService;
 
-        public AccountController(
-            AppDbContext context,
-            EmailService emailService)
+        public AccountController(AppDbContext context, EmailService emailService)
         {
             _context = context;
             _emailService = emailService;
@@ -26,27 +22,19 @@ namespace SaigonRideProject.Controllers
             HttpContext.Session.SetString("Email", user.Email);
             HttpContext.Session.SetString("UserType", user.UserType);
             HttpContext.Session.SetString("Role", user.Role);
+            HttpContext.Session.SetString("UserName", user.FullName);
         }
+
+        // ================= REGISTER =================
 
         public IActionResult Register()
         {
             return View();
         }
+
         [HttpPost]
         public IActionResult Register(User user, string confirmPassword)
         {
-            if (string.IsNullOrWhiteSpace(user.Email))
-            {
-                ViewBag.Error = "Email is required";
-                return View(user);
-            }
-
-            if (user.PasswordHash is null || user.PasswordHash.Length < 6)
-            {
-                ViewBag.Error = "Password must be at least 6 characters";
-                return View(user);
-            }
-
             if (user.PasswordHash != confirmPassword)
             {
                 ViewBag.Error = "Passwords do not match";
@@ -59,20 +47,38 @@ namespace SaigonRideProject.Controllers
                 return View(user);
             }
 
-            if (user.UserType == "Tourist" && string.IsNullOrWhiteSpace(user.PassportNumber))
-            {
-                ViewBag.Error = "Passport is required for tourists";
-                return View(user);
-            }
-
-            var rawPassword = user.PasswordHash;
-
-            user.PasswordHash = HashPassword(rawPassword);
+            user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(user.PasswordHash);
             user.IsVerified = false;
-            user.PassportStatus = "Pending";
             user.Role = "User";
+            user.IdentityType = "None";
+            user.PassportStatus = "Pending";
 
             _context.Users.Add(user);
+            _context.SaveChanges();
+
+            HttpContext.Session.SetInt32("TempUserId", user.Id);
+
+            return RedirectToAction("SelectUserType");
+        }
+
+        // ================= USER TYPE =================
+
+        public IActionResult SelectUserType()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult SelectUserType(string userType)
+        {
+            var userId = HttpContext.Session.GetInt32("TempUserId");
+
+            if (userId == null)
+                return RedirectToAction("Register");
+
+            var user = _context.Users.Find(userId);
+
+            user.UserType = userType;
 
             var otp = new OtpVerification
             {
@@ -91,6 +97,8 @@ namespace SaigonRideProject.Controllers
             return RedirectToAction("VerifyOtp");
         }
 
+        // ================= OTP =================
+
         public IActionResult VerifyOtp()
         {
             return View();
@@ -107,8 +115,7 @@ namespace SaigonRideProject.Controllers
             var otp = _context.OtpVerifications.FirstOrDefault(o =>
                 o.Email == email &&
                 o.OtpCode == otpCode &&
-                o.ExpiryTime > DateTime.Now)
-                ?? null;
+                o.ExpiryTime > DateTime.Now);
 
             if (otp == null)
             {
@@ -116,11 +123,7 @@ namespace SaigonRideProject.Controllers
                 return View();
             }
 
-            var user = _context.Users.FirstOrDefault(u => u.Email == email)
-                ?? null;
-
-            if (user == null)
-                return RedirectToAction("Register");
+            var user = _context.Users.FirstOrDefault(u => u.Email == email);
 
             user.IsVerified = true;
 
@@ -129,11 +132,82 @@ namespace SaigonRideProject.Controllers
 
             SetUserSession(user);
 
-            if (user.UserType == "Tourist")
-                return RedirectToAction("UploadPassport", "Passport");
-
-            return RedirectToAction("UserDashboard", "User");
+            return RedirectToAction("IdentityVerification");
         }
+
+        // ================= IDENTITY =================
+
+        public IActionResult IdentityVerification()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult IdentityVerification(string identityNumber, IFormFile file)
+        {
+            var userId = HttpContext.Session.GetInt32("UserId");
+
+            if (userId == null)
+                return RedirectToAction("Login");
+
+            var user = _context.Users.Find(userId);
+
+            if (string.IsNullOrWhiteSpace(identityNumber))
+            {
+                ViewBag.Error = "Identity number is required";
+                return View();
+            }
+
+            if (file == null || file.Length == 0)
+            {
+                ViewBag.Error = "File is required";
+                return View();
+            }
+
+            var extension = Path.GetExtension(file.FileName).ToLower();
+            var allowed = new[] { ".jpg", ".png", ".pdf" };
+
+            if (!allowed.Contains(extension))
+            {
+                ViewBag.Error = "Invalid file format";
+                return View();
+            }
+
+            if (file.Length > 5 * 1024 * 1024)
+            {
+                ViewBag.Error = "File too large";
+                return View();
+            }
+
+            var folder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/uploads/identity");
+
+            if (!Directory.Exists(folder))
+                Directory.CreateDirectory(folder);
+
+            var fileName = Guid.NewGuid() + extension;
+            var path = Path.Combine(folder, fileName);
+
+            using (var stream = new FileStream(path, FileMode.Create))
+            {
+                file.CopyTo(stream);
+            }
+
+            user.IdentityNumber = identityNumber;
+            user.IdentityImageUrl = "/uploads/identity/" + fileName;
+            user.IdentityType = user.UserType == "Local" ? "CCCD" : "Passport";
+            user.PassportStatus = "Pending";
+
+            _context.SaveChanges();
+
+            return RedirectToAction("RegisterSuccess");
+        }
+
+        public IActionResult RegisterSuccess()
+        {
+            return View();
+        }
+
+        // ================= LOGIN =================
 
         public IActionResult Login()
         {
@@ -143,12 +217,9 @@ namespace SaigonRideProject.Controllers
         [HttpPost]
         public IActionResult Login(string email, string password)
         {
-            var hashed = HashPassword(password);
+            var user = _context.Users.FirstOrDefault(u => u.Email == email);
 
-            var user = _context.Users.FirstOrDefault(u =>
-                u.Email == email && u.PasswordHash == hashed);
-
-            if (user == null)
+            if (user == null || !BCrypt.Net.BCrypt.Verify(password, user.PasswordHash))
             {
                 ViewBag.Error = "Invalid email or password";
                 return View();
@@ -159,9 +230,6 @@ namespace SaigonRideProject.Controllers
                 ViewBag.Error = "Please verify OTP first";
                 return View();
             }
-            HttpContext.Session.SetInt32("UserId", user.Id);
-            HttpContext.Session.SetString("UserName", user.FullName);
-            HttpContext.Session.SetString("Balance", user.Balance.ToString("N0"));
 
             SetUserSession(user);
 
@@ -169,6 +237,7 @@ namespace SaigonRideProject.Controllers
                 ? RedirectToAction("Dashboard", "Admin")
                 : RedirectToAction("UserDashboard", "User");
         }
+
         public IActionResult Logout()
         {
             HttpContext.Session.Clear();
@@ -178,12 +247,6 @@ namespace SaigonRideProject.Controllers
         private static string GenerateOtp()
         {
             return Random.Shared.Next(100000, 999999).ToString();
-        }
-
-        private static string HashPassword(string password)
-        {
-            var bytes = SHA256.HashData(Encoding.UTF8.GetBytes(password));
-            return Convert.ToBase64String(bytes);
         }
     }
 }

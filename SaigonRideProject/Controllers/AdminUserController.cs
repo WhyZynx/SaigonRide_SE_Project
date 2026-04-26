@@ -49,7 +49,8 @@ namespace SaigonRideProject.Controllers
                 UserType = x.UserType,
                 IsVerified = x.IsVerified,
                 IsLocked = x.IsLocked,
-                PassportNumber = x.PassportNumber,
+                IdentityImageUrl = x.IdentityImageUrl,
+                IdentityType = x.IdentityType,
                 PassportStatus = x.PassportStatus,
                 Balance = x.Balance
             }).ToList();
@@ -90,7 +91,9 @@ namespace SaigonRideProject.Controllers
                 UserType = user.UserType,
                 IsVerified = user.IsVerified,
                 IsLocked = user.IsLocked,
-                PassportNumber = user.PassportNumber,
+                IdentityNumber = user.IdentityNumber,
+                IdentityImageUrl = user.IdentityImageUrl,
+                IdentityType = user.IdentityType,
                 PassportStatus = user.PassportStatus,
                 Balance = user.Balance
             };

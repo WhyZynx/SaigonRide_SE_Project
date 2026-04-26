@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SaigonRideProject.Data;
 
@@ -11,9 +12,11 @@ using SaigonRideProject.Data;
 namespace SaigonRideProject.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260425184605_add indentity number and typ of identity")]
+    partial class addindentitynumberandtypofidentity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -299,6 +302,7 @@ namespace SaigonRideProject.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("IdentityImageUrl")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("IdentityNumber")
@@ -354,7 +358,7 @@ namespace SaigonRideProject.Migrations
                             IsLocked = false,
                             IsVerified = true,
                             PassportStatus = "Approved",
-                            PasswordHash = "$2a$11$1BNknxqDbHtGeRNxCYJFsO05B01VsUh0ORVrr1xeqN0yJS7nhlT2a",
+                            PasswordHash = "$2a$11$1oeY.v3kea2o9GSosNw9k.2oEXFj0DxshTE6jKyH9FzZOX4sItmJi",
                             Role = "Admin",
                             UserType = "Local"
                         });
@@ -436,7 +440,7 @@ namespace SaigonRideProject.Migrations
                             PlateNumber = "SC-002",
                             PricePerMinute = 1500m,
                             StationId = 1,
-                            Status = "Available",
+                            Status = "Reserved",
                             VehicleType = "E-Scooter"
                         },
                         new
@@ -499,7 +503,7 @@ namespace SaigonRideProject.Migrations
                             PlateNumber = "BK-202",
                             PricePerMinute = 500m,
                             StationId = 3,
-                            Status = "Available",
+                            Status = "Reserved",
                             VehicleType = "Bike"
                         },
                         new
@@ -562,7 +566,7 @@ namespace SaigonRideProject.Migrations
                             PlateNumber = "SC-301",
                             PricePerMinute = 1500m,
                             StationId = 4,
-                            Status = "Available",
+                            Status = "Reserved",
                             VehicleType = "E-Scooter"
                         },
                         new
@@ -634,7 +638,7 @@ namespace SaigonRideProject.Migrations
                             PlateNumber = "BK-502",
                             PricePerMinute = 500m,
                             StationId = 6,
-                            Status = "Available",
+                            Status = "Reserved",
                             VehicleType = "Bike"
                         },
                         new
