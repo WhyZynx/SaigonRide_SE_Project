@@ -3,124 +3,284 @@
   "WorkspaceRootPath": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\services\\walletservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\services\\walletservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\controllers\\rentalcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\controllers\\rentalcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\controllers\\basecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\controllers\\basecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\viewmodels\\userdashboardviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\viewmodels\\userdashboardviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\viewmodels\\forgotpasswordviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\viewmodels\\forgotpasswordviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\controllers\\rentalcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\controllers\\rentalcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\views\\rental\\paymentsuccess.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\views\\rental\\paymentsuccess.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\views\\rental\\history.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\views\\rental\\history.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\controllers\\reportcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\controllers\\reportcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\services\\rentalservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\services\\rentalservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\services\\pricing\\ipricingstrategy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\services\\pricing\\ipricingstrategy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\wwwroot\\js\\rental\\currenttrip.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\wwwroot\\js\\rental\\currenttrip.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\services\\pricing\\defaultpricingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\services\\pricing\\defaultpricingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\views\\user\\topuppage.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\views\\user\\topuppage.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\viewmodels\\registerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\viewmodels\\registerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\viewmodels\\currenttripviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\viewmodels\\currenttripviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\migrations\\appdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\migrations\\appdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\models\\vehicle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\models\\vehicle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\models\\rental.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\models\\rental.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\models\\station.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\models\\station.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\models\\wallettransaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\models\\wallettransaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\services\\fileuploadservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\services\\fileuploadservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\views\\rental\\current.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\views\\rental\\current.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\viewmodels\\stationdetailviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\viewmodels\\stationdetailviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\services\\pricing\\defaultpricingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\services\\pricing\\defaultpricingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\services\\pricing\\ipricingstrategy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\services\\pricing\\ipricingstrategy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\services\\pricing\\pricingfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\services\\pricing\\pricingfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\services\\payments\\paymentmethodprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\services\\payments\\paymentmethodprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\viewmodels\\currenttripviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\viewmodels\\currenttripviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\views\\user\\topuppage.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\views\\user\\topuppage.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\services\\pricing\\localpricingstrategy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\services\\pricing\\localpricingstrategy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\services\\pricing\\pricingresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\services\\pricing\\pricingresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\services\\payments\\ipaymentstrategy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\services\\payments\\ipaymentstrategy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\services\\pricing\\touristpricingstrategy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\services\\pricing\\touristpricingstrategy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\views\\user\\userdashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\views\\user\\userdashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\services\\walletservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\services\\walletservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\services\\payments\\paymentfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\services\\payments\\paymentfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\services\\payments\\applepaypayment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\services\\payments\\applepaypayment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\services\\payments\\vnpaypayment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\services\\payments\\vnpaypayment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\repositories\\stationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\repositories\\stationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\repositories\\istationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\repositories\\istationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\models\\wallettransaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\models\\wallettransaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\models\\vehicle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\models\\vehicle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\models\\station.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\models\\station.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\models\\rental.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\models\\rental.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\models\\payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\models\\payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\models\\otpverification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\models\\otpverification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\controllers\\vehiclecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\controllers\\vehiclecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\controllers\\stationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\controllers\\stationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\viewmodels\\userdashboardviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\viewmodels\\userdashboardviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\views\\passport\\uploadpassport.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\views\\passport\\uploadpassport.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\views\\account\\forgotpassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\views\\account\\forgotpassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\services\\emailservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\services\\emailservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\views\\account\\identityverification.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\views\\account\\identityverification.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\viewmodels\\registerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\viewmodels\\registerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\views\\account\\selectusertype.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\views\\account\\selectusertype.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\viewmodels\\userviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\viewmodels\\userviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\views\\account\\verifyotp.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\views\\account\\verifyotp.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\views\\account\\registersuccess.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\views\\account\\registersuccess.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\services\\fileuploadservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\services\\fileuploadservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\views\\adminstation\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\views\\adminstation\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\views\\rental\\paymentsuccess.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\views\\rental\\paymentsuccess.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\views\\user\\transactions.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\views\\user\\transactions.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\saigonrideproject.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\saigonrideproject.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\views\\adminuser\\_usertable.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\views\\adminuser\\_usertable.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\views\\adminuser\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\views\\adminuser\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\views\\adminuser\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\views\\adminuser\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\controllers\\adminusercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\controllers\\adminusercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\views\\shared\\_validationscriptspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\views\\shared\\_validationscriptspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\views\\rental\\history.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\views\\rental\\history.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\migrations\\appdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\migrations\\appdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\viewmodels\\stationdetailviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\viewmodels\\stationdetailviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\views\\vehicle\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -135,34 +295,6 @@
       "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\views\\station\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\saigonrideproject.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
-      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\saigonrideproject.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\controllers\\stationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\controllers\\stationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\services\\emailservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\services\\emailservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\models\\payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\models\\payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\models\\otpverification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\models\\otpverification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\views\\rental\\current.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\views\\rental\\current.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\wwwroot\\js\\rental\\currenttrip.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\wwwroot\\js\\rental\\currenttrip.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\views\\rental\\stationlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\views\\rental\\stationlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -171,36 +303,12 @@
       "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\views\\rental\\stationdetail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\views\\account\\verifyotp.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\views\\account\\verifyotp.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\services\\payments\\ipaymentstrategy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\services\\payments\\ipaymentstrategy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\services\\payments\\applepaypayment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\services\\payments\\applepaypayment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\services\\payments\\paypalpayment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\services\\payments\\paypalpayment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\services\\payments\\cashpayment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\services\\payments\\cashpayment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\services\\payments\\vnpaypayment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\services\\payments\\vnpaypayment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\services\\payments\\momopayment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -215,24 +323,8 @@
       "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\controllers\\passportcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\controllers\\passportcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\services\\passportservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\services\\passportservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\views\\passport\\uploadpassport.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\views\\passport\\uploadpassport.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\admin\\documents\\a. h\u1ECDc t\u1EADp\\2025-2026\\c\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0111\u1ED3 \u00E1n ck\\saigonrideproject\\saigonrideproject\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
@@ -257,10 +349,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Controllers\\WalletController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SaigonRideProject\\Controllers\\WalletController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Controllers\\BaseController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SaigonRideProject\\Controllers\\BaseController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Views\\Wallet\\TopUp.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -322,19 +410,59 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
+              "Title": "BaseController.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Controllers\\BaseController.cs",
+              "RelativeDocumentMoniker": "SaigonRideProject\\Controllers\\BaseController.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Controllers\\BaseController.cs",
+              "RelativeToolTip": "SaigonRideProject\\Controllers\\BaseController.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAuwB4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-26T15:48:35.906Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "RentalController.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Controllers\\RentalController.cs",
               "RelativeDocumentMoniker": "SaigonRideProject\\Controllers\\RentalController.cs",
               "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Controllers\\RentalController.cs",
               "RelativeToolTip": "SaigonRideProject\\Controllers\\RentalController.cs",
-              "ViewState": "AgIAANgAAAAAAAAAAAAqwOsAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAFgAAAAAAAAAAAAUwFwAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-19T10:33:03.281Z"
+              "WhenOpened": "2026-04-19T10:33:03.281Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "SaigonRideProject\\Controllers\\UserController.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Controllers\\UserController.cs",
+              "RelativeToolTip": "SaigonRideProject\\Controllers\\UserController.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAWwA8AAAB8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-19T10:24:27.98Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ForgotPasswordViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\ViewModels\\ForgotPasswordViewModel.cs",
+              "RelativeDocumentMoniker": "SaigonRideProject\\ViewModels\\ForgotPasswordViewModel.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\ViewModels\\ForgotPasswordViewModel.cs",
+              "RelativeToolTip": "SaigonRideProject\\ViewModels\\ForgotPasswordViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-26T09:55:18.476Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -344,62 +472,790 @@
               "RelativeDocumentMoniker": "SaigonRideProject\\Views\\Shared\\_Layout.cshtml",
               "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "SaigonRideProject\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAFQAAAAAAAAAAAAuwBMAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAACsAAAAAAAAAAAAAADYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-16T01:33:24.194Z"
+              "WhenOpened": "2026-04-16T01:33:24.194Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "UserDashboardViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\ViewModels\\UserDashboardViewModel.cs",
-              "RelativeDocumentMoniker": "SaigonRideProject\\ViewModels\\UserDashboardViewModel.cs",
-              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\ViewModels\\UserDashboardViewModel.cs",
-              "RelativeToolTip": "SaigonRideProject\\ViewModels\\UserDashboardViewModel.cs",
+              "DocumentIndex": 5,
+              "Title": "ReportController.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Controllers\\ReportController.cs",
+              "RelativeDocumentMoniker": "SaigonRideProject\\Controllers\\ReportController.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Controllers\\ReportController.cs",
+              "RelativeToolTip": "SaigonRideProject\\Controllers\\ReportController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-24T17:11:22.417Z"
+              "WhenOpened": "2026-04-26T15:49:01.559Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 6,
+              "Title": "RentalService.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Services\\RentalService.cs",
+              "RelativeDocumentMoniker": "SaigonRideProject\\Services\\RentalService.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Services\\RentalService.cs",
+              "RelativeToolTip": "SaigonRideProject\\Services\\RentalService.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAgwCMAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-19T10:33:36.265Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "currentTrip.js",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\wwwroot\\js\\rental\\currentTrip.js",
+              "RelativeDocumentMoniker": "SaigonRideProject\\wwwroot\\js\\rental\\currentTrip.js",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\wwwroot\\js\\rental\\currentTrip.js",
+              "RelativeToolTip": "SaigonRideProject\\wwwroot\\js\\rental\\currentTrip.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2026-04-19T16:36:40.245Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Current.cshtml",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Views\\Rental\\Current.cshtml",
+              "RelativeDocumentMoniker": "SaigonRideProject\\Views\\Rental\\Current.cshtml",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Views\\Rental\\Current.cshtml",
+              "RelativeToolTip": "SaigonRideProject\\Views\\Rental\\Current.cshtml",
+              "ViewState": "AgIAAE0AAAAAAAAAAAAQwFUAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-19T11:10:18.64Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Program.cs",
+              "RelativeDocumentMoniker": "SaigonRideProject\\Program.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Program.cs",
+              "RelativeToolTip": "SaigonRideProject\\Program.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAQwCEAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-16T01:24:55.079Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "DefaultPricingService.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Services\\Pricing\\DefaultPricingService.cs",
+              "RelativeDocumentMoniker": "SaigonRideProject\\Services\\Pricing\\DefaultPricingService.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Services\\Pricing\\DefaultPricingService.cs",
+              "RelativeToolTip": "SaigonRideProject\\Services\\Pricing\\DefaultPricingService.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAmwCAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-24T16:32:35.515Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "IPricingStrategy.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Services\\Pricing\\IPricingStrategy.cs",
+              "RelativeDocumentMoniker": "SaigonRideProject\\Services\\Pricing\\IPricingStrategy.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Services\\Pricing\\IPricingStrategy.cs",
+              "RelativeToolTip": "SaigonRideProject\\Services\\Pricing\\IPricingStrategy.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAcwA0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-24T16:32:38.736Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "PricingFactory.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Services\\Pricing\\PricingFactory.cs",
+              "RelativeDocumentMoniker": "SaigonRideProject\\Services\\Pricing\\PricingFactory.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Services\\Pricing\\PricingFactory.cs",
+              "RelativeToolTip": "SaigonRideProject\\Services\\Pricing\\PricingFactory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-26T14:17:49.113Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "PaymentMethodProvider.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Services\\Payments\\PaymentMethodProvider.cs",
+              "RelativeDocumentMoniker": "SaigonRideProject\\Services\\Payments\\PaymentMethodProvider.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Services\\Payments\\PaymentMethodProvider.cs",
+              "RelativeToolTip": "SaigonRideProject\\Services\\Payments\\PaymentMethodProvider.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-26T14:32:59.707Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "CurrentTripViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\ViewModels\\CurrentTripViewModel.cs",
+              "RelativeDocumentMoniker": "SaigonRideProject\\ViewModels\\CurrentTripViewModel.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\ViewModels\\CurrentTripViewModel.cs",
+              "RelativeToolTip": "SaigonRideProject\\ViewModels\\CurrentTripViewModel.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAIwAwAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-24T16:15:39.402Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "TopUpPage.cshtml",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Views\\User\\TopUpPage.cshtml",
+              "RelativeDocumentMoniker": "SaigonRideProject\\Views\\User\\TopUpPage.cshtml",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Views\\User\\TopUpPage.cshtml",
+              "RelativeToolTip": "SaigonRideProject\\Views\\User\\TopUpPage.cshtml",
+              "ViewState": "AgIAABEAAAAAAAAAAAAQwBkAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-19T10:35:25.464Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "LocalPricingStrategy.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Services\\Pricing\\LocalPricingStrategy.cs",
+              "RelativeDocumentMoniker": "SaigonRideProject\\Services\\Pricing\\LocalPricingStrategy.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Services\\Pricing\\LocalPricingStrategy.cs",
+              "RelativeToolTip": "SaigonRideProject\\Services\\Pricing\\LocalPricingStrategy.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAQwBUAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-26T14:16:40.062Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "PricingResult.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Services\\Pricing\\PricingResult.cs",
+              "RelativeDocumentMoniker": "SaigonRideProject\\Services\\Pricing\\PricingResult.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Services\\Pricing\\PricingResult.cs",
+              "RelativeToolTip": "SaigonRideProject\\Services\\Pricing\\PricingResult.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-26T14:27:41.063Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "IPaymentStrategy.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Services\\Payments\\IPaymentStrategy.cs",
+              "RelativeDocumentMoniker": "SaigonRideProject\\Services\\Payments\\IPaymentStrategy.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Services\\Payments\\IPaymentStrategy.cs",
+              "RelativeToolTip": "SaigonRideProject\\Services\\Payments\\IPaymentStrategy.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-19T02:23:59.545Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "TouristPricingStrategy.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Services\\Pricing\\TouristPricingStrategy.cs",
+              "RelativeDocumentMoniker": "SaigonRideProject\\Services\\Pricing\\TouristPricingStrategy.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Services\\Pricing\\TouristPricingStrategy.cs",
+              "RelativeToolTip": "SaigonRideProject\\Services\\Pricing\\TouristPricingStrategy.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAwwAwAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-26T14:17:11.699Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "UserDashboard.cshtml",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Views\\User\\UserDashboard.cshtml",
+              "RelativeDocumentMoniker": "SaigonRideProject\\Views\\User\\UserDashboard.cshtml",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Views\\User\\UserDashboard.cshtml",
+              "RelativeToolTip": "SaigonRideProject\\Views\\User\\UserDashboard.cshtml",
+              "ViewState": "AgIAAH0AAAAAAAAAAAAwwJQAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-25T18:17:09.672Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "PaymentFactory.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Services\\Payments\\PaymentFactory.cs",
+              "RelativeDocumentMoniker": "SaigonRideProject\\Services\\Payments\\PaymentFactory.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Services\\Payments\\PaymentFactory.cs",
+              "RelativeToolTip": "SaigonRideProject\\Services\\Payments\\PaymentFactory.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAwwB4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-26T02:00:28.177Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
               "Title": "WalletService.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Services\\WalletService.cs",
               "RelativeDocumentMoniker": "SaigonRideProject\\Services\\WalletService.cs",
               "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Services\\WalletService.cs",
               "RelativeToolTip": "SaigonRideProject\\Services\\WalletService.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAcwAoAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAACAAAAAAAAAAAAAswDYAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-19T10:33:47.515Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 23,
+              "Title": "ApplePayPayment.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Services\\Payments\\ApplePayPayment.cs",
+              "RelativeDocumentMoniker": "SaigonRideProject\\Services\\Payments\\ApplePayPayment.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Services\\Payments\\ApplePayPayment.cs",
+              "RelativeToolTip": "SaigonRideProject\\Services\\Payments\\ApplePayPayment.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-16T00:49:59.711Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "VNPayPayment.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Services\\Payments\\VNPayPayment.cs",
+              "RelativeDocumentMoniker": "SaigonRideProject\\Services\\Payments\\VNPayPayment.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Services\\Payments\\VNPayPayment.cs",
+              "RelativeToolTip": "SaigonRideProject\\Services\\Payments\\VNPayPayment.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-19T02:52:18.021Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "StationRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Repositories\\StationRepository.cs",
+              "RelativeDocumentMoniker": "SaigonRideProject\\Repositories\\StationRepository.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Repositories\\StationRepository.cs",
+              "RelativeToolTip": "SaigonRideProject\\Repositories\\StationRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-26T14:12:37.716Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "IStationRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Repositories\\IStationRepository.cs",
+              "RelativeDocumentMoniker": "SaigonRideProject\\Repositories\\IStationRepository.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Repositories\\IStationRepository.cs",
+              "RelativeToolTip": "SaigonRideProject\\Repositories\\IStationRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-26T14:12:28.291Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "Station.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Models\\Station.cs",
+              "RelativeDocumentMoniker": "SaigonRideProject\\Models\\Station.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Models\\Station.cs",
+              "RelativeToolTip": "SaigonRideProject\\Models\\Station.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-16T05:47:00.247Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "Rental.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Models\\Rental.cs",
+              "RelativeDocumentMoniker": "SaigonRideProject\\Models\\Rental.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Models\\Rental.cs",
+              "RelativeToolTip": "SaigonRideProject\\Models\\Rental.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAuwB4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-24T10:04:20.78Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "Payment.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Models\\Payment.cs",
+              "RelativeDocumentMoniker": "SaigonRideProject\\Models\\Payment.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Models\\Payment.cs",
+              "RelativeToolTip": "SaigonRideProject\\Models\\Payment.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-19T05:16:02.796Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "OtpVerification.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Models\\OtpVerification.cs",
+              "RelativeDocumentMoniker": "SaigonRideProject\\Models\\OtpVerification.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Models\\OtpVerification.cs",
+              "RelativeToolTip": "SaigonRideProject\\Models\\OtpVerification.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-16T03:26:05.717Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Models\\User.cs",
+              "RelativeDocumentMoniker": "SaigonRideProject\\Models\\User.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Models\\User.cs",
+              "RelativeToolTip": "SaigonRideProject\\Models\\User.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAA+wCUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-16T01:00:20.343Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "Vehicle.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Models\\Vehicle.cs",
+              "RelativeDocumentMoniker": "SaigonRideProject\\Models\\Vehicle.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Models\\Vehicle.cs",
+              "RelativeToolTip": "SaigonRideProject\\Models\\Vehicle.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAwBYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-18T02:57:37.578Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "WalletTransaction.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Models\\WalletTransaction.cs",
+              "RelativeDocumentMoniker": "SaigonRideProject\\Models\\WalletTransaction.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Models\\WalletTransaction.cs",
+              "RelativeToolTip": "SaigonRideProject\\Models\\WalletTransaction.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAxwBIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-24T10:04:01.419Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "SaigonRideProject\\Data\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "SaigonRideProject\\Data\\AppDbContext.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-16T02:26:44.045Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
               "Title": "HomeController.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "SaigonRideProject\\Controllers\\HomeController.cs",
               "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Controllers\\HomeController.cs",
               "RelativeToolTip": "SaigonRideProject\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAiwBUAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAABQAAAAAAAAAAAAowCMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-16T04:23:54.59Z"
+              "WhenOpened": "2026-04-16T04:23:54.59Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "UserController.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Controllers\\UserController.cs",
-              "RelativeDocumentMoniker": "SaigonRideProject\\Controllers\\UserController.cs",
-              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Controllers\\UserController.cs",
-              "RelativeToolTip": "SaigonRideProject\\Controllers\\UserController.cs",
-              "ViewState": "AgIAAFcAAAAAAAAAAAAuwGwAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 36,
+              "Title": "VehicleController.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Controllers\\VehicleController.cs",
+              "RelativeDocumentMoniker": "SaigonRideProject\\Controllers\\VehicleController.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Controllers\\VehicleController.cs",
+              "RelativeToolTip": "SaigonRideProject\\Controllers\\VehicleController.cs",
+              "ViewState": "AgIAACgAAAAAAAAAAAA7wD0AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-19T10:24:27.98Z"
+              "WhenOpened": "2026-04-19T01:21:36.029Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 37,
+              "Title": "StationController.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Controllers\\StationController.cs",
+              "RelativeDocumentMoniker": "SaigonRideProject\\Controllers\\StationController.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Controllers\\StationController.cs",
+              "RelativeToolTip": "SaigonRideProject\\Controllers\\StationController.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAwAgAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-16T05:46:48.769Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "SaigonRideProject\\Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "SaigonRideProject\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAAI8BAAAAAAAAAAAwwKYBAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-16T01:01:09.748Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "UserDashboardViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\ViewModels\\UserDashboardViewModel.cs",
+              "RelativeDocumentMoniker": "SaigonRideProject\\ViewModels\\UserDashboardViewModel.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\ViewModels\\UserDashboardViewModel.cs",
+              "RelativeToolTip": "SaigonRideProject\\ViewModels\\UserDashboardViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-24T17:11:22.417Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "UploadPassport.cshtml",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Views\\Passport\\UploadPassport.cshtml",
+              "RelativeDocumentMoniker": "SaigonRideProject\\Views\\Passport\\UploadPassport.cshtml",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Views\\Passport\\UploadPassport.cshtml",
+              "RelativeToolTip": "SaigonRideProject\\Views\\Passport\\UploadPassport.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-16T00:34:44.35Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "ForgotPassword.cshtml",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Views\\Account\\ForgotPassword.cshtml",
+              "RelativeDocumentMoniker": "SaigonRideProject\\Views\\Account\\ForgotPassword.cshtml",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Views\\Account\\ForgotPassword.cshtml",
+              "RelativeToolTip": "SaigonRideProject\\Views\\Account\\ForgotPassword.cshtml",
+              "ViewState": "AgIAAEwAAAAAAAAAAAAwwF4AAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-26T09:54:17.591Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Views\\Account\\Login.cshtml",
+              "RelativeDocumentMoniker": "SaigonRideProject\\Views\\Account\\Login.cshtml",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Views\\Account\\Login.cshtml",
+              "RelativeToolTip": "SaigonRideProject\\Views\\Account\\Login.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-16T01:11:39.527Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "EmailServices.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Services\\EmailServices.cs",
+              "RelativeDocumentMoniker": "SaigonRideProject\\Services\\EmailServices.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Services\\EmailServices.cs",
+              "RelativeToolTip": "SaigonRideProject\\Services\\EmailServices.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAmwDAAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-16T03:27:00.924Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "IdentityVerification.cshtml",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Views\\Account\\IdentityVerification.cshtml",
+              "RelativeDocumentMoniker": "SaigonRideProject\\Views\\Account\\IdentityVerification.cshtml",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Views\\Account\\IdentityVerification.cshtml",
+              "RelativeToolTip": "SaigonRideProject\\Views\\Account\\IdentityVerification.cshtml",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAmwBQAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-25T18:27:47.275Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\appsettings.json",
+              "RelativeDocumentMoniker": "SaigonRideProject\\appsettings.json",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\appsettings.json",
+              "RelativeToolTip": "SaigonRideProject\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-04-16T02:19:10.346Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "RegisterViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\ViewModels\\RegisterViewModel.cs",
+              "RelativeDocumentMoniker": "SaigonRideProject\\ViewModels\\RegisterViewModel.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\ViewModels\\RegisterViewModel.cs",
+              "RelativeToolTip": "SaigonRideProject\\ViewModels\\RegisterViewModel.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAkwBwAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-24T16:15:40.595Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "Register.cshtml",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Views\\Account\\Register.cshtml",
+              "RelativeDocumentMoniker": "SaigonRideProject\\Views\\Account\\Register.cshtml",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Views\\Account\\Register.cshtml",
+              "RelativeToolTip": "SaigonRideProject\\Views\\Account\\Register.cshtml",
+              "ViewState": "AgIAACUAAAAAAAAAAAD4vy0AAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-16T00:35:29.62Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 48,
+              "Title": "SelectUserType.cshtml",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Views\\Account\\SelectUserType.cshtml",
+              "RelativeDocumentMoniker": "SaigonRideProject\\Views\\Account\\SelectUserType.cshtml",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Views\\Account\\SelectUserType.cshtml",
+              "RelativeToolTip": "SaigonRideProject\\Views\\Account\\SelectUserType.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-25T18:27:08.449Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 49,
+              "Title": "UserViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\ViewModels\\UserViewModel.cs",
+              "RelativeDocumentMoniker": "SaigonRideProject\\ViewModels\\UserViewModel.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\ViewModels\\UserViewModel.cs",
+              "RelativeToolTip": "SaigonRideProject\\ViewModels\\UserViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T18:30:12.079Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 50,
+              "Title": "VerifyOtp.cshtml",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Views\\Account\\VerifyOtp.cshtml",
+              "RelativeDocumentMoniker": "SaigonRideProject\\Views\\Account\\VerifyOtp.cshtml",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Views\\Account\\VerifyOtp.cshtml",
+              "RelativeToolTip": "SaigonRideProject\\Views\\Account\\VerifyOtp.cshtml",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAIwB8AAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-16T03:28:18.31Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 51,
+              "Title": "RegisterSuccess.cshtml",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Views\\Account\\RegisterSuccess.cshtml",
+              "RelativeDocumentMoniker": "SaigonRideProject\\Views\\Account\\RegisterSuccess.cshtml",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Views\\Account\\RegisterSuccess.cshtml",
+              "RelativeToolTip": "SaigonRideProject\\Views\\Account\\RegisterSuccess.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-25T18:28:03.083Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 52,
+              "Title": "FileUploadService.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Services\\FileUploadService.cs",
+              "RelativeDocumentMoniker": "SaigonRideProject\\Services\\FileUploadService.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Services\\FileUploadService.cs",
+              "RelativeToolTip": "SaigonRideProject\\Services\\FileUploadService.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAQwB0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-16T02:38:24.078Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 53,
+              "Title": "Detail.cshtml",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Views\\AdminStation\\Detail.cshtml",
+              "RelativeDocumentMoniker": "SaigonRideProject\\Views\\AdminStation\\Detail.cshtml",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Views\\AdminStation\\Detail.cshtml",
+              "RelativeToolTip": "SaigonRideProject\\Views\\AdminStation\\Detail.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-26T05:35:34.44Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 54,
+              "Title": "PaymentSuccess.cshtml",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Views\\Rental\\PaymentSuccess.cshtml",
+              "RelativeDocumentMoniker": "SaigonRideProject\\Views\\Rental\\PaymentSuccess.cshtml",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Views\\Rental\\PaymentSuccess.cshtml",
+              "RelativeToolTip": "SaigonRideProject\\Views\\Rental\\PaymentSuccess.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-24T17:33:35.864Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 55,
+              "Title": "Transactions.cshtml",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Views\\User\\Transactions.cshtml",
+              "RelativeDocumentMoniker": "SaigonRideProject\\Views\\User\\Transactions.cshtml",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Views\\User\\Transactions.cshtml",
+              "RelativeToolTip": "SaigonRideProject\\Views\\User\\Transactions.cshtml",
+              "ViewState": "AgIAACUAAAAAAAAAAAAIwDYAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-26T02:02:08.643Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 56,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "SaigonRideProject\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Properties\\launchSettings.json",
+              "RelativeToolTip": "SaigonRideProject\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAAwAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-04-16T05:55:35.294Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 57,
+              "Title": "SaigonRideProject",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\SaigonRideProject.csproj",
+              "RelativeDocumentMoniker": "SaigonRideProject\\SaigonRideProject.csproj",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\SaigonRideProject.csproj",
+              "RelativeToolTip": "SaigonRideProject\\SaigonRideProject.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-04-24T10:33:03.89Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 58,
+              "Title": "_UserTable.cshtml",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Views\\AdminUser\\_UserTable.cshtml",
+              "RelativeDocumentMoniker": "SaigonRideProject\\Views\\AdminUser\\_UserTable.cshtml",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Views\\AdminUser\\_UserTable.cshtml",
+              "RelativeToolTip": "SaigonRideProject\\Views\\AdminUser\\_UserTable.cshtml",
+              "ViewState": "AgIAAGEAAAAAAAAAAAAswHUAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-25T18:30:35.218Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 59,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Views\\AdminUser\\Index.cshtml",
+              "RelativeDocumentMoniker": "SaigonRideProject\\Views\\AdminUser\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Views\\AdminUser\\Index.cshtml",
+              "RelativeToolTip": "SaigonRideProject\\Views\\AdminUser\\Index.cshtml",
+              "ViewState": "AgIAADkAAAAAAAAAAAAAAD0AAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-25T18:32:41.966Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 60,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Views\\AdminUser\\Create.cshtml",
+              "RelativeDocumentMoniker": "SaigonRideProject\\Views\\AdminUser\\Create.cshtml",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Views\\AdminUser\\Create.cshtml",
+              "RelativeToolTip": "SaigonRideProject\\Views\\AdminUser\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-26T01:39:03.551Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 61,
+              "Title": "_ViewImports.cshtml",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Views\\_ViewImports.cshtml",
+              "RelativeDocumentMoniker": "SaigonRideProject\\Views\\_ViewImports.cshtml",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Views\\_ViewImports.cshtml",
+              "RelativeToolTip": "SaigonRideProject\\Views\\_ViewImports.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-24T12:11:11.485Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 62,
+              "Title": "AdminUserController.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Controllers\\AdminUserController.cs",
+              "RelativeDocumentMoniker": "SaigonRideProject\\Controllers\\AdminUserController.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Controllers\\AdminUserController.cs",
+              "RelativeToolTip": "SaigonRideProject\\Controllers\\AdminUserController.cs",
+              "ViewState": "AgIAAFIAAAAAAAAAAAAvwGAAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T18:28:42.724Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 63,
+              "Title": "_ValidationScriptsPartial.cshtml",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "RelativeDocumentMoniker": "SaigonRideProject\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "RelativeToolTip": "SaigonRideProject\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-25T18:16:54.293Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 64,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "SaigonRideProject\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "SaigonRideProject\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAswBQAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-19T03:46:34.119Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 65,
               "Title": "AdminController.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Controllers\\AdminController.cs",
               "RelativeDocumentMoniker": "SaigonRideProject\\Controllers\\AdminController.cs",
@@ -411,55 +1267,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "AccountController.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Controllers\\AccountController.cs",
-              "RelativeDocumentMoniker": "SaigonRideProject\\Controllers\\AccountController.cs",
-              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Controllers\\AccountController.cs",
-              "RelativeToolTip": "SaigonRideProject\\Controllers\\AccountController.cs",
-              "ViewState": "AgIAAKsAAAAAAAAAAAAiwLwAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-16T01:01:09.748Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "RentalService.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Services\\RentalService.cs",
-              "RelativeDocumentMoniker": "SaigonRideProject\\Services\\RentalService.cs",
-              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Services\\RentalService.cs",
-              "RelativeToolTip": "SaigonRideProject\\Services\\RentalService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-19T10:33:36.265Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "IPricingStrategy.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Services\\Pricing\\IPricingStrategy.cs",
-              "RelativeDocumentMoniker": "SaigonRideProject\\Services\\Pricing\\IPricingStrategy.cs",
-              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Services\\Pricing\\IPricingStrategy.cs",
-              "RelativeToolTip": "SaigonRideProject\\Services\\Pricing\\IPricingStrategy.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-24T16:32:38.736Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "DefaultPricingService.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Services\\Pricing\\DefaultPricingService.cs",
-              "RelativeDocumentMoniker": "SaigonRideProject\\Services\\Pricing\\DefaultPricingService.cs",
-              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Services\\Pricing\\DefaultPricingService.cs",
-              "RelativeToolTip": "SaigonRideProject\\Services\\Pricing\\DefaultPricingService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-24T16:32:35.515Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 66,
               "Title": "History.cshtml",
               "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Views\\Rental\\History.cshtml",
               "RelativeDocumentMoniker": "SaigonRideProject\\Views\\Rental\\History.cshtml",
@@ -471,55 +1279,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "PaymentSuccess.cshtml",
-              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Views\\Rental\\PaymentSuccess.cshtml",
-              "RelativeDocumentMoniker": "SaigonRideProject\\Views\\Rental\\PaymentSuccess.cshtml",
-              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Views\\Rental\\PaymentSuccess.cshtml",
-              "RelativeToolTip": "SaigonRideProject\\Views\\Rental\\PaymentSuccess.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-24T17:33:35.864Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "TopUpPage.cshtml",
-              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Views\\User\\TopUpPage.cshtml",
-              "RelativeDocumentMoniker": "SaigonRideProject\\Views\\User\\TopUpPage.cshtml",
-              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Views\\User\\TopUpPage.cshtml",
-              "RelativeToolTip": "SaigonRideProject\\Views\\User\\TopUpPage.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-19T10:35:25.464Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "CurrentTripViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\ViewModels\\CurrentTripViewModel.cs",
-              "RelativeDocumentMoniker": "SaigonRideProject\\ViewModels\\CurrentTripViewModel.cs",
-              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\ViewModels\\CurrentTripViewModel.cs",
-              "RelativeToolTip": "SaigonRideProject\\ViewModels\\CurrentTripViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-24T16:15:39.402Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "RegisterViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\ViewModels\\RegisterViewModel.cs",
-              "RelativeDocumentMoniker": "SaigonRideProject\\ViewModels\\RegisterViewModel.cs",
-              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\ViewModels\\RegisterViewModel.cs",
-              "RelativeToolTip": "SaigonRideProject\\ViewModels\\RegisterViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-24T16:15:40.595Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 67,
               "Title": "AppDbContextModelSnapshot.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Migrations\\AppDbContextModelSnapshot.cs",
               "RelativeDocumentMoniker": "SaigonRideProject\\Migrations\\AppDbContextModelSnapshot.cs",
@@ -531,103 +1291,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "AppDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Data\\AppDbContext.cs",
-              "RelativeDocumentMoniker": "SaigonRideProject\\Data\\AppDbContext.cs",
-              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Data\\AppDbContext.cs",
-              "RelativeToolTip": "SaigonRideProject\\Data\\AppDbContext.cs",
-              "ViewState": "AgIAADIAAAAAAAAAAAAAAD0AAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-16T02:26:44.045Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "User.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Models\\User.cs",
-              "RelativeDocumentMoniker": "SaigonRideProject\\Models\\User.cs",
-              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Models\\User.cs",
-              "RelativeToolTip": "SaigonRideProject\\Models\\User.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAAAUwCYAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-16T01:00:20.343Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "Station.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Models\\Station.cs",
-              "RelativeDocumentMoniker": "SaigonRideProject\\Models\\Station.cs",
-              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Models\\Station.cs",
-              "RelativeToolTip": "SaigonRideProject\\Models\\Station.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAYwBgAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-16T05:47:00.247Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "Rental.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Models\\Rental.cs",
-              "RelativeDocumentMoniker": "SaigonRideProject\\Models\\Rental.cs",
-              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Models\\Rental.cs",
-              "RelativeToolTip": "SaigonRideProject\\Models\\Rental.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAYwB4AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-24T10:04:20.78Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "Vehicle.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Models\\Vehicle.cs",
-              "RelativeDocumentMoniker": "SaigonRideProject\\Models\\Vehicle.cs",
-              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Models\\Vehicle.cs",
-              "RelativeToolTip": "SaigonRideProject\\Models\\Vehicle.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAgwBYAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-18T02:57:37.578Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "WalletTransaction.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Models\\WalletTransaction.cs",
-              "RelativeDocumentMoniker": "SaigonRideProject\\Models\\WalletTransaction.cs",
-              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Models\\WalletTransaction.cs",
-              "RelativeToolTip": "SaigonRideProject\\Models\\WalletTransaction.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-24T10:04:01.419Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "_ViewImports.cshtml",
-              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Views\\_ViewImports.cshtml",
-              "RelativeDocumentMoniker": "SaigonRideProject\\Views\\_ViewImports.cshtml",
-              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Views\\_ViewImports.cshtml",
-              "RelativeToolTip": "SaigonRideProject\\Views\\_ViewImports.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-24T12:11:11.485Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "SaigonRideProject\\Views\\Home\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "SaigonRideProject\\Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-19T03:46:34.119Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 68,
               "Title": "_ViewStart.cshtml",
               "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Views\\_ViewStart.cshtml",
               "RelativeDocumentMoniker": "SaigonRideProject\\Views\\_ViewStart.cshtml",
@@ -639,31 +1303,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "FileUploadService.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Services\\FileUploadService.cs",
-              "RelativeDocumentMoniker": "SaigonRideProject\\Services\\FileUploadService.cs",
-              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Services\\FileUploadService.cs",
-              "RelativeToolTip": "SaigonRideProject\\Services\\FileUploadService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-16T02:38:24.078Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Program.cs",
-              "RelativeDocumentMoniker": "SaigonRideProject\\Program.cs",
-              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Program.cs",
-              "RelativeToolTip": "SaigonRideProject\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAUAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-16T01:24:55.079Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 69,
               "Title": "StationDetailViewModel.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\ViewModels\\StationDetailViewModel.cs",
               "RelativeDocumentMoniker": "SaigonRideProject\\ViewModels\\StationDetailViewModel.cs",
@@ -675,7 +1315,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 70,
               "Title": "Create.cshtml",
               "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Views\\Vehicle\\Create.cshtml",
               "RelativeDocumentMoniker": "SaigonRideProject\\Views\\Vehicle\\Create.cshtml",
@@ -687,7 +1327,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 71,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Views\\Station\\Index.cshtml",
               "RelativeDocumentMoniker": "SaigonRideProject\\Views\\Station\\Index.cshtml",
@@ -699,19 +1339,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "VehicleController.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Controllers\\VehicleController.cs",
-              "RelativeDocumentMoniker": "SaigonRideProject\\Controllers\\VehicleController.cs",
-              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Controllers\\VehicleController.cs",
-              "RelativeToolTip": "SaigonRideProject\\Controllers\\VehicleController.cs",
-              "ViewState": "AgIAADEAAAAAAAAAAAAwwDUAAAASAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-19T01:21:36.029Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 72,
               "Title": "Detail.cshtml",
               "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Views\\Station\\Detail.cshtml",
               "RelativeDocumentMoniker": "SaigonRideProject\\Views\\Station\\Detail.cshtml",
@@ -723,90 +1351,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
-              "Title": "SaigonRideProject",
-              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\SaigonRideProject.csproj",
-              "RelativeDocumentMoniker": "SaigonRideProject\\SaigonRideProject.csproj",
-              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\SaigonRideProject.csproj",
-              "RelativeToolTip": "SaigonRideProject\\SaigonRideProject.csproj",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-04-24T10:33:03.89Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 34,
-              "Title": "StationController.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Controllers\\StationController.cs",
-              "RelativeDocumentMoniker": "SaigonRideProject\\Controllers\\StationController.cs",
-              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Controllers\\StationController.cs",
-              "RelativeToolTip": "SaigonRideProject\\Controllers\\StationController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEgAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-16T05:46:48.769Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 35,
-              "Title": "EmailServices.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Services\\EmailServices.cs",
-              "RelativeDocumentMoniker": "SaigonRideProject\\Services\\EmailServices.cs",
-              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Services\\EmailServices.cs",
-              "RelativeToolTip": "SaigonRideProject\\Services\\EmailServices.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAwwDIAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-16T03:27:00.924Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 36,
-              "Title": "Payment.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Models\\Payment.cs",
-              "RelativeDocumentMoniker": "SaigonRideProject\\Models\\Payment.cs",
-              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Models\\Payment.cs",
-              "RelativeToolTip": "SaigonRideProject\\Models\\Payment.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-19T05:16:02.796Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 38,
-              "Title": "Current.cshtml",
-              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Views\\Rental\\Current.cshtml",
-              "RelativeDocumentMoniker": "SaigonRideProject\\Views\\Rental\\Current.cshtml",
-              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Views\\Rental\\Current.cshtml",
-              "RelativeToolTip": "SaigonRideProject\\Views\\Rental\\Current.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAE0AAAAyAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-19T11:10:18.64Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 39,
-              "Title": "currentTrip.js",
-              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\wwwroot\\js\\rental\\currentTrip.js",
-              "RelativeDocumentMoniker": "SaigonRideProject\\wwwroot\\js\\rental\\currentTrip.js",
-              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\wwwroot\\js\\rental\\currentTrip.js",
-              "RelativeToolTip": "SaigonRideProject\\wwwroot\\js\\rental\\currentTrip.js",
-              "ViewState": "AgIAACsAAAAAAAAAAAAqwFoAAAAKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2026-04-19T16:36:40.245Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 37,
-              "Title": "OtpVerification.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Models\\OtpVerification.cs",
-              "RelativeDocumentMoniker": "SaigonRideProject\\Models\\OtpVerification.cs",
-              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Models\\OtpVerification.cs",
-              "RelativeToolTip": "SaigonRideProject\\Models\\OtpVerification.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-16T03:26:05.717Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 73,
               "Title": "StationList.cshtml",
               "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Views\\Rental\\StationList.cshtml",
               "RelativeDocumentMoniker": "SaigonRideProject\\Views\\Rental\\StationList.cshtml",
@@ -818,7 +1363,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 74,
               "Title": "StationDetail.cshtml",
               "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Views\\Rental\\StationDetail.cshtml",
               "RelativeDocumentMoniker": "SaigonRideProject\\Views\\Rental\\StationDetail.cshtml",
@@ -830,67 +1375,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
-              "Title": "Register.cshtml",
-              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Views\\Account\\Register.cshtml",
-              "RelativeDocumentMoniker": "SaigonRideProject\\Views\\Account\\Register.cshtml",
-              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Views\\Account\\Register.cshtml",
-              "RelativeToolTip": "SaigonRideProject\\Views\\Account\\Register.cshtml",
-              "ViewState": "AgIAAHAAAAAAAAAAAAAuwHsAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-16T00:35:29.62Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 42,
-              "Title": "VerifyOtp.cshtml",
-              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Views\\Account\\VerifyOtp.cshtml",
-              "RelativeDocumentMoniker": "SaigonRideProject\\Views\\Account\\VerifyOtp.cshtml",
-              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Views\\Account\\VerifyOtp.cshtml",
-              "RelativeToolTip": "SaigonRideProject\\Views\\Account\\VerifyOtp.cshtml",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAAAA8AAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-16T03:28:18.31Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 44,
-              "Title": "Login.cshtml",
-              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Views\\Account\\Login.cshtml",
-              "RelativeDocumentMoniker": "SaigonRideProject\\Views\\Account\\Login.cshtml",
-              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Views\\Account\\Login.cshtml",
-              "RelativeToolTip": "SaigonRideProject\\Views\\Account\\Login.cshtml",
-              "ViewState": "AgIAAE4AAAAAAAAAAAAuwF4AAAAGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-16T01:11:39.527Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 45,
-              "Title": "IPaymentStrategy.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Services\\Payments\\IPaymentStrategy.cs",
-              "RelativeDocumentMoniker": "SaigonRideProject\\Services\\Payments\\IPaymentStrategy.cs",
-              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Services\\Payments\\IPaymentStrategy.cs",
-              "RelativeToolTip": "SaigonRideProject\\Services\\Payments\\IPaymentStrategy.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-19T02:23:59.545Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 46,
-              "Title": "ApplePayPayment.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Services\\Payments\\ApplePayPayment.cs",
-              "RelativeDocumentMoniker": "SaigonRideProject\\Services\\Payments\\ApplePayPayment.cs",
-              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Services\\Payments\\ApplePayPayment.cs",
-              "RelativeToolTip": "SaigonRideProject\\Services\\Payments\\ApplePayPayment.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAUAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-16T00:49:59.711Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 75,
               "Title": "PayPalPayment.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Services\\Payments\\PayPalPayment.cs",
               "RelativeDocumentMoniker": "SaigonRideProject\\Services\\Payments\\PayPalPayment.cs",
@@ -902,7 +1387,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 48,
+              "DocumentIndex": 76,
               "Title": "CashPayment.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Services\\Payments\\CashPayment.cs",
               "RelativeDocumentMoniker": "SaigonRideProject\\Services\\Payments\\CashPayment.cs",
@@ -914,19 +1399,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 49,
-              "Title": "VNPayPayment.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Services\\Payments\\VNPayPayment.cs",
-              "RelativeDocumentMoniker": "SaigonRideProject\\Services\\Payments\\VNPayPayment.cs",
-              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Services\\Payments\\VNPayPayment.cs",
-              "RelativeToolTip": "SaigonRideProject\\Services\\Payments\\VNPayPayment.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-19T02:52:18.021Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 50,
+              "DocumentIndex": 77,
               "Title": "MomoPayment.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Services\\Payments\\MomoPayment.cs",
               "RelativeDocumentMoniker": "SaigonRideProject\\Services\\Payments\\MomoPayment.cs",
@@ -938,7 +1411,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 67,
+              "DocumentIndex": 89,
               "Title": "IStationService.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Services\\Stations\\IStationService.cs",
               "RelativeDocumentMoniker": "SaigonRideProject\\Services\\Stations\\IStationService.cs",
@@ -950,7 +1423,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 68,
+              "DocumentIndex": 90,
               "Title": "IRentalService.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Services\\Rentals\\IRentalService.cs",
               "RelativeDocumentMoniker": "SaigonRideProject\\Services\\Rentals\\IRentalService.cs",
@@ -962,7 +1435,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 69,
+              "DocumentIndex": 91,
               "Title": "RentalService.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Services\\Rentals\\RentalService.cs",
               "RelativeDocumentMoniker": "SaigonRideProject\\Services\\Rentals\\RentalService.cs",
@@ -974,7 +1447,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 63,
+              "DocumentIndex": 86,
               "Title": "WalletController.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Controllers\\WalletController.cs",
               "RelativeDocumentMoniker": "SaigonRideProject\\Controllers\\WalletController.cs",
@@ -986,7 +1459,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 70,
+              "DocumentIndex": 92,
               "Title": "ApiRentalController.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Controllers\\Api\\ApiRentalController.cs",
               "RelativeDocumentMoniker": "SaigonRideProject\\Controllers\\Api\\ApiRentalController.cs",
@@ -998,7 +1471,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 71,
+              "DocumentIndex": 93,
               "Title": "Invoice.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Models\\Invoice.cs",
               "RelativeDocumentMoniker": "SaigonRideProject\\Models\\Invoice.cs",
@@ -1010,7 +1483,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 72,
+              "DocumentIndex": 94,
               "Title": "ApiWalletController.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Controllers\\Api\\ApiWalletController.cs",
               "RelativeDocumentMoniker": "SaigonRideProject\\Controllers\\Api\\ApiWalletController.cs",
@@ -1022,19 +1495,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 64,
-              "Title": "BaseController.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Controllers\\BaseController.cs",
-              "RelativeDocumentMoniker": "SaigonRideProject\\Controllers\\BaseController.cs",
-              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Controllers\\BaseController.cs",
-              "RelativeToolTip": "SaigonRideProject\\Controllers\\BaseController.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAAwA0AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-19T02:15:59.281Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 76,
+              "DocumentIndex": 98,
               "Title": "PaymentContext.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Services\\Payments\\PaymentContext.cs",
               "RelativeDocumentMoniker": "SaigonRideProject\\Services\\Payments\\PaymentContext.cs",
@@ -1046,7 +1507,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 77,
+              "DocumentIndex": 99,
               "Title": "PaymentController.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Controllers\\PaymentController.cs",
               "RelativeDocumentMoniker": "SaigonRideProject\\Controllers\\PaymentController.cs",
@@ -1058,7 +1519,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 51,
+              "DocumentIndex": 78,
               "Title": "SaigonRideProject.csproj",
               "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\SaigonRideProject.csproj",
               "RelativeDocumentMoniker": "SaigonRideProject\\SaigonRideProject.csproj",
@@ -1070,7 +1531,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 73,
+              "DocumentIndex": 95,
               "Title": "IWalletService.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Services\\Wallets\\IWalletService.cs",
               "RelativeDocumentMoniker": "SaigonRideProject\\Services\\Wallets\\IWalletService.cs",
@@ -1082,7 +1543,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 74,
+              "DocumentIndex": 96,
               "Title": "WalletService.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Services\\Wallets\\WalletService.cs",
               "RelativeDocumentMoniker": "SaigonRideProject\\Services\\Wallets\\WalletService.cs",
@@ -1094,7 +1555,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 75,
+              "DocumentIndex": 97,
               "Title": "ApiNavbarController.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Controllers\\Api\\ApiNavbarController.cs",
               "RelativeDocumentMoniker": "SaigonRideProject\\Controllers\\Api\\ApiNavbarController.cs",
@@ -1106,7 +1567,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 52,
+              "DocumentIndex": 79,
               "Title": "bootstrap.css",
               "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
               "RelativeDocumentMoniker": "SaigonRideProject\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
@@ -1118,7 +1579,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 65,
+              "DocumentIndex": 87,
               "Title": "TopUp.cshtml",
               "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Views\\Wallet\\TopUp.cshtml",
               "RelativeDocumentMoniker": "SaigonRideProject\\Views\\Wallet\\TopUp.cshtml",
@@ -1130,7 +1591,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 66,
+              "DocumentIndex": 88,
               "Title": "LayoutViewModel.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\ViewModels\\LayoutViewModel.cs",
               "RelativeDocumentMoniker": "SaigonRideProject\\ViewModels\\LayoutViewModel.cs",
@@ -1142,31 +1603,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 53,
-              "Title": "PassportController.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Controllers\\PassportController.cs",
-              "RelativeDocumentMoniker": "SaigonRideProject\\Controllers\\PassportController.cs",
-              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Controllers\\PassportController.cs",
-              "RelativeToolTip": "SaigonRideProject\\Controllers\\PassportController.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAswB8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-16T01:19:48.895Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 54,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\appsettings.json",
-              "RelativeDocumentMoniker": "SaigonRideProject\\appsettings.json",
-              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\appsettings.json",
-              "RelativeToolTip": "SaigonRideProject\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-04-16T02:19:10.346Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 60,
+              "DocumentIndex": 83,
               "Title": "SessionService.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Services\\SessionService.cs",
               "RelativeDocumentMoniker": "SaigonRideProject\\Services\\SessionService.cs",
@@ -1178,7 +1615,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 61,
+              "DocumentIndex": 84,
               "Title": "AccountService.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Services\\AccountService.cs",
               "RelativeDocumentMoniker": "SaigonRideProject\\Services\\AccountService.cs",
@@ -1190,7 +1627,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 55,
+              "DocumentIndex": 80,
               "Title": "PassportService.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Services\\PassportService.cs",
               "RelativeDocumentMoniker": "SaigonRideProject\\Services\\PassportService.cs",
@@ -1202,19 +1639,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 56,
-              "Title": "UploadPassport.cshtml",
-              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Views\\Passport\\UploadPassport.cshtml",
-              "RelativeDocumentMoniker": "SaigonRideProject\\Views\\Passport\\UploadPassport.cshtml",
-              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Views\\Passport\\UploadPassport.cshtml",
-              "RelativeToolTip": "SaigonRideProject\\Views\\Passport\\UploadPassport.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAHAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-16T00:34:44.35Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 58,
+              "DocumentIndex": 81,
               "Title": "site.js",
               "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\wwwroot\\js\\site.js",
               "RelativeDocumentMoniker": "SaigonRideProject\\wwwroot\\js\\site.js",
@@ -1226,19 +1651,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 57,
-              "Title": "launchSettings.json",
-              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Properties\\launchSettings.json",
-              "RelativeDocumentMoniker": "SaigonRideProject\\Properties\\launchSettings.json",
-              "ToolTip": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Properties\\launchSettings.json",
-              "RelativeToolTip": "SaigonRideProject\\Properties\\launchSettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-04-16T05:55:35.294Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 62,
+              "DocumentIndex": 85,
               "Title": "RentalGuardServices.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\Services\\RentalGuardServices.cs",
               "RelativeDocumentMoniker": "SaigonRideProject\\Services\\RentalGuardServices.cs",
@@ -1250,7 +1663,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 59,
+              "DocumentIndex": 82,
               "Title": "jquery.validate.js",
               "DocumentMoniker": "C:\\Users\\Admin\\Documents\\A. H\u1ECDc t\u1EADp\\2025-2026\\C\u00F4ng ngh\u1EC7 ph\u1EA7n m\u1EC1m\\\u0110\u1ED3 \u00E1n CK\\SaigonRideProject\\SaigonRideProject\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
               "RelativeDocumentMoniker": "SaigonRideProject\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
