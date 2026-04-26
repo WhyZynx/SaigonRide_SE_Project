@@ -41,38 +41,53 @@
                             <p class="text-muted small">Start your journey across the city's heartbeat.</p>
                         </div>
 
-                        @if (ViewBag.Error != null)
-                        {
-                            <div class="alert alert-danger border-0 small py-2 rounded-3 mb-4 shadow-sm">
-                                <i class="fa-solid fa-circle-exclamation me-2"></i> @ViewBag.Error
-                            </div>
-                        }
+                        <div asp-validation-summary="ModelOnly"
+                             class="alert alert-danger border-0 small py-2 rounded-3 mb-4 shadow-sm"
+                             data-valmsg-summary="true"></div>
 
                         <form method="post">
                             <div class="row g-3">
                                 <div class="col-md-6 mb-2">
                                     <label class="form-label small fw-bold text-secondary text-uppercase" style="font-size: 11px;">Full Name</label>
-                                    <input asp-for="FullName" class="form-control border-0 bg-light py-3 px-4 shadow-none" 
-                                           style="border-radius: 15px; background-color: #f0f2f5 !important;" placeholder="Username" required />
+                                    <input asp-for="FullName" class="form-control border-0 bg-light py-3 px-4 shadow-none"
+                                           style="border-radius: 15px; background-color: #f0f2f5 !important;" placeholder="Username" />
+
+                                    <span asp-validation-for="FullName" class="text-danger small"></span>
                                 </div>
 
                                 <div class="col-md-6 mb-2">
                                     <label class="form-label small fw-bold text-secondary text-uppercase" style="font-size: 11px;">Email Address</label>
-                                    <input asp-for="Email" class="form-control border-0 bg-light py-3 px-4 shadow-none" 
-                                           style="border-radius: 15px; background-color: #f0f2f5 !important;" placeholder="abc@example.com" required />
+                                    <input asp-for="Email" class="form-control border-0 bg-light py-3 px-4 shadow-none"
+                                           style="border-radius: 15px; background-color: #f0f2f5 !important;" placeholder="abc@example.com" />
+
+                                    <span asp-validation-for="Email" class="text-danger small"></span>
                                 </div>
                             </div>
 
                             <div class="mb-3 mt-2">
                                 <label class="form-label small fw-bold text-secondary text-uppercase" style="font-size: 11px;">Password</label>
-                                <input asp-for="Password" type="password" class="form-control border-0 bg-light py-3 px-4 shadow-none" 
-                                       style="border-radius: 15px; background-color: #f0f2f5 !important;" placeholder="••••••••" required />
+                                <input asp-for="Password" type="password"
+                                       class="form-control border-0 bg-light py-3 px-4 shadow-none"
+                                       style="border-radius: 15px; background-color: #f0f2f5 !important;" placeholder="••••••••" />
+
+                                <span asp-validation-for="Password" class="text-danger small"></span>
                             </div>
+                            <small class="text-muted d-block mt-1">
+                                Password must contain:
+                                <ul class="mb-0 ps-3">
+                                    <li>At least 8 characters</li>
+                                    <li>1 uppercase letter</li>
+                                    <li>1 number</li>
+                                </ul>
+                            </small>
 
                             <div class="mb-3">
                                 <label class="form-label small fw-bold text-secondary text-uppercase" style="font-size: 11px;">Confirm Password</label>
-                                <input name="confirmPassword" type="password" class="form-control border-0 bg-light py-3 px-4 shadow-none" 
-                                       style="border-radius: 15px; background-color: #f0f2f5 !important;" placeholder="••••••••" required />
+                                <input asp-for="ConfirmPassword" type="password"
+                                       class="form-control border-0 bg-light py-3 px-4 shadow-none"
+                                       style="border-radius: 15px; background-color: #f0f2f5 !important;" placeholder="••••••••" />
+
+                                <span asp-validation-for="ConfirmPassword" class="text-danger small"></span>
                             </div>
 
                             <div class="d-grid mt-5">
@@ -92,3 +107,6 @@
         </div>
     </div>
 </div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

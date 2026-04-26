@@ -39,22 +39,18 @@ namespace SaigonRideProject.Controllers
             if (!ModelState.IsValid)
                 return View(model);
 
-            if (model.Password != model.ConfirmPassword)
-            {
-                ViewBag.Error = "Passwords do not match";
-                return View(model);
-            }
+            var emailExists = _context.Users.Any(u => u.Email == model.Email.Trim().ToLower());
 
-            if (_context.Users.Any(u => u.Email == model.Email))
+            if (emailExists)
             {
-                ViewBag.Error = "Email already exists";
+                ModelState.AddModelError("Email", "Email already exists");
                 return View(model);
             }
 
             var user = new User
             {
-                FullName = model.FullName,
-                Email = model.Email,
+                FullName = model.FullName.Trim(),
+                Email = model.Email.Trim().ToLower(),
                 PasswordHash = BCrypt.Net.BCrypt.HashPassword(model.Password),
                 IsVerified = false,
                 Role = "User",
@@ -69,6 +65,19 @@ namespace SaigonRideProject.Controllers
             HttpContext.Session.SetInt32("TempUserId", user.Id);
 
             return RedirectToAction("SelectUserType");
+        }
+
+        private bool IsValidEmail(string email)
+        {
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(email);
+                return addr.Address == email;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         // ================= USER TYPE =================
@@ -233,7 +242,7 @@ namespace SaigonRideProject.Controllers
 
             user.IdentityType = user.UserType == "Local" ? "CCCD" : "Passport";
 
-            user.PassportStatus = "Pending"; // admin approve later
+            user.PassportStatus = "Pending"; 
 
             _context.SaveChanges();
 

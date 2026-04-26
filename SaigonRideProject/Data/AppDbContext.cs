@@ -78,7 +78,7 @@ namespace SaigonRideProject.Data
                 .HasOne(r => r.User)
                 .WithMany(u => u.Rentals)
                 .HasForeignKey(r => r.UserId)
-                .OnDelete(DeleteBehavior.NoAction);
+                .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<Rental>()
                 .HasOne(r => r.Vehicle)
