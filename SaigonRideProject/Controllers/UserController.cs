@@ -7,13 +7,13 @@ using SaigonRideProject.ViewModels;
 
 namespace SaigonRideProject.Controllers
 {
-    public class UserController : Controller
+    public class UserController : BaseController
     {
         private readonly AppDbContext _context;
         private readonly WalletService _walletService;
         private readonly RentalService _rentalService;
 
-        public UserController(AppDbContext context, WalletService walletService, RentalService rentalService)
+        public UserController(AppDbContext context, WalletService walletService, RentalService rentalService): base(context)
         {
             _context = context;
             _walletService = walletService;

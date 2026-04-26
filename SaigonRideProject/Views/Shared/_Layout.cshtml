@@ -4,7 +4,7 @@
 @{
     var userId = Context.Session.GetInt32("UserId");
     var user = _context.Users.FirstOrDefault(x => x.Id == userId);
-    var hasTrip = ViewBag.HasActiveRental as bool? ?? false;
+    var hasTrip = ViewBag.HasActiveRental != null && (bool)ViewBag.HasActiveRental;
 }
 <!DOCTYPE html>
 <html>
@@ -38,19 +38,10 @@
                     Transactions
                 </a>
                 
-                @if (hasTrip)
+                @if (ViewBag.HasActiveRental == true && ViewBag.ActiveRentalId != null)
                 {
-                    <a class="btn btn-outline-light btn-sm" href="/Rental/Current">
-                        My Trip
-                    </a>
-                }
-                else
-                {
-                    <a class="btn btn-outline-light btn-sm disabled"
-                           href="#"
-                           tabindex="-1"
-                           aria-disabled="true"
-                           onclick="return false;">
+                    <a class="btn btn-outline-light btn-sm"
+                           href="/Rental/Current/@ViewBag.ActiveRentalId">
                         My Trip
                     </a>
                 }

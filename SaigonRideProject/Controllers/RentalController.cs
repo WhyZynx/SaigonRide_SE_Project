@@ -8,7 +8,7 @@ using SaigonRideProject.ViewModels;
 
 namespace SaigonRideProject.Controllers
 {
-    public class RentalController : Controller
+    public class RentalController : BaseController
     {
         private readonly RentalService _rentalService;
         private readonly WalletService _walletService;
@@ -17,7 +17,7 @@ namespace SaigonRideProject.Controllers
         public RentalController(
             RentalService rentalService,
             WalletService walletService,
-            AppDbContext context)
+            AppDbContext context): base(context)
         {
             _rentalService = rentalService;
             _walletService = walletService;
