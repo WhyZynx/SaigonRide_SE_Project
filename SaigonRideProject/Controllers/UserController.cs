@@ -22,18 +22,24 @@ namespace SaigonRideProject.Controllers
         }
         public IActionResult UserDashboard()
         {
-
             var userId = HttpContext.Session.GetInt32("UserId");
-            var hasTrip = _rentalService.HasActiveRental(userId.Value);
 
+            if (userId == null)
+                return RedirectToAction("Login", "Account");
 
-            var user = _context.Users.Find(userId);
+            var user = _context.Users.FirstOrDefault(x => x.Id == userId.Value);
+
+            if (user == null)
+                return RedirectToAction("Login", "Account");
 
             var stations = _context.Stations.ToList();
+
+            ViewBag.PaymentMethods = PaymentMethodProvider.Get(user.UserType);
 
             var model = new UserDashboardViewModel
             {
                 User = user,
+                UserType = user.UserType,
                 Stations = stations.Select(s => new StationMapViewModel
                 {
                     Id = s.Id,
@@ -53,7 +59,10 @@ namespace SaigonRideProject.Controllers
         {
             var userId = HttpContext.Session.GetInt32("UserId");
 
-            var user = _context.Users.Find(userId);
+            if (userId == null)
+                return RedirectToAction("Login", "Account");
+
+            var user = _context.Users.FirstOrDefault(x => x.Id == userId.Value);
 
             if (user == null)
                 return BadRequest("User not found");
@@ -62,6 +71,7 @@ namespace SaigonRideProject.Controllers
                 return BadRequest("Invalid amount");
 
             var strategy = PaymentFactory.GetStrategy(user.UserType, method);
+
             var message = strategy.Pay(amount);
 
             _walletService.TopUp(user, amount, method);
@@ -75,7 +85,13 @@ namespace SaigonRideProject.Controllers
         {
             var userId = HttpContext.Session.GetInt32("UserId");
 
-            var user = _context.Users.Find(userId);
+            if (userId == null)
+                return RedirectToAction("Login", "Account");
+
+            var user = _context.Users.FirstOrDefault(x => x.Id == userId.Value);
+
+            if (user == null)
+                return RedirectToAction("Login", "Account");
 
             return View(user);
         }
@@ -87,7 +103,12 @@ namespace SaigonRideProject.Controllers
             if (userId == null)
                 return RedirectToAction("Login", "Account");
 
-            var user = _context.Users.Find(userId);
+            var user = _context.Users.FirstOrDefault(x => x.Id == userId.Value);
+
+            if (user == null)
+                return RedirectToAction("Login", "Account");
+
+            ViewBag.PaymentMethods = PaymentMethodProvider.Get(user.UserType);
 
             return View(user);
         }
@@ -100,7 +121,7 @@ namespace SaigonRideProject.Controllers
                 return RedirectToAction("Login", "Account");
 
             var data = _context.WalletTransactions
-                .Where(x => x.UserId == userId)
+                .Where(x => x.UserId == userId.Value)
                 .OrderByDescending(x => x.CreatedAt)
                 .ToList();
 

@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using SaigonRideProject.Data;
 using SaigonRideProject.Services;
 using SaigonRideProject.Services.Payment;
+using SaigonRideProject.Services.Pricing;
 using SaigonRideProject.ViewModels;
 
 namespace SaigonRideProject.Controllers
@@ -137,6 +138,17 @@ namespace SaigonRideProject.Controllers
             var pickup = _context.Stations
                 .FirstOrDefault(s => s.Id == rental.PickupStationId);
 
+            if (pickup == null)
+                return NotFound();
+
+            var userId = HttpContext.Session.GetInt32("UserId");
+            if (userId == null)
+                return RedirectToAction("Login", "Account");
+
+            var user = _context.Users.FirstOrDefault(x => x.Id == userId.Value);
+            if (user == null)
+                return RedirectToAction("Login", "Account");
+
             var model = new CurrentTripViewModel
             {
                 Id = rental.Id,
@@ -146,6 +158,8 @@ namespace SaigonRideProject.Controllers
                 PickupLat = pickup.Latitude,
                 PickupLng = pickup.Longitude
             };
+
+            ViewBag.PaymentMethods = PaymentMethodProvider.Get(user.UserType) ?? new[] { "Cash" };
 
             ViewBag.Stations = _context.Stations
                 .Select(s => new
@@ -171,34 +185,42 @@ namespace SaigonRideProject.Controllers
 
             if (rental == null) return NotFound();
 
+            if (rental.Status == "Completed")
+                return BadRequest("Already completed");
+
             var user = _context.Users.Find(rental.UserId);
             var station = _context.Stations.Find(returnStationId);
 
             if (user == null || station == null)
                 return BadRequest("Invalid data");
 
-            var minutes = (DateTime.Now - rental.StartTime).TotalMinutes;
+            var endTime = DateTime.Now;
+            var startTime = rental.StartTime;
+            var durationSeconds = Convert.ToDouble(Request.Form["durationSeconds"]);
+            var duration = TimeSpan.FromSeconds(durationSeconds);
 
-            var baseAmount = (decimal)minutes * rental.Vehicle.PricePerMinute;
+            if (duration.TotalSeconds < 0)
+                duration = TimeSpan.Zero;
 
-            var discount = station.CurrentInventory < (station.Capacity * 0.2m)
-                ? 0.15m
-                : 0m;
+            var pricingStrategy = PricingFactory.GetStrategy(user);
 
-            var finalAmount = baseAmount * (1 - discount);
+            var pricingResult = pricingStrategy.Calculate(
+                rental.Vehicle,
+                duration,
+                station,
+                user
+            );
 
-            if (!_walletService.CanPay(user, finalAmount))
+            if (!_walletService.CanPay(user, pricingResult.FinalAmount))
                 return RedirectToAction("TopUp", "User");
 
-            var strategy = PaymentFactory.GetStrategy(user.UserType, paymentMethod);
+            _walletService.Pay(user, pricingResult.FinalAmount, paymentMethod);
 
-            _walletService.Pay(user, finalAmount, paymentMethod);
-
-            rental.EndTime = DateTime.Now;
+            rental.EndTime = endTime;
             rental.Status = "Completed";
-            rental.BaseAmount = baseAmount;
-            rental.DiscountPercent = discount;
-            rental.FinalAmount = finalAmount;
+            rental.BaseAmount = pricingResult.BaseAmount;
+            rental.FinalAmount = pricingResult.FinalAmount;
+            rental.DiscountPercent = pricingResult.DiscountPercent;
             rental.PaymentMethod = paymentMethod;
 
             rental.Vehicle.Status = "Available";
@@ -207,8 +229,13 @@ namespace SaigonRideProject.Controllers
             station.CurrentInventory += 1;
 
             _context.SaveChanges();
+            Console.WriteLine("===== DEBUG RENTAL =====");
+            Console.WriteLine($"Start UTC: {startTime}");
+            Console.WriteLine($"End UTC: {endTime}");
+            Console.WriteLine($"Seconds: {duration.TotalSeconds}");
+            Console.WriteLine($"Price/min: {rental.Vehicle.PricePerMinute}");
 
-            return RedirectToAction("PaymentSuccess", new { amount = finalAmount });
+            return RedirectToAction("PaymentSuccess", new { amount = pricingResult.FinalAmount });
         }
 
         public IActionResult PaymentSuccess(decimal amount)

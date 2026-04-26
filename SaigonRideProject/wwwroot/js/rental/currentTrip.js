@@ -1,8 +1,7 @@
-﻿let start = new Date(window.startTime);
+﻿let start = new Date(window.startTime).getTime();
 let price = window.price;
 let stations = window.stations;
 
-let cost = 0;
 let timer;
 
 function run() {
@@ -10,54 +9,52 @@ function run() {
     timer = setInterval(() => {
 
         let now = new Date();
-        let diff = Math.floor((now - start) / 1000);
-
-        if (diff < 0) diff = 0;
+        let diff = Math.max(0, Math.floor((now.getTime() - start) / 1000));
 
         let h = Math.floor(diff / 3600);
         let m = Math.floor((diff % 3600) / 60);
         let s = diff % 60;
 
-        cost = (diff / 60) * price;
+        let estimatedCost = (diff / 60) * price;
 
         document.getElementById("timer").innerText =
             `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
 
-        document.getElementById("cost").innerText =
-            Math.round(cost).toLocaleString('vi-VN') + " VND";
+        document.getElementById("estimated").innerText =
+            "Estimated: " + Math.round(estimatedCost).toLocaleString('vi-VN') + " VND";
 
     }, 1000);
 }
-
-function discount(stationId) {
-
-    let s = stations.find(x => x.id == stationId);
-    if (!s) return 0;
-
-    let ratio = s.currentCount / s.capacity;
-
-    return ratio < 0.2 ? 0.15 : 0;
-}
+let isEnded = false;
 
 function openBill() {
 
     clearInterval(timer);
 
-    let stationId = document.getElementById("returnStation").value;
+    let stationId = document.getElementById("returnStation")?.value;
 
-    let d = discount(stationId);
-    let final = cost * (1 - d);
+    let endTime = new Date();
+
+    let diff = Math.max(0, Math.floor((endTime - start) / 1000));
+
+    window.finalDurationSeconds = diff;
+
+    let finalCost = (diff / 60) * price;
 
     document.getElementById("rs").value = stationId;
-    document.getElementById("amount").value = Math.round(final);
+    document.getElementById("pm").value = "";
+
+    document.getElementById("durationSeconds").value = diff;
 
     document.getElementById("bill").innerHTML = `
-        <p>Original: ${Math.round(cost).toLocaleString('vi-VN')} VND</p>
-        <p>Discount: ${d * 100}%</p>
-        <h5>Total: ${Math.round(final).toLocaleString('vi-VN')} VND</h5>
+        <p>Duration: ${diff} seconds</p>
+        <h5>Total: ${Math.round(finalCost).toLocaleString('vi-VN')} VND</h5>
     `;
 
-    new bootstrap.Modal(document.getElementById("billModal")).show();
+    let modal = document.getElementById("billModal");
+    if (modal) {
+        new bootstrap.Modal(modal).show();
+    }
 }
 
 function confirmPay() {
@@ -88,6 +85,12 @@ function initMap() {
 }
 
 window.onload = function () {
+
+    if (!window.startTime || !window.price) {
+        console.error("Missing rental data");
+        return;
+    }
+
     run();
     initMap();
 };
