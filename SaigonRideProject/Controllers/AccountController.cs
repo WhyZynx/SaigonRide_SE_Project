@@ -367,21 +367,21 @@ namespace SaigonRideProject.Controllers
             if (string.IsNullOrEmpty(email))
             {
                 TempData["Error"] = "Email is required";
-                return RedirectToAction("ForgotPassword");
+                return RedirectToAction("ForgotPassword", new { email });
             }
 
             var user = _context.Users.FirstOrDefault(x => x.Email == email);
 
             if (user == null)
             {
-                TempData["Error"] = "User not found";
+                TempData["Error"] = "Email is not registered";
                 return RedirectToAction("ForgotPassword");
             }
 
-            var otp = _context.OtpVerifications
-                .Where(x => x.Email == email && x.OtpCode == model.OtpCode && x.ExpiryTime > DateTime.Now)
-                .OrderByDescending(x => x.ExpiryTime)
-                .FirstOrDefault();
+            var otp = _context.OtpVerifications.FirstOrDefault(x =>
+                x.Email == email &&
+                x.OtpCode == model.OtpCode &&
+                x.ExpiryTime > DateTime.Now);
 
             if (otp == null)
             {
@@ -389,9 +389,21 @@ namespace SaigonRideProject.Controllers
                 return RedirectToAction("ForgotPassword", new { email });
             }
 
+            if (BCrypt.Net.BCrypt.Verify(model.NewPassword, user.PasswordHash))
+            {
+                TempData["Error"] = "New password cannot be the same as old password";
+                return RedirectToAction("ForgotPassword", new { email });
+            }
+
             if (model.NewPassword != model.ConfirmPassword)
             {
                 TempData["Error"] = "Passwords do not match";
+                return RedirectToAction("ForgotPassword", new { email });
+            }
+
+            if (!ModelState.IsValid)
+            {
+                TempData["Error"] = "Password does not meet security requirements";
                 return RedirectToAction("ForgotPassword", new { email });
             }
 
