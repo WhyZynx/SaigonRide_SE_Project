@@ -15,36 +15,39 @@ namespace SaigonRideProject.Services
 
         public void SendOtpEmail(string toEmail, string otpCode)
         {
+            var email = _configuration["EmailSettings:Email"];
+            var password = _configuration["EmailSettings:AppPassword"];
+            var host = _configuration["EmailSettings:Host"];
+            var portString = _configuration["EmailSettings:Port"];
+
+            if (string.IsNullOrEmpty(email) ||
+                string.IsNullOrEmpty(password) ||
+                string.IsNullOrEmpty(host) ||
+                string.IsNullOrEmpty(portString))
+            {
+                throw new Exception("Email configuration is missing in appsettings.json");
+            }
+
+            var port = int.Parse(portString);
+
             var message = new MimeMessage();
 
-            message.From.Add(new MailboxAddress(
-                "SaigonRide",
-                _configuration["EmailSettings:Email"]!
-            ));
-
-            message.To.Add(new MailboxAddress("", toEmail));
-
-            message.Subject = "SaigonRide OTP Verification";
-
+            message.From.Add(new MailboxAddress("SaigonRide", email));
+            message.To.Add(MailboxAddress.Parse(toEmail));
+            message.Subject = "SaigonRide OTP";
             message.Body = new TextPart("plain")
             {
                 Text = $"Your OTP code is: {otpCode}"
             };
 
-            using var client = new SmtpClient();
+            using var client = new MailKit.Net.Smtp.SmtpClient();
 
-            client.Connect(
-                _configuration["EmailSettings:Host"],
-                int.Parse(_configuration["EmailSettings:Port"]!),
-                SecureSocketOptions.StartTls
-            );
+            client.Connect(host, port, MailKit.Security.SecureSocketOptions.StartTls);
 
-            client.Authenticate(
-                _configuration["EmailSettings:Email"],
-                _configuration["EmailSettings:AppPassword"]
-            );
+            client.Authenticate(email, password);
 
             client.Send(message);
+
             client.Disconnect(true);
         }
     }

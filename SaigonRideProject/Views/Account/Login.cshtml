@@ -1,12 +1,13 @@
 ﻿@{
     Layout = "_Layout";
 }
-@if (ViewBag.Error != null)
+@if (ViewBag.Success != null)
 {
-    <div class="alert alert-danger">
-        @ViewBag.Error
+    <div class="alert alert-success border-0 small py-2 rounded-3 mb-3">
+        @ViewBag.Success
     </div>
 }
+
 <div class="container-fluid py-5">
     <div class="row justify-content-center">
         <div class="col-12 col-xl-10">
@@ -61,7 +62,7 @@
                             <div class="mb-4">
                                 <div class="d-flex justify-content-between align-items-center mb-2">
                                     <label class="form-label small fw-bold text-secondary mb-0" style="font-size: 11px; letter-spacing: 0.5px;">PASSWORD</label>
-                                    <a href="#" class="text-decoration-none fw-bold text-secondary" style="font-size: 10px;">FORGOT?</a>
+                                    <a href="/Account/ForgotPassword" class="text-decoration-none fw-bold text-secondary" style="font-size: 10px;">FORGOT?</a>
                                 </div>
                                 <div class="input-group">
                                     <span class="input-group-text border-0 bg-body-secondary rounded-start-pill ps-4">

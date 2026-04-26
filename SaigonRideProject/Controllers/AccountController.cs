@@ -3,6 +3,7 @@ using SaigonRideProject.Data;
 using SaigonRideProject.Models;
 using SaigonRideProject.Services;
 using SaigonRideProject.ViewModels;
+using System.Text.RegularExpressions;
 
 namespace SaigonRideProject.Controllers
 {
@@ -25,8 +26,6 @@ namespace SaigonRideProject.Controllers
             HttpContext.Session.SetString("Role", user.Role);
             HttpContext.Session.SetString("UserName", user.FullName);
         }
-
-        // ================= REGISTER =================
 
         public IActionResult Register()
         {
@@ -80,8 +79,6 @@ namespace SaigonRideProject.Controllers
             }
         }
 
-        // ================= USER TYPE =================
-
         public IActionResult SelectUserType()
         {
             return View();
@@ -121,8 +118,6 @@ namespace SaigonRideProject.Controllers
             return RedirectToAction("VerifyOtp");
         }
 
-        // ================= OTP =================
-
         public IActionResult VerifyOtp()
         {
             return View();
@@ -159,8 +154,6 @@ namespace SaigonRideProject.Controllers
             return RedirectToAction("IdentityVerification");
         }
 
-        // ================= IDENTITY =================
-
         public IActionResult IdentityVerification()
         {
             return View();
@@ -178,8 +171,6 @@ namespace SaigonRideProject.Controllers
             {
                 return RedirectToAction("Login");
             }
-
-            // ================= VALIDATION =================
 
             if (string.IsNullOrWhiteSpace(identityNumber))
             {
@@ -254,10 +245,11 @@ namespace SaigonRideProject.Controllers
             return View();
         }
 
-        // ================= LOGIN =================
-
+        [HttpGet]
         public IActionResult Login()
         {
+            ViewBag.Success = TempData["Success"];
+            ViewBag.Error = TempData["Error"];
             return View();
         }
 
@@ -301,7 +293,6 @@ namespace SaigonRideProject.Controllers
                 ViewBag.Error = "Identity verification is pending approval";
                 return View();
             }
-
             SetUserSession(user);
 
             return user.Role == "Admin"
@@ -319,5 +310,102 @@ namespace SaigonRideProject.Controllers
         {
             return Random.Shared.Next(100000, 999999).ToString();
         }
+
+        [HttpGet]
+        public IActionResult ForgotPassword(string email = null)
+        {
+            ViewBag.Email = email;
+
+            ViewBag.Error = TempData["Error"];
+            ViewBag.Success = TempData["Success"];
+
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult SendForgotOtp(string email)
+        {
+            if (string.IsNullOrWhiteSpace(email))
+            {
+                TempData["Error"] = "Email is required";
+                return RedirectToAction("ForgotPassword");
+            }
+
+            email = email.Trim().ToLower();
+
+            var user = _context.Users.FirstOrDefault(x => x.Email == email);
+
+            if (user == null)
+            {
+                TempData["Error"] = "Email not found";
+                return RedirectToAction("ForgotPassword");
+            }
+
+            var otp = GenerateOtp();
+
+            _context.OtpVerifications.Add(new OtpVerification
+            {
+                Email = email,
+                OtpCode = otp,
+                ExpiryTime = DateTime.Now.AddMinutes(5)
+            });
+
+            _context.SaveChanges();
+
+            _emailService.SendOtpEmail(email, otp);
+
+            TempData["Success"] = "OTP sent successfully";
+
+            return RedirectToAction("ForgotPassword", new { email = email });
+        }
+
+        [HttpPost]
+        public IActionResult ForgotPassword(ForgotPasswordViewModel model)
+        {
+            var email = model.Email?.Trim().ToLower();
+
+            if (string.IsNullOrEmpty(email))
+            {
+                TempData["Error"] = "Email is required";
+                return RedirectToAction("ForgotPassword");
+            }
+
+            var user = _context.Users.FirstOrDefault(x => x.Email == email);
+
+            if (user == null)
+            {
+                TempData["Error"] = "User not found";
+                return RedirectToAction("ForgotPassword");
+            }
+
+            var otp = _context.OtpVerifications
+                .Where(x => x.Email == email && x.OtpCode == model.OtpCode && x.ExpiryTime > DateTime.Now)
+                .OrderByDescending(x => x.ExpiryTime)
+                .FirstOrDefault();
+
+            if (otp == null)
+            {
+                TempData["Error"] = "Invalid or expired OTP";
+                return RedirectToAction("ForgotPassword", new { email });
+            }
+
+            if (model.NewPassword != model.ConfirmPassword)
+            {
+                TempData["Error"] = "Passwords do not match";
+                return RedirectToAction("ForgotPassword", new { email });
+            }
+
+            user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(model.NewPassword);
+
+            var allOtp = _context.OtpVerifications.Where(x => x.Email == email);
+            _context.OtpVerifications.RemoveRange(allOtp);
+
+            _context.SaveChanges();
+
+            TempData["Success"] = "Password reset successful!";
+            return RedirectToAction("Login");
+        }
+
+
     }
 }
