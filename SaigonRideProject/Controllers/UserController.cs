@@ -47,7 +47,7 @@ namespace SaigonRideProject.Controllers
                     Address = s.Address,
                     Latitude = s.Latitude,
                     Longitude = s.Longitude,
-                    AvailableCount = s.CurrentInventory
+                    AvailableCount = s.Vehicles.Count(v => v.Status == "Available")
                 }).ToList()
             };
 

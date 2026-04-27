@@ -10,7 +10,7 @@
         public double Longitude { get; set; }
 
         public int Capacity { get; set; }
-        public int CurrentInventory { get; set; }
+        public int VehicleCount { get; set; }
 
         public int AvailableCount { get; set; }
 

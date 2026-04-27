@@ -45,8 +45,8 @@ namespace SaigonRideProject.Controllers
                 {
                     StationName = s.Name,
                     Capacity = s.Capacity,
-                    Current = s.CurrentInventory,
-                    Status = s.CurrentInventory < (s.Capacity * 0.2) ? "Low" : "Normal"
+                    Current = s.Vehicles.Count(),
+                    Status = s.Vehicles.Count() < (s.Capacity * 0.2) ? "Low" : "Normal"
                 }).ToList();
 
             var vm = new ReportViewModel
@@ -101,9 +101,9 @@ namespace SaigonRideProject.Controllers
 
             foreach (var s in stations)
             {
-                var status = s.CurrentInventory < (s.Capacity * 0.2) ? "Low" : "Normal";
+                var status = s.Vehicles.Count() < (s.Capacity * 0.2) ? "Low" : "Normal";
 
-                csv += $"{s.Name},{s.Capacity},{s.CurrentInventory},{status}\n";
+                csv += $"{s.Name},{s.Capacity},{s.Vehicles.Count()},{status}\n";
             }
 
             return File(System.Text.Encoding.UTF8.GetBytes(csv),

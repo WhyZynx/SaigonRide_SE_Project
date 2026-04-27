@@ -34,25 +34,25 @@ namespace SaigonRideProject.Controllers
 
         public IActionResult StationList()
         {
-            var stations = _context.Stations
-                .Include(s => s.Vehicles)
-                .Select(s => new StationMapViewModel
-                {
-                    Id = s.Id,
-                    Name = s.Name,
-                    Address = s.Address,
-                    Latitude = s.Latitude,
-                    Longitude = s.Longitude,
-                    Capacity = s.Capacity,
+            var stationsData = _context.Stations
+     .AsNoTracking()
+     .ToList();
 
-                    CurrentInventory = s.Vehicles.Count(), 
-                    AvailableCount = s.Vehicles.Count(v => v.Status == "Available"),
+            var stations = stationsData.Select(s => new StationMapViewModel
+            {
+                Id = s.Id,
+                Name = s.Name,
+                Address = s.Address,
+                Latitude = s.Latitude,
+                Longitude = s.Longitude,
+                Capacity = s.Capacity,
 
-                    FillPercent = (double)s.Vehicles.Count() / s.Capacity,
-                    IsLowCapacity = ((double)s.Vehicles.Count() / s.Capacity) < 0.2
-                })
-                .OrderBy(s => s.IsLowCapacity ? 0 : 1)
-                .ToList();
+                VehicleCount = _context.Vehicles.Count(v => v.StationId == s.Id),
+                AvailableCount = _context.Vehicles.Count(v => v.StationId == s.Id && v.Status == "Available"),
+
+                FillPercent = _stationService.GetFillPercent(s),
+                IsLowCapacity = _stationService.IsLowCapacity(s)
+            }).ToList();
 
             return View(stations);
         }
@@ -84,12 +84,13 @@ namespace SaigonRideProject.Controllers
                     Name = station.Name,
                     Address = station.Address,
                     Latitude = station.Latitude,
-                    Longitude = station.Longitude
+                    Longitude = station.Longitude,
+                    VehicleCount = station.Vehicles.Count()
                 },
                 Vehicles = vehicles,
                 AvailableCount = vehicles.Count(v => v.Status == "Available"),
                 Capacity = station.Capacity,
-                CurrentInventory = station.CurrentInventory
+                VehicleCount = station.Vehicles.Count(),
             };
 
             return View(model);
@@ -115,7 +116,7 @@ namespace SaigonRideProject.Controllers
                 return RedirectToAction("Current", new { id = activeRental.Id });
             }
 
-            var user = _context.Users.Find(userId);
+            var user = _context.Users.FirstOrDefault(u => u.Id == userId.Value);
 
             if (user == null || user.IsLocked)
                 return BadRequest("Account locked");
@@ -139,8 +140,6 @@ namespace SaigonRideProject.Controllers
 
                 vehicle.Status = "InUse";
 
-                station.CurrentInventory = Math.Max(0, station.CurrentInventory - 1);
-
                 _context.SaveChanges();
 
                 transaction.Commit();
@@ -163,14 +162,14 @@ namespace SaigonRideProject.Controllers
                 return Json(null);
 
             var rental = _context.Rentals
-                .Where(r => r.UserId == userId && r.Status == "InProgress")
-                .Select(r => new
-                {
-                    r.Id,
-                    r.StartTime,
-                    r.Vehicle.PricePerMinute
-                })
-                .FirstOrDefault();
+            .Where(r => r.UserId == userId && r.Status == "InProgress")
+            .Select(r => new
+            {
+                r.Id,
+                r.StartTime,
+                PricePerMinute = r.Vehicle.PricePerMinute
+            })
+            .FirstOrDefault();
 
             return Json(rental);
         }
@@ -209,23 +208,38 @@ namespace SaigonRideProject.Controllers
             };
 
             ViewBag.PaymentMethods = PaymentMethodProvider.Get(user.UserType) ?? new[] { "Cash" };
-
-            ViewBag.Stations = _context.Stations
-                .ToList()
-                .Select(s => new
+                foreach (var s in _context.Stations.Include(x => x.Vehicles))
                 {
-                    id = s.Id,
-                    name = s.Name,
-                    latitude = s.Latitude,
-                    longitude = s.Longitude,
-                    capacity = s.Capacity,
-                    currentCount = s.CurrentInventory,
-                    fillPercent = _stationService.GetFillPercent(s),
-                    isLow = _stationService.IsLowCapacity(s)
-                })
-                .OrderBy(s => s.isLow ? 0 : 1)
-                .ToList();
+                    Console.WriteLine($"{s.Name}: {s.Vehicles.Count}");
+                }
+            var stations = _context.Stations
+    .AsNoTracking()
+    .Select(s => new
+    {
+        s.Id,
+        s.Name,
+        s.Latitude,
+        s.Longitude,
+        s.Capacity,
 
+        vehicleCount = _context.Vehicles.Count(v => v.StationId == s.Id),
+        availableCount = _context.Vehicles.Count(v => v.StationId == s.Id && v.Status == "Available")
+    })
+    .ToList();
+
+            ViewBag.Stations = stations.Select(s => new
+            {
+                id = s.Id,
+                name = s.Name,
+                latitude = s.Latitude,
+                longitude = s.Longitude,
+                capacity = s.Capacity,
+                vehicleCount = s.vehicleCount,
+                availableCount = s.availableCount,
+
+                fillPercent = s.Capacity == 0 ? 0 : (double)s.vehicleCount / s.Capacity,
+                isLow = s.Capacity > 0 && ((double)s.vehicleCount / s.Capacity) < 0.2
+            }).ToList();
             return View(model);
         }
 
@@ -338,8 +352,6 @@ namespace SaigonRideProject.Controllers
 
             rental.Vehicle.Status = "Available";
             rental.Vehicle.StationId = station.Id;
-
-            station.CurrentInventory += 1;
 
             _context.SaveChanges();
 

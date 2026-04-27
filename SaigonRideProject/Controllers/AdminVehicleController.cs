@@ -40,6 +40,7 @@ namespace SaigonRideProject.Controllers
                 PlateNumber = v.PlateNumber,
                 Status = v.Status,
                 PricePerMinute = v.PricePerMinute,
+                BatteryLevel = v.BatteryLevel,
                 StationId = v.StationId,
                 StationName = v.Station != null ? v.Station.Name : "N/A"
             }).ToList();
@@ -87,7 +88,8 @@ namespace SaigonRideProject.Controllers
                     PlateNumber = v.PlateNumber,
                     Status = v.Status,
                     PricePerMinute = v.PricePerMinute,
-                    StationId = v.StationId
+                    StationId = v.StationId,
+                    BatteryLevel = v.BatteryLevel
                 })
                 .FirstOrDefault();
 
@@ -167,7 +169,9 @@ namespace SaigonRideProject.Controllers
                     PlateNumber = v.PlateNumber,
                     Status = v.Status,
                     PricePerMinute = v.PricePerMinute,
+                    BatteryLevel = v.BatteryLevel,
                     StationId = v.StationId,
+                    StationName = v.Station != null ? v.Station.Name : "N/A",
                 })
                 .FirstOrDefault();
 

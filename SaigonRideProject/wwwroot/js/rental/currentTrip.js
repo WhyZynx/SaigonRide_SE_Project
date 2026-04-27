@@ -66,7 +66,7 @@ function initMap() {
         }).addTo(map);
 
         marker.bindPopup(
-            `${s.name}<br>${s.currentCount}/${s.capacity}`
+            `${s.name}<br>${s.vehicleCount}/${s.capacity}`
         );
 
         marker.on("click", () => {

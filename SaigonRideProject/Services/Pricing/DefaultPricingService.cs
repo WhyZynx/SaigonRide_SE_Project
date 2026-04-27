@@ -27,13 +27,11 @@ namespace SaigonRideProject.Services.Pricing
                 discount = 0.15m;
             }
 
-            var finalAmount = baseAmount * (1 - discount);
-
             return new PricingResult
             {
                 BaseAmount = baseAmount,
-                FinalAmount = finalAmount,
-                DiscountPercent = discount
+                DiscountPercent = discount,
+                FinalAmount = baseAmount * (1 - discount)
             };
         }
     }

@@ -14,7 +14,6 @@ namespace SaigonRideProject.Models
 
         public int Capacity { get; set; }
 
-        public int CurrentInventory { get; set; }
         public double Latitude { get; set; }
 
         public double Longitude { get; set; }
