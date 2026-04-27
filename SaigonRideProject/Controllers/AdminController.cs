@@ -37,7 +37,7 @@ namespace SaigonRideProject.Controllers
                 {
                     StationName = s.Name,
                     Capacity = s.Capacity,
-                    Current = s.CurrentInventory,
+                    CurrentInventory = s.CurrentInventory,
                     Status = "Low"
                 }).ToList();
 
@@ -71,7 +71,6 @@ namespace SaigonRideProject.Controllers
                 ActiveRentals = activeRentals,
                 AvailableVehicles = availableVehicles,
                 TotalTransactions = totalTransactions,
-                LowStations = lowStations,
                 RecentTransactions = recentTransactions,
                 LiveRentals = liveRentals
             };

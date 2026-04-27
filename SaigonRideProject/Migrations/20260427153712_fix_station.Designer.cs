@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SaigonRideProject.Data;
 
@@ -11,9 +12,11 @@ using SaigonRideProject.Data;
 namespace SaigonRideProject.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260427153712_fix_station")]
+    partial class fix_station
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -394,7 +397,7 @@ namespace SaigonRideProject.Migrations
                             IsLocked = false,
                             IsVerified = true,
                             PassportStatus = "Approved",
-                            PasswordHash = "$2a$11$1Ysqg/vfp3ozZmLRjrkq4.MD2mK/h/Wz8K2VgqRq4Nn9atjE8MRGy",
+                            PasswordHash = "$2a$11$79msOd46VYCz1g2hBX6hruXsvQ6VYm1lNrV0fd2dLunFwyQ1wsMR2",
                             Role = "Admin",
                             UserType = "Local"
                         });
