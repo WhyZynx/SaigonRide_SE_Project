@@ -2,12 +2,52 @@
     Layout = "_Layout";
 }
 
-<h2>Registration Successful!</h2>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 
-<p>
-    Welcome to the SaigonRide community. You’re now ready to start your eco-friendly journey.
-</p>
+<div class="container-fluid p-0">
+    <div class="row g-0 vh-100">
+        
+        <div class="col-md-6 d-none d-md-flex align-items-end p-5 position-relative shadow-inset" 
+             style="background: linear-gradient(rgba(62, 99, 125, 0.4), rgba(62, 99, 125, 0.8)), 
+                        url('/img/city.png'); 
+                    background-size: cover; 
+                    background-position: center;">
+            
+            <div class="mb-5 pb-5">
+                <h1 class="display-3 fw-bold text-white mb-0 lh-1">
+                    Discover the city<br>your own way.
+                </h1>
+            </div>
+        </div>
 
-<a href="/User/UserDashboard" class="btn btn-primary">
-    Start Now →
-</a>
+        <div class="col-12 col-md-6 d-flex align-items-center justify-content-center bg-white">
+            <div class="text-center px-4" style="max-width: 450px;">
+                
+                <div class="mb-4">
+                    <div class="d-inline-flex align-items-center justify-content-center rounded-circle shadow-sm bg-info bg-opacity-10" 
+                         style="width: 80px; height: 80px;">
+                        <i class="bi bi-check-lg fs-1 text-primary"></i>
+                    </div>
+                </div>
+
+                <h2 class="fw-bold mb-3 text-dark display-6">Registration Successful!</h2>
+                
+                <p class="text-secondary mb-5 fs-6 px-lg-3">
+                    Welcome to the SaigonRide community. You're now ready to start your eco-friendly journey.
+                </p>
+
+                <div class="px-md-5">
+                    <a href="/User/UserDashboard" 
+                       class="btn btn-primary btn-lg w-100 rounded-pill py-3 fw-bold shadow bg-gradient border-0">
+                        Start Now <i class="bi bi-arrow-right ms-2"></i>
+                    </a>
+                </div>
+
+                <div class="mt-5 pt-5 d-flex justify-content-center gap-4 small text-secondary opacity-50">
+                    <span class="user-select-none">Language</span>
+                    <span class="user-select-none">Support</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
