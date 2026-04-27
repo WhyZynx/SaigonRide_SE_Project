@@ -1,5 +1,4 @@
-﻿@model List<SaigonRideProject.Models.Rental>
-
+﻿@model List<SaigonRideProject.ViewModels.RentalHistoryViewModel>
 <div class="container mt-4">
 
     <h2>Trip History</h2>
@@ -24,8 +23,8 @@
             @foreach (var r in Model)
             {
                 <tr>
-                    <td>@r.Vehicle?.VehicleType</td>
-                    <td>@r.Vehicle?.PlateNumber</td>
+                    <td>@r.VehicleType</td>
+                    <td>@r.PlateNumber</td>
                     <td>@r.StartTime</td>
                     <td>@r.EndTime</td>
                     <td>@r.BaseAmount.ToString("N0")</td>

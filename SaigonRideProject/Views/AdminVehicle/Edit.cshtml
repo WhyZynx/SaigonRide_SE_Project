@@ -12,7 +12,10 @@
 
     <div class="mb-3">
         <label>Vehicle Type</label>
-        <input class="form-control" name="VehicleType" value="@Model.VehicleType" />
+        <select class="form-control" name="VehicleType">
+            <option value ="Bike" selected="@(Model.VehicleType == "Bike")">Bike</option>
+            <option value="E-Scooter" selected="@(Model.VehicleType == "E-Scooter")">E-Scooter</option>
+        </select>
     </div>
 
     <div class="mb-3">
@@ -23,21 +26,32 @@
     <div class="mb-3">
         <label>Status</label>
         <select class="form-control" name="Status">
-            <option selected="@("Available" == Model.Status)">Available</option>
-            <option selected="@("InUse" == Model.Status)">InUse</option>
-            <option selected="@("Maintenance" == Model.Status)">Maintenance</option>
+            <option value="Available" selected="@(Model.Status == "Available")">Available</option>
+            <option value="InUse" selected="@(Model.Status == "InUse")">InUse</option>
+            <option value="Maintenance" selected="@(Model.Status == "Maintenance")">Maintenance</option>
         </select>
     </div>
 
     <div class="mb-3">
         <label>Price Per Minute</label>
-        <input class="form-control" name="PricePerMinute" value="@Model.PricePerMinute" />
+        <select class="form-control" name="PricePerMinute">
+            <option value="500" selected="@(Model.PricePerMinute == 500)">500 VND</option>
+            <option value="1500" selected="@(Model.PricePerMinute == 1500)">1500 VND</option>
+        </select>
     </div>
 
     <div class="mb-3">
-        <label>Station Id</label>
-        <input class="form-control" name="StationId" value="@Model.StationId" />
+        <label>Station</label>
+        <select class="form-control" name="StationId">
+            @foreach (var s in ViewBag.Stations)
+            {
+                <option value="@s.Id" selected="@(s.Id == Model.StationId)">
+                    @s.Name
+                </option>
+            }
+        </select>
     </div>
 
     <button class="btn btn-primary">Save</button>
+
 </form>

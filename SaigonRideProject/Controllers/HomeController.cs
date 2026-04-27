@@ -2,7 +2,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SaigonRideProject.Data;
 using SaigonRideProject.Services;
-using SaigonRideProject.ViewModels;
 
 namespace SaigonRideProject.Controllers
 {
@@ -20,8 +19,6 @@ namespace SaigonRideProject.Controllers
         {
             return View();
         }
-
-
 
         public IActionResult Dashboard()
         {

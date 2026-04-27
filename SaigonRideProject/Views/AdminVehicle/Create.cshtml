@@ -10,32 +10,44 @@
 
     <div class="mb-3">
         <label>Vehicle Type</label>
-        <input class="form-control" name="VehicleType" />
+        <select class="form-control" name="VehicleType">
+            <option value="Bike">Bike</option>
+            <option value="E-Scooter">E-Scooter</option>
+        </select>
     </div>
 
     <div class="mb-3">
         <label>Plate Number</label>
-        <input class="form-control" name="PlateNumber" />
+        <input class="form-control" name="PlateNumber" required />
     </div>
 
     <div class="mb-3">
         <label>Status</label>
         <select class="form-control" name="Status">
-            <option>Available</option>
-            <option>InUse</option>
-            <option>Maintenance</option>
+            <option value="Available">Available</option>
+            <option value="InUse">InUse</option>
+            <option value="Maintenance">Maintenance</option>
         </select>
     </div>
 
     <div class="mb-3">
         <label>Price Per Minute</label>
-        <input class="form-control" name="PricePerMinute" />
+        <select class="form-control" name="PricePerMinute">
+            <option value="500">500 VND</option>
+            <option value="1500">1500 VND</option>
+        </select>
     </div>
 
     <div class="mb-3">
-        <label>Station Id</label>
-        <input class="form-control" name="StationId" />
+        <label>Station</label>
+        <select class="form-control" name="StationId">
+            @foreach (var s in ViewBag.Stations)
+            {
+                <option value="@s.Id">@s.Name</option>
+            }
+        </select>
     </div>
 
     <button class="btn btn-success">Create</button>
+
 </form>

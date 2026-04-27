@@ -8,7 +8,8 @@
             <th>Plate Number</th>
             <th>Status</th>
             <th>Price/Min</th>
-            <th>Station</th>
+            <th>Station ID</th>
+            <th>Station Name</th>
             <th>Action</th>
         </tr>
     </thead>
@@ -38,6 +39,7 @@
 
                 <td>@v.PricePerMinute</td>
                 <td>@v.StationId</td>
+                <td>@v.StationName</td>
 
                 <td class="text-nowrap">
                     <a class="btn btn-sm btn-warning" href="/AdminVehicle/Edit/@v.Id">Edit</a>

@@ -40,7 +40,8 @@ namespace SaigonRideProject.Controllers
                 PlateNumber = v.PlateNumber,
                 Status = v.Status,
                 PricePerMinute = v.PricePerMinute,
-                StationId = v.StationId
+                StationId = v.StationId,
+                StationName = v.Station != null ? v.Station.Name : "N/A"
             }).ToList();
 
             return View(result);
@@ -48,19 +49,24 @@ namespace SaigonRideProject.Controllers
 
         public IActionResult Create()
         {
-            if (!IsAdmin()) return RedirectToAction("Login", "Account");
+            ViewBag.Stations = _context.Stations
+                .Select(s => new { s.Id, s.Name })
+                .ToList();
+
             return View();
         }
 
         [HttpPost]
-        public IActionResult Create(Vehicle vehicle)
+        public IActionResult Create(AdminVehicleViewModel model)
         {
-            if (!IsAdmin()) return RedirectToAction("Login", "Account");
-
-            if (string.IsNullOrEmpty(vehicle.PlateNumber))
-                return View(vehicle);
-
-            vehicle.Status = "Available";
+            var vehicle = new Vehicle
+            {
+                VehicleType = model.VehicleType,
+                PlateNumber = model.PlateNumber,
+                Status = model.Status,
+                PricePerMinute = model.PricePerMinute,
+                StationId = model.StationId
+            };
 
             _context.Vehicles.Add(vehicle);
             _context.SaveChanges();
@@ -86,6 +92,10 @@ namespace SaigonRideProject.Controllers
                 .FirstOrDefault();
 
             if (vehicle == null) return NotFound();
+
+            ViewBag.Stations = _context.Stations
+                .Select(s => new { s.Id, s.Name })
+                .ToList();
 
             return View(vehicle);
         }
