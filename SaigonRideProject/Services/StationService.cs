@@ -25,5 +25,11 @@ namespace SaigonRideProject.Services
         {
             return GetFillPercent(station) < 0.2;
         }
+
+        public bool IsFull(Station station)
+        {
+            var vehicleCount = _context.Vehicles.Count(v => v.StationId == station.Id);
+            return vehicleCount >= station.Capacity;
+        }
     }
 }

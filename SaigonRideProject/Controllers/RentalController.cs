@@ -35,8 +35,8 @@ namespace SaigonRideProject.Controllers
         public IActionResult StationList()
         {
             var stationsData = _context.Stations
-     .AsNoTracking()
-     .ToList();
+             .AsNoTracking()
+             .ToList();
 
             var stations = stationsData.Select(s => new StationMapViewModel
             {
@@ -71,6 +71,7 @@ namespace SaigonRideProject.Controllers
                     Id = v.Id,
                     VehicleType = v.VehicleType,
                     PlateNumber = v.PlateNumber,
+                    BatteryLevel = v.BatteryLevel,
                     PricePerMinute = v.PricePerMinute,
                     Status = v.Status
                 })
@@ -125,6 +126,8 @@ namespace SaigonRideProject.Controllers
 
             var vehicle = _context.Vehicles.FirstOrDefault(v => v.Id == vehicleId);
             var station = _context.Stations.FirstOrDefault(s => s.Id == stationId);
+            if (vehicle.BatteryLevel < 20)
+                return BadRequest("Battery too low to rent");
 
             if (vehicle == null || station == null)
                 return BadRequest("Invalid data");
@@ -338,6 +341,14 @@ namespace SaigonRideProject.Controllers
 
             var user = _context.Users.Find(rental.UserId);
             var station = _context.Stations.Find(rental.ReturnStationId);
+
+            if (station == null)
+                return Json(new { success = false, message = "Station not found" });
+
+            var vehicleCount = _context.Vehicles.Count(v => v.StationId == station.Id);
+
+            if (vehicleCount >= station.Capacity)
+                return Json(new { success = false, message = "Station is full" });
 
             if (!_walletService.CanPay(user, payment.Amount))
                 return Json(new { success = false });

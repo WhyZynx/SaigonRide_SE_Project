@@ -25,8 +25,8 @@
         {
             <div class="col-md-4 mb-3">
                 <div id="station-@s.id"
-                     class="card station-card @(s.isLow ? "border-danger" : "")"
-                     onclick="selectStation(@s.id, '@s.name')">
+                     class="card station-card @(s.isLow ? "border-danger" : "") @(s.vehicleCount >= s.capacity ? "opacity-50" : "")"
+                     onclick="selectStation(@s.id, '@s.name', @s.vehicleCount, @s.capacity)">
 
                     <div class="card-body">
                         <h5>@s.name</h5>
@@ -40,6 +40,10 @@
                         <small>
                             @s.vehicleCount / @s.capacity bikes
                         </small>
+                        @if (s.vehicleCount >= s.capacity)
+                        {
+                            <span class="badge bg-dark">FULL</span>
+                        }
 
                         @if (s.isLow)
                         {

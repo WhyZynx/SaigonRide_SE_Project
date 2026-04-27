@@ -1,7 +1,11 @@
 ﻿let selectedStation = null;
 let map;
 
-window.selectStation = function (id, name) {
+window.selectStation = function (id, name, vehicleCount, capacity) {
+
+    if (vehicleCount >= capacity) {
+        return;
+    }
 
     selectedStation = id;
 
@@ -70,7 +74,7 @@ function initMap() {
         );
 
         marker.on("click", () => {
-            selectStation(s.id, s.name);
+            selectStation(s.id, s.name, s.vehicleCount, s.capacity);
         });
     });
 }
