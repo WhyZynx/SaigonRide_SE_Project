@@ -1,30 +1,33 @@
 ﻿using Microsoft.AspNetCore.Http;
-public class FileUploadService
+namespace SaigonRideProject.Services
 {
-    private readonly IWebHostEnvironment _env;
-
-    public FileUploadService(IWebHostEnvironment env)
+    public class FileUploadService
     {
-        _env = env;
-    }
+        private readonly IWebHostEnvironment _env;
 
-    public string SaveImage(IFormFile file)
-    {
-        if (file == null || file.Length == 0)
-            throw new Exception("File is empty");
+        public FileUploadService(IWebHostEnvironment env)
+        {
+            _env = env;
+        }
 
-        if (_env.WebRootPath == null)
-            throw new Exception("wwwroot not found");
+        public string SaveImage(IFormFile file)
+        {
+            if (file == null || file.Length == 0)
+                throw new Exception("File is empty");
 
-        var path = Path.Combine(_env.WebRootPath, "uploads");
-        Directory.CreateDirectory(path);
+            if (_env.WebRootPath == null)
+                throw new Exception("wwwroot not found");
 
-        var fileName = Guid.NewGuid() + "_" + Path.GetFileName(file.FileName);
-        var fullPath = Path.Combine(path, fileName);
+            var path = Path.Combine(_env.WebRootPath, "uploads");
+            Directory.CreateDirectory(path);
 
-        using var stream = new FileStream(fullPath, FileMode.Create);
-        file.CopyTo(stream);
+            var fileName = Guid.NewGuid() + "_" + Path.GetFileName(file.FileName);
+            var fullPath = Path.Combine(path, fileName);
 
-        return "/uploads/" + fileName;
+            using var stream = new FileStream(fullPath, FileMode.Create);
+            file.CopyTo(stream);
+
+            return "/uploads/" + fileName;
+        }
     }
 }

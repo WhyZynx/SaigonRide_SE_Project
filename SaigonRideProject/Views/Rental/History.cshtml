@@ -8,7 +8,8 @@
 
         <thead>
             <tr>
-                <th>Vehicle</th>
+                <th>Vehicle Type</th>
+                <th>Plate Number</th>
                 <th>Start</th>
                 <th>End</th>
                 <th>Base</th>
@@ -23,11 +24,12 @@
             @foreach (var r in Model)
             {
                 <tr>
-                    <td>@r.VehicleId</td>
+                    <td>@r.Vehicle?.VehicleType</td>
+                    <td>@r.Vehicle?.PlateNumber</td>
                     <td>@r.StartTime</td>
                     <td>@r.EndTime</td>
                     <td>@r.BaseAmount.ToString("N0")</td>
-                    <td>@r.DiscountPercent %</td>
+                    <td>@(r.DiscountPercent * 100)%</td>
                     <td><b>@r.FinalAmount.ToString("N0")</b></td>
                     <td>@r.PaymentMethod</td>
                 </tr>

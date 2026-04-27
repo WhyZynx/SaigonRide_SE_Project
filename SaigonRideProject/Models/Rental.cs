@@ -27,5 +27,6 @@
         public string? PaymentMethod { get; set; }
 
         public string Status { get; set; } = "InProgress";
+        public ICollection<Payment> Payments { get; set; }
     }
 }

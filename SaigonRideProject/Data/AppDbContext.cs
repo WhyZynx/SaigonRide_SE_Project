@@ -21,6 +21,7 @@ namespace SaigonRideProject.Data
         public DbSet<Rental> Rentals { get; set; }
 
         public DbSet<WalletTransaction> WalletTransactions { get; set; }
+        public DbSet<Payment> Payments { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -41,9 +42,11 @@ namespace SaigonRideProject.Data
                 .Property(u => u.PassportStatus)
                 .HasDefaultValue("Pending");
 
+            // ================= OTP =================
             modelBuilder.Entity<OtpVerification>()
                 .HasIndex(o => new { o.Email, o.OtpCode });
 
+            // ================= VEHICLE =================
             modelBuilder.Entity<Vehicle>()
                 .Property(v => v.PricePerMinute)
                 .HasPrecision(10, 2);
@@ -52,8 +55,9 @@ namespace SaigonRideProject.Data
                 .HasOne(v => v.Station)
                 .WithMany(s => s.Vehicles)
                 .HasForeignKey(v => v.StationId)
-                .OnDelete(DeleteBehavior.NoAction);
+                .OnDelete(DeleteBehavior.Restrict);
 
+            // ================= RENTAL =================
             modelBuilder.Entity<Rental>()
                 .Property(r => r.BaseAmount)
                 .HasPrecision(18, 2);
@@ -66,9 +70,11 @@ namespace SaigonRideProject.Data
                 .Property(r => r.DiscountPercent)
                 .HasPrecision(5, 2);
 
+            // chỉ 1 rental đang chạy
             modelBuilder.Entity<Rental>()
                 .HasIndex(r => r.UserId)
-                .HasFilter("[Status] = 'InProgress'");
+                .HasFilter("[Status] = 'InProgress'")
+                .IsUnique();
 
             modelBuilder.Entity<Rental>()
                 .HasOne(r => r.User)
@@ -80,20 +86,36 @@ namespace SaigonRideProject.Data
                 .HasOne(r => r.Vehicle)
                 .WithMany()
                 .HasForeignKey(r => r.VehicleId)
-                .OnDelete(DeleteBehavior.NoAction);
+                .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<Rental>()
                 .HasOne(r => r.PickupStation)
                 .WithMany()
                 .HasForeignKey(r => r.PickupStationId)
-                .OnDelete(DeleteBehavior.NoAction);
+                .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<Rental>()
                 .HasOne(r => r.ReturnStation)
                 .WithMany()
                 .HasForeignKey(r => r.ReturnStationId)
-                .OnDelete(DeleteBehavior.NoAction);
+                .OnDelete(DeleteBehavior.Restrict);
 
+            // ================= PAYMENT (NEW - QUAN TRỌNG) =================
+            modelBuilder.Entity<Payment>()
+                .Property(p => p.Amount)
+                .HasPrecision(18, 2);
+
+            modelBuilder.Entity<Payment>()
+                .HasOne(p => p.Rental)
+                .WithMany(r => r.Payments)
+                .HasForeignKey(p => p.RentalId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<Payment>()
+                .Property(p => p.Status)
+                .HasDefaultValue("Pending");
+
+            // ================= WALLET =================
             modelBuilder.Entity<WalletTransaction>()
                 .Property(w => w.Amount)
                 .HasPrecision(18, 2);
@@ -104,6 +126,7 @@ namespace SaigonRideProject.Data
                 .HasForeignKey(t => t.UserId)
                 .OnDelete(DeleteBehavior.Cascade);
 
+            // ================= SEED USER =================
             modelBuilder.Entity<User>().HasData(
                 new User
                 {
@@ -121,6 +144,7 @@ namespace SaigonRideProject.Data
                     Balance = 0
                 }
             );
+
             modelBuilder.Entity<Station>().HasData(
                 new Station { Id = 1, Name = "Ben Thanh Station", Address = "District 1", Capacity = 25, CurrentInventory = 18, Latitude = 10.7720, Longitude = 106.6980 },
                 new Station { Id = 2, Name = "District 3 Hub", Address = "Vo Van Tan", Capacity = 20, CurrentInventory = 14, Latitude = 10.7825, Longitude = 106.6900 },

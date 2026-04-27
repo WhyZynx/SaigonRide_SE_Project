@@ -4,18 +4,25 @@ namespace SaigonRideProject.Services.Pricing
 {
     public class DefaultPricingService : IPricingStrategy
     {
+        private readonly StationService _stationService;
+
+        public DefaultPricingService(StationService stationService)
+        {
+            _stationService = stationService;
+        }
+
         public PricingResult Calculate(
-                Vehicle vehicle,
-                TimeSpan duration,
-                Station returnStation,
-                User user
-            )
+            Vehicle vehicle,
+            TimeSpan duration,
+            Station returnStation,
+            User user
+        )
         {
             var baseAmount = vehicle.PricePerMinute * (decimal)duration.TotalMinutes;
 
             decimal discount = 0;
 
-            if ((double)returnStation.CurrentInventory / returnStation.Capacity < 0.2)
+            if (_stationService.IsLowCapacity(returnStation))
             {
                 discount = 0.15m;
             }
