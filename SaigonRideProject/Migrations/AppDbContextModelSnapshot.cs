@@ -379,7 +379,7 @@ namespace SaigonRideProject.Migrations
                             IsLocked = false,
                             IsVerified = true,
                             PassportStatus = "Approved",
-                            PasswordHash = "$2a$11$YDNxh.hYt5mH/rTpCv7Y7OvAhzBHKJ2D1FN8xh8HeiR0AwyThrFgy",
+                            PasswordHash = "$2a$11$B2su6lcv4ZlthEm9wqRmBue.v.qgVfB8tTw7k9uOxvnvCsZ496H6W",
                             Role = "Admin",
                             UserType = "Local"
                         });
