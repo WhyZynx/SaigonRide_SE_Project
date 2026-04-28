@@ -19,5 +19,6 @@ namespace SaigonRideProject.Models
         public Station? Station { get; set; }
 
         public required string PlateNumber { get; set; }
+        public int BatteryLevel { get; set; } = 100;
     }
 }

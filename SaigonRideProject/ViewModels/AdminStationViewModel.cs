@@ -8,7 +8,7 @@ namespace SaigonRideProject.ViewModels
         public string Name { get; set; }
         public string Address { get; set; } = string.Empty;
         public int Capacity { get; set; }
-        public int CurrentInventory { get; set; }
+        public int VehicleCount { get; set; }
         public double Latitude { get; set; }
         public double Longitude { get; set; }
         public List<Vehicle> Vehicles { get; set; } = new();

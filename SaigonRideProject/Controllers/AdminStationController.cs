@@ -36,7 +36,7 @@ namespace SaigonRideProject.Controllers
                 Name = s.Name,
                 Address = s.Address,
                 Capacity = s.Capacity,
-                CurrentInventory = s.CurrentInventory,
+                VehicleCount = s.Vehicles.Count(),
                 Latitude = s.Latitude,
                 Longitude = s.Longitude,
                 Status = s.Status
@@ -73,7 +73,7 @@ namespace SaigonRideProject.Controllers
                     Name = s.Name,
                     Address = s.Address,
                     Capacity = s.Capacity,
-                    CurrentInventory = s.CurrentInventory,
+                    VehicleCount = s.Vehicles.Count(),
                     Latitude = s.Latitude,
                     Longitude = s.Longitude
 
@@ -97,7 +97,6 @@ namespace SaigonRideProject.Controllers
             station.Name = model.Name;
             station.Address = model.Address;
             station.Capacity = model.Capacity;
-            station.CurrentInventory = model.CurrentInventory;
             station.Latitude = model.Latitude;
             station.Longitude = model.Longitude;
 
@@ -154,7 +153,7 @@ namespace SaigonRideProject.Controllers
                 Name = station.Name,
                 Address = station.Address,
                 Capacity = station.Capacity,
-                CurrentInventory = station.CurrentInventory,
+                VehicleCount = station.Vehicles.Count(),
                 Latitude = station.Latitude,
                 Longitude = station.Longitude,
                 Vehicles = station.Vehicles.ToList()
@@ -179,7 +178,7 @@ namespace SaigonRideProject.Controllers
                 Name = s.Name,
                 Address = s.Address,
                 Capacity = s.Capacity,
-                CurrentInventory = s.CurrentInventory,
+                VehicleCount = s.Vehicles.Count(),
                 Latitude = s.Latitude,
                 Longitude = s.Longitude,
                 Status = s.Status

@@ -1,96 +1,91 @@
-﻿let start = new Date(window.startTime).getTime();
-let price = window.price;
-let stations = window.stations;
+﻿let selectedStation = null;
+let map;
 
-let timer;
+window.selectStation = function (id, name, vehicleCount, capacity) {
 
-function run() {
-
-    timer = setInterval(() => {
-
-        let now = new Date();
-        let diff = Math.max(0, Math.floor((now.getTime() - start) / 1000));
-
-        let h = Math.floor(diff / 3600);
-        let m = Math.floor((diff % 3600) / 60);
-        let s = diff % 60;
-
-        let estimatedCost = (diff / 60) * price;
-
-        document.getElementById("timer").innerText =
-            `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
-
-        document.getElementById("estimated").innerText =
-            "Estimated: " + Math.round(estimatedCost).toLocaleString('vi-VN') + " VND";
-
-    }, 1000);
-}
-let isEnded = false;
-
-function openBill() {
-
-    clearInterval(timer);
-
-    let stationId = document.getElementById("returnStation")?.value;
-
-    let endTime = new Date();
-
-    let diff = Math.max(0, Math.floor((endTime - start) / 1000));
-
-    window.finalDurationSeconds = diff;
-
-    let finalCost = (diff / 60) * price;
-
-    document.getElementById("rs").value = stationId;
-    document.getElementById("pm").value = "";
-
-    document.getElementById("durationSeconds").value = diff;
-
-    document.getElementById("bill").innerHTML = `
-        <p>Duration: ${diff} seconds</p>
-        <h5>Total: ${Math.round(finalCost).toLocaleString('vi-VN')} VND</h5>
-    `;
-
-    let modal = document.getElementById("billModal");
-    if (modal) {
-        new bootstrap.Modal(modal).show();
+    if (vehicleCount >= capacity) {
+        return;
     }
-}
 
-function confirmPay() {
+    selectedStation = id;
 
-    let method = document.getElementById("paymentMethod").value;
+    document.getElementById("selectedStationName").innerText = name;
 
-    if (!confirm("Confirm payment?")) return;
+    document.querySelectorAll(".station-card")
+        .forEach(c => c.classList.remove("border-primary"));
 
-    document.getElementById("pm").value = method;
+    document.getElementById("station-" + id)
+        ?.classList.add("border-primary");
+};
+
+window.endTrip = function () {
+
+    if (!selectedStation) {
+        alert("Please select a return station");
+        return;
+    }
+
+    let duration =
+        Math.floor((new Date().getTime() - new Date(window.startTime).getTime()) / 1000);
+
+    document.getElementById("rs").value = selectedStation;
+    document.getElementById("durationSeconds").value = duration;
 
     document.getElementById("form").submit();
+};
+
+function runTimer() {
+
+    setInterval(() => {
+
+        let diff =
+            Math.floor((new Date().getTime() - new Date(window.startTime).getTime()) / 1000);
+
+        let m = Math.floor(diff / 60);
+        let s = diff % 60;
+
+        document.getElementById("timer").innerText =
+            `${m}:${s.toString().padStart(2, '0')}`;
+
+        let cost = (diff / 60) * window.price;
+
+        document.getElementById("estimated").innerText =
+            "Estimated: " + Math.round(cost).toLocaleString('vi-VN') + " VND";
+
+    }, 1000);
 }
 
 function initMap() {
 
-    let map = L.map('map').setView([10.77, 106.69], 13);
+    map = L.map('map').setView([10.77, 106.69], 13);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png')
         .addTo(map);
 
-    stations.forEach(s => {
+    window.stations.forEach(s => {
 
-        L.marker([s.latitude, s.longitude])
-            .addTo(map)
-            .bindPopup(`${s.name} (${s.currentCount}/${s.capacity})`);
+        let marker = L.circleMarker([s.latitude, s.longitude], {
+            color: s.isLow ? "red" : "green",
+            radius: 8
+        }).addTo(map);
 
+        marker.bindPopup(
+            `${s.name}<br>${s.vehicleCount}/${s.capacity}`
+        );
+
+        marker.on("click", () => {
+            selectStation(s.id, s.name, s.vehicleCount, s.capacity);
+        });
     });
 }
 
 window.onload = function () {
 
-    if (!window.startTime || !window.price) {
+    if (!window.startTime || !window.price || !window.stations) {
         console.error("Missing rental data");
         return;
     }
 
-    run();
+    runTimer();
     initMap();
 };

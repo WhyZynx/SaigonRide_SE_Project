@@ -1,10 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SaigonRideProject.Data;
+using SaigonRideProject.Models;
 using SaigonRideProject.Services;
 using SaigonRideProject.Services.Payment;
 using SaigonRideProject.Services.Pricing;
 using SaigonRideProject.ViewModels;
+using System.Text.Json;
 
 namespace SaigonRideProject.Controllers
 {
@@ -13,31 +15,44 @@ namespace SaigonRideProject.Controllers
         private readonly RentalService _rentalService;
         private readonly WalletService _walletService;
         private readonly AppDbContext _context;
+        private readonly StationService _stationService;
+        private readonly IPricingStrategy pricing;
 
         public RentalController(
             RentalService rentalService,
             WalletService walletService,
-            AppDbContext context): base(context)
+            StationService stationService,
+            AppDbContext context,
+            IPricingStrategy pricing) : base(context)
         {
             _rentalService = rentalService;
             _walletService = walletService;
             _context = context;
+            _stationService = stationService;
+            this.pricing = pricing;
         }
 
         public IActionResult StationList()
         {
-            var stations = _context.Stations
-                .Select(s => new StationMapViewModel
-                {
-                    Id = s.Id,
-                    Name = s.Name,
-                    Address = s.Address,
-                    Latitude = s.Latitude,
-                    Longitude = s.Longitude,
-                    AvailableCount = s.Vehicles.Count(v => v.Status == "Available"),
-                    Capacity = s.Capacity
-                })
-                .ToList();
+            var stationsData = _context.Stations
+             .AsNoTracking()
+             .ToList();
+
+            var stations = stationsData.Select(s => new StationMapViewModel
+            {
+                Id = s.Id,
+                Name = s.Name,
+                Address = s.Address,
+                Latitude = s.Latitude,
+                Longitude = s.Longitude,
+                Capacity = s.Capacity,
+
+                VehicleCount = _context.Vehicles.Count(v => v.StationId == s.Id),
+                AvailableCount = _context.Vehicles.Count(v => v.StationId == s.Id && v.Status == "Available"),
+
+                FillPercent = _stationService.GetFillPercent(s),
+                IsLowCapacity = _stationService.IsLowCapacity(s)
+            }).ToList();
 
             return View(stations);
         }
@@ -56,6 +71,7 @@ namespace SaigonRideProject.Controllers
                     Id = v.Id,
                     VehicleType = v.VehicleType,
                     PlateNumber = v.PlateNumber,
+                    BatteryLevel = v.BatteryLevel,
                     PricePerMinute = v.PricePerMinute,
                     Status = v.Status
                 })
@@ -69,12 +85,13 @@ namespace SaigonRideProject.Controllers
                     Name = station.Name,
                     Address = station.Address,
                     Latitude = station.Latitude,
-                    Longitude = station.Longitude
+                    Longitude = station.Longitude,
+                    VehicleCount = station.Vehicles.Count()
                 },
                 Vehicles = vehicles,
                 AvailableCount = vehicles.Count(v => v.Status == "Available"),
                 Capacity = station.Capacity,
-                CurrentInventory = station.CurrentInventory
+                VehicleCount = station.Vehicles.Count(),
             };
 
             return View(model);
@@ -100,7 +117,7 @@ namespace SaigonRideProject.Controllers
                 return RedirectToAction("Current", new { id = activeRental.Id });
             }
 
-            var user = _context.Users.Find(userId);
+            var user = _context.Users.FirstOrDefault(u => u.Id == userId.Value);
 
             if (user == null || user.IsLocked)
                 return BadRequest("Account locked");
@@ -109,6 +126,8 @@ namespace SaigonRideProject.Controllers
 
             var vehicle = _context.Vehicles.FirstOrDefault(v => v.Id == vehicleId);
             var station = _context.Stations.FirstOrDefault(s => s.Id == stationId);
+            if (vehicle.BatteryLevel < 20)
+                return BadRequest("Battery too low to rent");
 
             if (vehicle == null || station == null)
                 return BadRequest("Invalid data");
@@ -123,8 +142,6 @@ namespace SaigonRideProject.Controllers
                 var rental = _rentalService.StartRental(userId.Value, vehicleId, stationId);
 
                 vehicle.Status = "InUse";
-
-                station.CurrentInventory = Math.Max(0, station.CurrentInventory - 1);
 
                 _context.SaveChanges();
 
@@ -148,14 +165,14 @@ namespace SaigonRideProject.Controllers
                 return Json(null);
 
             var rental = _context.Rentals
-                .Where(r => r.UserId == userId && r.Status == "InProgress")
-                .Select(r => new
-                {
-                    r.Id,
-                    r.StartTime,
-                    r.Vehicle.PricePerMinute
-                })
-                .FirstOrDefault();
+            .Where(r => r.UserId == userId && r.Status == "InProgress")
+            .Select(r => new
+            {
+                r.Id,
+                r.StartTime,
+                PricePerMinute = r.Vehicle.PricePerMinute
+            })
+            .FirstOrDefault();
 
             return Json(rental);
         }
@@ -194,24 +211,43 @@ namespace SaigonRideProject.Controllers
             };
 
             ViewBag.PaymentMethods = PaymentMethodProvider.Get(user.UserType) ?? new[] { "Cash" };
-
-            ViewBag.Stations = _context.Stations
-                .Select(s => new
+                foreach (var s in _context.Stations.Include(x => x.Vehicles))
                 {
-                    id = s.Id,
-                    name = s.Name,
-                    latitude = s.Latitude,
-                    longitude = s.Longitude,
-                    capacity = s.Capacity,
-                    currentCount = s.CurrentInventory
-                })
-                .ToList();
+                    Console.WriteLine($"{s.Name}: {s.Vehicles.Count}");
+                }
+            var stations = _context.Stations
+    .AsNoTracking()
+    .Select(s => new
+    {
+        s.Id,
+        s.Name,
+        s.Latitude,
+        s.Longitude,
+        s.Capacity,
 
+        vehicleCount = _context.Vehicles.Count(v => v.StationId == s.Id),
+        availableCount = _context.Vehicles.Count(v => v.StationId == s.Id && v.Status == "Available")
+    })
+    .ToList();
+
+            ViewBag.Stations = stations.Select(s => new
+            {
+                id = s.Id,
+                name = s.Name,
+                latitude = s.Latitude,
+                longitude = s.Longitude,
+                capacity = s.Capacity,
+                vehicleCount = s.vehicleCount,
+                availableCount = s.availableCount,
+
+                fillPercent = s.Capacity == 0 ? 0 : (double)s.vehicleCount / s.Capacity,
+                isLow = s.Capacity > 0 && ((double)s.vehicleCount / s.Capacity) < 0.2
+            }).ToList();
             return View(model);
         }
 
         [HttpPost]
-        public IActionResult ConfirmPayment(int rentalId, int returnStationId, string paymentMethod)
+        public IActionResult EndTrip(int rentalId, int returnStationId)
         {
             var rental = _context.Rentals
                 .Include(r => r.Vehicle)
@@ -219,76 +255,165 @@ namespace SaigonRideProject.Controllers
 
             if (rental == null) return NotFound();
 
-            if (rental.Status == "Completed")
-                return BadRequest("Already completed");
-
             var user = _context.Users.Find(rental.UserId);
             var station = _context.Stations.Find(returnStationId);
 
-            if (user == null || station == null)
-                return BadRequest("Invalid data");
+            var duration = DateTime.Now - rental.StartTime;
 
-            var endTime = DateTime.Now;
-            var startTime = rental.StartTime;
-            var durationSeconds = Convert.ToDouble(Request.Form["durationSeconds"]);
-            var duration = TimeSpan.FromSeconds(durationSeconds);
-
-            if (duration.TotalSeconds < 0)
-                duration = TimeSpan.Zero;
-
-            var pricingStrategy = PricingFactory.GetStrategy(user);
-
-            var pricingResult = pricingStrategy.Calculate(
+            var result = pricing.Calculate(
                 rental.Vehicle,
                 duration,
                 station,
                 user
             );
 
-            if (!_walletService.CanPay(user, pricingResult.FinalAmount))
-                return RedirectToAction("TopUp", "User");
+            rental.ReturnStationId = returnStationId;
 
-            _walletService.Pay(user, pricingResult.FinalAmount, paymentMethod);
-
-            rental.EndTime = endTime;
-            rental.Status = "Completed";
-            rental.BaseAmount = pricingResult.BaseAmount;
-            rental.FinalAmount = pricingResult.FinalAmount;
-            rental.DiscountPercent = pricingResult.DiscountPercent;
-            rental.PaymentMethod = paymentMethod;
-
-            rental.Vehicle.Status = "Available";
-            rental.Vehicle.StationId = returnStationId;
-
-            station.CurrentInventory += 1;
+            rental.BaseAmount = result.BaseAmount;
+            rental.DiscountPercent = result.DiscountPercent;
+            rental.FinalAmount = result.FinalAmount;
 
             _context.SaveChanges();
-            Console.WriteLine("===== DEBUG RENTAL =====");
-            Console.WriteLine($"Start UTC: {startTime}");
-            Console.WriteLine($"End UTC: {endTime}");
-            Console.WriteLine($"Seconds: {duration.TotalSeconds}");
-            Console.WriteLine($"Price/min: {rental.Vehicle.PricePerMinute}");
 
-            return RedirectToAction("PaymentSuccess", new { amount = pricingResult.FinalAmount });
+            return RedirectToAction("Bill", new { rentalId });
         }
 
-        public IActionResult PaymentSuccess(decimal amount)
+        public IActionResult Bill(int rentalId)
         {
-            ViewBag.Amount = amount;
+            var rental = _context.Rentals
+                .Include(r => r.Vehicle)
+                .FirstOrDefault(r => r.Id == rentalId);
+
+            if (rental == null) return NotFound();
+
+            var userId = HttpContext.Session.GetInt32("UserId");
+            var user = _context.Users.Find(userId);
+
+            ViewBag.PaymentMethods = PaymentMethodProvider.Get(user.UserType);
+
+            return View(rental);
+        }
+
+
+        [HttpPost]
+        public IActionResult ConfirmPayment(int rentalId, string paymentMethod)
+        {
+            var rental = _context.Rentals
+                .Include(r => r.Vehicle)
+                .FirstOrDefault(r => r.Id == rentalId);
+
+            if (rental == null) return BadRequest();
+
+            var payment = new Payment
+            {
+                RentalId = rentalId,
+                Amount = rental.FinalAmount,
+                Method = paymentMethod,
+                Status = "Pending",
+                QrCodeUrl = GenerateQr(rental.FinalAmount)
+            };
+
+            _context.Payments.Add(payment);
+            _context.SaveChanges();
+
+            return Json(new
+            {
+                success = true,
+                paymentId = payment.Id,
+                qr = payment.QrCodeUrl,
+                amount = rental.FinalAmount,
+                baseAmount = rental.BaseAmount
+            });
+        }
+
+        [HttpPost]
+        public IActionResult CompletePayment(int id)
+        {
+            var payment = _context.Payments
+                .FirstOrDefault(p => p.Id == id);
+
+            if (payment == null)
+                return Json(new { success = false });
+
+            var rental = _context.Rentals
+                .Include(r => r.Vehicle)
+                .FirstOrDefault(r => r.Id == payment.RentalId);
+
+            var user = _context.Users.Find(rental.UserId);
+            var station = _context.Stations.Find(rental.ReturnStationId);
+
+            if (station == null)
+                return Json(new { success = false, message = "Station not found" });
+
+            var vehicleCount = _context.Vehicles.Count(v => v.StationId == station.Id);
+
+            if (vehicleCount >= station.Capacity)
+                return Json(new { success = false, message = "Station is full" });
+
+            if (!_walletService.CanPay(user, payment.Amount))
+                return Json(new { success = false });
+
+            _walletService.Pay(user, payment.Amount, payment.Method);
+
+            payment.Status = "Completed";
+
+            rental.Status = "Completed";
+            rental.EndTime = DateTime.Now;
+            rental.PaymentMethod = payment.Method;
+
+            rental.Vehicle.Status = "Available";
+            rental.Vehicle.StationId = station.Id;
+
+            _context.SaveChanges();
+
+            return Json(new
+            {
+                success = true,
+                amount = payment.Amount,
+                baseAmount = rental.BaseAmount
+            });
+        }
+
+        private string GenerateQr(decimal amount)
+        {
+            return $"https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=PAY:{amount}";
+        }
+
+        public IActionResult PaymentSuccess(int paymentId)
+        {
+            var payment = _context.Payments
+                .Include(p => p.Rental)
+                .FirstOrDefault(p => p.Id == paymentId);
+
+            if (payment == null)
+                return NotFound();
+
+            ViewBag.Amount = payment.Amount;
+            ViewBag.Method = payment.Method;
+
             return View();
         }
-
         public IActionResult History()
         {
             var userId = HttpContext.Session.GetInt32("UserId") ?? 0;
-
-            if (userId == 0)
-                return RedirectToAction("Index", "Home");
 
             var rentals = _context.Rentals
                 .Include(r => r.Vehicle)
                 .Where(r => r.UserId == userId && r.Status == "Completed")
                 .OrderByDescending(r => r.EndTime)
+                .Select(r => new RentalHistoryViewModel
+                {
+                    VehicleType = r.Vehicle.VehicleType,
+                    PlateNumber = r.Vehicle.PlateNumber,
+                    StartTime = r.StartTime,
+                    EndTime = r.EndTime,
+
+                    BaseAmount = r.BaseAmount,
+                    DiscountPercent = r.DiscountPercent,
+                    FinalAmount = r.FinalAmount,
+
+                    PaymentMethod = r.PaymentMethod
+                })
                 .ToList();
 
             return View(rentals);

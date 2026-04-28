@@ -1,0 +1,14 @@
+﻿<div class="container text-center mt-5">
+
+    <h2>Scan to Pay</h2>
+
+    <img src="@Model.QrCodeUrl" />
+
+    <form method="post" action="/Rental/CompletePayment">
+        <input type="hidden" name="id" value="@Model.Id" />
+        <button class="btn btn-success mt-3">
+            I Have Paid
+        </button>
+    </form>
+
+</div>

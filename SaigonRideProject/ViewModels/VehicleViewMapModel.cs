@@ -6,6 +6,7 @@
         public string VehicleType { get; set; } = string.Empty;
         public string PlateNumber { get; set; } = string.Empty; 
         public decimal PricePerMinute { get; set; }
+        public int BatteryLevel { get; set; }
         public string Status { get; set; } = "Available";
     }
 }

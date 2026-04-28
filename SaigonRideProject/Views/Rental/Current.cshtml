@@ -1,86 +1,116 @@
 ﻿@model SaigonRideProject.ViewModels.CurrentTripViewModel
+@using System.Text.Json
 
 <div class="container mt-4">
 
-    <h2>Currently Riding</h2>
+    <h2>Current Ride</h2>
 
-    <div class="card p-3">
-
+    <div class="card p-3 mb-3">
         <h4>@Model.VehicleName</h4>
+        <p>Start: @Model.StartTime</p>
+        <p>Price: @Model.PricePerMinute VND/min</p>
 
-        <p>
-            Start: @Model.StartTime <br />
-            Price: @Model.PricePerMinute VND/min
-        </p>
+        <h5 id="timer">00:00</h5>
+        <h6 id="estimated">Estimated: 0 VND</h6>
+    </div>
 
-        <h5 id="timer">00:00:00</h5>
-        <h5 id="estimated">Estimated: 0 VND</h5>
+    <!-- MAP -->
+    <div id="map" style="height:400px;" class="mb-3"></div>
 
-        <label>Return Station</label>
+    <!-- STATIONS -->
+    <h4>Select Return Station</h4>
 
-        <select id="returnStation" class="form-control">
-            @if (ViewBag.Stations != null)
+    <div class="row">
+        @foreach (var s in ViewBag.Stations)
+        {
+            <div class="col-md-4 mb-3">
+                <div id="station-@s.id"
+                     class="card station-card @(s.isLow ? "border-danger" : "") @(s.vehicleCount >= s.capacity ? "opacity-50" : "")"
+                     onclick="selectStation(@s.id, '@s.name', @s.vehicleCount, @s.capacity)">
+
+                    <div class="card-body">
+                        <h5>@s.name</h5>
+
+                        <div class="progress mb-2">
+                            <div class="progress-bar @(s.isLow ? "bg-danger" : "bg-success")"
+                                 style="width:@(s.fillPercent * 100)%">
+                            </div>
+                        </div>
+
+                        <small>
+                            @s.vehicleCount / @s.capacity bikes
+                        </small>
+                        @if (s.vehicleCount >= s.capacity)
+                        {
+                            <span class="badge bg-dark">FULL</span>
+                        }
+
+                        @if (s.isLow)
+                        {
+                            <div class="mt-1">
+                                <span class="badge bg-danger">
+                                    Low Capacity → Discount
+                                </span>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    <!-- SELECTED -->
+    <div class="mt-3">
+        <strong>Selected:</strong>
+        <span id="selectedStationName" class="text-primary">None</span>
+    </div>
+
+    <!-- PAYMENT -->
+    <div class="mt-3">
+        <label>Payment Method</label>
+        <select id="paymentMethod" class="form-control">
+            @foreach (var m in ViewBag.PaymentMethods)
             {
-                foreach (var s in ViewBag.Stations)
-                {
-                    <option value="@s.id">
-                        @s.name (@s.currentCount / @s.capacity)
-                    </option>
-                }
+                <option value="@m">@m</option>
             }
         </select>
-
-        <button class="btn btn-danger mt-3" onclick="openBill()">
-            End Trip
-        </button>
-
     </div>
 
-    <div id="map" style="height:400px;margin-top:20px;"></div>
+    <!-- BUTTON -->
+    <button class="btn btn-danger mt-3" onclick="endTrip()">
+        End Trip
+    </button>
+
+    <!-- FORM -->
+    <form id="form" method="post" action="/Rental/EndTrip">
+        <input type="hidden" name="rentalId" value="@Model.Id" />
+        <input type="hidden" id="rs" name="returnStationId" />
+        <input type="hidden" id="durationSeconds" name="durationSeconds" />
+    </form>
 
 </div>
 
-<div class="modal fade" id="billModal">
-    <div class="modal-dialog">
-        <div class="modal-content p-3">
-
-            <h4>Bill</h4>
-
-            <div id="bill"></div>
-
-            <select id="paymentMethod" class="form-control mt-2">
-                @if (ViewBag.PaymentMethods != null)
-                {
-                    foreach (var method in (string[])ViewBag.PaymentMethods)
-                    {
-                        <option value="@method">@method</option>
-                    }
-                }
-            </select>
-
-            <form id="form" method="post" action="/Rental/ConfirmPayment">
-
-                <input name="rentalId" value="@Model.Id" type="hidden" />
-                <input name="returnStationId" id="rs" type="hidden" />
-                <input name="paymentMethod" id="pm" type="hidden" />
-
-
-                <input type="hidden" id="durationSeconds" name="durationSeconds" />
-
-                <button type="button" onclick="confirmPay()" class="btn btn-success mt-3 w-100">
-                    Confirm
-                </button>
-
-            </form>
-
-        </div>
-    </div>
-</div>
-
+<!-- DATA -->
 <script>
-    window.startTime = "@Model.StartTime.ToString("yyyy-MM-ddTHH:mm:ss")";
+    window.startTime = "@Model.StartTime.ToString("o")";
     window.price = @Model.PricePerMinute;
-    window.stations = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(ViewBag.Stations));
+    window.stations = @Html.Raw(JsonSerializer.Serialize(ViewBag.Stations));
 </script>
 
-<script src="~/js/rental/currentTrip.js" defer></script>
+<!-- LEAFLET -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<!-- JS -->
+<script src="~/js/rental/currentTrip.js"></script>
+
+<style>
+    .station-card {
+    cursor: pointer;
+    transition: 0.2s;
+    }
+
+    .station-card:hover {
+    transform: scale(1.03);
+    }
+</style>

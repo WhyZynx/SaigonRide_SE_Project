@@ -24,10 +24,12 @@
 
                     <p>
                         Plate: @v.PlateNumber <br />
-                        Price: @v.PricePerMinute / min
+                        Price: @v.PricePerMinute / min<br />
+                        Battery: @v.BatteryLevel% <br />
+                        Status: @v.Status
                     </p>
 
-                    @if (v.Status == "Available")
+                    @if (v.Status == "Available" && v.BatteryLevel >= 20)
                     {
                         <a class="btn btn-success w-100"
                                href="/Rental/Start?vehicleId=@v.Id&stationId=@Model.Station.Id">

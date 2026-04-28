@@ -10,20 +10,11 @@
         public double Longitude { get; set; }
 
         public int Capacity { get; set; }
-        public int CurrentInventory { get; set; }
+        public int VehicleCount { get; set; }
 
         public int AvailableCount { get; set; }
 
-        public string Status
-        {
-            get
-            {
-                double ratio = (double)CurrentInventory / Capacity;
-
-                if (ratio < 0.2) return "Low";
-                if (ratio > 0.8) return "High";
-                return "Normal";
-            }
-        }
+        public double FillPercent { get; set; }
+        public bool IsLowCapacity { get; set; }
     }
 }

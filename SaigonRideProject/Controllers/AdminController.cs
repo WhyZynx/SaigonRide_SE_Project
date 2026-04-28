@@ -32,12 +32,12 @@ namespace SaigonRideProject.Controllers
             var totalTransactions = _context.WalletTransactions.Count();
 
             var lowStations = _context.Stations
-                .Where(s => s.CurrentInventory < s.Capacity * 0.2)
+                .Where(s => s.Vehicles.Count() < s.Capacity * 0.2)
                 .Select(s => new StationStatusViewModel
                 {
                     StationName = s.Name,
                     Capacity = s.Capacity,
-                    Current = s.CurrentInventory,
+                    VehicleCount = s.Vehicles.Count(),
                     Status = "Low"
                 }).ToList();
 
@@ -71,6 +71,7 @@ namespace SaigonRideProject.Controllers
                 ActiveRentals = activeRentals,
                 AvailableVehicles = availableVehicles,
                 TotalTransactions = totalTransactions,
+                HasLowStations = lowStations.Any(),
                 LowStations = lowStations,
                 RecentTransactions = recentTransactions,
                 LiveRentals = liveRentals
