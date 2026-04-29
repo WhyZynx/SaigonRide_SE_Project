@@ -3,9 +3,16 @@
 
 @{
     var userId = Context.Session.GetInt32("UserId");
-    var user = _context.Users.FirstOrDefault(x => x.Id == userId);
+
+    var user = userId != null
+        ? _context.Users.FirstOrDefault(x => x.Id == userId)
+        : null;
+
+    var identityNumber = user?.IdentityNumber;
+
     var hasTrip = ViewBag.HasActiveRental != null && (bool)ViewBag.HasActiveRental;
 }
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,72 +23,105 @@
 
 <body>
 
-    @if (userId != null)
+    @if (identityNumber != null)
     {
-        <nav class="navbar navbar-dark bg-dark px-3">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom py-3 shadow-sm sticky-top">
+            <div class="container-fluid px-4 px-lg-4">
 
-            <a class="navbar-brand" href="/Home/Index">
-                🚲 SaigonRide
-            </a>
-
-            <div class="d-flex align-items-center gap-3">
-
-                <a class="btn btn-outline-light btn-sm" href="/User/UserDashboard">
-                    Home
+                <a class="navbar-brand m-0 p-0" href="/Home/Index" style="width: 180px;">
+                    <img src="/img/logo.png" alt="SaigonRide"
+                         class="position-absolute top-50 translate-middle-y"
+                         style="width: 180px; height: auto; z-index: 1050;">
                 </a>
 
-                <a class="btn btn-outline-light btn-sm" href="/Rental/History">
-                    History
-                </a>
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navContent">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-                <a class="btn btn-outline-light btn-sm" href="/User/Transactions">
-                    Transactions
-                </a>
-                
-                @if (ViewBag.HasActiveRental == true && ViewBag.ActiveRentalId != null)
-                {
-                    <a class="btn btn-outline-light btn-sm"
-                           href="/Rental/Current/@ViewBag.ActiveRentalId">
-                        My Trip
-                    </a>
-                }
+                <div class="collapse navbar-collapse" id="navContent">
+                    <div class="navbar-nav mx-auto gap-2 gap-lg-4">
+                        <a class="nav-link d-flex align-items-center gap-1 fw-medium text-secondary" href="/User/UserDashboard">
+                            <i class="bi bi-house-door"></i> Homepage
+                        </a>
 
+                        @if (ViewBag.HasActiveRental == true && ViewBag.ActiveRentalId != null)
+                        {
+                            <a class="nav-link d-flex align-items-center gap-1 fw-bold text-dark" href="/Rental/Current/@ViewBag.ActiveRentalId">
+                                <i class="bi bi-bicycle"></i> Currently Renting
+                            </a>
+                        }
 
-                @if (user != null)
-                {
-                    <span class="text-white">
-                        💰 @user.Balance.ToString("N0") VND
-                    </span>
+                        <a class="nav-link d-flex align-items-center gap-1 fw-medium text-secondary" href="/Rental/History">
+                            <i class="bi bi-clock-history"></i> History
+                        </a>
 
-                    <span class="badge bg-info">
-                        @user.FullName
-                    </span>
+                        <a class="nav-link d-flex align-items-center gap-1 fw-medium text-secondary" href="/User/Transactions">
+                            Transactions
+                        </a>
 
-                    <a class="btn btn-outline-light btn-sm" href="/User/Profile">
-                        Profile
-                    </a>
-                }
+                        <a class="nav-link d-flex align-items-center gap-1 fw-medium text-secondary" href="#">
+                            <i class="bi bi-bell"></i> Notification
+                        </a>
 
-                <a class="btn btn-danger btn-sm" asp-controller="Account" asp-action="Logout">
-                    Logout
-                </a>
+                        <a class="nav-link d-flex align-items-center gap-1 fw-medium text-secondary" href="#">
+                            <i class="bi bi-translate"></i> Language
+                        </a>
+                    </div>
 
+                    <div class="d-flex align-items-center gap-3 mt-3 mt-lg-0">
+                    
+                        @if (user != null)
+                        {
+                            <div class="text-end d-none d-sm-block">
+                                <div class="fw-bold lh-1 text-dark">@user.FullName</div>
+                                <small class="text-muted" style="font-size: 0.75rem;">
+                                    💰 @user.Balance.ToString("N0") VND
+                                </small>
+                            </div>
+
+                            <a href="/User/Profile" class="text-decoration-none">
+                                <div class="rounded-circle d-flex align-items-center justify-content-center bg-success bg-opacity-10 text-success border border-success border-opacity-25"
+                                     style="width: 45px; height: 45px;">
+                                    <i class="bi bi-person fs-4"></i>
+                                </div>
+                            </a>
+                        }
+
+                        <a class="btn btn-outline-danger btn-sm rounded-pill px-3" asp-controller="Account" asp-action="Logout">
+                            Logout
+                        </a>
+                    </div>
+                </div>
             </div>
-
         </nav>
     }
+
     else
     {
-        <nav class="navbar navbar-light bg-light px-3">
-            <a class="navbar-brand" href="/">SaigonRide</a>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom shadow-sm sticky-top py-3" style="min-height: 72px;">
+            <div class="container-fluid px-4 px-lg-4 position-relative">
+            
+                <a class="navbar-brand m-0 p-0" href="/" style="width: 180px;">
+                    <img src="/img/logo.png" alt="SaigonRide"
+                         class="position-absolute top-50 translate-middle-y"
+                         style="width: 180px; height: auto; z-index: 1050;">
+                </a>
 
-            <div>
-                <a class="btn btn-primary" href="/Account/Login">Login</a>
+                <div class="ms-auto d-flex align-items-center gap-4">
+                
+                    <div class="d-flex align-items-center gap-3">
+                        <a class="text-decoration-none fw-bold small" href="/Account/Login" style="color:#075985;">Log In</a>
+                    
+                        <a class="btn rounded-pill px-4 py-2 fw-bold shadow-sm text-white" href="/Account/Register" style="background-color:#5E96BD;">
+                            Sign Up
+                        </a>
+                    </div>
+                </div>
             </div>
         </nav>
     }
 
-    <div class="container mt-4">
+    <div class="container">
         @RenderBody()
     </div>
 
