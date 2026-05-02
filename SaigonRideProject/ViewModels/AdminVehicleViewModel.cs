@@ -7,7 +7,7 @@
         public string PlateNumber { get; set; }
         public string Status { get; set; }
         public decimal PricePerMinute { get; set; }
-        public int StationId { get; set; }
+        public int? StationId { get; set; }
         public int BatteryLevel { get; set; }
         public string StationName { get; set; }
         public string SearchKeyword { get; set; }
