@@ -3,108 +3,159 @@
 @{
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-<!-- KPI -->
-<div class="row g-3 mb-4">
 
-    <div class="col-md-3">
-        <div class="card">
-            <div class="card-body">
-                <small>Today Revenue</small>
-                <h5 class="text-success">@Model.TodayRevenue.ToString("N0") đ</h5>
-            </div>
+<div class="container-fluid py-4">
+
+    <!-- HEADER -->
+    <div class="d-flex justify-content-between align-items-start mb-4">
+        <div>
+            <h2 class="fw-bold">System Dashboard</h2>
+            <small class="text-muted">
+                Last updated: @DateTime.Now.ToString("dd/MM/yyyy HH:mm")
+            </small>
+        </div>
+
+        <div class="d-flex gap-2">
+            <button class="btn btn-light border">
+                Last 7 days <i class="bi bi-chevron-down"></i>
+            </button>
+            <button class="btn btn-success">
+                <i class="bi bi-download"></i> Export
+            </button>
         </div>
     </div>
 
-    <div class="col-md-3">
-        <div class="card">
-            <div class="card-body">
-                <small>Active Rentals</small>
-                <h5>@Model.ActiveRentals</h5>
+    <!-- KPI CARDS -->
+    <div class="row g-4">
+
+        <div class="col-md-4">
+            <div class="card shadow-sm border-0 rounded-4 p-3">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <small class="text-muted">Active Rentals</small>
+                        <h2 class="fw-bold">@Model.ActiveRentals</h2>
+                    </div>
+                    <div class="fs-2">📈</div>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="col-md-3">
-        <div class="card">
-            <div class="card-body">
-                <small>Available Vehicles</small>
-                <h5>@Model.AvailableVehicles</h5>
+        <div class="col-md-4">
+            <div class="card shadow-sm border-0 rounded-4 p-3">
+                <small class="text-muted">Revenue Today</small>
+                <h2 class="fw-bold text-success">
+                    @Model.TodayRevenue.ToString("N0") đ
+                </h2>
             </div>
         </div>
-    </div>
 
-    <div class="col-md-3">
-        <div class="card">
-            <div class="card-body">
-                <small>Total Transactions</small>
-                <h5>@Model.TotalTransactions</h5>
+        <div class="col-md-4">
+            <div class="card shadow-sm border-0 rounded-4 p-3">
+                <small class="text-muted">Available Vehicles</small>
+                <h2 class="fw-bold">@Model.AvailableVehicles</h2>
             </div>
         </div>
+
     </div>
 
-</div>
+    <!-- SMALL STATS -->
+    <div class="row g-4 mt-2">
 
-<!-- ALERT -->
-@if (Model.LowStations != null && Model.LowStations.Any())
-{
-    <div class="alert alert-danger">
-        Low Inventory:
-        @foreach (var s in Model.LowStations)
-        {
-            <span class="badge bg-danger">@s.StationName</span>
-        }
-    </div>
-}
+        <div class="col-md-4">
+            <div class="card border-danger rounded-4 p-3">
+                <h5 class="text-danger mb-1">
+                    @(Model.LowStations?.Count() ?? 0) Stations
+                </h5>
+                <small class="text-muted">Low Inventory</small>
+            </div>
+        </div>
 
-<!-- TABLES -->
-<div class="row g-4">
+        <div class="col-md-4">
+            <div class="card rounded-4 p-3 text-center">
+                <h3 class="fw-bold">@Model.TotalTransactions</h3>
+                <small class="text-muted">Total Transactions</small>
+            </div>
+        </div>
 
-    <div class="col-md-6">
-        <h5>Live Rentals</h5>
-        <table class="table table-bordered">
-            <thead class="table-dark">
-                <tr>
-                    <th>User</th>
-                    <th>Vehicle</th>
-                    <th>Start</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var r in Model.LiveRentals)
-                {
-                    <tr>
-                        <td>@r.UserName</td>
-                        <td>@r.Vehicle</td>
-                        <td>@r.StartTime.ToString("HH:mm dd/MM")</td>
-                    </tr>
-                }
-            </tbody>
-        </table>
     </div>
 
-    <div class="col-md-6">
-        <h5>Recent Transactions</h5>
-        <table class="table table-bordered">
-            <thead class="table-dark">
-                <tr>
-                    <th>User</th>
-                    <th>Type</th>
-                    <th>Amount</th>
-                    <th>Time</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var t in Model.RecentTransactions)
-                {
-                    <tr>
-                        <td>@t.UserName</td>
-                        <td>@t.Type</td>
-                        <td>@t.Amount</td>
-                        <td>@t.CreatedAt.ToString("HH:mm dd/MM")</td>
-                    </tr>
-                }
-            </tbody>
-        </table>
+    <!-- ALERT -->
+    @if (Model.LowStations != null && Model.LowStations.Any())
+    {
+        <div class="alert alert-danger mt-4 rounded-4">
+            <strong>Low Inventory:</strong><br />
+            @foreach (var s in Model.LowStations)
+            {
+                <span class="badge bg-danger me-2">@s.StationName</span>
+            }
+        </div>
+    }
+
+    <!-- TABLES -->
+    <div class="row g-4 mt-3">
+
+        <!-- LIVE RENTALS -->
+        <div class="col-lg-6">
+            <div class="card rounded-4 shadow-sm">
+                <div class="card-body">
+                    <h5 class="mb-3">Live Rentals</h5>
+
+                    <table class="table table-hover">
+                        <thead class="table-light">
+                            <tr>
+                                <th>User</th>
+                                <th>Vehicle</th>
+                                <th>Start</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var r in Model.LiveRentals)
+                            {
+                                <tr>
+                                    <td>@r.UserName</td>
+                                    <td>@r.Vehicle</td>
+                                    <td>@r.StartTime.ToString("HH:mm dd/MM")</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- TRANSACTIONS -->
+        <div class="col-lg-6">
+            <div class="card rounded-4 shadow-sm">
+                <div class="card-body">
+                    <h5 class="mb-3">Recent Transactions</h5>
+
+                    <table class="table table-hover">
+                        <thead class="table-light">
+                            <tr>
+                                <th>User</th>
+                                <th>Type</th>
+                                <th>Amount</th>
+                                <th>Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var t in Model.RecentTransactions)
+                            {
+                                <tr>
+                                    <td>@t.UserName</td>
+                                    <td>@t.Type</td>
+                                    <td class="fw-semibold">@t.Amount</td>
+                                    <td>@t.CreatedAt.ToString("HH:mm dd/MM")</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+
     </div>
 
 </div>
