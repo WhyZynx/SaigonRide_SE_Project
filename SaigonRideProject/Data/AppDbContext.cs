@@ -43,11 +43,9 @@ namespace SaigonRideProject.Data
                 .Property(u => u.PassportStatus)
                 .HasDefaultValue("Pending");
 
-            // ================= OTP =================
             modelBuilder.Entity<OtpVerification>()
                 .HasIndex(o => new { o.Email, o.OtpCode });
 
-            // ================= VEHICLE =================
             modelBuilder.Entity<Vehicle>()
                 .Property(v => v.PricePerMinute)
                 .HasPrecision(10, 2);
@@ -62,7 +60,6 @@ namespace SaigonRideProject.Data
                 .Property(v => v.BatteryLevel)
                 .HasDefaultValue(100);
 
-            // ================= RENTAL =================
             modelBuilder.Entity<Rental>()
                 .Property(r => r.BaseAmount)
                 .HasPrecision(18, 2);
@@ -75,7 +72,6 @@ namespace SaigonRideProject.Data
                 .Property(r => r.DiscountPercent)
                 .HasPrecision(5, 2);
 
-            // chỉ 1 rental đang chạy
             modelBuilder.Entity<Rental>()
                 .HasIndex(r => r.UserId)
                 .HasFilter("[Status] = 'InProgress'")
@@ -105,7 +101,6 @@ namespace SaigonRideProject.Data
                 .HasForeignKey(r => r.ReturnStationId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            // ================= PAYMENT (NEW - QUAN TRỌNG) =================
             modelBuilder.Entity<Payment>()
                 .Property(p => p.Amount)
                 .HasPrecision(18, 2);
@@ -120,7 +115,6 @@ namespace SaigonRideProject.Data
                 .Property(p => p.Status)
                 .HasDefaultValue("Pending");
 
-            // ================= WALLET =================
             modelBuilder.Entity<WalletTransaction>()
                 .Property(w => w.Amount)
                 .HasPrecision(18, 2);
@@ -131,7 +125,6 @@ namespace SaigonRideProject.Data
                 .HasForeignKey(t => t.UserId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            // ================= SEED USER =================
             modelBuilder.Entity<User>().HasData(
                 new User
                 {
@@ -165,9 +158,10 @@ namespace SaigonRideProject.Data
                 new Station { Id = 1, Name = "Ben Thanh Station", Address = "District 1", Capacity = 25, Latitude = 10.7720, Longitude = 106.6980 },
                 //Station capacity = 19%
                 new Station { Id = 2, Name = "District 3 Hub", Address = "Vo Van Tan", Capacity = 26,  Latitude = 10.7825, Longitude = 106.6900 },
-                //Station capacity = 21%
+                //Station full
                 new Station { Id = 3, Name = "Binh Thanh Station", Address = "Dien Bien Phu", Capacity = 5,  Latitude = 10.8031, Longitude = 106.7150 },
-                new Station { Id = 4, Name = "Thu Duc Station", Address = "Vo Nguyen Giap", Capacity = 30,  Latitude = 10.8500, Longitude = 106.7700 },
+                //Station 21%
+                new Station { Id = 4, Name = "Thu Duc Station", Address = "Vo Nguyen Giap", Capacity = 24,  Latitude = 10.8500, Longitude = 106.7700 },
                 new Station { Id = 5, Name = "Tan Binh Station", Address = "Cong Hoa", Capacity = 22,  Latitude = 10.8010, Longitude = 106.6520 },
                 new Station { Id = 6, Name = "District 7 Station", Address = "Nguyen Van Linh", Capacity = 20,  Latitude = 10.7295, Longitude = 106.7210 },
 
@@ -256,7 +250,7 @@ namespace SaigonRideProject.Data
                 {
                     Id = 1,
                     UserId = 2,
-                    Amount = -9000,
+                    Amount = 9000,
                     Type = "Payment",
                     Method = "MoMo",
                     CreatedAt = BaseDate.AddDays(-1)
@@ -265,7 +259,7 @@ namespace SaigonRideProject.Data
                 {
                     Id = 2,
                     UserId = 3,
-                    Amount = -15000,
+                    Amount = 15000,
                     Type = "Payment",
                     Method = "VNPay",
                     CreatedAt = BaseDate.AddDays(-3)
@@ -274,7 +268,7 @@ namespace SaigonRideProject.Data
                 {
                     Id = 3,
                     UserId = 4,
-                    Amount = -20000,
+                    Amount = 20000,
                     Type = "Payment",
                     Method = "ApplePay",
                     CreatedAt = BaseDate.AddDays(-6)
@@ -283,7 +277,7 @@ namespace SaigonRideProject.Data
                 {
                     Id = 4,
                     UserId = 5,
-                    Amount = -30000,
+                    Amount = 30000,
                     Type = "Payment",
                     Method = "PayPal",
                     CreatedAt = BaseDate.AddDays(-10)
@@ -292,7 +286,7 @@ namespace SaigonRideProject.Data
                 {
                     Id = 5,
                     UserId = 2,
-                    Amount = -25000,
+                    Amount = 25000,
                     Type = "Payment",
                     Method = "Cash",
                     CreatedAt = BaseDate.AddDays(-20)
@@ -301,7 +295,7 @@ namespace SaigonRideProject.Data
                 {
                     Id = 6,
                     UserId = 4,
-                    Amount = -40000,
+                    Amount = 40000,
                     Type = "Payment",
                     Method = "Cash",
                     CreatedAt = BaseDate.AddDays(-30)
