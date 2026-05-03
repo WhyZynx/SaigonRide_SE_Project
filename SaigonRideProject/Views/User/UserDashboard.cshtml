@@ -1,146 +1,149 @@
 ﻿@model SaigonRideProject.ViewModels.UserDashboardViewModel
 
-<div class="container mt-4">
-
-    <h2>Welcome, @Model.User.FullName 🚲</h2>
-
-    <div class="row mt-4">
-
-        <div class="col-md-4">
-
-            <div class="card p-3 shadow-sm">
-
-                <h5>Wallet Balance</h5>
-
-                <h3 class="text-primary">
-                    @Model.User.Balance.ToString("N0") VND
-                </h3>
-
-                <p class="text-muted">
-                    Status:
-                    @if (Model.User.IsLocked)
-                    {
-                        <span class="text-danger">Locked</span>
-                    }
-                    else
-                    {
-                        <span class="text-success">Active</span>
-                    }
-                </p>
-
-                <form method="post" action="/User/TopUp">
-
-                    <input type="number"
-                           name="amount"
-                           class="form-control mb-2"
-                           placeholder="Enter amount" />
-
-                    <select name="method" class="form-control mb-2">
-
-                        @if (Model.UserType == "Local")
-                        {
-                            <option value="MoMo">MoMo</option>
-                            <option value="VNPay">VNPay</option>
-                            <option value="Cash">Cash</option>
-                        }
-                        else
-                        {
-                            <option value="PayPal">PayPal</option>
-                            <option value="ApplePay">Apple Pay</option>
-                            <option value="Cash">Cash</option>
-                        }
-
-                    </select>
-
-                    <button class="btn btn-primary w-100">
-                        Top Up
-                    </button>
-
-                </form>
-
-            </div>
-
-            <div class="card p-3 mt-3 shadow-sm">
-
-                <h5>Quick Actions</h5>
-
-                <a href="/Rental/StationList" class="btn btn-outline-primary w-100 mb-2">
-                    Find Stations
-                </a>
-
-
-                <a href="/Rental/History" class="btn btn-outline-dark w-100">
-                    History
-                </a>
-
-            </div>
-
+<div class="container py-4">
+    <div class="row align-items-center mb-4">
+        <div class="col-md-6 text-center text-md-start">
+            <h2 class="fw-bold mb-1">Welcome, @Model.User.FullName!</h2>
+            <p class="text-muted mb-0">Ready for a ride through the city?</p>
         </div>
-
-        <div class="col-md-8">
-
-            <div id="map" style="height:500px;border-radius:10px;"></div>
-
+        <div class="col-md-6 text-center text-md-end mt-3 mt-md-0">
+            @if (Model.User.IsLocked)
+            {
+                <span class="badge bg-danger-subtle text-danger p-2 px-3 rounded-pill border border-danger border-opacity-10">
+                    <i class="bi bi-lock-fill me-1"></i> Account Locked
+                </span>
+            }
+            else
+            {
+                <span class="badge bg-success-subtle text-success p-2 px-3 rounded-pill border border-success border-opacity-10">
+                    <i class="bi bi-patch-check-fill me-1"></i> Active Account
+                </span>
+            }
         </div>
-
     </div>
 
+    <div class="row g-4">
+        <div class="col-lg-4">
+            <div class="card border-0 shadow-sm rounded-4 mb-4">
+                <div class="card-body p-4">
+                    <div class="d-flex align-items-center gap-3 mb-4">
+                        <div class="rounded-circle bg-primary bg-opacity-10 d-flex align-items-center justify-content-center flex-shrink-0" 
+                             style="width: 48px; height: 48px;">
+                            <i class="bi bi-wallet2 text-primary fs-4"></i>
+                        </div>
+                        <div>
+                            <small class="text-uppercase fw-bold text-muted ls-1" style="font-size: 0.7rem;">Balance</small>
+                            <h3 class="fw-bold mb-0">@Model.User.Balance.ToString("N0") <span class="fs-6 fw-normal">VND</span></h3>
+                        </div>
+                    </div>
+
+                    <form method="post" action="/User/TopUp" class="bg-light p-3 rounded-4">
+                        <label class="small fw-bold text-muted mb-2">Quick Top Up</label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text border-0 bg-white"><i class="bi-currency-dollar"></i></span>
+                            <input type="number" name="amount" class="form-control border-0 shadow-none" placeholder="Amount" required />
+                        </div>
+
+                        <select name="method" class="form-select border-0 bg-white shadow-none mb-3">
+                            @if (Model.UserType == "Local")
+                            {
+                                <option value="MoMo">MoMo Wallet</option>
+                                <option value="VNPay">VNPay Portal</option>
+                                <option value="Cash">Cash at Station</option>
+                            }
+                            else
+                            {
+                                <option value="PayPal">PayPal</option>
+                                <option value="ApplePay">Apple Pay</option>
+                                <option value="Cash">Cash at Station</option>
+                            }
+                        </select>
+
+                        <button class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">
+                            Add Funds
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <a href="/Rental/StationList" class="btn btn-dark w-100 rounded-4 py-3 shadow-sm d-flex align-items-center justify-content-center gap-2 hover-up">
+                <i class="bi bi-geo-alt-fill"></i>
+                <span class="fw-bold">Explore All Stations</span>
+            </a>
+        </div>
+
+        <div class="col-lg-8">
+            <div class="card border-0 shadow-sm rounded-4 overflow-hidden" style="height: 600px;">
+                <div class="card-header bg-white border-0 py-3 px-4 d-flex justify-content-between align-items-center">
+                    <h6 class="fw-bold mb-0 text-secondary"><i class="bi bi-map-fill me-2"></i>Nearby Hubs</h6>
+                    <button class="btn btn-sm btn-outline-primary rounded-pill px-3" onclick="getLocation()">
+                        <i class="bi bi-crosshair2 me-1"></i> My Location
+                    </button>
+                </div>
+                <div id="map" class="h-100"></div>
+            </div>
+        </div>
+    </div>
 </div>
 
-<div class="col-md-8">
-    <div id="map" style="height:500px;border-radius:10px;"></div>
-</div>
+<style>
+    body { background-color: #f4f7f9; }
+    .ls-1 { letter-spacing: 1px; }
+    .btn-primary { background-color: #5E96BD; border: none; }
+    .btn-primary:hover { background-color: #4c7d9e; transform: scale(1.02); }
+    .btn-dark { background-color: #1a1c1e; border: none; }
+    .hover-up { transition: all 0.3s ease; }
+    .hover-up:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important; }
+    #map { z-index: 1; }
+    .leaflet-popup-content-wrapper { border-radius: 12px !important; padding: 0; overflow: hidden; }
+    .leaflet-popup-content { margin: 0; width: 220px !important; }
+</style>
 
 <script>
-
     let map;
-
     function initMap() {
+        map = L.map('map', { zoomControl: false }).setView([10.7769, 106.7009], 14);
+        
+        L.control.zoom({ position: 'bottomright' }).addTo(map);
 
-        map = L.map('map').setView([10.7769, 106.7009], 13);
-
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png')
-            .addTo(map);
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+            attribution: '&copy; OpenStreetMap'
+        }).addTo(map);
 
         const stations = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.Stations));
 
         stations.forEach(s => {
-
             const popup = `
-                <b>${s.Name}</b><br/>
-                ${s.Address}<br/>
-                Available: ${s.AvailableCount}<br/>
-                Status: ${s.Status}
+                <div class="p-3">
+                    <h6 class="fw-bold mb-1">${s.Name}</h6>
+                    <p class="text-muted mb-3" style="font-size: 0.8rem;">${s.Address}</p>
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <span class="badge bg-success-subtle text-success rounded-pill px-2">
+                           <i class="bi bi-bicycle me-1"></i> ${s.AvailableCount} Available
+                        </span>
+                    </div>
+                    <a href="/Rental/Scan/${s.Id}" class="btn btn-sm btn-primary w-100 rounded-pill text-white py-2">Start Ride</a>
+                </div>
             `;
-
-            L.marker([s.Latitude, s.Longitude])
-                .addTo(map)
-                .bindPopup(popup);
+            L.marker([s.Latitude, s.Longitude]).addTo(map).bindPopup(popup);
         });
-            if (navigator.geolocation) {
 
-        navigator.geolocation.getCurrentPosition(pos => {
-
-            const userPos = [pos.coords.latitude, pos.coords.longitude];
-
-            L.marker(userPos, {
-                icon: L.icon({
-                    iconUrl: "https://maps.google.com/mapfiles/ms/icons/blue-dot.png"
-                })
-            })
-            .addTo(map)
-            .bindPopup("You are here");
-
-            map.setView(userPos, 13);
-
-        });
-    }
+        getLocation();
     }
 
-    function focusStation(lat, lng) {
-        map.setView([lat, lng], 16);
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(pos => {
+                const userPos = [pos.coords.latitude, pos.coords.longitude];
+                const myMarker = L.marker(userPos, {
+                    icon: L.icon({
+                        iconUrl: "https://cdn-icons-png.flaticon.com/512/7114/7114844.png",
+                        iconSize: [36, 36]
+                    })
+                }).addTo(map).bindPopup("<div class='p-2 fw-bold text-center'>You are here</div>");
+                map.flyTo(userPos, 15);
+            });
+        }
     }
-
     window.onload = initMap;
-
 </script>

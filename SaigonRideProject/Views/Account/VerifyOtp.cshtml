@@ -1,32 +1,125 @@
-﻿<div class="container mt-5">
-    <div class="card shadow">
-        <div class="card-body">
-            <h3>Verify OTP</h3>
+﻿@{
+    Layout = "Account_Layout";
+}
 
-            @if (TempData["OTP"] != null)
-            {
-                <div class="alert alert-info">
-                    Demo OTP: @TempData["OTP"]
-                </div>
-            }
-
-            @if (ViewBag.Error != null)
-            {
-                <div class="alert alert-danger">
-                    @ViewBag.Error
-                </div>
-            }
-
-            <form method="post">
-                <div class="mb-3">
-                    <label>Enter OTP</label>
-                    <input type="text" name="otpCode" class="form-control" required />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+<div class="vw-100 position-relative start-50 translate-middle-x">
+    <div class="row g-0 min-vh-100">
+        
+        <div class="col-md-6 d-none d-md-flex position-relative h-100">
+            <img src="/img/city.png"
+                 class="w-100 h-100 object-fit-cover position-absolute top-0 start-0"
+                 alt="Saigon Background" >
+            
+            <div class="position-absolute top-0 start-0 w-100 h-100 p-5 d-flex flex-column justify-content-between text-white"
+                 style="background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('/img/city.png') center/cover no-repeat; min-height: 750px;">
+                
+                <div class="mt-5 pt-5 px-3">
+                    <h1 class="display-4 fw-bold mb-4" style="line-height: 1.2;">Explore the city <br> your own way.</h1>
+                    <p class="fs-5 opacity-75 fw-light">Just one final step to begin your journey through the streets of Saigon.</p>
                 </div>
 
-                <button type="submit" class="btn btn-primary">
-                    Verify
-                </button>
-            </form>
+                <div class="d-flex gap-4 px-3 mb-3 small opacity-75">
+                    <span><i class="bi bi-check-circle me-1"></i> Trusted Partner</span>
+                    <span><i class="bi bi-recycle me-1"></i> Green Mobility</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 d-flex align-items-start justify-content-center bg-white min-vh-100 pt-5 mt-lg-5">
+            <div class="w-100 px-5" style="max-width: 500px;">
+                <div class="mb-5 text-center text-md-start">
+                    <h2 class="fw-bold text-dark mb-2" style="letter-spacing: -0.5px;">Email Verification</h2>
+                    <p class="text-muted small">
+                        Please enter the 6-digit OTP sent to your email address <br>
+                        <span class="text-dark fw-bold">(example@email.com)</span>
+                    </p>
+                </div>
+
+                @if (TempData["OTP"] != null)
+                {
+                    <div class="alert alert-info border-0 rounded-3 small py-2 mb-4 shadow-sm">
+                        Demo OTP: <strong>@TempData["OTP"]</strong>
+                    </div>
+                }
+
+                @if (ViewBag.Error != null)
+                {
+                    <div class="alert alert-danger border-0 rounded-3 small py-2 mb-4 shadow-sm">
+                        @ViewBag.Error
+                    </div>
+                }
+
+                <form method="post" id="otpForm">
+                    <div class="row g-2 mb-4">
+                        @for (int i = 0; i < 6; i++)
+                        {
+                            <div class="col">
+                                <input type="text"
+                                       class="form-control form-control-lg text-center border-0 py-3 rounded-4 shadow-sm otp-input"
+                                       style="background-color: #f3f6ff; color: #6c757d; font-weight: bold;"
+                                       placeholder="•"
+                                       maxlength="1"
+                                       inputmode="numeric"
+                                       pattern="[0-9]*"
+                                       onfocus="this.select()"
+                                       required />
+                            </div>
+                        }
+                    </div>
+
+                    <input type="hidden" name="otpCode" id="otpCode" />
+
+                    <button type="submit" class="btn btn-lg w-100 py-3 rounded-3 text-white shadow border-0"
+                            style="background: linear-gradient(90deg, #72a1cd 0%, #9cbce0 100%); transition: 0.3s;">
+                        Submit <i class="bi bi-arrow-right ms-2"></i>
+                    </button>
+                </form>
+
+                <script>
+                    document.addEventListener("DOMContentLoaded", function () {
+                        const inputs = document.querySelectorAll(".otp-input");
+                        const hiddenInput = document.getElementById("otpCode");
+                        const form = document.getElementById("otpForm");
+
+                        inputs.forEach((input, index) => {
+                            input.addEventListener("input", function () {
+                                this.value = this.value.replace(/[^0-9]/g, "").slice(-1);
+                                if (this.value && index < inputs.length - 1) {
+                                    inputs[index + 1].focus();
+                                }
+                            });
+
+                            input.addEventListener("keydown", function (e) {
+                                if (e.key === "Backspace" && !this.value && index > 0) {
+                                    inputs[index - 1].focus();
+                                }
+                            });
+
+                            input.addEventListener("paste", function (e) {
+                                if (index === 0) { 
+                                    e.preventDefault();
+                                    const data = e.clipboardData.getData("text").trim();
+                                    if (/^\d{6}$/.test(data)) {
+                                        data.split("").forEach((char, i) => {
+                                            inputs[i].value = char;
+                                        });
+                                        inputs[5].focus();
+                                    }
+                                }
+                            });
+                        });
+
+                        form.addEventListener("submit", function (e) {
+                            let fullCode = "";
+                            inputs.forEach(input => {
+                                fullCode += input.value;
+                            });
+                            hiddenInput.value = fullCode;
+                        });
+                    });
+                </script>
+            </div>
         </div>
     </div>
 </div>
