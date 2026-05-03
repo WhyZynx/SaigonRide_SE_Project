@@ -12,8 +12,8 @@ using SaigonRideProject.Data;
 namespace SaigonRideProject.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260424160156_fix db context, user 2")]
-    partial class fixdbcontextuser2
+    [Migration("20260503074948_test_seed")]
+    partial class test_seed
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -35,18 +35,59 @@ namespace SaigonRideProject.Migrations
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("ExpiryTime")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("OtpCode")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("Email", "OtpCode");
+
                     b.ToTable("OtpVerifications");
+                });
+
+            modelBuilder.Entity("SaigonRideProject.Models.Payment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<decimal>("Amount")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Method")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("QrCodeUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("RentalId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(max)")
+                        .HasDefaultValue("Pending");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RentalId");
+
+                    b.ToTable("Payments");
                 });
 
             modelBuilder.Entity("SaigonRideProject.Models.Rental", b =>
@@ -101,11 +142,111 @@ namespace SaigonRideProject.Migrations
                     b.HasIndex("ReturnStationId");
 
                     b.HasIndex("UserId")
+                        .IsUnique()
                         .HasFilter("[Status] = 'InProgress'");
 
                     b.HasIndex("VehicleId");
 
                     b.ToTable("Rentals");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            BaseAmount = 10000m,
+                            DiscountPercent = 10m,
+                            EndTime = new DateTime(2026, 5, 2, 0, 20, 0, 0, DateTimeKind.Unspecified),
+                            FinalAmount = 9000m,
+                            PickupStationId = 1,
+                            ReturnStationId = 2,
+                            StartTime = new DateTime(2026, 5, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Status = "Completed",
+                            UserId = 2,
+                            VehicleId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            BaseAmount = 15000m,
+                            DiscountPercent = 0m,
+                            EndTime = new DateTime(2026, 5, 1, 0, 15, 0, 0, DateTimeKind.Unspecified),
+                            FinalAmount = 15000m,
+                            PickupStationId = 2,
+                            ReturnStationId = 3,
+                            StartTime = new DateTime(2026, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Status = "Completed",
+                            UserId = 4,
+                            VehicleId = 6
+                        },
+                        new
+                        {
+                            Id = 3,
+                            BaseAmount = 20000m,
+                            DiscountPercent = 10m,
+                            EndTime = new DateTime(2026, 4, 30, 0, 30, 0, 0, DateTimeKind.Unspecified),
+                            FinalAmount = 18000m,
+                            PickupStationId = 3,
+                            ReturnStationId = 4,
+                            StartTime = new DateTime(2026, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Status = "Completed",
+                            UserId = 3,
+                            VehicleId = 11
+                        },
+                        new
+                        {
+                            Id = 4,
+                            BaseAmount = 0m,
+                            DiscountPercent = 0m,
+                            FinalAmount = 0m,
+                            PickupStationId = 4,
+                            ReturnStationId = 5,
+                            StartTime = new DateTime(2026, 4, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Status = "Cancelled",
+                            UserId = 5,
+                            VehicleId = 16
+                        },
+                        new
+                        {
+                            Id = 5,
+                            BaseAmount = 12000m,
+                            DiscountPercent = 15m,
+                            EndTime = new DateTime(2026, 4, 26, 0, 25, 0, 0, DateTimeKind.Unspecified),
+                            FinalAmount = 10000m,
+                            PickupStationId = 5,
+                            ReturnStationId = 6,
+                            StartTime = new DateTime(2026, 4, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Status = "Completed",
+                            UserId = 2,
+                            VehicleId = 21
+                        },
+                        new
+                        {
+                            Id = 6,
+                            BaseAmount = 30000m,
+                            DiscountPercent = 10m,
+                            EndTime = new DateTime(2026, 4, 18, 0, 40, 0, 0, DateTimeKind.Unspecified),
+                            FinalAmount = 27000m,
+                            PickupStationId = 6,
+                            ReturnStationId = 7,
+                            StartTime = new DateTime(2026, 4, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Status = "Completed",
+                            UserId = 4,
+                            VehicleId = 26
+                        },
+                        new
+                        {
+                            Id = 7,
+                            BaseAmount = 50000m,
+                            DiscountPercent = 10m,
+                            EndTime = new DateTime(2026, 4, 3, 0, 50, 0, 0, DateTimeKind.Unspecified),
+                            FinalAmount = 45000m,
+                            PickupStationId = 7,
+                            ReturnStationId = 8,
+                            StartTime = new DateTime(2026, 4, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Status = "Completed",
+                            UserId = 3,
+                            VehicleId = 31
+                        });
                 });
 
             modelBuilder.Entity("SaigonRideProject.Models.Station", b =>
@@ -121,9 +262,6 @@ namespace SaigonRideProject.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Capacity")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CurrentInventory")
                         .HasColumnType("int");
 
                     b.Property<double>("Latitude")
@@ -149,8 +287,7 @@ namespace SaigonRideProject.Migrations
                         {
                             Id = 1,
                             Address = "District 1",
-                            Capacity = 20,
-                            CurrentInventory = 10,
+                            Capacity = 25,
                             Latitude = 10.772,
                             Longitude = 106.69799999999999,
                             Name = "Ben Thanh Station",
@@ -160,8 +297,7 @@ namespace SaigonRideProject.Migrations
                         {
                             Id = 2,
                             Address = "Vo Van Tan",
-                            Capacity = 15,
-                            CurrentInventory = 8,
+                            Capacity = 26,
                             Latitude = 10.782500000000001,
                             Longitude = 106.69,
                             Name = "District 3 Hub",
@@ -171,8 +307,7 @@ namespace SaigonRideProject.Migrations
                         {
                             Id = 3,
                             Address = "Dien Bien Phu",
-                            Capacity = 15,
-                            CurrentInventory = 7,
+                            Capacity = 5,
                             Latitude = 10.803100000000001,
                             Longitude = 106.715,
                             Name = "Binh Thanh Station",
@@ -182,8 +317,7 @@ namespace SaigonRideProject.Migrations
                         {
                             Id = 4,
                             Address = "Vo Nguyen Giap",
-                            Capacity = 20,
-                            CurrentInventory = 12,
+                            Capacity = 30,
                             Latitude = 10.85,
                             Longitude = 106.77,
                             Name = "Thu Duc Station",
@@ -193,8 +327,7 @@ namespace SaigonRideProject.Migrations
                         {
                             Id = 5,
                             Address = "Cong Hoa",
-                            Capacity = 18,
-                            CurrentInventory = 9,
+                            Capacity = 22,
                             Latitude = 10.801,
                             Longitude = 106.652,
                             Name = "Tan Binh Station",
@@ -204,8 +337,7 @@ namespace SaigonRideProject.Migrations
                         {
                             Id = 6,
                             Address = "Nguyen Van Linh",
-                            Capacity = 15,
-                            CurrentInventory = 8,
+                            Capacity = 20,
                             Latitude = 10.7295,
                             Longitude = 106.721,
                             Name = "District 7 Station",
@@ -215,8 +347,7 @@ namespace SaigonRideProject.Migrations
                         {
                             Id = 7,
                             Address = "Phan Xich Long",
-                            Capacity = 15,
-                            CurrentInventory = 7,
+                            Capacity = 18,
                             Latitude = 10.798999999999999,
                             Longitude = 106.68000000000001,
                             Name = "Phu Nhuan Station",
@@ -226,8 +357,7 @@ namespace SaigonRideProject.Migrations
                         {
                             Id = 8,
                             Address = "Quang Trung",
-                            Capacity = 18,
-                            CurrentInventory = 10,
+                            Capacity = 22,
                             Latitude = 10.837999999999999,
                             Longitude = 106.66800000000001,
                             Name = "Go Vap Station",
@@ -237,8 +367,7 @@ namespace SaigonRideProject.Migrations
                         {
                             Id = 9,
                             Address = "Tran Hung Dao",
-                            Capacity = 14,
-                            CurrentInventory = 6,
+                            Capacity = 18,
                             Latitude = 10.755000000000001,
                             Longitude = 106.67,
                             Name = "District 5 Station",
@@ -248,8 +377,7 @@ namespace SaigonRideProject.Migrations
                         {
                             Id = 10,
                             Address = "Su Van Hanh",
-                            Capacity = 14,
-                            CurrentInventory = 7,
+                            Capacity = 18,
                             Latitude = 10.7705,
                             Longitude = 106.66500000000001,
                             Name = "District 10 Station",
@@ -259,8 +387,7 @@ namespace SaigonRideProject.Migrations
                         {
                             Id = 11,
                             Address = "Lu Gia",
-                            Capacity = 16,
-                            CurrentInventory = 8,
+                            Capacity = 20,
                             Latitude = 10.789999999999999,
                             Longitude = 106.63,
                             Name = "Tan Phu Station",
@@ -270,8 +397,7 @@ namespace SaigonRideProject.Migrations
                         {
                             Id = 12,
                             Address = "Kinh Duong Vuong",
-                            Capacity = 20,
-                            CurrentInventory = 11,
+                            Capacity = 25,
                             Latitude = 10.76,
                             Longitude = 106.59999999999999,
                             Name = "Binh Tan Station",
@@ -293,11 +419,23 @@ namespace SaigonRideProject.Migrations
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("FullName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("IdentityImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("IdentityNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("IdentityType")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(max)")
+                        .HasDefaultValue("None");
 
                     b.Property<bool>("IsLocked")
                         .HasColumnType("bit");
@@ -305,15 +443,11 @@ namespace SaigonRideProject.Migrations
                     b.Property<bool>("IsVerified")
                         .HasColumnType("bit");
 
-                    b.Property<string>("PassportImageUrl")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PassportNumber")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("PassportStatus")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(max)")
+                        .HasDefaultValue("Pending");
 
                     b.Property<string>("PasswordHash")
                         .IsRequired()
@@ -329,6 +463,9 @@ namespace SaigonRideProject.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("Email")
+                        .IsUnique();
+
                     b.ToTable("Users");
 
                     b.HasData(
@@ -338,12 +475,71 @@ namespace SaigonRideProject.Migrations
                             Balance = 0m,
                             Email = "admin@saigonride.com",
                             FullName = "System Admin",
+                            IdentityImageUrl = "",
+                            IdentityNumber = "000000000",
+                            IdentityType = "CCCD",
                             IsLocked = false,
                             IsVerified = true,
                             PassportStatus = "Approved",
-                            PasswordHash = "jZae727K08KaOmKSgOaGzww/XVqGr/PKEgIMkjrcbJI=",
+                            PasswordHash = "$2a$11$ZquWWPbxP/YzNXZv9850kORUIz0gd52C2Yd9UyqktyXcIVz8QRA0O",
                             Role = "Admin",
                             UserType = "Local"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Balance = 500000m,
+                            Email = "nguyenvana@gmail.com",
+                            FullName = "Nguyen Van A",
+                            IdentityType = "None",
+                            IsLocked = false,
+                            IsVerified = true,
+                            PassportStatus = "Pending",
+                            PasswordHash = "$2a$11$DWWHf4wqhnt.2GYIYU16EOR8zzSVypM2eDmsWnan2WAgKcrT3jMIi",
+                            Role = "User",
+                            UserType = "Local"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Balance = 300000m,
+                            Email = "tranthib@gmail.com",
+                            FullName = "Tran Thi B",
+                            IdentityType = "None",
+                            IsLocked = false,
+                            IsVerified = true,
+                            PassportStatus = "Pending",
+                            PasswordHash = "$2a$11$IBYjTWgqQJZcUQPoaeRkQOY0hevfc5QBMxkSIbKwpgYRdy7rMyya.",
+                            Role = "User",
+                            UserType = "Local"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Balance = 1000000m,
+                            Email = "johnsmith@gmail.com",
+                            FullName = "John Smith",
+                            IdentityType = "None",
+                            IsLocked = false,
+                            IsVerified = true,
+                            PassportStatus = "Pending",
+                            PasswordHash = "$2a$11$53E1tV4K54IvlC8eItxJsefboWkdQxwgHas7bjHn63S77kxdvJDFG",
+                            Role = "User",
+                            UserType = "Tourist"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Balance = 800000m,
+                            Email = "emilybrown@gmail.com",
+                            FullName = "Emily Brown",
+                            IdentityType = "None",
+                            IsLocked = false,
+                            IsVerified = true,
+                            PassportStatus = "Pending",
+                            PasswordHash = "$2a$11$A8msskRCffxmU3oGfyIWh.UJs4MGcO7gb2sOwUUB70qwqzMUYYTF2",
+                            Role = "User",
+                            UserType = "Tourist"
                         });
                 });
 
@@ -355,6 +551,11 @@ namespace SaigonRideProject.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<int>("BatteryLevel")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValue(100);
+
                     b.Property<string>("PlateNumber")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -363,7 +564,7 @@ namespace SaigonRideProject.Migrations
                         .HasPrecision(10, 2)
                         .HasColumnType("decimal(10,2)");
 
-                    b.Property<int>("StationId")
+                    b.Property<int?>("StationId")
                         .HasColumnType("int");
 
                     b.Property<string>("Status")
@@ -384,6 +585,7 @@ namespace SaigonRideProject.Migrations
                         new
                         {
                             Id = 1,
+                            BatteryLevel = 90,
                             PlateNumber = "BK-001",
                             PricePerMinute = 500m,
                             StationId = 1,
@@ -393,6 +595,7 @@ namespace SaigonRideProject.Migrations
                         new
                         {
                             Id = 2,
+                            BatteryLevel = 85,
                             PlateNumber = "BK-002",
                             PricePerMinute = 500m,
                             StationId = 1,
@@ -402,15 +605,17 @@ namespace SaigonRideProject.Migrations
                         new
                         {
                             Id = 3,
+                            BatteryLevel = 70,
                             PlateNumber = "BK-003",
                             PricePerMinute = 500m,
                             StationId = 1,
-                            Status = "Available",
+                            Status = "InUse",
                             VehicleType = "Bike"
                         },
                         new
                         {
                             Id = 4,
+                            BatteryLevel = 95,
                             PlateNumber = "SC-001",
                             PricePerMinute = 1500m,
                             StationId = 1,
@@ -420,15 +625,17 @@ namespace SaigonRideProject.Migrations
                         new
                         {
                             Id = 5,
+                            BatteryLevel = 40,
                             PlateNumber = "SC-002",
                             PricePerMinute = 1500m,
                             StationId = 1,
-                            Status = "Available",
+                            Status = "Maintenance",
                             VehicleType = "E-Scooter"
                         },
                         new
                         {
                             Id = 6,
+                            BatteryLevel = 88,
                             PlateNumber = "BK-101",
                             PricePerMinute = 500m,
                             StationId = 2,
@@ -438,6 +645,7 @@ namespace SaigonRideProject.Migrations
                         new
                         {
                             Id = 7,
+                            BatteryLevel = 92,
                             PlateNumber = "BK-102",
                             PricePerMinute = 500m,
                             StationId = 2,
@@ -447,15 +655,17 @@ namespace SaigonRideProject.Migrations
                         new
                         {
                             Id = 8,
+                            BatteryLevel = 60,
                             PlateNumber = "BK-103",
                             PricePerMinute = 500m,
                             StationId = 2,
-                            Status = "Available",
+                            Status = "InUse",
                             VehicleType = "Bike"
                         },
                         new
                         {
                             Id = 9,
+                            BatteryLevel = 75,
                             PlateNumber = "SC-101",
                             PricePerMinute = 1500m,
                             StationId = 2,
@@ -465,15 +675,17 @@ namespace SaigonRideProject.Migrations
                         new
                         {
                             Id = 10,
+                            BatteryLevel = 19,
                             PlateNumber = "SC-102",
                             PricePerMinute = 1500m,
                             StationId = 2,
-                            Status = "Available",
+                            Status = "Maintenance",
                             VehicleType = "E-Scooter"
                         },
                         new
                         {
                             Id = 11,
+                            BatteryLevel = 90,
                             PlateNumber = "BK-201",
                             PricePerMinute = 500m,
                             StationId = 3,
@@ -483,6 +695,7 @@ namespace SaigonRideProject.Migrations
                         new
                         {
                             Id = 12,
+                            BatteryLevel = 85,
                             PlateNumber = "BK-202",
                             PricePerMinute = 500m,
                             StationId = 3,
@@ -492,6 +705,7 @@ namespace SaigonRideProject.Migrations
                         new
                         {
                             Id = 13,
+                            BatteryLevel = 80,
                             PlateNumber = "BK-203",
                             PricePerMinute = 500m,
                             StationId = 3,
@@ -501,15 +715,17 @@ namespace SaigonRideProject.Migrations
                         new
                         {
                             Id = 14,
+                            BatteryLevel = 65,
                             PlateNumber = "SC-201",
                             PricePerMinute = 1500m,
                             StationId = 3,
-                            Status = "Available",
+                            Status = "InUse",
                             VehicleType = "E-Scooter"
                         },
                         new
                         {
                             Id = 15,
+                            BatteryLevel = 95,
                             PlateNumber = "SC-202",
                             PricePerMinute = 1500m,
                             StationId = 3,
@@ -519,6 +735,7 @@ namespace SaigonRideProject.Migrations
                         new
                         {
                             Id = 16,
+                            BatteryLevel = 88,
                             PlateNumber = "BK-301",
                             PricePerMinute = 500m,
                             StationId = 4,
@@ -528,15 +745,17 @@ namespace SaigonRideProject.Migrations
                         new
                         {
                             Id = 17,
+                            BatteryLevel = 70,
                             PlateNumber = "BK-302",
                             PricePerMinute = 500m,
                             StationId = 4,
-                            Status = "Available",
+                            Status = "InUse",
                             VehicleType = "Bike"
                         },
                         new
                         {
                             Id = 18,
+                            BatteryLevel = 92,
                             PlateNumber = "BK-303",
                             PricePerMinute = 500m,
                             StationId = 4,
@@ -546,15 +765,17 @@ namespace SaigonRideProject.Migrations
                         new
                         {
                             Id = 19,
+                            BatteryLevel = 10,
                             PlateNumber = "SC-301",
                             PricePerMinute = 1500m,
                             StationId = 4,
-                            Status = "Available",
+                            Status = "Maintenance",
                             VehicleType = "E-Scooter"
                         },
                         new
                         {
                             Id = 20,
+                            BatteryLevel = 90,
                             PlateNumber = "SC-302",
                             PricePerMinute = 1500m,
                             StationId = 4,
@@ -564,15 +785,17 @@ namespace SaigonRideProject.Migrations
                         new
                         {
                             Id = 21,
+                            BatteryLevel = 20,
                             PlateNumber = "BK-401",
                             PricePerMinute = 500m,
                             StationId = 5,
-                            Status = "Available",
+                            Status = "Maintenance",
                             VehicleType = "Bike"
                         },
                         new
                         {
                             Id = 22,
+                            BatteryLevel = 80,
                             PlateNumber = "BK-402",
                             PricePerMinute = 500m,
                             StationId = 5,
@@ -582,6 +805,7 @@ namespace SaigonRideProject.Migrations
                         new
                         {
                             Id = 23,
+                            BatteryLevel = 85,
                             PlateNumber = "BK-403",
                             PricePerMinute = 500m,
                             StationId = 5,
@@ -591,15 +815,17 @@ namespace SaigonRideProject.Migrations
                         new
                         {
                             Id = 24,
+                            BatteryLevel = 60,
                             PlateNumber = "SC-401",
                             PricePerMinute = 1500m,
                             StationId = 5,
-                            Status = "Available",
+                            Status = "InUse",
                             VehicleType = "E-Scooter"
                         },
                         new
                         {
                             Id = 25,
+                            BatteryLevel = 95,
                             PlateNumber = "SC-402",
                             PricePerMinute = 1500m,
                             StationId = 5,
@@ -609,6 +835,7 @@ namespace SaigonRideProject.Migrations
                         new
                         {
                             Id = 26,
+                            BatteryLevel = 90,
                             PlateNumber = "BK-501",
                             PricePerMinute = 500m,
                             StationId = 6,
@@ -618,6 +845,7 @@ namespace SaigonRideProject.Migrations
                         new
                         {
                             Id = 27,
+                            BatteryLevel = 85,
                             PlateNumber = "BK-502",
                             PricePerMinute = 500m,
                             StationId = 6,
@@ -627,6 +855,7 @@ namespace SaigonRideProject.Migrations
                         new
                         {
                             Id = 28,
+                            BatteryLevel = 80,
                             PlateNumber = "BK-503",
                             PricePerMinute = 500m,
                             StationId = 6,
@@ -636,7 +865,18 @@ namespace SaigonRideProject.Migrations
                         new
                         {
                             Id = 29,
+                            BatteryLevel = 65,
                             PlateNumber = "SC-501",
+                            PricePerMinute = 1500m,
+                            StationId = 6,
+                            Status = "InUse",
+                            VehicleType = "E-Scooter"
+                        },
+                        new
+                        {
+                            Id = 30,
+                            BatteryLevel = 95,
+                            PlateNumber = "SC-502",
                             PricePerMinute = 1500m,
                             StationId = 6,
                             Status = "Available",
@@ -644,11 +884,202 @@ namespace SaigonRideProject.Migrations
                         },
                         new
                         {
-                            Id = 30,
-                            PlateNumber = "SC-502",
-                            PricePerMinute = 1500m,
-                            StationId = 6,
+                            Id = 31,
+                            BatteryLevel = 88,
+                            PlateNumber = "BK-601",
+                            PricePerMinute = 500m,
+                            StationId = 7,
                             Status = "Available",
+                            VehicleType = "Bike"
+                        },
+                        new
+                        {
+                            Id = 32,
+                            BatteryLevel = 90,
+                            PlateNumber = "BK-602",
+                            PricePerMinute = 500m,
+                            StationId = 7,
+                            Status = "Available",
+                            VehicleType = "Bike"
+                        },
+                        new
+                        {
+                            Id = 33,
+                            BatteryLevel = 85,
+                            PlateNumber = "BK-603",
+                            PricePerMinute = 500m,
+                            StationId = 7,
+                            Status = "Available",
+                            VehicleType = "Bike"
+                        },
+                        new
+                        {
+                            Id = 34,
+                            BatteryLevel = 16,
+                            PlateNumber = "SC-601",
+                            PricePerMinute = 1500m,
+                            StationId = 7,
+                            Status = "Maintenance",
+                            VehicleType = "E-Scooter"
+                        },
+                        new
+                        {
+                            Id = 35,
+                            BatteryLevel = 95,
+                            PlateNumber = "SC-602",
+                            PricePerMinute = 1500m,
+                            StationId = 7,
+                            Status = "Available",
+                            VehicleType = "E-Scooter"
+                        },
+                        new
+                        {
+                            Id = 36,
+                            BatteryLevel = 90,
+                            PlateNumber = "BK-701",
+                            PricePerMinute = 500m,
+                            StationId = 8,
+                            Status = "Available",
+                            VehicleType = "Bike"
+                        },
+                        new
+                        {
+                            Id = 37,
+                            BatteryLevel = 85,
+                            PlateNumber = "BK-702",
+                            PricePerMinute = 500m,
+                            StationId = 8,
+                            Status = "Available",
+                            VehicleType = "Bike"
+                        },
+                        new
+                        {
+                            Id = 38,
+                            BatteryLevel = 80,
+                            PlateNumber = "BK-703",
+                            PricePerMinute = 500m,
+                            StationId = 8,
+                            Status = "Available",
+                            VehicleType = "Bike"
+                        },
+                        new
+                        {
+                            Id = 39,
+                            BatteryLevel = 70,
+                            PlateNumber = "SC-701",
+                            PricePerMinute = 1500m,
+                            StationId = 8,
+                            Status = "InUse",
+                            VehicleType = "E-Scooter"
+                        },
+                        new
+                        {
+                            Id = 40,
+                            BatteryLevel = 95,
+                            PlateNumber = "SC-702",
+                            PricePerMinute = 1500m,
+                            StationId = 8,
+                            Status = "Available",
+                            VehicleType = "E-Scooter"
+                        },
+                        new
+                        {
+                            Id = 41,
+                            BatteryLevel = 88,
+                            PlateNumber = "BK-801",
+                            PricePerMinute = 500m,
+                            StationId = 9,
+                            Status = "Available",
+                            VehicleType = "Bike"
+                        },
+                        new
+                        {
+                            Id = 42,
+                            BatteryLevel = 90,
+                            PlateNumber = "BK-802",
+                            PricePerMinute = 500m,
+                            StationId = 9,
+                            Status = "Available",
+                            VehicleType = "Bike"
+                        },
+                        new
+                        {
+                            Id = 43,
+                            BatteryLevel = 85,
+                            PlateNumber = "BK-803",
+                            PricePerMinute = 500m,
+                            StationId = 9,
+                            Status = "Available",
+                            VehicleType = "Bike"
+                        },
+                        new
+                        {
+                            Id = 44,
+                            BatteryLevel = 95,
+                            PlateNumber = "SC-801",
+                            PricePerMinute = 1500m,
+                            StationId = 9,
+                            Status = "Available",
+                            VehicleType = "E-Scooter"
+                        },
+                        new
+                        {
+                            Id = 45,
+                            BatteryLevel = 90,
+                            PlateNumber = "SC-802",
+                            PricePerMinute = 1500m,
+                            StationId = 9,
+                            Status = "Available",
+                            VehicleType = "E-Scooter"
+                        },
+                        new
+                        {
+                            Id = 46,
+                            BatteryLevel = 80,
+                            PlateNumber = "BK-901",
+                            PricePerMinute = 500m,
+                            StationId = 10,
+                            Status = "Available",
+                            VehicleType = "Bike"
+                        },
+                        new
+                        {
+                            Id = 47,
+                            BatteryLevel = 85,
+                            PlateNumber = "BK-902",
+                            PricePerMinute = 500m,
+                            StationId = 10,
+                            Status = "Available",
+                            VehicleType = "Bike"
+                        },
+                        new
+                        {
+                            Id = 48,
+                            BatteryLevel = 90,
+                            PlateNumber = "BK-903",
+                            PricePerMinute = 500m,
+                            StationId = 10,
+                            Status = "Available",
+                            VehicleType = "Bike"
+                        },
+                        new
+                        {
+                            Id = 49,
+                            BatteryLevel = 95,
+                            PlateNumber = "SC-901",
+                            PricePerMinute = 1500m,
+                            StationId = 10,
+                            Status = "Available",
+                            VehicleType = "E-Scooter"
+                        },
+                        new
+                        {
+                            Id = 50,
+                            BatteryLevel = 60,
+                            PlateNumber = "SC-902",
+                            PricePerMinute = 1500m,
+                            StationId = 10,
+                            Status = "InUse",
                             VehicleType = "E-Scooter"
                         });
                 });
@@ -684,6 +1115,73 @@ namespace SaigonRideProject.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("WalletTransactions");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Amount = -9000m,
+                            CreatedAt = new DateTime(2026, 5, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Method = "MoMo",
+                            Type = "Payment",
+                            UserId = 2
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Amount = -15000m,
+                            CreatedAt = new DateTime(2026, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Method = "VNPay",
+                            Type = "Payment",
+                            UserId = 3
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Amount = -20000m,
+                            CreatedAt = new DateTime(2026, 4, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Method = "ApplePay",
+                            Type = "Payment",
+                            UserId = 4
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Amount = -30000m,
+                            CreatedAt = new DateTime(2026, 4, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Method = "PayPal",
+                            Type = "Payment",
+                            UserId = 5
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Amount = -25000m,
+                            CreatedAt = new DateTime(2026, 4, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Method = "Cash",
+                            Type = "Payment",
+                            UserId = 2
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Amount = -40000m,
+                            CreatedAt = new DateTime(2026, 4, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Method = "Cash",
+                            Type = "Payment",
+                            UserId = 4
+                        });
+                });
+
+            modelBuilder.Entity("SaigonRideProject.Models.Payment", b =>
+                {
+                    b.HasOne("SaigonRideProject.Models.Rental", "Rental")
+                        .WithMany("Payments")
+                        .HasForeignKey("RentalId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Rental");
                 });
 
             modelBuilder.Entity("SaigonRideProject.Models.Rental", b =>
@@ -691,24 +1189,24 @@ namespace SaigonRideProject.Migrations
                     b.HasOne("SaigonRideProject.Models.Station", "PickupStation")
                         .WithMany()
                         .HasForeignKey("PickupStationId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("SaigonRideProject.Models.Station", "ReturnStation")
                         .WithMany()
                         .HasForeignKey("ReturnStationId")
-                        .OnDelete(DeleteBehavior.NoAction);
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("SaigonRideProject.Models.User", "User")
                         .WithMany("Rentals")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("SaigonRideProject.Models.Vehicle", "Vehicle")
                         .WithMany()
                         .HasForeignKey("VehicleId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("PickupStation");
@@ -725,8 +1223,7 @@ namespace SaigonRideProject.Migrations
                     b.HasOne("SaigonRideProject.Models.Station", "Station")
                         .WithMany("Vehicles")
                         .HasForeignKey("StationId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.Navigation("Station");
                 });
@@ -736,10 +1233,15 @@ namespace SaigonRideProject.Migrations
                     b.HasOne("SaigonRideProject.Models.User", "User")
                         .WithMany("WalletTransactions")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("SaigonRideProject.Models.Rental", b =>
+                {
+                    b.Navigation("Payments");
                 });
 
             modelBuilder.Entity("SaigonRideProject.Models.Station", b =>

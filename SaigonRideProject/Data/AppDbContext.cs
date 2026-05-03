@@ -22,6 +22,7 @@ namespace SaigonRideProject.Data
 
         public DbSet<WalletTransaction> WalletTransactions { get; set; }
         public DbSet<Payment> Payments { get; set; }
+        static readonly DateTime BaseDate = new DateTime(2026, 5, 3);
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -146,13 +147,26 @@ namespace SaigonRideProject.Data
                     IdentityImageUrl = "",
                     PassportStatus = "Approved",
                     Balance = 0
-                }
+                },
+
+                new User { Id = 2, FullName = "Nguyen Van A", Email = "nguyenvana@gmail.com", PasswordHash = BCrypt.Net.BCrypt.HashPassword("123456"), UserType = "Local", Role = "User", IsVerified = true, Balance = 500000 },
+                new User { Id = 3, FullName = "Tran Thi B", Email = "tranthib@gmail.com", PasswordHash = BCrypt.Net.BCrypt.HashPassword("123456"), UserType = "Local", Role = "User", IsVerified = true, Balance = 300000 },
+
+                new User { Id = 4, FullName = "John Smith", Email = "johnsmith@gmail.com", PasswordHash = BCrypt.Net.BCrypt.HashPassword("123456"), UserType = "Tourist", Role = "User", IsVerified = true, Balance = 1000000 },
+                new User { Id = 5, FullName = "Emily Brown", Email = "emilybrown@gmail.com", PasswordHash = BCrypt.Net.BCrypt.HashPassword("123456"), UserType = "Tourist", Role = "User", IsVerified = true, Balance = 800000 }
+
+
             );
 
+
+
             modelBuilder.Entity<Station>().HasData(
+                //Station capacity = 20%
                 new Station { Id = 1, Name = "Ben Thanh Station", Address = "District 1", Capacity = 25, Latitude = 10.7720, Longitude = 106.6980 },
-                new Station { Id = 2, Name = "District 3 Hub", Address = "Vo Van Tan", Capacity = 20,  Latitude = 10.7825, Longitude = 106.6900 },
-                new Station { Id = 3, Name = "Binh Thanh Station", Address = "Dien Bien Phu", Capacity = 18,  Latitude = 10.8031, Longitude = 106.7150 },
+                //Station capacity = 19%
+                new Station { Id = 2, Name = "District 3 Hub", Address = "Vo Van Tan", Capacity = 26,  Latitude = 10.7825, Longitude = 106.6900 },
+                //Station capacity = 21%
+                new Station { Id = 3, Name = "Binh Thanh Station", Address = "Dien Bien Phu", Capacity = 5,  Latitude = 10.8031, Longitude = 106.7150 },
                 new Station { Id = 4, Name = "Thu Duc Station", Address = "Vo Nguyen Giap", Capacity = 30,  Latitude = 10.8500, Longitude = 106.7700 },
                 new Station { Id = 5, Name = "Tan Binh Station", Address = "Cong Hoa", Capacity = 22,  Latitude = 10.8010, Longitude = 106.6520 },
                 new Station { Id = 6, Name = "District 7 Station", Address = "Nguyen Van Linh", Capacity = 20,  Latitude = 10.7295, Longitude = 106.7210 },
@@ -178,7 +192,7 @@ namespace SaigonRideProject.Data
                 new Vehicle { Id = 7, VehicleType = "Bike", PlateNumber = "BK-102", Status = "Available", PricePerMinute = 500, StationId = 2, BatteryLevel = 92 },
                 new Vehicle { Id = 8, VehicleType = "Bike", PlateNumber = "BK-103", Status = "InUse", PricePerMinute = 500, StationId = 2, BatteryLevel = 60 },
                 new Vehicle { Id = 9, VehicleType = "E-Scooter", PlateNumber = "SC-101", Status = "Available", PricePerMinute = 1500, StationId = 2, BatteryLevel = 75 },
-                new Vehicle { Id = 10, VehicleType = "E-Scooter", PlateNumber = "SC-102", Status = "Maintenance", PricePerMinute = 1500, StationId = 2, BatteryLevel = 30 },
+                new Vehicle { Id = 10, VehicleType = "E-Scooter", PlateNumber = "SC-102", Status = "Maintenance", PricePerMinute = 1500, StationId = 2, BatteryLevel = 19 },
 
                 // ================= Station 3 =================
                 new Vehicle { Id = 11, VehicleType = "Bike", PlateNumber = "BK-201", Status = "Available", PricePerMinute = 500, StationId = 3, BatteryLevel = 90 },
@@ -191,7 +205,7 @@ namespace SaigonRideProject.Data
                 new Vehicle { Id = 16, VehicleType = "Bike", PlateNumber = "BK-301", Status = "Available", PricePerMinute = 500, StationId = 4, BatteryLevel = 88 },
                 new Vehicle { Id = 17, VehicleType = "Bike", PlateNumber = "BK-302", Status = "InUse", PricePerMinute = 500, StationId = 4, BatteryLevel = 70 },
                 new Vehicle { Id = 18, VehicleType = "Bike", PlateNumber = "BK-303", Status = "Available", PricePerMinute = 500, StationId = 4, BatteryLevel = 92 },
-                new Vehicle { Id = 19, VehicleType = "E-Scooter", PlateNumber = "SC-301", Status = "Available", PricePerMinute = 1500, StationId = 4, BatteryLevel = 85 },
+                new Vehicle { Id = 19, VehicleType = "E-Scooter", PlateNumber = "SC-301", Status = "Maintenance", PricePerMinute = 1500, StationId = 4, BatteryLevel = 10 },
                 new Vehicle { Id = 20, VehicleType = "E-Scooter", PlateNumber = "SC-302", Status = "Available", PricePerMinute = 1500, StationId = 4, BatteryLevel = 90 },
 
                 // ================= Station 5 =================
@@ -212,7 +226,7 @@ namespace SaigonRideProject.Data
                 new Vehicle { Id = 31, VehicleType = "Bike", PlateNumber = "BK-601", Status = "Available", PricePerMinute = 500, StationId = 7, BatteryLevel = 88 },
                 new Vehicle { Id = 32, VehicleType = "Bike", PlateNumber = "BK-602", Status = "Available", PricePerMinute = 500, StationId = 7, BatteryLevel = 90 },
                 new Vehicle { Id = 33, VehicleType = "Bike", PlateNumber = "BK-603", Status = "Available", PricePerMinute = 500, StationId = 7, BatteryLevel = 85 },
-                new Vehicle { Id = 34, VehicleType = "E-Scooter", PlateNumber = "SC-601", Status = "Maintenance", PricePerMinute = 1500, StationId = 7, BatteryLevel = 25 },
+                new Vehicle { Id = 34, VehicleType = "E-Scooter", PlateNumber = "SC-601", Status = "Maintenance", PricePerMinute = 1500, StationId = 7, BatteryLevel = 16 },
                 new Vehicle { Id = 35, VehicleType = "E-Scooter", PlateNumber = "SC-602", Status = "Available", PricePerMinute = 1500, StationId = 7, BatteryLevel = 95 },
 
                 // ================= Station 8 =================
@@ -237,7 +251,169 @@ namespace SaigonRideProject.Data
                 new Vehicle { Id = 50, VehicleType = "E-Scooter", PlateNumber = "SC-902", Status = "InUse", PricePerMinute = 1500, StationId = 10, BatteryLevel = 60 }
            );
 
+            modelBuilder.Entity<WalletTransaction>().HasData(
+                new WalletTransaction
+                {
+                    Id = 1,
+                    UserId = 2,
+                    Amount = -9000,
+                    Type = "Payment",
+                    Method = "MoMo",
+                    CreatedAt = BaseDate.AddDays(-1)
+                },
+                new WalletTransaction
+                {
+                    Id = 2,
+                    UserId = 3,
+                    Amount = -15000,
+                    Type = "Payment",
+                    Method = "VNPay",
+                    CreatedAt = BaseDate.AddDays(-3)
+                },
+                new WalletTransaction
+                {
+                    Id = 3,
+                    UserId = 4,
+                    Amount = -20000,
+                    Type = "Payment",
+                    Method = "ApplePay",
+                    CreatedAt = BaseDate.AddDays(-6)
+                },
+                new WalletTransaction
+                {
+                    Id = 4,
+                    UserId = 5,
+                    Amount = -30000,
+                    Type = "Payment",
+                    Method = "PayPal",
+                    CreatedAt = BaseDate.AddDays(-10)
+                },
+                new WalletTransaction
+                {
+                    Id = 5,
+                    UserId = 2,
+                    Amount = -25000,
+                    Type = "Payment",
+                    Method = "Cash",
+                    CreatedAt = BaseDate.AddDays(-20)
+                },
+                new WalletTransaction
+                {
+                    Id = 6,
+                    UserId = 4,
+                    Amount = -40000,
+                    Type = "Payment",
+                    Method = "Cash",
+                    CreatedAt = BaseDate.AddDays(-30)
+                }
+            );
 
+            modelBuilder.Entity<Rental>().HasData(
+                new Rental
+                {
+                    Id = 1,
+                    UserId = 2,
+                    VehicleId = 1,
+                    PickupStationId = 1,
+                    ReturnStationId = 2,
+                    Status = "Completed",
+                    StartTime = BaseDate.AddDays(-1),
+                    EndTime = BaseDate.AddDays(-1).AddMinutes(20),
+                    BaseAmount = 10000,
+                    FinalAmount = 9000,
+                    DiscountPercent = 10
+                },
+
+                new Rental
+                {
+                    Id = 2,
+                    UserId = 4, 
+                    VehicleId = 6,
+                    PickupStationId = 2,
+                    ReturnStationId = 3,
+                    Status = "Completed",
+                    StartTime = BaseDate.AddDays(-2),
+                    EndTime = BaseDate.AddDays(-2).AddMinutes(15),
+                    BaseAmount = 15000,
+                    FinalAmount = 15000,
+                    DiscountPercent = 0
+                },
+
+                new Rental
+                {
+                    Id = 3,
+                    UserId = 3, 
+                    VehicleId = 11,
+                    PickupStationId = 3,
+                    ReturnStationId = 4,
+                    Status = "Completed",
+                    StartTime = BaseDate.AddDays(-3),
+                    EndTime = BaseDate.AddDays(-3).AddMinutes(30),
+                    BaseAmount = 20000,
+                    FinalAmount = 18000,
+                    DiscountPercent = 10
+                },
+
+                new Rental
+                {
+                    Id = 4,
+                    UserId = 5, 
+                    VehicleId = 16,
+                    PickupStationId = 4,
+                    ReturnStationId = 5,
+                    Status = "Cancelled",
+                    StartTime = BaseDate.AddDays(-5),
+                    EndTime = null,
+                    BaseAmount = 0,
+                    FinalAmount = 0,
+                    DiscountPercent = 0
+                },
+
+                new Rental
+                {
+                    Id = 5,
+                    UserId = 2,
+                    VehicleId = 21,
+                    PickupStationId = 5,
+                    ReturnStationId = 6,
+                    Status = "Completed",
+                    StartTime = BaseDate.AddDays(-7),
+                    EndTime = BaseDate.AddDays(-7).AddMinutes(25),
+                    BaseAmount = 12000,
+                    FinalAmount = 10000,
+                    DiscountPercent = 15
+                },
+
+                new Rental
+                {
+                    Id = 6,
+                    UserId = 4,
+                    VehicleId = 26,
+                    PickupStationId = 6,
+                    ReturnStationId = 7,
+                    Status = "Completed",
+                    StartTime = BaseDate.AddDays(-15),
+                    EndTime = BaseDate.AddDays(-15).AddMinutes(40),
+                    BaseAmount = 30000,
+                    FinalAmount = 27000,
+                    DiscountPercent = 10
+                },
+
+                new Rental
+                {
+                    Id = 7,
+                    UserId = 3,
+                    VehicleId = 31,
+                    PickupStationId = 7,
+                    ReturnStationId = 8,
+                    Status = "Completed",
+                    StartTime = BaseDate.AddDays(-30),
+                    EndTime = BaseDate.AddDays(-30).AddMinutes(50),
+                    BaseAmount = 50000,
+                    FinalAmount = 45000,
+                    DiscountPercent = 10
+                }
+            );
         }
     }
 }
