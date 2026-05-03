@@ -6,7 +6,6 @@ using SaigonRideProject.Services;
 using SaigonRideProject.Services.Payment;
 using SaigonRideProject.Services.Pricing;
 using SaigonRideProject.ViewModels;
-using System.Text.Json;
 
 namespace SaigonRideProject.Controllers
 {
@@ -126,11 +125,13 @@ namespace SaigonRideProject.Controllers
 
             var vehicle = _context.Vehicles.FirstOrDefault(v => v.Id == vehicleId);
             var station = _context.Stations.FirstOrDefault(s => s.Id == stationId);
-            if (vehicle.BatteryLevel < 20)
-                return BadRequest("Battery too low to rent");
 
             if (vehicle == null || station == null)
                 return BadRequest("Invalid data");
+
+
+            if (vehicle.BatteryLevel < 20)
+                return BadRequest("Battery too low to rent");
 
             if (vehicle.Status != "Available")
                 return BadRequest("Vehicle not available");
@@ -142,8 +143,12 @@ namespace SaigonRideProject.Controllers
                 var rental = _rentalService.StartRental(userId.Value, vehicleId, stationId);
 
                 vehicle.Status = "InUse";
+                vehicle.StationId = null;
 
                 _context.SaveChanges();
+
+                AdminVehicleController.NotifyChanged();
+                AdminStationController.NotifyChanged();
 
                 transaction.Commit();
 
@@ -274,6 +279,9 @@ namespace SaigonRideProject.Controllers
             rental.FinalAmount = result.FinalAmount;
 
             _context.SaveChanges();
+            AdminVehicleController.NotifyChanged();
+            AdminStationController.NotifyChanged();
+
 
             return RedirectToAction("Bill", new { rentalId });
         }
@@ -365,6 +373,8 @@ namespace SaigonRideProject.Controllers
             rental.Vehicle.StationId = station.Id;
 
             _context.SaveChanges();
+            AdminVehicleController.NotifyChanged();
+            AdminStationController.NotifyChanged();
 
             return Json(new
             {

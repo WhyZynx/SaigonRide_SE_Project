@@ -5,6 +5,7 @@ using SaigonRideProject.Models;
 using SaigonRideProject.ViewModels;
 using System.Security.Cryptography;
 using System.Text;
+using SaigonRideProject.Services;
 
 namespace SaigonRideProject.Controllers
 {
@@ -75,7 +76,6 @@ namespace SaigonRideProject.Controllers
 
             _context.Users.Add(model);
             _context.SaveChanges();
-
             return RedirectToAction("Index");
         }
         public IActionResult Edit(int id)
@@ -124,6 +124,7 @@ namespace SaigonRideProject.Controllers
 
             user.IsLocked = true;
             _context.SaveChanges();
+
 
             return RedirectToAction("Index");
         }

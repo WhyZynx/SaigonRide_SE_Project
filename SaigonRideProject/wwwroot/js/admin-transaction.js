@@ -1,12 +1,20 @@
 ﻿let timeout = null;
+let lastUpdated = 0;
+
+function getFilters() {
+    return {
+        search: document.getElementById("searchBox").value,
+        type: document.getElementById("type").value
+    };
+}
 
 function loadTransactions() {
-    const search = document.getElementById("searchBox").value;
-    const type = document.getElementById("type").value;
+    console.log("Reload transaction table...");
+    const f = getFilters();
 
     document.getElementById("loading").style.display = "block";
 
-    fetch(`/AdminTransaction/Filter?search=${search}&type=${type}`)
+    fetch(`/AdminTransaction/Filter?search=${f.search}&type=${f.type}`)
         .then(res => res.text())
         .then(html => {
             document.getElementById("transactionTable").innerHTML = html;
