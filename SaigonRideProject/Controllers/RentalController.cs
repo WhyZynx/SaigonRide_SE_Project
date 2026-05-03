@@ -147,6 +147,9 @@ namespace SaigonRideProject.Controllers
 
                 _context.SaveChanges();
 
+                AdminVehicleController.NotifyChanged();
+                AdminStationController.NotifyChanged();
+
                 transaction.Commit();
 
                 return RedirectToAction("Current", new { id = rental.Id });
@@ -276,6 +279,9 @@ namespace SaigonRideProject.Controllers
             rental.FinalAmount = result.FinalAmount;
 
             _context.SaveChanges();
+            AdminVehicleController.NotifyChanged();
+            AdminStationController.NotifyChanged();
+
 
             return RedirectToAction("Bill", new { rentalId });
         }
@@ -367,6 +373,8 @@ namespace SaigonRideProject.Controllers
             rental.Vehicle.StationId = station.Id;
 
             _context.SaveChanges();
+            AdminVehicleController.NotifyChanged();
+            AdminStationController.NotifyChanged();
 
             return Json(new
             {

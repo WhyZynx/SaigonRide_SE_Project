@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using SaigonRideProject.Data;
 using SaigonRideProject.Models;
 using SaigonRideProject.ViewModels;
+using SaigonRideProject.Services;
 
 namespace SaigonRideProject.Controllers
 {
@@ -13,6 +14,17 @@ namespace SaigonRideProject.Controllers
         public AdminVehicleController(AppDbContext context)
         {
             _context = context;
+        }
+
+        public static void NotifyChanged()
+        {
+            DashboardUpdateService.NotifyVehicle();
+        }
+
+        [HttpGet]
+        public IActionResult CheckUpdate()
+        {
+            return Json(new { lastUpdated = DashboardUpdateService.GetVehicleUpdated() });
         }
 
         private bool IsAdmin()
@@ -66,11 +78,13 @@ namespace SaigonRideProject.Controllers
                 PlateNumber = model.PlateNumber,
                 Status = model.Status,
                 PricePerMinute = model.PricePerMinute,
+                BatteryLevel = model.BatteryLevel,
                 StationId = model.StationId
             };
 
             _context.Vehicles.Add(vehicle);
             _context.SaveChanges();
+            AdminVehicleController.NotifyChanged();
 
             return RedirectToAction("Index");
         }
@@ -118,6 +132,7 @@ namespace SaigonRideProject.Controllers
             vehicle.StationId = model.StationId;
 
             _context.SaveChanges();
+            AdminVehicleController.NotifyChanged();
 
             return RedirectToAction("Index");
         }
@@ -151,6 +166,7 @@ namespace SaigonRideProject.Controllers
 
             _context.Vehicles.Remove(vehicle);
             _context.SaveChanges();
+            AdminVehicleController.NotifyChanged();
 
             return RedirectToAction("Index");
         }
@@ -199,7 +215,9 @@ namespace SaigonRideProject.Controllers
                 PlateNumber = v.PlateNumber,
                 Status = v.Status,
                 PricePerMinute = v.PricePerMinute,
-                StationId = v.StationId
+                StationId = v.StationId,
+                BatteryLevel = v.BatteryLevel,
+                StationName = v.Station != null ? v.Station.Name : "N/A"
             }).ToList();
 
             return PartialView("_VehicleTable", result);
