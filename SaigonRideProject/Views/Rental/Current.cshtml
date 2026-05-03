@@ -132,7 +132,6 @@
     </form>
 </div>
 
-<!-- STICKY BAR DƯỚI CÙNG -->
 <div class="fixed-bottom bg-white border-top shadow-lg py-3" style="z-index: 1050;">
     <div class="container">
         <div class="d-flex align-items-center justify-content-between">
@@ -170,17 +169,39 @@
 
 <script>
     window.startTime = "@Model.StartTime.ToString("o")";
-    window.price = @Model.PricePerMinute;
+    window.pricePerMin = @Model.PricePerMinute;
     window.stations = @Html.Raw(JsonSerializer.Serialize(ViewBag.Stations));
 
     function updateTimer() {
-        const diffSec = Math.floor((new Date() - new Date(window.startTime)) / 1000);
-        const timeString = `${Math.floor(diffSec / 60).toString().padStart(2, '0')}:${(diffSec % 60).toString().padStart(2, '0')}`;
-        const formattedCost = (Math.max(1, Math.ceil(diffSec / 60)) * window.price).toLocaleString('vi-VN') + "đ";
+        const now = new Date();
+        const start = new Date(window.startTime);
+        const diffSec = Math.floor((now - start) / 1000);
+
+        if (diffSec < 0) return;
+
+        const hrs = Math.floor(diffSec / 3600);
+        const mins = Math.floor((diffSec % 3600) / 60);
+        const secs = diffSec % 60;
+        
+        let timeString = "";
+        if (hrs > 0) timeString += hrs.toString().padStart(2, '0') + ":";
+        timeString += mins.toString().padStart(2, '0') + ":" + secs.toString().padStart(2, '0');
+
+        const pricePerSec = window.pricePerMin / 60;
+        const currentCost = diffSec * pricePerSec;
+
+        const formattedCost = Math.floor(currentCost).toLocaleString('vi-VN') + "đ";
 
         document.getElementById('timer').innerText = timeString;
         document.getElementById('durationSeconds').value = diffSec;
-        document.querySelectorAll('.total-val').forEach(el => el.innerText = formattedCost);
+        
+        document.querySelectorAll('.total-val').forEach(el => {
+            el.innerText = formattedCost;
+        });
+
+        document.querySelectorAll('.banner-timer-display').forEach(el => {
+            el.innerText = timeString;
+        });
     }
 
     function selectStation(id, name, count, cap) {
@@ -206,5 +227,8 @@
     }
 
     setInterval(updateTimer, 1000);
-    window.onload = () => { initMap(); updateTimer(); };
+    window.onload = () => { 
+        initMap(); 
+        updateTimer(); 
+    };
 </script>
