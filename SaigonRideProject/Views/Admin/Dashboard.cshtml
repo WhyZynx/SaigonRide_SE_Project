@@ -2,6 +2,9 @@
 
 @{
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+    var totalFleet = Model.ActiveRentals + Model.AvailableVehicles;
+    var isBusy = Model.ActiveRentals > Model.AvailableVehicles;
 }
 
 <div class="container-fluid py-4">
@@ -16,9 +19,8 @@
         </div>
 
         <div class="d-flex gap-2">
-
             <div class="btn-group">
-                <button type="button" class="btn btn-light border dropdown-toggle" data-bs-toggle="dropdown">
+                <button class="btn btn-light border dropdown-toggle" data-bs-toggle="dropdown">
                     Filter Time
                 </button>
                 <ul class="dropdown-menu">
@@ -32,43 +34,37 @@
             <button class="btn btn-success">
                 <i class="bi bi-download"></i> Export
             </button>
-
         </div>
     </div>
 
+    <!-- KPI -->
     <div class="row g-4">
 
-        <!-- 📈 Active Rides -->
+        <!-- 📈 Active Rentals -->
         <div class="col-lg-4">
             <div class="card border-0 shadow-sm rounded-4 p-4 h-100">
 
-                <div class="d-flex justify-content-between">
-                    <div>
-                        <div class="d-flex align-items-center gap-2">
-                            <div class="bg-primary bg-opacity-10 rounded-3 d-flex align-items-center justify-content-center"
-                                 style="width:40px;height:40px;">
-                                📈
-                            </div>
-                            <div class="text-primary fw-medium">Live</div>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center gap-2">
+                        <div class="bg-primary bg-opacity-10 rounded-3 d-flex align-items-center justify-content-center"
+                             style="width:40px;height:40px;">
+                            📈
                         </div>
-
-                        <h1 class="fw-bold mt-4 mb-0">@Model.ActiveRentals</h1>
-                        <p class="text-muted">rides</p>
+                        <div class="text-primary fw-medium">Live Rentals</div>
                     </div>
 
-                    <div class="text-end">
-                        <p class="text-muted small mb-1">Active Rentals</p>
-
-                        <!-- Fake breakdown UI nhưng dùng data thật -->
-                        <p class="fw-medium mb-2">
-                            ~@Model.ActiveRentals vehicles in use
-                        </p>
-
-                        <p class="text-success small mb-0">
-                            ↑ Live updating
-                        </p>
-                    </div>
+                    <span class="badge bg-success">LIVE</span>
                 </div>
+
+                <h1 class="fw-bold mt-4 mb-0 @(isBusy ? "text-danger" : "")">
+                    @Model.ActiveRentals
+                </h1>
+
+                <p class="text-muted mb-1">vehicles in use</p>
+
+                <small class="text-muted">
+                    @Model.AvailableVehicles available • total @totalFleet
+                </small>
 
             </div>
         </div>
@@ -85,18 +81,16 @@
                     <div>
                         <div class="text-success fw-medium">Revenue Today</div>
                         <small class="text-muted">
-                            @Model.TotalTransactions transactions
+                            @Model.TotalTransactions transactions today
                         </small>
                     </div>
                 </div>
 
                 <h2 class="fw-bold mt-4">
-                    @Model.TodayRevenue.ToString("N0") đ
+                    @String.Format("{0:N0} đ", Model.TodayRevenue)
                 </h2>
 
-                <p class="text-success small mb-0">
-                    ↑ Updated live
-                </p>
+                <span class="badge bg-success">LIVE</span>
 
             </div>
         </div>
@@ -110,143 +104,144 @@
                          style="width:40px;height:40px;">
                         🚲
                     </div>
-                    <div>
-                        <div class="fw-medium">Fleet Availability</div>
-                    </div>
+                    <div class="fw-medium">Fleet Status</div>
                 </div>
 
-                <h2 class="fw-bold mt-4">
-                    @Model.AvailableVehicles
+                <h2 class="fw-bold mt-4">@totalFleet</h2>
+
+                <p class="text-muted mb-1">total fleet size</p>
+
+                <small class="text-muted">
+                    @Model.AvailableVehicles available • @Model.ActiveRentals in use
+                </small>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ⚠️ LOW INVENTORY -->
+    <div class="row g-4 mt-3">
+        <div class="col-lg-4">
+            <div class="card border-0 shadow-sm rounded-4 p-4 h-100 text-center">
+
+                <div class="mb-2 fs-4">⚠️</div>
+
+                <h2 class="fw-bold text-danger">
+                    @(Model.LowStations?.Count() ?? 0)
                 </h2>
 
-                <p class="text-muted">
-                    vehicles available
-                </p>
-
-                <p class="text-danger small mb-0">
-                    ↓ Live status
+                <p class="text-muted mb-0">
+                    stations need attention
                 </p>
 
             </div>
         </div>
-
     </div>
 
-    <!-- ⚠️ Low Inventory -->
-    <div class="col-lg-3">
-        <div class="card border-0 shadow-sm rounded-4 p-4 h-100">
-
-            <div class="mb-3 fs-4">⚠️ <span class="text-danger fw-medium">Low Inventory</span></div>
-
-            <h2 class="fw-bold text-danger">
-                @(Model.LowStations?.Count() ?? 0)
-            </h2>
-
-            <small class="text-danger">Needs attention</small>
-
+    <!-- ALERT -->
+    @if (Model.LowStations != null && Model.LowStations.Any())
+    {
+        <div class="alert alert-danger mt-4 rounded-4">
+            <strong>⚠️ Low Inventory Stations:</strong><br />
+            @foreach (var s in Model.LowStations)
+            {
+                <span class="badge bg-danger me-2">@s.StationName</span>
+            }
         </div>
-    </div>
+    }
 
-</div>
+    <!-- TABLES -->
+    <div class="row g-4 mt-3">
 
-<!-- SMALL STATS -->
-@* <div class="row g-4 mt-2">
+        <!-- LIVE RENTALS -->
+        <div class="col-lg-6">
+            <div class="card rounded-4 shadow-sm">
+                <div class="card-body">
+                    <h5 class="mb-3">Live Rentals</h5>
 
-        <div class="col-md-4">
-            <div class="card border-danger rounded-4 p-3">
-                <h5 class="text-danger mb-1">
-                    @(Model.LowStations?.Count() ?? 0) Stations
-                </h5>
-                <small class="text-muted">Low Inventory</small>
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="card rounded-4 p-3 text-center">
-                <h3 class="fw-bold">@Model.TotalTransactions</h3>
-                <small class="text-muted">Total Transactions</small>
-            </div>
-        </div>
-
-    </div> *@
-
-<!-- ALERT -->
-@if (Model.LowStations != null && Model.LowStations.Any())
-{
-    <div class="alert alert-danger mt-4 rounded-4">
-        <strong>Low Inventory:</strong><br />
-        @foreach (var s in Model.LowStations)
-        {
-            <span class="badge bg-danger me-2">@s.StationName</span>
-        }
-    </div>
-}
-
-<!-- TABLES -->
-<div class="row g-4 mt-3">
-
-    <!-- LIVE RENTALS -->
-    <div class="col-lg-6">
-        <div class="card rounded-4 shadow-sm">
-            <div class="card-body">
-                <h5 class="mb-3">Live Rentals</h5>
-
-                <table class="table table-hover">
-                    <thead class="table-light">
-                        <tr>
-                            <th>User</th>
-                            <th>Vehicle</th>
-                            <th>Start</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var r in Model.LiveRentals)
-                        {
+                    <table class="table table-hover">
+                        <thead class="table-light">
                             <tr>
-                                <td>@r.UserName</td>
-                                <td>@r.Vehicle</td>
-                                <td>@r.StartTime.ToString("HH:mm dd/MM")</td>
+                                <th>User</th>
+                                <th>Vehicle</th>
+                                <th>Start</th>
                             </tr>
-                        }
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
 
+                            @if (Model.LiveRentals != null && Model.LiveRentals.Any())
+                            {
+                                foreach (var r in Model.LiveRentals)
+                                {
+                                    <tr>
+                                        <td>@r.UserName</td>
+                                        <td>@r.Vehicle</td>
+                                        <td>@r.StartTime.ToString("HH:mm dd/MM")</td>
+                                    </tr>
+                                }
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td colspan="3" class="text-center text-muted">
+                                        No active rentals
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- TRANSACTIONS -->
-    <div class="col-lg-6">
-        <div class="card rounded-4 shadow-sm">
-            <div class="card-body">
-                <h5 class="mb-3">Recent Transactions</h5>
+        <!-- TRANSACTIONS -->
+        <div class="col-lg-6">
+            <div class="card rounded-4 shadow-sm">
+                <div class="card-body">
+                    <h5 class="mb-3">Recent Transactions</h5>
 
-                <table class="table table-hover">
-                    <thead class="table-light">
-                        <tr>
-                            <th>User</th>
-                            <th>Type</th>
-                            <th>Amount</th>
-                            <th>Time</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var t in Model.RecentTransactions)
-                        {
+                    <table class="table table-hover">
+                        <thead class="table-light">
                             <tr>
-                                <td>@t.UserName</td>
-                                <td>@t.Type</td>
-                                <td class="fw-semibold">@t.Amount</td>
-                                <td>@t.CreatedAt.ToString("HH:mm dd/MM")</td>
+                                <th>User</th>
+                                <th>Type</th>
+                                <th>Amount</th>
+                                <th>Time</th>
                             </tr>
-                        }
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
 
+                            @if (Model.RecentTransactions != null && Model.RecentTransactions.Any())
+                            {
+                                foreach (var t in Model.RecentTransactions)
+                                {
+                                    <tr>
+                                        <td>@t.UserName</td>
+                                        <td>@t.Type</td>
+                                        <td class="fw-semibold">@t.Amount</td>
+                                        <td>@t.CreatedAt.ToString("HH:mm dd/MM")</td>
+                                    </tr>
+                                }
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td colspan="4" class="text-center text-muted">
+                                        No transactions yet
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+
+                </div>
             </div>
         </div>
-    </div>
 
-</div>
+    </div>
 
 </div>
