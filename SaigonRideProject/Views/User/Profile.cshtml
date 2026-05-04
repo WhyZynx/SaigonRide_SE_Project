@@ -1,67 +1,176 @@
 ﻿@model SaigonRideProject.Models.User
 
-<div class="container py-5" style="max-width: 700px; font-family: 'Inter', system-ui, sans-serif;">
+<div class="container py-5" style="max-width: 850px; font-family: 'Inter', system-ui, sans-serif;">
 
     <div class="d-flex align-items-center justify-content-between mb-4">
         <div>
             <h2 class="fw-bold text-dark mb-1">My Profile</h2>
-            <p class="text-muted small mb-0">Manage your personal information</p>
+            <p class="text-muted small mb-0">Manage your personal account information</p>
         </div>
     </div>
 
-    <div class="card border-0 shadow-sm rounded-4 p-4">
+    <div class="card border-0 shadow-sm rounded-4 p-4 mb-4 bg-white">
 
         <div class="d-flex align-items-center gap-3 mb-4">
-            <div class="rounded-circle d-flex align-items-center justify-content-center"
-                 style="width: 60px; height: 60px; background-color: #f1f5ff; color: #6366f1;">
-                <i class="bi bi-person fs-3"></i>
+            <div class="avatar-box main-app-gradient text-white shadow-sm">
+                <i class="bi bi-person-fill fs-3"></i>
             </div>
+
             <div>
                 <div class="fw-bold text-dark fs-5">@Model.FullName</div>
                 <div class="text-muted small">@Model.Email</div>
             </div>
+
+            <div class="ms-auto">
+                @if (Model.IsLocked)
+                {
+                    <span class="badge rounded-pill px-3 py-2 fw-semibold bg-danger bg-opacity-10 text-danger border border-danger border-opacity-10">
+                        <i class="bi bi-lock-fill me-1"></i> Locked
+                    </span>
+                }
+                else
+                {
+                    <span class="badge rounded-pill px-3 py-2 fw-semibold status-active-bg status-active-text border border-success border-opacity-10">
+                        <i class="bi bi-check-circle-fill me-1"></i> Active
+                    </span>
+                }
+            </div>
         </div>
 
-        <div class="row g-3">
+        <hr class="opacity-10 my-3" />
+
+        <div class="row g-3 mt-1">
 
             <div class="col-md-6">
-                <div class="d-flex align-items-center gap-2 text-muted small mb-1">
-                    <i class="bi bi-person-badge"></i> User Type
-                </div>
-                <div class="fw-semibold text-dark">@Model.UserType</div>
-            </div>
-
-            <div class="col-md-6">
-                <div class="d-flex align-items-center gap-2 text-muted small mb-1">
-                    <i class="bi bi-shield-lock"></i> Role
-                </div>
-                <div class="fw-semibold text-dark">@Model.Role</div>
-            </div>
-
-            <div class="col-md-6">
-                <div class="d-flex align-items-center gap-2 text-muted small mb-1">
-                    <i class="bi bi-wallet2"></i> Balance
-                </div>
-                <div class="fw-bold text-success fs-5">
-                    @Model.Balance.ToString("N0") <small class="text-muted fs-6">VND</small>
+                <div class="info-item-box border transition-hover">
+                    <div class="icon-circle app-soft-bg app-main-text">
+                        <i class="bi bi-person-badge"></i>
+                    </div>
+                    <div>
+                        <div class="text-muted small">Account Type</div>
+                        <div class="fw-bold text-dark">@Model.UserType</div>
+                    </div>
                 </div>
             </div>
 
             <div class="col-md-6">
-                <div class="d-flex align-items-center gap-2 text-muted small mb-1">
-                    <i class="bi bi-lock"></i> Status
+                <div class="info-item-box border transition-hover">
+                    <div class="icon-circle app-soft-bg app-main-text">
+                        <i class="bi bi-shield-lock"></i>
+                    </div>
+                    <div>
+                        <div class="text-muted small">Role</div>
+                        <div class="fw-bold text-dark">@Model.Role</div>
+                    </div>
                 </div>
-                <span class="badge @(Model.IsLocked ? "bg-danger-subtle text-danger" : "bg-success-subtle text-success") px-3 py-2">
-                    @(Model.IsLocked ? "Locked" : "Active")
-                </span>
+            </div>
+
+            <div class="col-md-6">
+                <div class="info-item-box border-app-main app-soft-bg transition-hover">
+                    <div class="icon-circle app-main-bg text-white shadow-sm">
+                        <i class="bi bi-wallet2"></i>
+                    </div>
+                    <div>
+                        <div class="app-main-text small fw-bold text-uppercase" style="letter-spacing: 0.5px;">Available Balance</div>
+                        <div class="fw-bolder app-main-text fs-4">
+                            @Model.Balance.ToString("N0") <span class="small opacity-75">VND</span>
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>
+    </div>
 
+    <div class="card border-0 shadow-sm rounded-4 p-4 bg-white border-start border-4 border-app-main">
+        <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
+            <div>
+                <div class="fw-bold text-dark fs-5">Need more balance?</div>
+                <div class="text-muted small">Add funds to your wallet to continue using our services</div>
+            </div>
+
+            <a asp-controller="User" asp-action="TopUpPage"
+                   class="btn app-main-bg text-white rounded-pill px-4 py-2 fw-bold shadow-sm custom-btn-hover">
+                <i class="bi bi-lightning-charge-fill me-1"></i> Top Up Now
+            </a>
+        </div>
     </div>
 </div>
 
 <style>
-    body { background-color: #f8fafc; }
-    .rounded-4 { border-radius: 1rem !important; }
+    :root {
+        --app-main: #5E96BD;
+        --app-main-dark: #4a7d9f;
+        --app-soft: rgba(94, 150, 189, 0.1);
+        --app-bg: #f4f7f9;
+    }
+
+    body {
+        background-color: var(--app-bg);
+        background-image: radial-gradient(#d1dce5 0.5px, transparent 0.5px);
+        background-size: 20px 20px;
+    }
+
+    .rounded-4 {
+        border-radius: 1.25rem !important;
+    }
+
+    .app-main-bg { background-color: var(--app-main) !important; }
+    .app-main-text { color: var(--app-main) !important; }
+    .app-soft-bg { background-color: var(--app-soft) !important; }
+    .border-app-main { border: 1px solid var(--app-main) !important; }
+    
+    .status-active-bg { background-color: rgba(25, 135, 84, 0.1); }
+    .status-active-text { color: #198754; }
+
+    .main-app-gradient {
+        background: linear-gradient(135deg, #5E96BD, #A5C9E1);
+    }
+
+    .avatar-box {
+        width: 64px;
+        height: 64px;
+        border-radius: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .info-item-box {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1.25rem;
+        border-radius: 1rem;
+        background-color: white;
+    }
+
+    .icon-circle {
+        width: 44px;
+        height: 44px;
+        border-radius: 0.75rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.25rem;
+    }
+
+    .transition-hover {
+        transition: all 0.2s ease-in-out;
+    }
+    .transition-hover:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 15px rgba(0,0,0,0.05);
+        border-color: var(--app-main) !important;
+    }
+
+    .custom-btn-hover:hover {
+        background-color: var(--app-main-dark) !important;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(94, 150, 189, 0.3) !important;
+    }
+
+    .card {
+        border: 1px solid rgba(0,0,0,0.05) !important;
+    }
 </style>
