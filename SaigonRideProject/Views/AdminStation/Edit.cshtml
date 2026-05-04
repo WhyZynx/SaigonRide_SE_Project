@@ -1,42 +1,37 @@
 ﻿@model SaigonRideProject.ViewModels.AdminStationViewModel
-
 @{
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Edit Station</h2>
+<div class="container py-4">
 
-<form method="post">
+    <h3 class="mb-4">✏️ Edit Station</h3>
 
-    <input type="hidden" asp-for="Id" />
+    <form method="post" class="card p-4 shadow-sm rounded-4">
 
-    <div>
-        <label>Name</label>
-        <input asp-for="Name" class="form-control" />
-    </div>
+        <input type="hidden" asp-for="Id" />
 
-    <div>
-        <label>Address</label>
-        <input asp-for="Address" class="form-control" />
-    </div>
+        <div class="mb-3">
+            <label>Name</label>
+            <input asp-for="Name" class="form-control" />
+        </div>
 
-    <div>
-        <label>Capacity</label>
-        <input asp-for="Capacity" class="form-control" />
-    </div>
+        <div class="mb-3">
+            <label>Address</label>
+            <input asp-for="Address" class="form-control" />
+        </div>
 
-    <div>
-        <label>Current Inventory</label>
-        <input asp-for="VehicleCount" class="form-control" />
-    </div>
-    <div>
-        <label>Latitude</label>
-        <input asp-for="Latitude" class="form-control" />
-    </div>
-    <div>
-        <label>Longitude</label>
-        <input asp-for="Longitude" class="form-control" />
-    </div>
+        <div class="mb-3">
+            <label>Capacity</label>
+            <input asp-for="Capacity" class="form-control" />
+        </div>
 
-    <button type="submit" class="btn btn-primary mt-2">Update</button>
-</form>
+        <div class="mb-3">
+            <label>Inventory</label>
+            <input asp-for="VehicleCount" class="form-control" />
+        </div>
+
+        <button class="btn btn-primary">Update</button>
+
+    </form>
+</div>

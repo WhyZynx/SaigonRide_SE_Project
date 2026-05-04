@@ -1,32 +1,83 @@
 ﻿@model List<SaigonRideProject.ViewModels.AdminStationViewModel>
-
 @{
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<div class="d-flex justify-content-between align-items-center mb-3">
-    <h3 class="mb-0">Station Management</h3>
-    <a class="btn btn-primary" href="/AdminStation/Create">+ Add Station</a>
-</div>
+<div class="container-fluid py-4">
 
-<!-- FILTER -->
-<div class="row g-2 mb-3">
-    <div class="col-md-6">
-        <input type="text" id="searchBox" class="form-control"
-               placeholder="Search station name or address..." />
+    <!-- HEADER -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h3 class="fw-bold mb-0">📍 Station Management</h3>
+            <small class="text-muted">Manage all stations</small>
+        </div>
+
+        <a class="btn btn-primary rounded-3" href="/AdminStation/Create">
+            <i class="bi bi-plus-lg"></i> Add Station
+        </a>
     </div>
 
-    <div class="col-md-4">
-        <select id="status" class="form-select">
-            <option value="">All Status</option>
-            <option value="Active">Active</option>
-            <option value="Inactive">Inactive</option>
-        </select>
-    </div>
-</div>
+    <!-- KPI -->
+    <div class="row g-3 mb-4">
 
-<div id="stationTable">
-    @Html.Partial("_StationTable", Model)
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm rounded-4 p-3">
+                <small class="text-muted">Total Stations</small>
+                <h4 class="fw-bold">@Model.Count()</h4>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm rounded-4 p-3">
+                <small class="text-muted">Active</small>
+                <h4 class="fw-bold text-success">
+                    @Model.Count(x => x.Status == "Active")
+                </h4>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm rounded-4 p-3">
+                <small class="text-muted">Low Inventory</small>
+                <h4 class="fw-bold text-danger">
+                    @Model.Count(x => x.VehicleCount < 5)
+                </h4>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- FILTER -->
+    <div class="card border-0 shadow-sm rounded-4 p-3 mb-3">
+        <div class="row g-2">
+
+            <div class="col-md-6">
+                <input type="text" id="searchBox" class="form-control"
+                       placeholder="🔍 Search station..." />
+            </div>
+
+            <div class="col-md-4">
+                <select id="status" class="form-select">
+                    <option value="">All Status</option>
+                    <option value="Active">🟢 Active</option>
+                    <option value="Inactive">⚪ Inactive</option>
+                </select>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- TABLE -->
+    <div class="card border-0 shadow-sm rounded-4">
+        <div class="card-body">
+
+            <div id="stationTable">
+                @Html.Partial("_StationTable", Model)
+            </div>
+
+        </div>
+    </div>
+
 </div>
 
 <script src="~/js/admin-station.js"></script>
