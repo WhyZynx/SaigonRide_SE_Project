@@ -54,16 +54,17 @@
                     </div>
                 </div>
 
-                <small class="text-muted">
+                <h2 class="fw-bold mt-3 mb-1">
                     @(Model?.AvailableVehicles ?? 0)/@totalFleet
-                </small>
+                </h2>
 
-                <small class="text-muted d-block mt-1">
+                <small class="text-muted d-block">
                     🚲 @(Model?.ActiveBikeRentals ?? 0) bikes and 🛴 @(Model?.ActiveScooterRentals ?? 0) scooters
                 </small>
 
             </div>
         </div>
+    </div>
 
         <!-- 💰 Revenue -->
         <div class="col-lg-4">
@@ -93,14 +94,13 @@
             <div class="card border-0 shadow-sm rounded-4 p-4 h-100 text-center">
 
                 <div class="mb-2 fs-4">⚠️</div>
+                <p class="text-muted mb-0">
+                    Low inventory stations
+                </p>
 
                 <h2 class="fw-bold text-danger">
                     @(Model?.LowStations?.Count() ?? 0)
                 </h2>
-
-                <p class="text-muted mb-0">
-                    Low inventory stations
-                </p>
 
             </div>
         </div>
