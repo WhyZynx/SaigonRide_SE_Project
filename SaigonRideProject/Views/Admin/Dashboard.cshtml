@@ -52,8 +52,6 @@
                         </div>
                         <div class="text-primary fw-medium">Live Rentals</div>
                     </div>
-
-                    <span class="badge bg-success">LIVE</span>
                 </div>
 
                 <h1 class="fw-bold mt-4 mb-0 @(isBusy ? "text-danger" : "")">
@@ -89,9 +87,6 @@
                 <h2 class="fw-bold mt-4">
                     @String.Format("{0:N0} đ", Model.TodayRevenue)
                 </h2>
-
-                <span class="badge bg-success">LIVE</span>
-
             </div>
         </div>
 
@@ -120,24 +115,20 @@
 
     </div>
 
-    <!-- ⚠️ LOW INVENTORY -->
-    <div class="row g-4 mt-3">
-        <div class="col-lg-4">
-            <div class="card border-0 shadow-sm rounded-4 p-4 h-100 text-center">
-
-                <div class="mb-2 fs-4">⚠️</div>
-
-                <h2 class="fw-bold text-danger">
-                    @(Model.LowStations?.Count() ?? 0)
-                </h2>
-
-                <p class="text-muted mb-0">
-                    stations need attention
-                </p>
-
-            </div>
-        </div>
-    </div>
+    <!-- LOW INVENTORY --> 
+    <div class="row g-4 mt-3"> 
+        <div class="col-lg-4"> 
+            <div class="card border-0 shadow-sm rounded-4 p-4 h-100 text-center"> 
+                <div class="mb-2 fs-4">⚠️</div> 
+                <h2 class="fw-bold text-danger"> 
+                    @(Model.LowStations?.Count() ?? 0) 
+                </h2> 
+                <p 
+                    class="text-muted mb-0">Low inventory stations
+                </p> 
+            </div> 
+        </div> 
+     </div>
 
     <!-- ALERT -->
     @if (Model.LowStations != null && Model.LowStations.Any())
