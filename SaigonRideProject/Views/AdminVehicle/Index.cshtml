@@ -24,14 +24,14 @@
         <div class="col-md-4">
             <div class="card border-0 shadow-sm rounded-4 p-3">
                 <small class="text-muted">Total Vehicles</small>
-                <h4 class="fw-bold">@Model.Count()</h4>
+                <h4>@Model.Count()</h4>
             </div>
         </div>
 
         <div class="col-md-4">
             <div class="card border-0 shadow-sm rounded-4 p-3">
                 <small class="text-muted">Available</small>
-                <h4 class="fw-bold text-success">
+                <h4 class="text-success">
                     @Model.Count(v => v.Status == "Available")
                 </h4>
             </div>
@@ -40,13 +40,15 @@
         <div class="col-md-4">
             <div class="card border-0 shadow-sm rounded-4 p-3">
                 <small class="text-muted">In Use</small>
-                <h4 class="fw-bold text-warning">
+                <h4 class="text-warning">
                     @Model.Count(v => v.Status == "InUse")
                 </h4>
             </div>
         </div>
 
     </div>
+
+</div>
 
     <!-- FILTER -->
     <div class="card border-0 shadow-sm rounded-4 p-3 mb-3">
@@ -69,7 +71,7 @@
             <div class="col-md-3">
                 <select id="status" class="form-select rounded-3">
                     <option value="">All Status</option>
-                    <option value="Available">🟢 Available</option>
+                    <option value="Available">🟢Available</option>
                     <option value="InUse">🟡 In Use</option>
                     <option value="Maintenance">⚙️ Maintenance</option>
                 </select>
