@@ -1,17 +1,17 @@
 ﻿@model List<SaigonRideProject.ViewModels.AdminVehicleViewModel>
 
-<table class="table table-striped table-hover table-bordered align-middle">
-    <thead class="table-dark">
+<table class="table table-hover align-middle">
+
+    <thead class="table-light">
         <tr>
             <th>ID</th>
             <th>Type</th>
-            <th>Plate Number</th>
+            <th>Plate</th>
             <th>Status</th>
-            <th>Price/Min</th>
+            <th>Price</th>
             <th>Battery</th>
-            <th>Station ID</th>
-            <th>Station Name</th>
-            <th>Action</th>
+            <th>Station</th>
+            <th class="text-end">Action</th>
         </tr>
     </thead>
 
@@ -20,8 +20,19 @@
         {
             <tr>
                 <td>@v.Id</td>
-                <td>@v.VehicleType</td>
-                <td>@v.PlateNumber</td>
+
+                <td>
+                    @if (v.VehicleType == "Bike")
+                    {
+                        <span>🚲 Bike</span>
+                    }
+                    else
+                    {
+                        <span>🛴 E-Scooter</span>
+                    }
+                </td>
+
+                <td class="fw-semibold">@v.PlateNumber</td>
 
                 <td>
                     @if (v.Status == "Available")
@@ -34,21 +45,43 @@
                     }
                     else
                     {
-                        <span class="badge bg-secondary">@v.Status</span>
+                        <span class="badge bg-secondary">Maintenance</span>
                     }
                 </td>
 
-                <td>@v.PricePerMinute</td>
-                <td>@v.BatteryLevel</td>
-                <td>@v.StationId</td>
-                <td>@v.StationName</td>
+                <td>@v.PricePerMinute đ</td>
 
-                <td class="text-nowrap">
-                    <a class="btn btn-sm btn-warning" href="/AdminVehicle/Edit/@v.Id">Edit</a>
-                    <a class="btn btn-sm btn-info" href="/AdminVehicle/Detail/@v.Id">Detail</a>
-                    <a class="btn btn-sm btn-danger" href="/AdminVehicle/Delete/@v.Id">Delete</a>
+                <td>
+                    <div class="progress" style="height:6px;">
+                        <div class="progress-bar bg-success"
+                             style="width:@v.BatteryLevel%"></div>
+                    </div>
+                    <small>@v.BatteryLevel%</small>
+                </td>
+
+                <td>
+                    <div>@v.StationName</div>
+                    <small class="text-muted">ID: @v.StationId</small>
+                </td>
+
+                <td class="text-end">
+                    <a class="btn btn-sm btn-outline-warning"
+                       href="/AdminVehicle/Edit/@v.Id">
+                        <i class="bi bi-pencil"></i>
+                    </a>
+
+                    <a class="btn btn-sm btn-outline-info"
+                       href="/AdminVehicle/Detail/@v.Id">
+                        <i class="bi bi-eye"></i>
+                    </a>
+
+                    <a class="btn btn-sm btn-outline-danger"
+                       href="/AdminVehicle/Delete/@v.Id">
+                        <i class="bi bi-trash"></i>
+                    </a>
                 </td>
             </tr>
         }
     </tbody>
+
 </table>
