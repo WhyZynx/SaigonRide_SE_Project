@@ -3,8 +3,8 @@
 @{
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 
-    var totalFleet = Model.ActiveRentals + Model.AvailableVehicles;
-    var isBusy = Model.ActiveRentals > Model.AvailableVehicles;
+    var totalFleet = (Model?.ActiveRentals ?? 0) + (Model?.AvailableVehicles ?? 0);
+    var isBusy = (Model?.ActiveRentals ?? 0) > (Model?.AvailableVehicles ?? 0);
 }
 
 <div class="container-fluid py-4">
@@ -55,11 +55,11 @@
                 </div>
 
                 <small class="text-muted">
-                    @Model.AvailableVehicles/@totalFleet
+                    @(Model?.AvailableVehicles ?? 0)/@totalFleet
                 </small>
 
                 <small class="text-muted d-block mt-1">
-                    🚲 @Model.ActiveBikeRentals bikes and 🛴 @Model.ActiveScooterRentals scooters
+                    🚲 @(Model?.ActiveBikeRentals ?? 0) bikes and 🛴 @(Model?.ActiveScooterRentals ?? 0) scooters
                 </small>
 
             </div>
@@ -83,19 +83,19 @@
                 </div>
 
                 <h2 class="fw-bold mt-4">
-                    @String.Format("{0:N0} đ", Model.TodayRevenue)
+                    @(Model?.TodayRevenue.ToString("N0") ?? "0") đ
                 </h2>
             </div>
         </div>
 
         <!-- 🚲 Fleet -->
-        <div class="col-lg-3">
+        <div class="col-lg-4">
             <div class="card border-0 shadow-sm rounded-4 p-4 h-100 text-center">
 
                 <div class="mb-2 fs-4">⚠️</div>
 
                 <h2 class="fw-bold text-danger">
-                    @(Model.LowStations?.Count() ?? 0)
+                    @(Model?.LowStations?.Count() ?? 0)
                 </h2>
 
                 <p class="text-muted mb-0">
@@ -107,23 +107,8 @@
 
     </div>
 
-    <!-- LOW INVENTORY --> 
-    <div class="row g-4 mt-3"> 
-        <div class="col-lg-4"> 
-            <div class="card border-0 shadow-sm rounded-4 p-4 h-100 text-center"> 
-                <div class="mb-2 fs-4">⚠️</div> 
-                <h2 class="fw-bold text-danger"> 
-                    @(Model.LowStations?.Count() ?? 0) 
-                </h2> 
-                <p 
-                    class="text-muted mb-0">Low inventory stations
-                </p> 
-            </div> 
-        </div> 
-     </div>
-
     <!-- ALERT -->
-    @if (Model.LowStations != null && Model.LowStations.Any())
+    @if (Model?.LowStations?.Any() == true)
     {
         <div class="alert alert-danger mt-4 rounded-4">
             <strong>⚠️ Low Inventory Stations:</strong><br />
@@ -153,7 +138,7 @@
                         </thead>
                         <tbody>
 
-                            @if (Model.LiveRentals != null && Model.LiveRentals.Any())
+                            @if (Model?.LiveRentals?.Any() == true)
                             {
                                 foreach (var r in Model.LiveRentals)
                                 {
@@ -197,7 +182,7 @@
                         </thead>
                         <tbody>
 
-                            @if (Model.RecentTransactions != null && Model.RecentTransactions.Any())
+                            @if (Model?.RecentTransactions?.Any() == true)
                             {
                                 foreach (var t in Model.RecentTransactions)
                                 {
