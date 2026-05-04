@@ -19,66 +19,85 @@
         @foreach (var v in Model)
         {
             <tr>
+                <!-- ID -->
                 <td>@v.Id</td>
 
+                <!-- TYPE -->
                 <td>
-                    @if (v.VehicleType == "Bike")
-                    {
-                        <span>🚲 Bike</span>
-                    }
-                    else
-                    {
-                        <span>🛴 E-Scooter</span>
-                    }
+                    @(v.VehicleType == "Bike" ? "🚲 Bike" : "🛴 E-Scooter")
                 </td>
 
+                <!-- PLATE -->
                 <td class="fw-semibold">@v.PlateNumber</td>
 
+                <!-- STATUS -->
                 <td>
                     @if (v.Status == "Available")
                     {
-                        <span class="badge bg-success">Available</span>
+                        <span class="badge bg-success">
+                            <i class="bi bi-check-circle"></i> Available
+                        </span>
                     }
                     else if (v.Status == "InUse")
                     {
-                        <span class="badge bg-warning text-dark">In Use</span>
+                        <span class="badge bg-warning text-dark">
+                            <i class="bi bi-lightning"></i> In Use
+                        </span>
                     }
                     else
                     {
-                        <span class="badge bg-secondary">Maintenance</span>
+                        <span class="badge bg-secondary">
+                            <i class="bi bi-gear"></i> Maintenance
+                        </span>
                     }
-                </td>
+            </td>
 
-                <td>@v.PricePerMinute đ</td>
+            <!-- PRICE -->
+            <td>@String.Format("{0:N0}", v.PricePerMinute) đ</td>
 
-                <td>
-                    <div class="progress" style="height:6px;">
-                        <div class="progress-bar bg-success"
-                             style="width:@v.BatteryLevel%"></div>
+            <!-- BATTERY -->
+            <td style="min-width:120px;">
+                <div class="progress" style="height:6px;">
+                    <div class="progress-bar
+                            @(v.BatteryLevel < 20 ? "bg-danger"
+                                                       : v.BatteryLevel < 50 ? "bg-warning"
+                                                       : "bg-success")"
+                             style="width:@v.BatteryLevel%">
+                        </div>
                     </div>
-                    <small>@v.BatteryLevel%</small>
+                    <small class="text-muted">@v.BatteryLevel%</small>
                 </td>
 
+                <!-- STATION -->
                 <td>
                     <div>@v.StationName</div>
                     <small class="text-muted">ID: @v.StationId</small>
                 </td>
 
-                <td class="text-end">
-                    <a class="btn btn-sm btn-outline-warning"
-                       href="/AdminVehicle/Edit/@v.Id">
+                <!-- ACTION -->
+                <td class="text-nowrap text-end">
+
+                    <!-- Edit -->
+                    <a class="btn btn-sm btn-warning rounded-circle"
+                       href="/AdminVehicle/Edit/@v.Id"
+                       title="Edit">
                         <i class="bi bi-pencil"></i>
                     </a>
 
-                    <a class="btn btn-sm btn-outline-info"
-                       href="/AdminVehicle/Detail/@v.Id">
+                    <!-- Detail -->
+                    <a class="btn btn-sm btn-info rounded-circle"
+                       href="/AdminVehicle/Detail/@v.Id"
+                       title="Detail">
                         <i class="bi bi-eye"></i>
                     </a>
 
-                    <a class="btn btn-sm btn-outline-danger"
-                       href="/AdminVehicle/Delete/@v.Id">
+                    <!-- Delete -->
+                    <a class="btn btn-sm btn-danger rounded-circle"
+                       href="/AdminVehicle/Delete/@v.Id"
+                       title="Delete">
                         <i class="bi bi-trash"></i>
                     </a>
+
                 </td>
             </tr>
         }
