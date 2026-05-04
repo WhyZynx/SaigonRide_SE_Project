@@ -32,7 +32,7 @@
             </div>
 
             <button class="btn btn-success">
-                <i class="bi bi-download"></i> Export
+                <i class="bi bi-download"></i> Export Report
             </button>
         </div>
     </div>
@@ -54,14 +54,12 @@
                     </div>
                 </div>
 
-                <h1 class="fw-bold mt-4 mb-0 @(isBusy ? "text-danger" : "")">
-                    @Model.ActiveRentals
-                </h1>
-
-                <p class="text-muted mb-1">vehicles in use</p>
-
                 <small class="text-muted">
-                    @Model.AvailableVehicles available • total @totalFleet
+                    @Model.AvailableVehicles/@totalFleet
+                </small>
+
+                <small class="text-muted d-block mt-1">
+                    🚲 @Model.ActiveBikeRentals bikes and 🛴 @Model.ActiveScooterRentals scooters
                 </small>
 
             </div>
@@ -78,8 +76,8 @@
                     </div>
                     <div>
                         <div class="text-success fw-medium">Revenue Today</div>
-                        <small class="text-muted">
-                            @Model.TotalTransactions transactions today
+                        <small class="text-muted d-block">
+                            🎯 Target: 50,000,000 VND
                         </small>
                     </div>
                 </div>
@@ -91,24 +89,18 @@
         </div>
 
         <!-- 🚲 Fleet -->
-        <div class="col-lg-4">
-            <div class="card border-0 shadow-sm rounded-4 p-4 h-100">
+        <div class="col-lg-3">
+            <div class="card border-0 shadow-sm rounded-4 p-4 h-100 text-center">
 
-                <div class="d-flex align-items-center gap-2">
-                    <div class="bg-warning bg-opacity-10 rounded-3 d-flex align-items-center justify-content-center"
-                         style="width:40px;height:40px;">
-                        🚲
-                    </div>
-                    <div class="fw-medium">Fleet Status</div>
-                </div>
+                <div class="mb-2 fs-4">⚠️</div>
 
-                <h2 class="fw-bold mt-4">@totalFleet</h2>
+                <h2 class="fw-bold text-danger">
+                    @(Model.LowStations?.Count() ?? 0)
+                </h2>
 
-                <p class="text-muted mb-1">total fleet size</p>
-
-                <small class="text-muted">
-                    @Model.AvailableVehicles available • @Model.ActiveRentals in use
-                </small>
+                <p class="text-muted mb-0">
+                    Low inventory stations
+                </p>
 
             </div>
         </div>
