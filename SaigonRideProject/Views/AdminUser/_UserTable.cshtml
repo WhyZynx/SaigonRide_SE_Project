@@ -32,14 +32,7 @@
 
                 <!-- TYPE -->
                 <td>
-                    @if (u.UserType == "Tourist")
-                    {
-                        <span class="badge bg-info">Tourist</span>
-                    }
-                    else
-                    {
-                        <span class="badge bg-secondary">Local</span>
-                    }
+                    @u.UserType
                 </td>
 
                 <!-- CONTACT -->
@@ -49,21 +42,38 @@
                 <td>
                     @if (u.PassportStatus == "Approved")
                     {
-                        <span>Verified</span>
+                        <span class="text-success fw-semibold">
+                            <i class="bi bi-check-circle-fill"></i> Verified
+                        </span>
                     }
                     else if (u.PassportStatus == "Pending")
                     {
-                        <span>Pending</span>
+                        <span class="text-warning fw-semibold">
+                            <i class="bi bi-hourglass-split"></i> Pending
+                        </span>
                     }
                     else
                     {
-                        <span>Not Submitted</span>
+                        <span class="text-secondary fw-semibold">
+                            <i class="bi bi-x-circle-fill"></i> Not Submitted
+                        </span>
                     }
                 </td>
 
                 <!-- STATUS -->
                 <td>
-                    @(u.IsLocked ? "Suspended" : "Active")
+                    @if (u.IsLocked)
+                    {
+                        <span class="text-danger fw-semibold">
+                            <i class="bi bi-lock-fill"></i> Suspended
+                        </span>
+                    }
+                    else
+                    {
+                        <span class="text-success fw-semibold">
+                            <i class="bi bi-check-circle-fill"></i> Active
+                        </span>
+                    }
                 </td>
 
                 <!-- BALANCE -->
