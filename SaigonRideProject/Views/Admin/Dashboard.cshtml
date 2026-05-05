@@ -2,228 +2,179 @@
 
 @{
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
-
-    var totalFleet = Model.ActiveRentals + Model.AvailableVehicles;
-
-    var prev = Model.PreviousHourRentals == 0 ? 1 : Model.PreviousHourRentals;
-    var diff = Model.ActiveRentals - prev;
-    var percent = (int)((double)diff / prev * 100);
-    var trendUp = diff >= 0;
-
-    var target = 50000000;
-    var revenuePercent = (int)((double)Model.TodayRevenue / target * 100);
 }
 
 <div class="container-fluid py-4">
 
     <!-- HEADER -->
-    <div class="d-flex justify-content-between align-items-center mb-4">
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4 gap-2">
         <div>
-            <h2 class="fw-bold">Dashboard</h2>
+            <h2 class="fw-bold mb-1">📊 System Dashboard</h2>
             <small class="text-muted">
                 Last updated: @DateTime.Now.ToString("dd/MM/yyyy HH:mm")
             </small>
         </div>
+
+        <button class="btn btn-success">
+            <i class="bi bi-download"></i> Export
+        </button>
     </div>
 
     <!-- KPI -->
-    <div class="row g-4">
+    <div class="row g-3 mb-4">
 
-        <!-- REVENUE -->
-        <div class="col-lg-3">
-            <div class="card shadow-sm rounded-4 p-4 h-100">
-                <small class="text-muted">Revenue Today</small>
-
-                <h3 class="fw-bold text-success mt-2">
+        <div class="col-6 col-md-3">
+            <div class="card border-0 shadow-sm rounded-4 p-3 h-100">
+                <small class="text-muted">💰 Revenue Today</small>
+                <h4 class="fw-bold text-success mt-2">
                     @Model.TodayRevenue.ToString("N0") đ
-                </h3>
-
-                <small class="text-muted">Target: 50,000,000</small>
-
-                <div class="progress mt-2" style="height:6px;">
-                    <div class="progress-bar bg-success" style="width:@revenuePercent%"></div>
-                </div>
-
-                <small>@revenuePercent% completed</small>
+                </h4>
             </div>
         </div>
 
-        <!-- ACTIVE RENTALS -->
-        <div class="col-lg-3">
-            <div class="card shadow-sm rounded-4 p-4 h-100">
-
-                <small class="text-muted">Active Rentals</small>
-
-                <h3 class="fw-bold mt-2">
+        <div class="col-6 col-md-3">
+            <div class="card border-0 shadow-sm rounded-4 p-3 h-100">
+                <small class="text-muted">📈 Active Rentals</small>
+                <h4 class="fw-bold mt-2">
                     @Model.ActiveRentals
-                </h3>
-
-                <small class="text-muted">
-                    @Model.AvailableVehicles available • total @totalFleet
-                </small>
-
-                <div class="mt-2">
-                    @if (trendUp)
-                    {
-                        <span class="text-success">↑ +@diff (@percent%)</span>
-                    }
-                    else
-                    {
-                        <span class="text-danger">↓ @diff (@percent%)</span>
-                    }
-                </div>
-
+                </h4>
             </div>
         </div>
 
-        <!-- AVAILABLE -->
-        <div class="col-lg-3">
-            <div class="card shadow-sm rounded-4 p-4 h-100">
-
-                <small class="text-muted">Available Vehicles</small>
-
-                <h3 class="fw-bold mt-2 text-primary">
+        <div class="col-6 col-md-3">
+            <div class="card border-0 shadow-sm rounded-4 p-3 h-100">
+                <small class="text-muted">🚲 Available Vehicles</small>
+                <h4 class="fw-bold mt-2">
                     @Model.AvailableVehicles
-                </h3>
-
-                <small class="text-muted">
-                    Ready to rent
-                </small>
-
+                </h4>
             </div>
         </div>
 
-        <!-- TRANSACTION -->
-        <div class="col-lg-3">
-            <div class="card shadow-sm rounded-4 p-4 h-100">
-
-                <small class="text-muted">Transactions Today</small>
-
-                <h3 class="fw-bold mt-2">
+        <div class="col-6 col-md-3">
+            <div class="card border-0 shadow-sm rounded-4 p-3 h-100">
+                <small class="text-muted">🧾 Transactions</small>
+                <h4 class="fw-bold mt-2">
                     @Model.TotalTransactions
-                </h3>
-
+                </h4>
             </div>
         </div>
 
-        <!-- ⚠️ LOW INVENTORY -->
-        <div class="col-lg-3">
-            <div class="card border-0 shadow-sm rounded-4 p-4 h-100 text-center">
-
-                <div class="fs-4 mb-2">⚠️</div>
-
-                <h2 class="fw-bold text-danger">
-                    @(Model.LowStations?.Count() ?? 0)
-                </h2>
-
-                <p class="text-muted mb-0">Low inventory stations</p>
-
-            </div>
-        </div>
     </div>
 
     <!-- ALERT -->
     @if (Model.LowStations != null && Model.LowStations.Any())
     {
-        <div class="alert alert-danger mt-4 rounded-4">
+        <div class="alert alert-danger rounded-4 shadow-sm">
             <strong>⚠️ Low Inventory:</strong><br />
             @foreach (var s in Model.LowStations)
             {
-                <span class="badge bg-danger me-2">@s.StationName</span>
+                <span class="badge bg-danger me-1">@s.StationName</span>
             }
         </div>
     }
 
-    <!-- TABLE -->
-    <div class="row g-4 mt-3">
+    <!-- TABLES -->
+    <div class="row g-4 mt-2">
 
         <!-- LIVE RENTALS -->
         <div class="col-lg-6">
-            <div class="card shadow-sm rounded-4">
+            <div class="card border-0 shadow-sm rounded-4 h-100">
                 <div class="card-body">
 
-                    <h5 class="mb-3">Live Rentals</h5>
+                    <h5 class="mb-3">📈 Live Rentals</h5>
 
-                    <table class="table table-hover">
-                        <thead class="table-light">
-                            <tr>
-                                <th>User</th>
-                                <th>Vehicle</th>
-                                <th>Start</th>
-                            </tr>
-                        </thead>
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle mb-0">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>User</th>
+                                    <th>Vehicle</th>
+                                    <th>Start</th>
+                                </tr>
+                            </thead>
+                            <tbody>
 
-                        <tbody>
-                            @if (Model.LiveRentals != null && Model.LiveRentals.Any())
-                            {
-                                foreach (var r in Model.LiveRentals)
+                                @if (Model.LiveRentals != null && Model.LiveRentals.Any())
+                                {
+                                    foreach (var r in Model.LiveRentals)
+                                    {
+                                        <tr>
+                                            <td>@r.UserName</td>
+                                            <td>@r.Vehicle</td>
+                                            <td>
+                                                <small class="text-muted">
+                                                    @r.StartTime.ToString("HH:mm dd/MM")
+                                                </small>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                                else
                                 {
                                     <tr>
-                                        <td>@r.UserName</td>
-                                        <td>@r.Vehicle</td>
-                                        <td>@r.StartTime.ToString("HH:mm dd/MM")</td>
+                                        <td colspan="3" class="text-center text-muted py-3">
+                                            No active rentals
+                                        </td>
                                     </tr>
                                 }
-                            }
-                            else
-                            {
-                                <tr>
-                                    <td colspan="3" class="text-center text-muted">
-                                        No active rentals
-                                    </td>
-                                </tr>
-                            }
-                        </tbody>
 
-                    </table>
+                            </tbody>
+                        </table>
+                    </div>
 
                 </div>
             </div>
         </div>
 
-        <!-- TRANSACTION -->
+        <!-- TRANSACTIONS -->
         <div class="col-lg-6">
-            <div class="card shadow-sm rounded-4">
+            <div class="card border-0 shadow-sm rounded-4 h-100">
                 <div class="card-body">
 
-                    <h5 class="mb-3">Recent Transactions</h5>
+                    <h5 class="mb-3">💳 Recent Transactions</h5>
 
-                    <table class="table table-hover">
-                        <thead class="table-light">
-                            <tr>
-                                <th>User</th>
-                                <th>Type</th>
-                                <th>Amount</th>
-                                <th>Time</th>
-                            </tr>
-                        </thead>
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle mb-0">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>User</th>
+                                    <th>Type</th>
+                                    <th>Amount</th>
+                                    <th>Time</th>
+                                </tr>
+                            </thead>
+                            <tbody>
 
-                        <tbody>
-                            @if (Model.RecentTransactions != null && Model.RecentTransactions.Any())
-                            {
-                                foreach (var t in Model.RecentTransactions)
+                                @if (Model.RecentTransactions != null && Model.RecentTransactions.Any())
+                                {
+                                    foreach (var t in Model.RecentTransactions)
+                                    {
+                                        <tr>
+                                            <td>@t.UserName</td>
+                                            <td>@t.Type</td>
+                                            <td class="fw-semibold text-success">
+                                                @t.Amount.ToString("N0")
+                                            </td>
+                                            <td>
+                                                <small class="text-muted">
+                                                    @t.CreatedAt.ToString("HH:mm dd/MM")
+                                                </small>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                                else
                                 {
                                     <tr>
-                                        <td>@t.UserName</td>
-                                        <td>@t.Type</td>
-                                        <td class="fw-bold text-success">
-                                            @t.Amount.ToString("N0")
+                                        <td colspan="4" class="text-center text-muted py-3">
+                                            No transactions yet
                                         </td>
-                                        <td>@t.CreatedAt.ToString("HH:mm dd/MM")</td>
                                     </tr>
                                 }
-                            }
-                            else
-                            {
-                                <tr>
-                                    <td colspan="4" class="text-center text-muted">
-                                        No transactions
-                                    </td>
-                                </tr>
-                            }
-                        </tbody>
 
-                    </table>
+                            </tbody>
+                        </table>
+                    </div>
 
                 </div>
             </div>
