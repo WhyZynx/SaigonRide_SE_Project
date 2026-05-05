@@ -16,17 +16,17 @@
         <p class="text-muted mb-0">Monitor all financial activities in the system</p>
     </div>
 
-    <!-- STATS -->
+    <!-- STATS (RESPONSIVE FIX) -->
     <div class="row g-3 mb-4">
 
-        <div class="col-md-4">
+        <div class="col-12 col-md-4">
             <div class="card border-0 shadow-sm rounded-4 p-3">
                 <div class="text-muted small">Total Volume</div>
                 <div class="fs-4 fw-bold">@total.ToString("N0")</div>
             </div>
         </div>
 
-        <div class="col-md-4">
+        <div class="col-12 col-md-4">
             <div class="card border-0 shadow-sm rounded-4 p-3">
                 <div class="text-muted small">Money In</div>
                 <div class="fs-4 fw-bold text-success">
@@ -35,7 +35,7 @@
             </div>
         </div>
 
-        <div class="col-md-4">
+        <div class="col-12 col-md-4">
             <div class="card border-0 shadow-sm rounded-4 p-3">
                 <div class="text-muted small">Money Out</div>
                 <div class="fs-4 fw-bold text-danger">
@@ -46,7 +46,7 @@
 
     </div>
 
-    <!-- FILTER BAR -->
+    <!-- FILTER BAR (MOBILE FIX) -->
     <div class="card border-0 shadow-sm rounded-4 mb-4">
 
         <div class="card-body">
@@ -54,14 +54,14 @@
             <div class="row g-3">
 
                 <!-- SEARCH -->
-                <div class="col-md-6">
+                <div class="col-12 col-md-6">
                     <input id="searchBox"
                            class="form-control"
                            placeholder="🔍 Search user or transaction ID..." />
                 </div>
 
-                <!-- TYPE FILTER -->
-                <div class="col-md-3">
+                <!-- TYPE -->
+                <div class="col-6 col-md-3">
                     <select id="type" class="form-select">
                         <option value="">All Types</option>
                         <option value="TopUp">TopUp</option>
