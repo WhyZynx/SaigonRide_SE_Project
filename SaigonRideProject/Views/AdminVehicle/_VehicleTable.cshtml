@@ -1,17 +1,17 @@
 ﻿@model List<SaigonRideProject.ViewModels.AdminVehicleViewModel>
 
-<table class="table table-striped table-hover table-bordered align-middle">
-    <thead class="table-dark">
+<table class="table table-hover align-middle">
+
+    <thead class="table-light">
         <tr>
             <th>ID</th>
             <th>Type</th>
-            <th>Plate Number</th>
+            <th>Plate</th>
             <th>Status</th>
-            <th>Price/Min</th>
+            <th>Price</th>
             <th>Battery</th>
-            <th>Station ID</th>
-            <th>Station Name</th>
-            <th>Action</th>
+            <th>Station</th>
+            <th class="text-end">Action</th>
         </tr>
     </thead>
 
@@ -19,36 +19,89 @@
         @foreach (var v in Model)
         {
             <tr>
+                <!-- ID -->
                 <td>@v.Id</td>
-                <td>@v.VehicleType</td>
-                <td>@v.PlateNumber</td>
 
+                <!-- TYPE -->
+                <td>
+                    @(v.VehicleType == "Bike" ? "🚲 Bike" : "🛴 E-Scooter")
+                </td>
+
+                <!-- PLATE -->
+                <td class="fw-semibold">@v.PlateNumber</td>
+
+                <!-- STATUS -->
                 <td>
                     @if (v.Status == "Available")
                     {
-                        <span class="badge bg-success">Available</span>
+                        <span class="badge bg-success">
+                            <i class="bi bi-check-circle"></i> Available
+                        </span>
                     }
                     else if (v.Status == "InUse")
                     {
-                        <span class="badge bg-warning text-dark">In Use</span>
+                        <span class="badge bg-warning text-dark">
+                            <i class="bi bi-lightning"></i> In Use
+                        </span>
                     }
                     else
                     {
-                        <span class="badge bg-secondary">@v.Status</span>
+                        <span class="badge bg-secondary">
+                            <i class="bi bi-gear"></i> Maintenance
+                        </span>
                     }
+            </td>
+
+            <!-- PRICE -->
+            <td>@String.Format("{0:N0}", v.PricePerMinute) đ</td>
+
+            <!-- BATTERY -->
+            <td style="min-width:120px;">
+                <div class="progress" style="height:6px;">
+                    <div class="progress-bar
+                            @(v.BatteryLevel < 20 ? "bg-danger"
+                                                       : v.BatteryLevel < 50 ? "bg-warning"
+                                                       : "bg-success")"
+                             style="width:@v.BatteryLevel%">
+                        </div>
+                    </div>
+                    <small class="text-muted">@v.BatteryLevel%</small>
                 </td>
 
-                <td>@v.PricePerMinute</td>
-                <td>@v.BatteryLevel</td>
-                <td>@v.StationId</td>
-                <td>@v.StationName</td>
+                <!-- STATION -->
+                <td>
+                    <div>@v.StationName</div>
+                    <small class="text-muted">ID: @v.StationId</small>
+                </td>
 
-                <td class="text-nowrap">
-                    <a class="btn btn-sm btn-warning" href="/AdminVehicle/Edit/@v.Id">Edit</a>
-                    <a class="btn btn-sm btn-info" href="/AdminVehicle/Detail/@v.Id">Detail</a>
-                    <a class="btn btn-sm btn-danger" href="/AdminVehicle/Delete/@v.Id">Delete</a>
+                <!-- ACTION -->
+                <td class="text-nowrap text-end">
+
+                    <!-- Edit -->
+                    <a href="/AdminVehicle/Edit/@v.Id"
+                       class="text-decoration-none me-2"
+                       title="Edit">
+                        ✏️
+                    </a>
+
+                    <!-- Detail -->
+                    <a href="/AdminVehicle/Detail/@v.Id"
+                         class="text-decoration-none me-2"
+                         title="View">
+                        🔍
+                    </a>
+
+
+                    <!-- Delete -->
+                    <a href="/AdminVehicle/Delete/@v.Id"
+                       class="text-decoration-none text-danger"
+                       title="Delete">
+                        🗑️
+                    </a>
+
                 </td>
             </tr>
         }
     </tbody>
+
 </table>

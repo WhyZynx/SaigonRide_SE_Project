@@ -4,14 +4,31 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h3>Vehicle Detail</h3>
+<div class="container py-4">
 
-<ul class="list-group">
-    <li class="list-group-item">ID: @Model.Id</li>
-    <li class="list-group-item">Type: @Model.VehicleType</li>
-    <li class="list-group-item">Plate: @Model.PlateNumber</li>
-    <li class="list-group-item">Status: @Model.Status</li>
-    <li class="list-group-item">Battery: @Model.BatteryLevel%</li>
-    <li class="list-group-item">Price/Min: @Model.PricePerMinute</li>
-    <li class="list-group-item">Station: @Model.StationId</li>
-</ul>
+    <h3 class="fw-bold mb-4">🔍 Vehicle Detail</h3>
+
+    <div class="card border-0 shadow-sm rounded-4 p-4">
+
+        <div class="row g-3">
+
+            <div class="col-md-6"><strong>ID:</strong> @Model.Id</div>
+            <div class="col-md-6"><strong>Type:</strong> @Model.VehicleType</div>
+
+            <div class="col-md-6"><strong>Plate:</strong> @Model.PlateNumber</div>
+            <div class="col-md-6"><strong>Status:</strong> @Model.Status</div>
+
+            <div class="col-md-6"><strong>Battery:</strong> @Model.BatteryLevel%</div>
+            <div class="col-md-6"><strong>Price:</strong> @Model.PricePerMinute VND</div>
+
+            <div class="col-md-12"><strong>Station:</strong> @Model.StationId</div>
+
+        </div>
+
+        <div class="mt-4">
+            <a href="/AdminVehicle" class="btn btn-secondary">Back</a>
+        </div>
+
+    </div>
+
+</div>

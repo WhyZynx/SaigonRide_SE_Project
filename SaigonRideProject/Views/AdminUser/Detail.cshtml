@@ -4,45 +4,109 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<div class="card shadow-sm">
-    <div class="card-header bg-primary text-white">
-        User Detail
+<div class="container py-4">
+
+    <!-- HEADER -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h3 class="fw-bold mb-1">👤 User Detail</h3>
+            <p class="text-muted mb-0">Detailed information about user account</p>
+        </div>
     </div>
 
-    <div class="card-body">
+    <div class="card border-0 shadow-sm rounded-4">
 
-        <p><b>ID:</b> @Model.Id</p>
-        <p><b>Name:</b> @Model.FullName</p>
-        <p><b>Email:</b> @Model.Email</p>
-        <p><b>User Type:</b> @Model.UserType</p>
+        <div class="card-header bg-primary text-white fw-semibold">
+            User Profile
+        </div>
 
-        <p><b>Balance:</b> @Model.Balance</p>
+        <div class="card-body p-4">
 
-        <p>
-            <b>Status:</b>
-            @if (Model.IsLocked)
-            {
-                <span class="badge bg-danger">Suspended</span>
-            }
-            else
-            {
-                <span class="badge bg-success">Active</span>
-            }
-        </p>
+            <div class="row g-4">
 
-        <p>
-            <b>Verification:</b>
-            @if (Model.IsVerified)
-            {
-                <span class="badge bg-success">Verified</span>
-            }
-            else
-            {
-                <span class="badge bg-warning">Pending</span>
-            }
-        </p>
+                <!-- LEFT INFO -->
+                <div class="col-md-6">
 
-        <a href="/AdminUser" class="btn btn-secondary">Back</a>
+                    <div class="mb-3">
+                        <div class="text-muted small">ID</div>
+                        <div class="fw-semibold">@Model.Id</div>
+                    </div>
 
+                    <div class="mb-3">
+                        <div class="text-muted small">Full Name</div>
+                        <div class="fw-semibold">@Model.FullName</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <div class="text-muted small">Email</div>
+                        <div class="fw-semibold">@Model.Email</div>
+                    </div>
+
+                    <div>
+                        <div class="text-muted small">User Type</div>
+                        <div class="fw-semibold">@Model.UserType</div>
+                    </div>
+
+                </div>
+
+                <!-- RIGHT INFO -->
+                <div class="col-md-6">
+
+                    <div class="mb-3">
+                        <div class="text-muted small">Balance</div>
+                        <div class="fw-semibold">@Model.Balance</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <div class="text-muted small">Status</div>
+                        <div>
+                            @if (Model.IsLocked)
+                            {
+                                <span class="badge bg-danger px-3 py-2">
+                                    Suspended
+                                </span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-success px-3 py-2">
+                                    Active
+                                </span>
+                            }
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="text-muted small">Verification</div>
+                        <div>
+                            @if (Model.IsVerified)
+                            {
+                                <span class="badge bg-success px-3 py-2">
+                                    Verified
+                                </span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-warning text-dark px-3 py-2">
+                                    Pending
+                                </span>
+                            }
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- ACTION -->
+            <hr class="my-4" />
+
+            <div class="d-flex justify-content-end">
+                <a href="/AdminUser" class="btn btn-secondary">
+                    Back
+                </a>
+            </div>
+
+        </div>
     </div>
+
 </div>
