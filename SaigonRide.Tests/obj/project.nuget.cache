@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "eG3E6uAmklQ=",
+  "dgSpecHash": "BQoAma1x9ZU=",
   "success": true,
   "projectFilePath": "C:\\Users\\DELL\\OneDrive\\Documents\\SaigonRide_Project\\SaigonRide.Tests\\SaigonRide.Tests.csproj",
   "expectedPackageFiles": [
@@ -149,7 +149,7 @@
     "C:\\Users\\DELL\\.nuget\\packages\\xunit.core\\2.5.3\\xunit.core.2.5.3.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\xunit.extensibility.core\\2.5.3\\xunit.extensibility.core.2.5.3.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\xunit.extensibility.execution\\2.5.3\\xunit.extensibility.execution.2.5.3.nupkg.sha512",
-    "C:\\Users\\DELL\\.nuget\\packages\\xunit.runner.visualstudio\\2.5.3\\xunit.runner.visualstudio.2.5.3.nupkg.sha512"
+    "C:\\Users\\DELL\\.nuget\\packages\\xunit.runner.visualstudio\\3.1.5\\xunit.runner.visualstudio.3.1.5.nupkg.sha512"
   ],
   "logs": []
 }

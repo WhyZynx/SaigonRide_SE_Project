@@ -14,7 +14,7 @@
           "SaigonRideProject": "1.0.0",
           "coverlet.collector": "6.0.0",
           "xunit": "2.5.3",
-          "xunit.runner.visualstudio": "2.5.3"
+          "xunit.runner.visualstudio": "3.1.5"
         },
         "runtime": {
           "SaigonRide.Tests.dll": {}
@@ -1596,14 +1596,13 @@
           }
         }
       },
-      "xunit.runner.visualstudio/2.5.3": {},
+      "xunit.runner.visualstudio/3.1.5": {},
       "SaigonRideProject/1.0.0": {
         "dependencies": {
           "BCrypt.Net-Next": "4.1.0",
           "MailKit": "4.15.1",
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.25",
-          "Newtonsoft.Json": "13.0.1",
-          "xunit": "2.5.3"
+          "Newtonsoft.Json": "13.0.1"
         },
         "runtime": {
           "SaigonRideProject.dll": {
@@ -2635,12 +2634,12 @@
       "path": "xunit.extensibility.execution/2.5.3",
       "hashPath": "xunit.extensibility.execution.2.5.3.nupkg.sha512"
     },
-    "xunit.runner.visualstudio/2.5.3": {
+    "xunit.runner.visualstudio/3.1.5": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-HFFL6O+QLEOfs555SqHii48ovVa4CqGYanY+B32BjLpPptdE+wEJmCFNXlLHdEOD5LYeayb9EroaUpydGpcybg==",
-      "path": "xunit.runner.visualstudio/2.5.3",
-      "hashPath": "xunit.runner.visualstudio.2.5.3.nupkg.sha512"
+      "sha512": "sha512-tKi7dSTwP4m5m9eXPM2Ime4Kn7xNf4x4zT9sdLO/G4hZVnQCRiMTWoSZqI/pYTVeI27oPPqHBKYI/DjJ9GsYgA==",
+      "path": "xunit.runner.visualstudio/3.1.5",
+      "hashPath": "xunit.runner.visualstudio.3.1.5.nupkg.sha512"
     },
     "SaigonRideProject/1.0.0": {
       "type": "project",
