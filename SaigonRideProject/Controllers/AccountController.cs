@@ -282,11 +282,11 @@ namespace SaigonRideProject.Controllers
                 return View();
             }
 
-            if (string.IsNullOrEmpty(user.IdentityNumber))
-            {
-                ViewBag.Error = "Please complete identity verification";
-                return View();
-            }
+            //if (string.IsNullOrEmpty(user.IdentityNumber))
+            //{
+            //    ViewBag.Error = "Please complete identity verification";
+            //    return View();
+            //}
 
             if (user.PassportStatus != "Approved")
             {

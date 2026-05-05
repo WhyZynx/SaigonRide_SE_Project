@@ -145,6 +145,105 @@ namespace SaigonRideProject.Migrations
                     b.HasIndex("VehicleId");
 
                     b.ToTable("Rentals");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            BaseAmount = 10000m,
+                            DiscountPercent = 10m,
+                            EndTime = new DateTime(2026, 5, 2, 0, 20, 0, 0, DateTimeKind.Unspecified),
+                            FinalAmount = 9000m,
+                            PickupStationId = 1,
+                            ReturnStationId = 2,
+                            StartTime = new DateTime(2026, 5, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Status = "Completed",
+                            UserId = 2,
+                            VehicleId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            BaseAmount = 15000m,
+                            DiscountPercent = 0m,
+                            EndTime = new DateTime(2026, 5, 1, 0, 15, 0, 0, DateTimeKind.Unspecified),
+                            FinalAmount = 15000m,
+                            PickupStationId = 2,
+                            ReturnStationId = 3,
+                            StartTime = new DateTime(2026, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Status = "Completed",
+                            UserId = 4,
+                            VehicleId = 6
+                        },
+                        new
+                        {
+                            Id = 3,
+                            BaseAmount = 20000m,
+                            DiscountPercent = 10m,
+                            EndTime = new DateTime(2026, 4, 30, 0, 30, 0, 0, DateTimeKind.Unspecified),
+                            FinalAmount = 18000m,
+                            PickupStationId = 3,
+                            ReturnStationId = 4,
+                            StartTime = new DateTime(2026, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Status = "Completed",
+                            UserId = 3,
+                            VehicleId = 11
+                        },
+                        new
+                        {
+                            Id = 4,
+                            BaseAmount = 0m,
+                            DiscountPercent = 0m,
+                            FinalAmount = 0m,
+                            PickupStationId = 4,
+                            ReturnStationId = 5,
+                            StartTime = new DateTime(2026, 4, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Status = "Cancelled",
+                            UserId = 5,
+                            VehicleId = 16
+                        },
+                        new
+                        {
+                            Id = 5,
+                            BaseAmount = 12000m,
+                            DiscountPercent = 15m,
+                            EndTime = new DateTime(2026, 4, 26, 0, 25, 0, 0, DateTimeKind.Unspecified),
+                            FinalAmount = 10000m,
+                            PickupStationId = 5,
+                            ReturnStationId = 6,
+                            StartTime = new DateTime(2026, 4, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Status = "Completed",
+                            UserId = 2,
+                            VehicleId = 21
+                        },
+                        new
+                        {
+                            Id = 6,
+                            BaseAmount = 30000m,
+                            DiscountPercent = 10m,
+                            EndTime = new DateTime(2026, 4, 18, 0, 40, 0, 0, DateTimeKind.Unspecified),
+                            FinalAmount = 27000m,
+                            PickupStationId = 6,
+                            ReturnStationId = 7,
+                            StartTime = new DateTime(2026, 4, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Status = "Completed",
+                            UserId = 4,
+                            VehicleId = 26
+                        },
+                        new
+                        {
+                            Id = 7,
+                            BaseAmount = 50000m,
+                            DiscountPercent = 10m,
+                            EndTime = new DateTime(2026, 4, 3, 0, 50, 0, 0, DateTimeKind.Unspecified),
+                            FinalAmount = 45000m,
+                            PickupStationId = 7,
+                            ReturnStationId = 8,
+                            StartTime = new DateTime(2026, 4, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Status = "Completed",
+                            UserId = 3,
+                            VehicleId = 31
+                        });
                 });
 
             modelBuilder.Entity("SaigonRideProject.Models.Station", b =>
@@ -195,7 +294,7 @@ namespace SaigonRideProject.Migrations
                         {
                             Id = 2,
                             Address = "Vo Van Tan",
-                            Capacity = 20,
+                            Capacity = 26,
                             Latitude = 10.782500000000001,
                             Longitude = 106.69,
                             Name = "District 3 Hub",
@@ -205,7 +304,7 @@ namespace SaigonRideProject.Migrations
                         {
                             Id = 3,
                             Address = "Dien Bien Phu",
-                            Capacity = 18,
+                            Capacity = 5,
                             Latitude = 10.803100000000001,
                             Longitude = 106.715,
                             Name = "Binh Thanh Station",
@@ -215,7 +314,7 @@ namespace SaigonRideProject.Migrations
                         {
                             Id = 4,
                             Address = "Vo Nguyen Giap",
-                            Capacity = 30,
+                            Capacity = 24,
                             Latitude = 10.85,
                             Longitude = 106.77,
                             Name = "Thu Duc Station",
@@ -379,9 +478,65 @@ namespace SaigonRideProject.Migrations
                             IsLocked = false,
                             IsVerified = true,
                             PassportStatus = "Approved",
-                            PasswordHash = "$2a$11$YDNxh.hYt5mH/rTpCv7Y7OvAhzBHKJ2D1FN8xh8HeiR0AwyThrFgy",
+                            PasswordHash = "$2a$11$Sifzrgh6QYJx1JIyqscOmOw76opL3m065U1gtmveY3HVGJ55ta7.y",
                             Role = "Admin",
                             UserType = "Local"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Balance = 500000m,
+                            Email = "nguyenvana@gmail.com",
+                            FullName = "Nguyen Van A",
+                            IdentityType = "None",
+                            IsLocked = false,
+                            IsVerified = true,
+                            PassportStatus = "Pending",
+                            PasswordHash = "$2a$11$CEhf64ejND1DTrfEhN/a6uff1eL/opnYlfWBGk/gojQDqJ.5fPnVS",
+                            Role = "User",
+                            UserType = "Local"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Balance = 300000m,
+                            Email = "tranthib@gmail.com",
+                            FullName = "Tran Thi B",
+                            IdentityType = "None",
+                            IsLocked = false,
+                            IsVerified = true,
+                            PassportStatus = "Pending",
+                            PasswordHash = "$2a$11$gYriambXfI1Jbx9ALLpD8OF8lQW1Ar/DluYmaAbKmDTsf9DFUA71q",
+                            Role = "User",
+                            UserType = "Local"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Balance = 1000000m,
+                            Email = "johnsmith@gmail.com",
+                            FullName = "John Smith",
+                            IdentityType = "None",
+                            IsLocked = false,
+                            IsVerified = true,
+                            PassportStatus = "Pending",
+                            PasswordHash = "$2a$11$v/Zju6gwiU8iF5.CMCpon.OzGAPllB9vrsA5mCRDBOi04YVljFpj6",
+                            Role = "User",
+                            UserType = "Tourist"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Balance = 800000m,
+                            Email = "emilybrown@gmail.com",
+                            FullName = "Emily Brown",
+                            IdentityType = "None",
+                            IsLocked = false,
+                            IsVerified = true,
+                            PassportStatus = "Pending",
+                            PasswordHash = "$2a$11$okvPPgPpzX8xKzBuhoqb5uYRYLsJtOBy93fIjt8Jre2y0g5DZRFW6",
+                            Role = "User",
+                            UserType = "Tourist"
                         });
                 });
 
@@ -406,7 +561,7 @@ namespace SaigonRideProject.Migrations
                         .HasPrecision(10, 2)
                         .HasColumnType("decimal(10,2)");
 
-                    b.Property<int>("StationId")
+                    b.Property<int?>("StationId")
                         .HasColumnType("int");
 
                     b.Property<string>("Status")
@@ -517,7 +672,7 @@ namespace SaigonRideProject.Migrations
                         new
                         {
                             Id = 10,
-                            BatteryLevel = 30,
+                            BatteryLevel = 19,
                             PlateNumber = "SC-102",
                             PricePerMinute = 1500m,
                             StationId = 2,
@@ -607,11 +762,11 @@ namespace SaigonRideProject.Migrations
                         new
                         {
                             Id = 19,
-                            BatteryLevel = 85,
+                            BatteryLevel = 10,
                             PlateNumber = "SC-301",
                             PricePerMinute = 1500m,
                             StationId = 4,
-                            Status = "Available",
+                            Status = "Maintenance",
                             VehicleType = "E-Scooter"
                         },
                         new
@@ -757,7 +912,7 @@ namespace SaigonRideProject.Migrations
                         new
                         {
                             Id = 34,
-                            BatteryLevel = 25,
+                            BatteryLevel = 16,
                             PlateNumber = "SC-601",
                             PricePerMinute = 1500m,
                             StationId = 7,
@@ -957,6 +1112,62 @@ namespace SaigonRideProject.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("WalletTransactions");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Amount = 9000m,
+                            CreatedAt = new DateTime(2026, 5, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Method = "MoMo",
+                            Type = "Payment",
+                            UserId = 2
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Amount = 15000m,
+                            CreatedAt = new DateTime(2026, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Method = "VNPay",
+                            Type = "Payment",
+                            UserId = 3
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Amount = 20000m,
+                            CreatedAt = new DateTime(2026, 4, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Method = "ApplePay",
+                            Type = "Payment",
+                            UserId = 4
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Amount = 30000m,
+                            CreatedAt = new DateTime(2026, 4, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Method = "PayPal",
+                            Type = "Payment",
+                            UserId = 5
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Amount = 25000m,
+                            CreatedAt = new DateTime(2026, 4, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Method = "Cash",
+                            Type = "Payment",
+                            UserId = 2
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Amount = 40000m,
+                            CreatedAt = new DateTime(2026, 4, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Method = "Cash",
+                            Type = "Payment",
+                            UserId = 4
+                        });
                 });
 
             modelBuilder.Entity("SaigonRideProject.Models.Payment", b =>
@@ -1009,8 +1220,7 @@ namespace SaigonRideProject.Migrations
                     b.HasOne("SaigonRideProject.Models.Station", "Station")
                         .WithMany("Vehicles")
                         .HasForeignKey("StationId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.Navigation("Station");
                 });

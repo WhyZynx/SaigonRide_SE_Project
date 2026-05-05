@@ -99,16 +99,16 @@ namespace SaigonRideProject.Controllers
         public IActionResult TopUpPage()
         {
             var userId = HttpContext.Session.GetInt32("UserId");
-
             if (userId == null)
                 return RedirectToAction("Login", "Account");
 
             var user = _context.Users.FirstOrDefault(x => x.Id == userId.Value);
-
             if (user == null)
                 return RedirectToAction("Login", "Account");
 
-            ViewBag.PaymentMethods = PaymentMethodProvider.Get(user.UserType);
+            var methodsArray = PaymentMethodProvider.Get(user.UserType);
+
+            ViewBag.PaymentMethods = methodsArray?.ToList() ?? new List<string>();
 
             return View(user);
         }

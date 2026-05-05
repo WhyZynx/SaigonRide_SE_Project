@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using SaigonRideProject.Data;
 using SaigonRideProject.Models;
 using SaigonRideProject.ViewModels;
+using SaigonRideProject.Services;
 
 namespace SaigonRideProject.Controllers
 {
@@ -13,6 +14,17 @@ namespace SaigonRideProject.Controllers
         public AdminStationController(AppDbContext context)
         {
             _context = context;
+        }
+
+        public static void NotifyChanged()
+        {
+            DashboardUpdateService.NotifyStation();
+        }
+
+        [HttpGet]
+        public IActionResult CheckUpdate()
+        {
+            return Json(new { lastUpdated = DashboardUpdateService.GetStationUpdated() });
         }
 
         private bool IsAdmin()
@@ -58,6 +70,7 @@ namespace SaigonRideProject.Controllers
 
             _context.Stations.Add(station);
             _context.SaveChanges();
+            AdminStationController.NotifyChanged();
             return RedirectToAction("Index");
         }
 
@@ -101,6 +114,7 @@ namespace SaigonRideProject.Controllers
             station.Longitude = model.Longitude;
 
             _context.SaveChanges();
+            AdminStationController.NotifyChanged();
 
             return RedirectToAction("Index");
         }
@@ -133,6 +147,7 @@ namespace SaigonRideProject.Controllers
 
             _context.Stations.Remove(station);
             _context.SaveChanges();
+            AdminStationController.NotifyChanged();
 
             return RedirectToAction("Index");
         }

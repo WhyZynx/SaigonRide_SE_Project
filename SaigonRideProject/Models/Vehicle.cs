@@ -14,7 +14,7 @@ namespace SaigonRideProject.Models
 
         public decimal PricePerMinute { get; set; }
 
-        public int StationId { get; set; }
+        public int? StationId { get; set; }
 
         public Station? Station { get; set; }
 

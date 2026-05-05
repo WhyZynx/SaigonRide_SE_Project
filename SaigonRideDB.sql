@@ -18,7 +18,7 @@ DELETE FROM Vehicles;
 DELETE FROM Rentals;
 
 UPDATE Rentals SET Status = 'Completed' WHERE Id = 36
-UPDATE Users SET Balance = 0 WHERE id = 2
+UPDATE Users SET Balance = 0 WHERE Email LIKE 'trannguyenvt09870987@gmail.com'
 
 DELETE FROM Users
 WHERE Role = 'User'
@@ -29,3 +29,5 @@ WHERE Role = 'User' AND Email like 'Trannguyennvt09870987@gmail.com'
 
 DELETE FROM Rentals WHERE Id = 7 
 DELETE FROM WalletTransactions
+
+update Vehicles set BatteryLevel = 19 WHERE Id = 21

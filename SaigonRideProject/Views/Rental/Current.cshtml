@@ -1,116 +1,236 @@
 ﻿@model SaigonRideProject.ViewModels.CurrentTripViewModel
 @using System.Text.Json
 
-<div class="container mt-4">
-
-    <h2>Current Ride</h2>
-
-    <div class="card p-3 mb-3">
-        <h4>@Model.VehicleName</h4>
-        <p>Start: @Model.StartTime</p>
-        <p>Price: @Model.PricePerMinute VND/min</p>
-
-        <h5 id="timer">00:00</h5>
-        <h6 id="estimated">Estimated: 0 VND</h6>
-    </div>
-
-    <!-- MAP -->
-    <div id="map" style="height:400px;" class="mb-3"></div>
-
-    <!-- STATIONS -->
-    <h4>Select Return Station</h4>
-
-    <div class="row">
-        @foreach (var s in ViewBag.Stations)
-        {
-            <div class="col-md-4 mb-3">
-                <div id="station-@s.id"
-                     class="card station-card @(s.isLow ? "border-danger" : "") @(s.vehicleCount >= s.capacity ? "opacity-50" : "")"
-                     onclick="selectStation(@s.id, '@s.name', @s.vehicleCount, @s.capacity)">
-
-                    <div class="card-body">
-                        <h5>@s.name</h5>
-
-                        <div class="progress mb-2">
-                            <div class="progress-bar @(s.isLow ? "bg-danger" : "bg-success")"
-                                 style="width:@(s.fillPercent * 100)%">
-                            </div>
-                        </div>
-
-                        <small>
-                            @s.vehicleCount / @s.capacity bikes
-                        </small>
-                        @if (s.vehicleCount >= s.capacity)
-                        {
-                            <span class="badge bg-dark">FULL</span>
-                        }
-
-                        @if (s.isLow)
-                        {
-                            <div class="mt-1">
-                                <span class="badge bg-danger">
-                                    Low Capacity → Discount
-                                </span>
-                            </div>
-                        }
+<div class="container py-4" style="margin-bottom: 100px;">
+    <div class="row g-4 align-items-stretch mb-5">
+        <div class="col-lg-7">
+            <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 position-relative">
+                <div id="map" style="height: 100%; min-height: 450px; background-color: #f0fdf4;"></div>
+                <div class="position-absolute bottom-0 start-50 translate-middle-x mb-4 text-center z-3 pointer-events-none">
+                    <div class="bg-white bg-opacity-75 px-4 py-2 rounded-pill shadow-sm">
+                        <p class="text-success fw-bold mb-0" style="font-size: 0.9rem;">
+                            <i class="bi bi-geo-alt-fill me-1"></i> Real-time location tracking
+                        </p>
                     </div>
                 </div>
             </div>
-        }
+        </div>
+
+        <div class="col-lg-5">
+            <div class="d-flex flex-column gap-3 h-100">
+                <div class="card border-0 shadow-sm rounded-4 p-4">
+                    <div class="d-flex align-items-center justify-content-between mb-4">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="rounded-4 d-flex align-items-center justify-content-center" style="width: 56px; height: 56px; background-color: #f0fdf4;">
+                                <i class="bi bi-bicycle text-success fs-2"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-0">@Model.VehicleName</h5>
+                                <small class="text-muted">Vehicle ID: #@Model.Id</small>
+                            </div>
+                        </div>
+                        <span class="badge bg-success-subtle text-success px-3 py-2 rounded-pill border border-success border-opacity-10">Currently Renting</span>
+                    </div>
+
+                    <div class="row g-2 text-center mb-0">
+                        <div class="col-4">
+                            <div class="bg-light p-3 rounded-4 h-100">
+                                <i class="bi bi-clock text-success fs-4 mb-2 d-block"></i>
+                                <h6 class="fw-bold mb-0" id="timer">00:00</h6>
+                                <small class="text-muted small-text">Ride Time</small>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="bg-light p-3 rounded-4 h-100">
+                                <i class="bi bi-currency-dollar text-success fs-4 mb-2 d-block"></i>
+                                <h6 class="fw-bold mb-0 total-val">0đ</h6>
+                                <small class="text-muted small-text">Estimated</small>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="bg-light p-3 rounded-4 h-100">
+                                <i class="bi bi-geo-alt text-success fs-4 mb-2 d-block"></i>
+                                <h6 class="fw-bold mb-0 text-truncate px-1" style="font-size: 0.85rem;">Pick-up</h6>
+                                <small class="text-muted small-text">Station</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card border-0 shadow-sm rounded-4 p-4 flex-grow-1">
+                    <h6 class="fw-bold mb-4">Trip Details</h6>
+                    <div class="d-flex flex-column gap-3">
+                        <div class="d-flex justify-content-between align-items-center small">
+                            <span class="text-muted">Price per minute</span>
+                            <span class="fw-medium">@Model.PricePerMinute.ToString("N0")đ / minute</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center small border-top pt-3">
+                            <span class="text-muted">Start Time</span>
+                            <span class="fw-medium">@Model.StartTime.ToString("HH:mm")</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center small border-top pt-3">
+                            <span class="text-muted">Payment Method</span>
+                            <select id="paymentMethod" 
+                                    class="form-select form-select-sm border-0 bg-light rounded-pill px-4 shadow-none" 
+                                    style="width: auto; min-width: 120px; cursor: pointer;">
+                                @foreach (var m in ViewBag.PaymentMethods) {
+                                    <option value="@m" class="py-2">@m</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center border-top pt-3 mt-2">
+                            <span class="fw-bold h5 mb-0">Total Estimated</span>
+                            <span class="fw-bold h5 mb-0 text-success total-val">0đ</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <!-- SELECTED -->
-    <div class="mt-3">
-        <strong>Selected:</strong>
-        <span id="selectedStationName" class="text-primary">None</span>
-    </div>
+    <div class="mb-5">
+        <h3 class="fw-bold mb-2">Return Station</h3>
+        <p class="text-muted mb-4">Returning to a low-inventory station earns you a <span class="text-success fw-bold">15% discount.</span></p>
 
-    <!-- PAYMENT -->
-    <div class="mt-3">
-        <label>Payment Method</label>
-        <select id="paymentMethod" class="form-control">
-            @foreach (var m in ViewBag.PaymentMethods)
-            {
-                <option value="@m">@m</option>
+        <div class="row g-4">
+            @{
+                var stations = ViewBag.Stations as IEnumerable<dynamic> ?? new List<dynamic>();
+                var sortedStations = stations.OrderByDescending(s => (bool)s.isLow).ThenBy(s => (int)s.vehicleCount >= (int)s.capacity);
             }
-        </select>
+            @foreach (var s in sortedStations)
+            {
+                bool isFull = (int)s.vehicleCount >= (int)s.capacity;
+                bool isLow = (bool)s.isLow;
+                <div class="col-md-6 col-xl-4">
+                    <div id="station-@s.id" class="card station-card h-100 border-0 shadow-sm rounded-4 p-4 @(isFull ? "opacity-50" : "")"
+                         onclick="selectStation(@s.id, '@s.name', @s.vehicleCount, @s.capacity)"
+                         style="background-color: @(isLow ? "#FFFBEB" : "white"); cursor: @(isFull ? "not-allowed" : "pointer");">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div>
+                                <h5 class="fw-bold mb-1">@s.name</h5>
+                                <p class="text-muted small mb-0">Available station</p>
+                            </div>
+                            @if (isLow) { <div class="bg-warning bg-opacity-25 rounded-3 p-2"><i class="bi bi-gift-fill text-warning"></i></div> }
+                        </div>
+                        <div class="mt-4">
+                            <div class="d-flex justify-content-between mb-2">
+                                <span class="small @(isLow ? "text-warning" : "text-success") fw-bold">@(Math.Round((double)s.fillPercent * 100))% full</span>
+                                @if (isLow) { <span class="text-success small fw-bold">-15% discount</span> }
+                            </div>
+                            <div class="progress rounded-pill" style="height: 6px;">
+                                <div class="progress-bar @(isLow ? "bg-warning" : "bg-success")" style="width:@((double)s.fillPercent * 100)%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
     </div>
 
-    <!-- BUTTON -->
-    <button class="btn btn-danger mt-3" onclick="endTrip()">
-        End Trip
-    </button>
-
-    <!-- FORM -->
     <form id="form" method="post" action="/Rental/EndTrip">
         <input type="hidden" name="rentalId" value="@Model.Id" />
         <input type="hidden" id="rs" name="returnStationId" />
         <input type="hidden" id="durationSeconds" name="durationSeconds" />
     </form>
-
 </div>
 
-<!-- DATA -->
-<script>
-    window.startTime = "@Model.StartTime.ToString("o")";
-    window.price = @Model.PricePerMinute;
-    window.stations = @Html.Raw(JsonSerializer.Serialize(ViewBag.Stations));
-</script>
-
-<!-- LEAFLET -->
-<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-
-<!-- JS -->
-<script src="~/js/rental/currentTrip.js"></script>
+<div class="fixed-bottom bg-white border-top shadow-lg py-3" style="z-index: 1050;">
+    <div class="container">
+        <div class="d-flex align-items-center justify-content-between">
+            <div class="d-flex align-items-center gap-3">
+                <div class="d-none d-md-block bg-light p-2 rounded-3"><i class="bi bi-geo-alt text-primary"></i></div>
+                <div>
+                    <small class="text-muted d-block" style="font-size: 0.65rem;">RETURN TO</small>
+                    <span id="selectedStationNameBottom" class="fw-bold text-dark">Select a station...</span>
+                </div>
+            </div>
+            <div class="d-flex align-items-center gap-4">
+                <div class="text-end d-none d-sm-block">
+                    <span class="fw-bold h5 mb-0 me-2">Total Estimated:</span>
+                    <span class="fw-bold h5 mb-0 text-success total-val">0đ</span>
+                </div>
+                <button class="btn btn-danger rounded-pill px-4 py-2 fw-bold" onclick="endTrip()">End Ride</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <style>
-    .station-card {
-    cursor: pointer;
-    transition: 0.2s;
+    body { background-color: #f8fafc; font-family: 'Inter', sans-serif; }
+    .station-card { transition: transform 0.2s; }
+    .station-card:hover { transform: translateY(-5px); }
+    .station-card.active { border: 2px solid #5E96BD !important; background-color: #f0f9ff !important; }
+    .small-text { font-size: 0.7rem; text-transform: uppercase; }
+    .btn-danger { background-color: #E11D48; border: none; }
+    #map { border-radius: 1rem; }
+</style>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<script>
+    window.startTime = "@Model.StartTime.ToString("o")";
+    window.pricePerMin = @Model.PricePerMinute;
+    window.stations = @Html.Raw(JsonSerializer.Serialize(ViewBag.Stations));
+
+    function updateTimer() {
+        const now = new Date();
+        const start = new Date(window.startTime);
+        const diffSec = Math.floor((now - start) / 1000);
+
+        if (diffSec < 0) return;
+
+        const hrs = Math.floor(diffSec / 3600);
+        const mins = Math.floor((diffSec % 3600) / 60);
+        const secs = diffSec % 60;
+        
+        let timeString = "";
+        if (hrs > 0) timeString += hrs.toString().padStart(2, '0') + ":";
+        timeString += mins.toString().padStart(2, '0') + ":" + secs.toString().padStart(2, '0');
+
+        const pricePerSec = window.pricePerMin / 60;
+        const currentCost = diffSec * pricePerSec;
+
+        const formattedCost = Math.floor(currentCost).toLocaleString('vi-VN') + "đ";
+
+        document.getElementById('timer').innerText = timeString;
+        document.getElementById('durationSeconds').value = diffSec;
+        
+        document.querySelectorAll('.total-val').forEach(el => {
+            el.innerText = formattedCost;
+        });
+
+        document.querySelectorAll('.banner-timer-display').forEach(el => {
+            el.innerText = timeString;
+        });
     }
 
-    .station-card:hover {
-    transform: scale(1.03);
+    function selectStation(id, name, count, cap) {
+        if (count >= cap) return;
+        document.querySelectorAll('.station-card').forEach(c => c.classList.remove('active'));
+        document.getElementById('station-' + id).classList.add('active');
+        document.getElementById('rs').value = id;
+        document.getElementById('selectedStationNameBottom').innerText = name;
     }
-</style>
+
+    function endTrip() {
+        if (!document.getElementById('rs').value) return alert("Please select a return station first.");
+        document.getElementById('form').submit();
+    }
+
+    function initMap() {
+        const map = L.map('map', { zoomControl: false }).setView([10.7769, 106.7009], 15);
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png').addTo(map);
+        window.stations.forEach(s => {
+            const icon = L.divIcon({ className: 'm', html: `<div style="background:${s.isLow?'#f59e0b':'#10b981'};width:12px;height:12px;border-radius:50%;border:2px solid white;"></div>` });
+            L.marker([s.latitude, s.longitude], { icon }).addTo(map).bindPopup(s.name);
+        });
+    }
+
+    setInterval(updateTimer, 1000);
+    window.onload = () => { 
+        initMap(); 
+        updateTimer(); 
+    };
+</script>

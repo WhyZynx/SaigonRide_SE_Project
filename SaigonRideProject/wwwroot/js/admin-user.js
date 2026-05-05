@@ -1,5 +1,4 @@
 ﻿let timeout = null;
-
 function getFilters() {
     return {
         search: document.getElementById("searchBox").value,
@@ -9,6 +8,7 @@ function getFilters() {
 }
 
 function loadUsers() {
+    console.log("Reload user table...");
     const f = getFilters();
 
     fetch(`/AdminUser/Filter?search=${f.search}&userType=${f.userType}&status=${f.status}`)

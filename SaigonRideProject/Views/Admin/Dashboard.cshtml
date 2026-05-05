@@ -1,17 +1,15 @@
 ﻿@model SaigonRideProject.ViewModels.AdminDashboardViewModel
+
 @{
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-
-<h3 class="mb-4">Dashboard</h3>
-
 <!-- KPI -->
 <div class="row g-3 mb-4">
 
     <div class="col-md-3">
         <div class="card">
             <div class="card-body">
-                <small class="text-muted">Today Revenue</small>
+                <small>Today Revenue</small>
                 <h5 class="text-success">@Model.TodayRevenue.ToString("N0") đ</h5>
             </div>
         </div>
@@ -20,7 +18,7 @@
     <div class="col-md-3">
         <div class="card">
             <div class="card-body">
-                <small class="text-muted">Active Rentals</small>
+                <small>Active Rentals</small>
                 <h5>@Model.ActiveRentals</h5>
             </div>
         </div>
@@ -29,7 +27,7 @@
     <div class="col-md-3">
         <div class="card">
             <div class="card-body">
-                <small class="text-muted">Available Vehicles</small>
+                <small>Available Vehicles</small>
                 <h5>@Model.AvailableVehicles</h5>
             </div>
         </div>
@@ -38,7 +36,7 @@
     <div class="col-md-3">
         <div class="card">
             <div class="card-body">
-                <small class="text-muted">Total Transactions</small>
+                <small>Total Transactions</small>
                 <h5>@Model.TotalTransactions</h5>
             </div>
         </div>
@@ -47,7 +45,7 @@
 </div>
 
 <!-- ALERT -->
-@if (Model.LowStations.Any())
+@if (Model.LowStations != null && Model.LowStations.Any())
 {
     <div class="alert alert-danger">
         Low Inventory:
@@ -58,10 +56,9 @@
     </div>
 }
 
-<!-- LIVE + TRANSACTION -->
+<!-- TABLES -->
 <div class="row g-4">
 
-    <!-- LIVE RENTAL -->
     <div class="col-md-6">
         <h5>Live Rentals</h5>
         <table class="table table-bordered">
@@ -85,7 +82,6 @@
         </table>
     </div>
 
-    <!-- TRANSACTION -->
     <div class="col-md-6">
         <h5>Recent Transactions</h5>
         <table class="table table-bordered">
