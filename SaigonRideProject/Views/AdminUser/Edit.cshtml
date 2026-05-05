@@ -4,50 +4,118 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<div class="card shadow-sm">
-    <div class="card-header bg-warning">
-        Edit User
+<div class="container py-4">
+
+    <!-- HEADER -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h3 class="fw-bold mb-1">✏️ Edit User</h3>
+            <p class="text-muted mb-0">Update user information and status</p>
+        </div>
+
+        <a href="/AdminUser" class="btn btn-outline-secondary">
+            ← Cancel
+        </a>
     </div>
 
-    <div class="card-body">
-        <form method="post">
+    <!-- CARD -->
+    <div class="card border-0 shadow-sm rounded-4">
 
-            <input type="hidden" name="Id" value="@Model.Id" />
+        <div class="card-header bg-warning fw-semibold">
+            Edit User Information
+        </div>
 
-            <div class="mb-3">
-                <label>Full Name</label>
-                <input name="FullName" value="@Model.FullName" class="form-control" />
-            </div>
+        <div class="card-body p-4">
 
-            <div class="mb-3">
-                <label>Email</label>
-                <input value="@Model.Email" class="form-control" disabled />
-            </div>
+            <form method="post">
 
-            <div class="mb-3">
-                <label>User Type</label>
-                <select name="UserType" class="form-select">
-                    <option selected>@Model.UserType</option>
-                    <option value="Local">Local</option>
-                    <option value="Tourist">Tourist</option>
-                </select>
-            </div>
+                <input type="hidden" name="Id" value="@Model.Id" />
 
-            <div class="form-check mb-2">
-                <input name="IsVerified" type="checkbox" class="form-check-input"
-                @(Model.IsVerified ? "checked" : "") />
-                <label>Verified</label>
-            </div>
+                <div class="row g-3">
 
-            <div class="form-check mb-3">
-                <input name="IsLocked" type="checkbox" class="form-check-input"
-                @(Model.IsLocked ? "checked" : "") />
-                <label>Lock Account</label>
-            </div>
+                    <!-- Full Name -->
+                    <div class="col-md-6">
+                        <label class="form-label fw-semibold">Full Name</label>
+                        <input name="FullName" value="@Model.FullName" class="form-control" />
+                    </div>
 
-            <button class="btn btn-warning">Save</button>
-            <a href="/AdminUser" class="btn btn-secondary">Cancel</a>
+                    <!-- Email -->
+                    <div class="col-md-6">
+                        <label class="form-label fw-semibold">Email</label>
+                        <input value="@Model.Email" class="form-control" disabled />
+                    </div>
 
-        </form>
+                    <!-- User Type -->
+                    <div class="col-md-6">
+                        <label class="form-label fw-semibold">User Type</label>
+                        <select name="UserType" class="form-select">
+                            <option selected>@Model.UserType</option>
+                            <option value="Local">Local</option>
+                            <option value="Tourist">Tourist</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <hr class="my-4" />
+
+                <!-- CHECKBOX SECTION -->
+                <div class="row g-3">
+
+                    <div class="col-md-6">
+                        <div class="form-check p-3 border rounded-3">
+                            <input name="IsVerified"
+                                   type="checkbox"
+                                   class="form-check-input me-2"
+                                   @(Model.IsVerified ? "checked" : "") />
+
+                            <label class="form-check-label fw-semibold">
+                                Verified Account
+                            </label>
+
+                            <div class="text-muted small">
+                                User has been verified in the system
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-check p-3 border rounded-3">
+                            <input name="IsLocked"
+                                   type="checkbox"
+                                   class="form-check-input me-2"
+                                   @(Model.IsLocked ? "checked" : "") />
+
+                            <label class="form-check-label fw-semibold text-danger">
+                                Lock Account
+                            </label>
+
+                            <div class="text-muted small">
+                                Prevent user from accessing system
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- ACTIONS -->
+                <hr class="my-4" />
+
+                <div class="d-flex justify-content-end gap-2">
+
+                    <a href="/AdminUser" class="btn btn-outline-secondary">
+                        Cancel
+                    </a>
+
+                    <button type="submit" class="btn btn-warning px-4">
+                        Save Changes
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
     </div>
+
 </div>
