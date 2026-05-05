@@ -3,22 +3,36 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<div class="container py-4">
+<div class="container py-5 d-flex justify-content-center">
 
-    <div class="alert alert-danger rounded-4">
-        ⚠️ Are you sure you want to delete this station?
+    <div class="card border-0 shadow-sm rounded-4 p-4 text-center" style="max-width:500px;">
+
+        <div class="mb-3 fs-1 text-danger">🗑️</div>
+
+        <h4 class="fw-bold mb-2">Delete Station?</h4>
+
+        <p class="text-muted">
+            You are about to delete:
+        </p>
+
+        <div class="mb-3">
+            <div class="fw-semibold">@Model.Name</div>
+            <small class="text-muted">@Model.Address</small>
+        </div>
+
+        <div class="alert alert-warning">
+            ⚠️ This action cannot be undone
+        </div>
+
+        <form method="post">
+            <input type="hidden" asp-for="Id" />
+
+            <div class="d-flex justify-content-center gap-2">
+                <a href="/AdminStation" class="btn btn-light">Cancel</a>
+                <button class="btn btn-danger px-4">Delete</button>
+            </div>
+        </form>
+
     </div>
-
-    <ul>
-        <li>@Model.Name</li>
-        <li>@Model.Address</li>
-    </ul>
-
-    <form method="post">
-        <input type="hidden" asp-for="Id" />
-
-        <button class="btn btn-danger">Delete</button>
-        <a class="btn btn-secondary" href="/AdminStation">Cancel</a>
-    </form>
 
 </div>

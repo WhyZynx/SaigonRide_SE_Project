@@ -5,16 +5,89 @@
 
 <div class="container py-4">
 
-    <h3 class="mb-4">🔍 Station Detail</h3>
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h3 class="fw-bold">🔍 Station Detail</h3>
+        <a href="/AdminStation" class="btn btn-light">← Back</a>
+    </div>
 
-    <div class="card p-4 rounded-4 shadow-sm">
+    <div class="card border-0 shadow-sm rounded-4 p-4">
 
-        <p><b>Name:</b> @Model.Name</p>
-        <p><b>Address:</b> @Model.Address</p>
-        <p><b>Capacity:</b> @Model.Capacity</p>
-        <p><b>Inventory:</b> @Model.VehicleCount</p>
-        <p><b>Location:</b> @Model.Latitude, @Model.Longitude</p>
+        <div class="row g-4">
+
+            <div class="col-md-6">
+                <p><b>Name:</b><br /> @Model.Name</p>
+                <p><b>Address:</b><br /> @Model.Address</p>
+                <p><b>Capacity:</b><br /> @Model.Capacity</p>
+            </div>
+
+            <div class="col-md-6">
+                <p><b>Inventory:</b><br /> @Model.VehicleCount</p>
+                <p><b>Latitude:</b><br /> @Model.Latitude</p>
+                <p><b>Longitude:</b><br /> @Model.Longitude</p>
+            </div>
+
+        </div>
+
+        <!-- INVENTORY BAR -->
+        @{
+            var percent = Model.Capacity == 0 ? 0 : (int)((double)Model.VehicleCount / Model.Capacity * 100);
+        }
+
+        <div class="mt-4">
+            <label class="fw-semibold">Usage</label>
+            <div class="progress" style="height:8px;">
+                <div class="progress-bar bg-success" style="width:@percent%"></div>
+            </div>
+            <small>@Model.VehicleCount / @Model.Capacity</small>
+        </div>
 
     </div>
+
+    <!-- VEHICLE LIST -->
+    <ul class="list-group">
+
+        @if (Model.Vehicles != null && Model.Vehicles.Any())
+        {
+            foreach (var v in Model.Vehicles)
+            {
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+
+                    <!-- LEFT -->
+                    <span>
+                        @(v.VehicleType == "Bike" ? "🚲" : "🛴")
+                        @v.VehicleType - @v.PlateNumber
+                    </span>
+
+                    <!-- RIGHT STATUS -->
+                    @if (v.Status == "Available")
+                    {
+                        <span class="badge bg-success">
+                            <i class="bi bi-check-circle"></i> Available
+                        </span>
+                    }
+                    else if (v.Status == "InUse")
+                    {
+                        <span class="badge bg-warning text-dark">
+                            <i class="bi bi-lightning"></i> In Use
+                        </span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-secondary">
+                            <i class="bi bi-gear"></i> Maintenance
+                        </span>
+                    }
+
+                </li>
+            }
+        }
+        else
+        {
+            <li class="list-group-item text-center text-muted">
+                No vehicles in this station
+            </li>
+        }
+
+    </ul>
 
 </div>
