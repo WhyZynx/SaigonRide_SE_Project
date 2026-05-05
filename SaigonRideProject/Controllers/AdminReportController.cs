@@ -8,13 +8,10 @@ namespace SaigonRideProject.Controllers
     public class AdminReportController : Controller
     {
         private readonly AppDbContext _context;
-
         public AdminReportController(AppDbContext context)
         {
             _context = context;
         }
-
-        // REPORT DASHBOARD
         public IActionResult Index(int days = 30)
         {
             var fromDate = DateTime.Now.AddDays(-days);
@@ -38,26 +35,19 @@ namespace SaigonRideProject.Controllers
                 .Select(g => new StationRevenueVM
                 {
                     StationName = g.Key,
-                    BikeRevenue = g.Where(x => x.Vehicle.VehicleType == "Bike")
-                                   .Sum(x => x.FinalAmount),
-
-                    ScooterRevenue = g.Where(x => x.Vehicle.VehicleType == "E-Scooter")
-                                      .Sum(x => x.FinalAmount),
-
+                    BikeRevenue = g.Where(x => x.Vehicle.VehicleType == "Bike").Sum(x => x.FinalAmount),
+                    ScooterRevenue = g.Where(x => x.Vehicle.VehicleType == "E-Scooter").Sum(x => x.FinalAmount),
                     Total = g.Sum(x => x.FinalAmount)
-                })
-                .ToList();
+                }).ToList();
 
             var stationStatus = _context.Stations
-                .Include(s => s.Vehicles)
                 .Select(s => new StationStatusVM
                 {
                     StationName = s.Name,
                     Capacity = s.Capacity,
                     Current = s.Vehicles.Count(),
-                    Status = GetStatus(s.Capacity, s.Vehicles.Count())
-                })
-                .ToList();
+                    Status = s.Vehicles.Count() < (s.Capacity * 0.2) ? "Low" : "Normal"
+                }).ToList();
 
             var vm = new ReportViewModel
             {
@@ -70,7 +60,7 @@ namespace SaigonRideProject.Controllers
 
             return View(vm);
         }
-        // EXPORT REVENUE
+
         public IActionResult ExportRevenue(int days = 30)
         {
             var fromDate = DateTime.Now.AddDays(-days);
@@ -81,39 +71,32 @@ namespace SaigonRideProject.Controllers
                 .Include(r => r.PickupStation)
                 .ToList();
 
+            var csv = "Station,Bike Revenue,Scooter Revenue,Total\n";
+
             var grouped = data
                 .GroupBy(r => r.PickupStation.Name)
                 .Select(g => new
                 {
                     Station = g.Key,
-                    Bike = g.Where(x => x.Vehicle.VehicleType == "Bike")
-                            .Sum(x => x.FinalAmount),
-
-                    Scooter = g.Where(x => x.Vehicle.VehicleType == "E-Scooter")
-                               .Sum(x => x.FinalAmount),
-
+                    Bike = g.Where(x => x.Vehicle.VehicleType == "Bike").Sum(x => x.FinalAmount),
+                    Scooter = g.Where(x => x.Vehicle.VehicleType == "E-Scooter").Sum(x => x.FinalAmount),
                     Total = g.Sum(x => x.FinalAmount)
                 });
-
-            var csv = "Station,Bike Revenue,Scooter Revenue,Total\n";
 
             foreach (var item in grouped)
             {
                 csv += $"{item.Station},{item.Bike},{item.Scooter},{item.Total}\n";
             }
 
-            return File(
-                System.Text.Encoding.UTF8.GetBytes(csv),
+            return File(System.Text.Encoding.UTF8.GetBytes(csv),
                 "text/csv",
-                $"Revenue_Report_{days}days.csv"
-            );
+                $"Revenue_Report_{days}days.csv");
         }
 
-        // EXPORT INVENTORY 
         public IActionResult ExportInventory()
         {
             var stations = _context.Stations
-                .Include(s => s.Vehicles)
+                .Include(s => s.Vehicles) 
                 .ToList();
 
             var csv = "Station,Capacity,Current,Status\n";
@@ -121,7 +104,10 @@ namespace SaigonRideProject.Controllers
             foreach (var s in stations)
             {
                 var current = s.Vehicles.Count();
-                var status = GetStatus(s.Capacity, current);
+
+                var status = current < (s.Capacity * 0.2)
+                    ? "Low"
+                    : "Normal";
 
                 csv += $"{s.Name},{s.Capacity},{current},{status}\n";
             }
@@ -131,18 +117,6 @@ namespace SaigonRideProject.Controllers
                 "text/csv",
                 "Inventory_Report.csv"
             );
-        }
-
-        // STATUS LOGIC (SHARED)
-        private string GetStatus(int capacity, int current)
-        {
-            if (capacity == 0) return "Low";
-
-            double ratio = (double)current / capacity;
-
-            if (ratio < 0.2) return "Low";
-            if (ratio < 0.7) return "Normal";
-            return "Full";
         }
     }
 }
