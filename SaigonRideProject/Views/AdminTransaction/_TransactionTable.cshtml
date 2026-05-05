@@ -1,67 +1,144 @@
 ﻿@model List<SaigonRideProject.ViewModels.AdminTransactionViewModel>
 
-<table class="table table-hover table-bordered align-middle">
-    <thead class="table-dark">
-        <tr>
-            <th>ID</th>
-            <th>User</th>
-            <th>Type</th>
-            <th>Amount</th>
-            <th>Method</th>
-            <th>Time</th>
-        </tr>
-    </thead>
+<!-- DESKTOP TABLE -->
+<div class="table-responsive d-none d-md-block">
 
-    <tbody>
-        @foreach (var t in Model)
-        {
-            <tr style="cursor:pointer;">
-                <td>#@t.Id</td>
+    <table class="table align-middle mb-0">
 
-                <td>
-                    <b>@t.UserName</b>
-                </td>
+        <thead class="table-light">
+            <tr class="text-muted small">
+                <th>ID</th>
+                <th>User</th>
+                <th>Type</th>
+                <th>Amount</th>
+                <th>Method</th>
+                <th>Time</th>
+            </tr>
+        </thead>
 
-                <!-- TYPE BADGE -->
-                <td>
-                    @if (t.Type == "TopUp")
-                    {
-                        <span class="badge bg-success">TopUp</span>
-                    }
-                    else if (t.Type == "Payment")
-                    {
-                        <span class="badge bg-danger">Payment</span>
-                    }
-                    else
-                    {
-                        <span class="badge bg-info">Refund</span>
-                    }
-                </td>
+        <tbody>
+
+            @foreach (var t in Model)
+            {
+                <tr style="cursor:pointer;">
+
+                    <td class="fw-semibold text-muted">@t.Id</td>
+
+                    <td>
+                        <div class="fw-semibold">@t.UserName</div>
+                    </td>
+
+                    <td>
+                        @if (t.Type == "TopUp")
+                        {
+                            <span class="badge bg-success px-3 py-2">TopUp</span>
+                        }
+                        else if (t.Type == "Payment")
+                        {
+                            <span class="badge bg-danger px-3 py-2">Payment</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-info text-dark px-3 py-2">Refund</span>
+                        }
+                    </td>
+
+                    <td>
+                        @if (t.Type == "Payment")
+                        {
+                            <span class="fw-bold text-danger">-@t.Amount.ToString("N0")</span>
+                        }
+                        else
+                        {
+                            <span class="fw-bold text-success">+@t.Amount.ToString("N0")</span>
+                        }
+                    </td>
+
+                    <td class="text-muted">@t.Method</td>
+
+                    <td>
+                        <div class="small text-muted">
+                            @t.CreatedAt.ToString("dd/MM/yyyy")
+                        </div>
+                        <div class="small">
+                            @t.CreatedAt.ToString("HH:mm")
+                        </div>
+                    </td>
+
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+
+</div>
+
+<!-- MOBILE CARD VIEW -->
+<div class="d-block d-md-none">
+
+    @foreach (var t in Model)
+    {
+        <div class="card border-0 shadow-sm rounded-4 mb-3">
+
+            <div class="card-body">
+
+                <!-- TOP ROW -->
+                <div class="d-flex justify-content-between align-items-start mb-2">
+
+                    <div>
+                        <div class="fw-semibold">#@t.Id</div>
+                        <div class="text-muted small">@t.UserName</div>
+                    </div>
+
+                    <!-- TYPE -->
+                    <div>
+                        @if (t.Type == "TopUp")
+                        {
+                            <span class="badge bg-success">TopUp</span>
+                        }
+                        else if (t.Type == "Payment")
+                        {
+                            <span class="badge bg-danger">Payment</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-info text-dark">Refund</span>
+                        }
+                    </div>
+
+                </div>
 
                 <!-- AMOUNT -->
-                <td>
+                <div class="mb-2">
                     @if (t.Type == "Payment")
                     {
-                        <span class="text-danger fw-bold">
+                        <span class="fw-bold text-danger">
                             -@t.Amount.ToString("N0")
                         </span>
                     }
                     else
                     {
-                        <span class="text-success fw-bold">
+                        <span class="fw-bold text-success">
                             +@t.Amount.ToString("N0")
                         </span>
                     }
-                </td>
+                </div>
 
-                <td>
-                    <span class="text-muted">@t.Method</span>
-                </td>
+                <!-- METHOD + TIME -->
+                <div class="d-flex justify-content-between text-muted small">
 
-                <td>
-                    <small>@t.CreatedAt.ToString("dd/MM/yyyy HH:mm")</small>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+                    <div>@t.Method</div>
+
+                    <div>
+                        @t.CreatedAt.ToString("dd/MM HH:mm")
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    }
+
+</div>
