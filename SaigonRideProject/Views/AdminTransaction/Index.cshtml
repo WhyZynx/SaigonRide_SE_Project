@@ -8,57 +8,93 @@
     var expense = Model.Where(x => x.Type == "Payment").Sum(x => x.Amount);
 }
 
-<h3 class="mb-3">Transaction Management</h3>
+<div class="container py-4">
 
-<div class="row mb-4">
+    <!-- HEADER -->
+    <div class="mb-4">
+        <h3 class="fw-bold mb-1">💰 Transaction Management</h3>
+        <p class="text-muted mb-0">Monitor all financial activities in the system</p>
+    </div>
 
-    <div class="col-md-4">
-        <div class="card shadow-sm p-3">
-            <small>Total Volume</small>
-            <h5>@total.ToString("N0")</h5>
+    <!-- STATS -->
+    <div class="row g-3 mb-4">
+
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm rounded-4 p-3">
+                <div class="text-muted small">Total Volume</div>
+                <div class="fs-4 fw-bold">@total.ToString("N0")</div>
+            </div>
         </div>
-    </div>
 
-    <div class="col-md-4">
-        <div class="card shadow-sm p-3">
-            <small>Money In</small>
-            <h5 class="text-success">+@income.ToString("N0")</h5>
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm rounded-4 p-3">
+                <div class="text-muted small">Money In</div>
+                <div class="fs-4 fw-bold text-success">
+                    +@income.ToString("N0")
+                </div>
+            </div>
         </div>
-    </div>
 
-    <div class="col-md-4">
-        <div class="card shadow-sm p-3">
-            <small>Money Out</small>
-            <h5 class="text-danger">-@expense.ToString("N0")</h5>
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm rounded-4 p-3">
+                <div class="text-muted small">Money Out</div>
+                <div class="fs-4 fw-bold text-danger">
+                    -@expense.ToString("N0")
+                </div>
+            </div>
         </div>
+
+    </div>
+
+    <!-- FILTER BAR -->
+    <div class="card border-0 shadow-sm rounded-4 mb-4">
+
+        <div class="card-body">
+
+            <div class="row g-3">
+
+                <!-- SEARCH -->
+                <div class="col-md-6">
+                    <input id="searchBox"
+                           class="form-control"
+                           placeholder="🔍 Search user or transaction ID..." />
+                </div>
+
+                <!-- TYPE FILTER -->
+                <div class="col-md-3">
+                    <select id="type" class="form-select">
+                        <option value="">All Types</option>
+                        <option value="TopUp">TopUp</option>
+                        <option value="Payment">Payment</option>
+                        <option value="Refund">Refund</option>
+                    </select>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- LOADING -->
+    <div id="loading" class="text-center mb-2" style="display:none;">
+        <small class="text-muted">Loading...</small>
+    </div>
+
+    <!-- TABLE -->
+    <div class="card border-0 shadow-sm rounded-4">
+
+        <div class="card-body p-0">
+
+            <div id="transactionTable">
+                @Html.Partial("_TransactionTable", Model)
+            </div>
+
+        </div>
+
     </div>
 
 </div>
 
-<div class="row mb-3">
-
-    <div class="col-md-6">
-        <input id="searchBox" class="form-control"
-               placeholder="Search user or ID..." />
-    </div>
-
-    <div class="col-md-3">
-        <select id="type" class="form-select">
-            <option value="">All Types</option>
-            <option value="TopUp">TopUp</option>
-            <option value="Payment">Payment</option>
-            <option value="Refund">Refund</option>
-        </select>
-    </div>
-
-</div>
-
-<div id="loading" class="text-center mb-2" style="display:none;">
-    <small class="text-muted">Loading...</small>
-</div>
-
-<div id="transactionTable">
-    @Html.Partial("_TransactionTable", Model)
-</div>
-
+<!-- SCRIPT -->
 <script src="~/js/admin-transaction.js"></script>
