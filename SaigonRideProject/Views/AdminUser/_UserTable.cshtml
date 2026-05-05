@@ -27,18 +27,18 @@
                 <!-- USER -->
                 <td>
                     <div class="fw-semibold">@u.FullName</div>
-                    <small class="text-muted">✉️ @u.Email</small>
+                    <small class="text-muted">@u.Email</small>
                 </td>
 
                 <!-- TYPE -->
                 <td>
                     @if (u.UserType == "Tourist")
                     {
-                        <span class="badge bg-info">🌍 Tourist</span>
+                        <span class="badge bg-info">Tourist</span>
                     }
                     else
                     {
-                        <span class="badge bg-secondary">🏠 Local</span>
+                        <span class="badge bg-secondary">Local</span>
                     }
                 </td>
 
@@ -49,38 +49,21 @@
                 <td>
                     @if (u.PassportStatus == "Approved")
                     {
-                        <span class="badge bg-success">
-                            ✔️ Verified
-                        </span>
+                        <span>Verified</span>
                     }
                     else if (u.PassportStatus == "Pending")
                     {
-                        <span class="badge bg-warning text-dark">
-                            ⏳ Pending
-                        </span>
+                        <span>Pending</span>
                     }
                     else
                     {
-                        <span class="badge bg-secondary">
-                            ❌ Not Submitted
-                        </span>
+                        <span>Not Submitted</span>
                     }
                 </td>
 
                 <!-- STATUS -->
                 <td>
-                    @if (u.IsLocked)
-                    {
-                        <span class="badge bg-danger">
-                            🔒 Suspended
-                        </span>
-                    }
-                    else
-                    {
-                        <span class="badge bg-success">
-                            🟢 Active
-                        </span>
-                    }
+                    @(u.IsLocked ? "Suspended" : "Active")
                 </td>
 
                 <!-- BALANCE -->

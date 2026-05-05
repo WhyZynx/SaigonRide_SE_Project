@@ -12,16 +12,12 @@
             <h3 class="fw-bold mb-1">✏️ Edit User</h3>
             <p class="text-muted mb-0">Update user information and status</p>
         </div>
-
-        <a href="/AdminUser" class="btn btn-outline-secondary">
-            ← Cancel
-        </a>
     </div>
 
     <!-- CARD -->
     <div class="card border-0 shadow-sm rounded-4">
 
-        <div class="card-header bg-warning fw-semibold">
+        <div class="card-header bg-primary  fw-semibold">
             Edit User Information
         </div>
 
@@ -46,14 +42,10 @@
                     </div>
 
                     <!-- User Type -->
-                    <div class="col-md-6">
-                        <label class="form-label fw-semibold">User Type</label>
-                        <select name="UserType" class="form-select">
-                            <option selected>@Model.UserType</option>
-                            <option value="Local">Local</option>
-                            <option value="Tourist">Tourist</option>
-                        </select>
-                    </div>
+                    <select asp-for="UserType" class="form-select">
+                        <option value="Local">Local</option>
+                        <option value="Tourist">Tourist</option>
+                    </select>
 
                 </div>
 
@@ -107,8 +99,8 @@
                         Cancel
                     </a>
 
-                    <button type="submit" class="btn btn-warning px-4">
-                        Save Changes
+                    <button type="submit" class="btn btn-primary  px-4">
+                        Save 
                     </button>
 
                 </div>
