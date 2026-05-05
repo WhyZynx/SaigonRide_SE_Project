@@ -37,7 +37,7 @@
                         <small class="text-muted d-block mb-1">Duration</small>
                         <span class="fw-bold">
                             @{
-                                var end = Model.EndTime ?? DateTime.Now;
+                                var end = Model.EndTime.Value;
                                 var diff = end - Model.StartTime;
                                 int totalMinutes = (int)diff.TotalMinutes;
                                 int seconds = diff.Seconds;
