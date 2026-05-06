@@ -3,36 +3,52 @@
   "WorkspaceRootPath": "C:\\Users\\DELL\\OneDrive\\Documents\\SaigonRide_Project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\dell\\onedrive\\documents\\saigonride_project\\saigonrideproject\\views\\rental\\history.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\views\\rental\\history.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\dell\\onedrive\\documents\\saigonride_project\\saigonrideproject\\views\\user\\transactions.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\views\\user\\transactions.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\dell\\onedrive\\documents\\saigonride_project\\saigonrideproject\\views\\user\\profile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\views\\user\\profile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\dell\\onedrive\\documents\\saigonride_project\\saigonrideproject\\views\\rental\\current.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\views\\rental\\current.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\dell\\onedrive\\documents\\saigonride_project\\saigonrideproject\\views\\rental\\stationlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\views\\rental\\stationlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\dell\\onedrive\\documents\\saigonride_project\\saigonrideproject\\views\\user\\userdashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\views\\user\\userdashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\dell\\onedrive\\documents\\saigonride_project\\saigonrideproject\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\dell\\onedrive\\documents\\saigonride_project\\saigonrideproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\dell\\onedrive\\documents\\saigonride_project\\saigonrideproject\\views\\account\\identityverification.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\views\\account\\identityverification.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\dell\\onedrive\\documents\\saigonride_project\\saigonrideproject\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\dell\\onedrive\\documents\\saigonride_project\\saigonrideproject\\resources\\sharedresource.en-us.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\resources\\sharedresource.en-us.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\dell\\onedrive\\documents\\saigonride_project\\saigonrideproject\\resources\\sharedresource.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\resources\\sharedresource.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\dell\\onedrive\\documents\\saigonride_project\\saigonrideproject\\resources\\sharedresource.vi-vn.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\resources\\sharedresource.vi-vn.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\dell\\onedrive\\documents\\saigonride_project\\saigonrideproject\\controllers\\languagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\controllers\\languagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\dell\\onedrive\\documents\\saigonride_project\\saigonrideproject\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\dell\\onedrive\\documents\\saigonride_project\\saigonrideproject\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\dell\\onedrive\\documents\\saigonride_project\\saigonrideproject\\views\\admin\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\views\\admin\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\dell\\onedrive\\documents\\saigonride_project\\saigonrideproject\\viewmodels\\reportviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\viewmodels\\reportviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|c:\\users\\dell\\onedrive\\documents\\saigonride_project\\saigonrideproject\\views\\adminreport\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D8D1F8B9-9FE7-A1E0-20C5-2B3EAEAB6EE7}|SaigonRideProject\\SaigonRideProject.csproj|solutionrelative:saigonrideproject\\views\\adminreport\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,111 +58,171 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 5,
           "Children": [
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{79664857-03bf-4bca-aa54-ec998b3328f8}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Profile.cshtml",
-              "DocumentMoniker": "C:\\Users\\DELL\\OneDrive\\Documents\\SaigonRide_Project\\SaigonRideProject\\Views\\User\\Profile.cshtml",
-              "RelativeDocumentMoniker": "SaigonRideProject\\Views\\User\\Profile.cshtml",
-              "ToolTip": "C:\\Users\\DELL\\OneDrive\\Documents\\SaigonRide_Project\\SaigonRideProject\\Views\\User\\Profile.cshtml",
-              "RelativeToolTip": "SaigonRideProject\\Views\\User\\Profile.cshtml",
-              "ViewState": "AgIAAFoAAAAAAAAAAAAAAGUAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-05-05T07:18:59.958Z",
+              "DocumentIndex": 3,
+              "Title": "SharedResource.en-US.resx",
+              "DocumentMoniker": "C:\\Users\\DELL\\OneDrive\\Documents\\SaigonRide_Project\\SaigonRideProject\\Resources\\SharedResource.en-US.resx",
+              "RelativeDocumentMoniker": "SaigonRideProject\\Resources\\SharedResource.en-US.resx",
+              "ToolTip": "C:\\Users\\DELL\\OneDrive\\Documents\\SaigonRide_Project\\SaigonRideProject\\Resources\\SharedResource.en-US.resx",
+              "RelativeToolTip": "SaigonRideProject\\Resources\\SharedResource.en-US.resx",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
+              "WhenOpened": "2026-05-06T01:18:23.441Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Transactions.cshtml",
-              "DocumentMoniker": "C:\\Users\\DELL\\OneDrive\\Documents\\SaigonRide_Project\\SaigonRideProject\\Views\\User\\Transactions.cshtml",
-              "RelativeDocumentMoniker": "SaigonRideProject\\Views\\User\\Transactions.cshtml",
-              "ToolTip": "C:\\Users\\DELL\\OneDrive\\Documents\\SaigonRide_Project\\SaigonRideProject\\Views\\User\\Transactions.cshtml",
-              "RelativeToolTip": "SaigonRideProject\\Views\\User\\Transactions.cshtml",
-              "ViewState": "AgIAABYAAAAAAAAAAAAcwB0AAABvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-05-05T07:02:57.678Z",
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\DELL\\OneDrive\\Documents\\SaigonRide_Project\\SaigonRideProject\\Program.cs",
+              "RelativeDocumentMoniker": "SaigonRideProject\\Program.cs",
+              "ToolTip": "C:\\Users\\DELL\\OneDrive\\Documents\\SaigonRide_Project\\SaigonRideProject\\Program.cs",
+              "RelativeToolTip": "SaigonRideProject\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-06T01:26:50.341Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\DELL\\OneDrive\\Documents\\SaigonRide_Project\\SaigonRideProject\\appsettings.json",
+              "RelativeDocumentMoniker": "SaigonRideProject\\appsettings.json",
+              "ToolTip": "C:\\Users\\DELL\\OneDrive\\Documents\\SaigonRide_Project\\SaigonRideProject\\appsettings.json",
+              "RelativeToolTip": "SaigonRideProject\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-05-05T23:49:24.697Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "History.cshtml",
-              "DocumentMoniker": "C:\\Users\\DELL\\OneDrive\\Documents\\SaigonRide_Project\\SaigonRideProject\\Views\\Rental\\History.cshtml",
-              "RelativeDocumentMoniker": "SaigonRideProject\\Views\\Rental\\History.cshtml",
-              "ToolTip": "C:\\Users\\DELL\\OneDrive\\Documents\\SaigonRide_Project\\SaigonRideProject\\Views\\Rental\\History.cshtml",
-              "RelativeToolTip": "SaigonRideProject\\Views\\Rental\\History.cshtml",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAcwAkAAABcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-05-05T06:43:23.203Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
               "Title": "UserDashboard.cshtml",
               "DocumentMoniker": "C:\\Users\\DELL\\OneDrive\\Documents\\SaigonRide_Project\\SaigonRideProject\\Views\\User\\UserDashboard.cshtml",
               "RelativeDocumentMoniker": "SaigonRideProject\\Views\\User\\UserDashboard.cshtml",
               "ToolTip": "C:\\Users\\DELL\\OneDrive\\Documents\\SaigonRide_Project\\SaigonRideProject\\Views\\User\\UserDashboard.cshtml",
               "RelativeToolTip": "SaigonRideProject\\Views\\User\\UserDashboard.cshtml",
-              "ViewState": "AgIAAGMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-05-05T06:41:22.376Z",
+              "WhenOpened": "2026-05-06T01:20:52.624Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "StationList.cshtml",
-              "DocumentMoniker": "C:\\Users\\DELL\\OneDrive\\Documents\\SaigonRide_Project\\SaigonRideProject\\Views\\Rental\\StationList.cshtml",
-              "RelativeDocumentMoniker": "SaigonRideProject\\Views\\Rental\\StationList.cshtml",
-              "ToolTip": "C:\\Users\\DELL\\OneDrive\\Documents\\SaigonRide_Project\\SaigonRideProject\\Views\\Rental\\StationList.cshtml",
-              "RelativeToolTip": "SaigonRideProject\\Views\\Rental\\StationList.cshtml",
-              "ViewState": "AgIAAHsAAAAAAAAAAAAAAD4AAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-05-05T06:40:47.72Z",
+              "Title": "SharedResource.resx",
+              "DocumentMoniker": "C:\\Users\\DELL\\OneDrive\\Documents\\SaigonRide_Project\\SaigonRideProject\\Resources\\SharedResource.resx",
+              "RelativeDocumentMoniker": "SaigonRideProject\\Resources\\SharedResource.resx",
+              "ToolTip": "C:\\Users\\DELL\\OneDrive\\Documents\\SaigonRide_Project\\SaigonRideProject\\Resources\\SharedResource.resx",
+              "RelativeToolTip": "SaigonRideProject\\Resources\\SharedResource.resx",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
+              "WhenOpened": "2026-05-06T01:38:29.94Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "SharedResource.vi-VN.resx",
+              "DocumentMoniker": "C:\\Users\\DELL\\OneDrive\\Documents\\SaigonRide_Project\\SaigonRideProject\\Resources\\SharedResource.vi-VN.resx",
+              "RelativeDocumentMoniker": "SaigonRideProject\\Resources\\SharedResource.vi-VN.resx",
+              "ToolTip": "C:\\Users\\DELL\\OneDrive\\Documents\\SaigonRide_Project\\SaigonRideProject\\Resources\\SharedResource.vi-VN.resx",
+              "RelativeToolTip": "SaigonRideProject\\Resources\\SharedResource.vi-VN.resx",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
+              "WhenOpened": "2026-05-06T01:18:27.466Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\DELL\\OneDrive\\Documents\\SaigonRide_Project\\SaigonRideProject\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "SaigonRideProject\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\DELL\\OneDrive\\Documents\\SaigonRide_Project\\SaigonRideProject\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "SaigonRideProject\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAGAAAAAAAAAAAAAAAHQAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-05-05T06:32:29.046Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Current.cshtml",
-              "DocumentMoniker": "C:\\Users\\DELL\\OneDrive\\Documents\\SaigonRide_Project\\SaigonRideProject\\Views\\Rental\\Current.cshtml",
-              "RelativeDocumentMoniker": "SaigonRideProject\\Views\\Rental\\Current.cshtml",
-              "ToolTip": "C:\\Users\\DELL\\OneDrive\\Documents\\SaigonRide_Project\\SaigonRideProject\\Views\\Rental\\Current.cshtml",
-              "RelativeToolTip": "SaigonRideProject\\Views\\Rental\\Current.cshtml",
-              "ViewState": "AgIAAD0AAAAAAAAAAAAcwEYAAAA/AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-05-05T06:18:28.525Z",
+              "Title": "LanguageController.cs",
+              "DocumentMoniker": "C:\\Users\\DELL\\OneDrive\\Documents\\SaigonRide_Project\\SaigonRideProject\\Controllers\\LanguageController.cs",
+              "RelativeDocumentMoniker": "SaigonRideProject\\Controllers\\LanguageController.cs",
+              "ToolTip": "C:\\Users\\DELL\\OneDrive\\Documents\\SaigonRide_Project\\SaigonRideProject\\Controllers\\LanguageController.cs",
+              "RelativeToolTip": "SaigonRideProject\\Controllers\\LanguageController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-06T01:26:01.82Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "IdentityVerification.cshtml",
-              "DocumentMoniker": "C:\\Users\\DELL\\OneDrive\\Documents\\SaigonRide_Project\\SaigonRideProject\\Views\\Account\\IdentityVerification.cshtml",
-              "RelativeDocumentMoniker": "SaigonRideProject\\Views\\Account\\IdentityVerification.cshtml",
-              "ToolTip": "C:\\Users\\DELL\\OneDrive\\Documents\\SaigonRide_Project\\SaigonRideProject\\Views\\Account\\IdentityVerification.cshtml",
-              "RelativeToolTip": "SaigonRideProject\\Views\\Account\\IdentityVerification.cshtml",
+              "Title": "_ViewImports.cshtml",
+              "DocumentMoniker": "C:\\Users\\DELL\\OneDrive\\Documents\\SaigonRide_Project\\SaigonRideProject\\Views\\_ViewImports.cshtml",
+              "RelativeDocumentMoniker": "SaigonRideProject\\Views\\_ViewImports.cshtml",
+              "ToolTip": "C:\\Users\\DELL\\OneDrive\\Documents\\SaigonRide_Project\\SaigonRideProject\\Views\\_ViewImports.cshtml",
+              "RelativeToolTip": "SaigonRideProject\\Views\\_ViewImports.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-06T01:19:50.972Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\DELL\\OneDrive\\Documents\\SaigonRide_Project\\SaigonRideProject\\Views\\Account\\Login.cshtml",
+              "RelativeDocumentMoniker": "SaigonRideProject\\Views\\Account\\Login.cshtml",
+              "ToolTip": "C:\\Users\\DELL\\OneDrive\\Documents\\SaigonRide_Project\\SaigonRideProject\\Views\\Account\\Login.cshtml",
+              "RelativeToolTip": "SaigonRideProject\\Views\\Account\\Login.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-05-05T06:17:31.887Z",
+              "WhenOpened": "2026-05-06T01:19:15.855Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Dashboard.cshtml",
+              "DocumentMoniker": "C:\\Users\\DELL\\OneDrive\\Documents\\SaigonRide_Project\\SaigonRideProject\\Views\\Admin\\Dashboard.cshtml",
+              "RelativeDocumentMoniker": "SaigonRideProject\\Views\\Admin\\Dashboard.cshtml",
+              "ToolTip": "C:\\Users\\DELL\\OneDrive\\Documents\\SaigonRide_Project\\SaigonRideProject\\Views\\Admin\\Dashboard.cshtml",
+              "RelativeToolTip": "SaigonRideProject\\Views\\Admin\\Dashboard.cshtml",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-05T23:59:43.118Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ReportViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\DELL\\OneDrive\\Documents\\SaigonRide_Project\\SaigonRideProject\\ViewModels\\ReportViewModel.cs",
+              "RelativeDocumentMoniker": "SaigonRideProject\\ViewModels\\ReportViewModel.cs",
+              "ToolTip": "C:\\Users\\DELL\\OneDrive\\Documents\\SaigonRide_Project\\SaigonRideProject\\ViewModels\\ReportViewModel.cs",
+              "RelativeToolTip": "SaigonRideProject\\ViewModels\\ReportViewModel.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAcwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-05T23:54:48.103Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\DELL\\OneDrive\\Documents\\SaigonRide_Project\\SaigonRideProject\\Views\\AdminReport\\Index.cshtml",
+              "RelativeDocumentMoniker": "SaigonRideProject\\Views\\AdminReport\\Index.cshtml",
+              "ToolTip": "C:\\Users\\DELL\\OneDrive\\Documents\\SaigonRide_Project\\SaigonRideProject\\Views\\AdminReport\\Index.cshtml",
+              "RelativeToolTip": "SaigonRideProject\\Views\\AdminReport\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-05T23:49:47.378Z"
             }
           ]
         }

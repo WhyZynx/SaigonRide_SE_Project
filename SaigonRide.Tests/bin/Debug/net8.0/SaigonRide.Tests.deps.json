@@ -1609,6 +1609,14 @@
             "assemblyVersion": "1.0.0",
             "fileVersion": "1.0.0.0"
           }
+        },
+        "resources": {
+          "en-US/SaigonRideProject.resources.dll": {
+            "locale": "en-US"
+          },
+          "vi-VN/SaigonRideProject.resources.dll": {
+            "locale": "vi-VN"
+          }
         }
       }
     }

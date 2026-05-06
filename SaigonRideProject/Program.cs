@@ -27,6 +27,15 @@ namespace SaigonRideProject
 
             builder.Services.AddSession();
 
+            builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
+
+            builder.Services.AddControllersWithViews()
+            .AddViewLocalization()
+            .AddDataAnnotationsLocalization(options => {
+                options.DataAnnotationLocalizerProvider = (type, factory) =>
+                    factory.Create(typeof(SaigonRideProject.Resources.SharedResource));
+            });
+
             var app = builder.Build();
 
             app.UseStaticFiles();

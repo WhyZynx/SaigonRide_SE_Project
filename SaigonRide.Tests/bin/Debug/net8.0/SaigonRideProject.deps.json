@@ -16,6 +16,14 @@
         },
         "runtime": {
           "SaigonRideProject.dll": {}
+        },
+        "resources": {
+          "en-US/SaigonRideProject.resources.dll": {
+            "locale": "en-US"
+          },
+          "vi-VN/SaigonRideProject.resources.dll": {
+            "locale": "vi-VN"
+          }
         }
       },
       "Azure.Core/1.38.0": {
