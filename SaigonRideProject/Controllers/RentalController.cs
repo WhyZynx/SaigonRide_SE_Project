@@ -263,7 +263,12 @@ namespace SaigonRideProject.Controllers
             var user = _context.Users.Find(rental.UserId);
             var station = _context.Stations.Find(returnStationId);
 
-            var duration = DateTime.Now - rental.StartTime;
+            var now = DateTime.Now;
+
+            rental.EndTime = now;
+
+            var totalSeconds = (int)Math.Floor((now - rental.StartTime).TotalSeconds);
+            var duration = TimeSpan.FromSeconds(totalSeconds);
 
             var result = pricing.Calculate(
                 rental.Vehicle,
@@ -366,7 +371,6 @@ namespace SaigonRideProject.Controllers
             payment.Status = "Completed";
 
             rental.Status = "Completed";
-            rental.EndTime = DateTime.Now;
             rental.PaymentMethod = payment.Method;
 
             rental.Vehicle.Status = "Available";

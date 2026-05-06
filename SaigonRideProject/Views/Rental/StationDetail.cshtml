@@ -63,7 +63,7 @@
                             <span class="fw-bold">500đ / minute</span>
                         </div>
                         <div class="d-flex justify-content-between small">
-                            <span><i class="bi bi-lightning-charge me-2"></i>E-Scooter</span>
+                            <span><i class="bi bi-scooter me-2"></i>E-Scooter</span>
                             <span class="fw-bold">1,500đ / minute</span>
                         </div>
                     </div>
@@ -89,10 +89,10 @@
             
                     <select id="vehicleTypeFilter" 
                             class="form-select form-select-sm rounded-3 flex-fill flex-md-grow-0" 
-                            style="width: auto; max-width: 130px;">
-                        <option value="">All Types</option>
-                        <option value="Bike">Bike</option>
-                        <option value="Scooter">Scooter</option>
+                            style="width: auto; max-width: 150px; background-color: #f8f9fa; border-color: #dee2e6; color: #495057; font-weight: 500;">
+                        <option value="" style="color: #6c757d;">All Vehicles</option>
+                        <option value="Bike" style="color: #212529;">Bicycle</option>
+                        <option value="Scooter" style="color: #212529;">E-Scooter</option>
                     </select>
             
                     <button class="btn btn-primary btn-sm rounded-3 px-3 flex-shrink-0" onclick="applyFilters()">Filter</button>
@@ -119,21 +119,17 @@
                         <td class="ps-4 border-bottom-0 py-3 small">@v.VehicleType</td>
                         <td class="border-bottom-0 py-3 small text-muted text-uppercase">@v.PlateNumber</td>
                         <td class="border-bottom-0 py-3 small">@v.PricePerMinute đ / min</td>
-                        <td class="border-bottom-0 py-3 small fw-bold @(v.BatteryLevel < 20 ? "text-danger" : v.BatteryLevel < 50 ? "text-warning" : "text-success")">
+                        <td class="border-bottom-0 py-3 small fw-bold @(v.BatteryLevel <= 20 ? "text-danger" : v.BatteryLevel < 50 ? "text-warning" : "text-success")">
                             @v.BatteryLevel%
                         </td>
                         <td class="border-bottom-0 py-3">
-                            @if (v.Status == "Available" && v.BatteryLevel >= 20)
+                            @if (v.Status == "Available" && v.BatteryLevel > 20)
                             {
                                 <span class="badge rounded-pill fw-normal" style="background-color: #f0fdf4; color: #22c55e; padding: 0.5em 1em;">Available</span>
                             }
-                            else if (v.BatteryLevel < 20)
+                            else if (v.BatteryLevel <= 20)
                             {
-                                <span class="badge rounded-pill fw-normal" style="background-color: #fef2f2; color: #dc2626; padding: 0.5em 1em;">Critical Battery</span>
-                            }
-                            else if (v.BatteryLevel < 50)
-                            {
-                                <span class="badge rounded-pill fw-normal" style="background-color: #fff7ed; color: #f97316; padding: 0.5em 1em;">Low Battery</span>
+                                <span class="badge rounded-pill fw-normal" style="background-color: #fef2f2; color: #dc2626; padding: 0.5em 1em;">Maintenance</span>
                             }
                             else
                             {

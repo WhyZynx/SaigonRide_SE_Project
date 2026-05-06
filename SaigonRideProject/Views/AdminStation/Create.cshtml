@@ -1,37 +1,40 @@
 ﻿@model SaigonRideProject.ViewModels.AdminStationViewModel
-
 @{
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Create Station</h2>
+<div class="container py-4">
 
-<form method="post">
+    <h3 class="mb-4"> + Create Station</h3>
 
-    <div>
-        <label>Name</label>
-        <input asp-for="Name" class="form-control" />
-    </div>
+    <form method="post" class="card p-4 shadow-sm rounded-4">
 
-    <div>
-        <label>Address</label>
-        <input asp-for="Address" class="form-control" />
-    </div>
+        <div class="mb-3">
+            <label>Name</label>
+            <input asp-for="Name" class="form-control" />
+        </div>
 
-    <div>
-        <label>Capacity</label>
-        <input asp-for="Capacity" class="form-control" />
-    </div>
+        <div class="mb-3">
+            <label>Address</label>
+            <input asp-for="Address" class="form-control" />
+        </div>
 
-    <div>
-        <label>Latitude</label>
-        <input asp-for="Latitude" class="form-control" />
-    </div>
+        <div class="mb-3">
+            <label>Capacity</label>
+            <input asp-for="Capacity" class="form-control" />
+        </div>
 
-    <div>
-        <label>Longitude</label>
-        <input asp-for="Longitude" class="form-control" />
-    </div>
+        <div class="mb-3">
+            <label>Latitude</label>
+            <input asp-for="Latitude" class="form-control" />
+        </div>
 
-    <button type="submit" class="btn btn-success mt-2">Save</button>
-</form>
+        <div class="mb-3">
+            <label>Longitude</label>
+            <input asp-for="Longitude" class="form-control" />
+        </div>
+
+        <button class="btn btn-success">Save</button>
+
+    </form>
+</div>

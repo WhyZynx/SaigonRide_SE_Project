@@ -1,58 +1,62 @@
 ﻿@model List<SaigonRideProject.ViewModels.UserViewModel>
 
-<table class="table table-hover table-bordered align-middle">
-    <thead class="table-dark">
+<table class="table table-hover align-middle border">
+
+    <thead class="table-light">
         <tr>
             <th>ID</th>
-            <th>Name</th>
-            <th>User Type</th>
+            <th>User</th>
+            <th>Type</th>
             <th>Contact</th>
             <th>Verification</th>
             <th>Status</th>
             <th>Balance</th>
-            <th>Action</th>
+            <th class="text-end">Action</th>
         </tr>
     </thead>
 
     <tbody>
+
         @foreach (var u in Model)
         {
             <tr>
-                <td>@u.Id</td>
 
+                <!-- ID -->
+                <td class="text-muted">@u.Id</td>
+
+                <!-- USER -->
                 <td>
-                    <b>@u.FullName</b><br />
+                    <div class="fw-semibold">@u.FullName</div>
                     <small class="text-muted">@u.Email</small>
                 </td>
 
+                <!-- TYPE -->
                 <td>
-                    @if (u.UserType == "Tourist")
-                    {
-                        <span class="badge bg-info">Tourist</span>
-                    }
-                    else
-                    {
-                        <span class="badge bg-secondary">Local</span>
-                    }
+                    @u.UserType
                 </td>
 
-                <td>
-                    @u.Email
-                </td>
+                <!-- CONTACT -->
+                <td>@u.Email</td>
 
                 <!-- VERIFICATION -->
                 <td>
                     @if (u.PassportStatus == "Approved")
                     {
-                        <span class="badge bg-success">Passport Verified</span>
+                        <span class="text-success fw-semibold">
+                            <i class="bi bi-check-circle-fill"></i> Verified
+                        </span>
                     }
                     else if (u.PassportStatus == "Pending")
                     {
-                        <span class="badge bg-warning text-dark">Pending</span>
+                        <span class="text-warning fw-semibold">
+                            <i class="bi bi-hourglass-split"></i> Pending
+                        </span>
                     }
                     else
                     {
-                        <span class="badge bg-secondary">Not Submitted</span>
+                        <span class="text-secondary fw-semibold">
+                            <i class="bi bi-x-circle-fill"></i> Not Submitted
+                        </span>
                     }
                 </td>
 
@@ -60,60 +64,76 @@
                 <td>
                     @if (u.IsLocked)
                     {
-                        <span class="badge bg-danger">Suspended</span>
+                        <span class="text-danger fw-semibold">
+                            <i class="bi bi-lock-fill"></i> Suspended
+                        </span>
                     }
                     else
                     {
-                        <span class="badge bg-success">Active</span>
+                        <span class="text-success fw-semibold">
+                            <i class="bi bi-check-circle-fill"></i> Active
+                        </span>
                     }
                 </td>
 
                 <!-- BALANCE -->
                 <td>
-                    <span class="text-success fw-bold">
-                        @u.Balance.ToString("N0")
+                    <span class="fw-bold text-success">
+                        @String.Format("{0:N0} đ", u.Balance)
                     </span>
                 </td>
 
                 <!-- ACTION -->
-                <td class="text-nowrap">
+                <td class="text-end">
 
-                    <a class="btn btn-sm btn-info"
-                           href="/AdminUser/Detail/@u.Id">
-                        Detail
+                    <!-- DETAIL -->
+                    <a class="btn btn-sm btn-light rounded-circle"
+                       href="/AdminUser/Detail/@u.Id"
+                       title="Detail">
+                        🔍
                     </a>
 
-                    <a class="btn btn-sm btn-warning"
-                           href="/AdminUser/Edit/@u.Id">
-                        Edit
+                    <!-- EDIT -->
+                    <a class="btn btn-sm btn-light rounded-circle"
+                       href="/AdminUser/Edit/@u.Id"
+                       title="Edit">
+                        ✏️
                     </a>
 
+                    <!-- LOCK / UNLOCK -->
                     @if (u.IsLocked)
                     {
-                        <a class="btn btn-sm btn-success"
-                               href="/AdminUser/Unlock/@u.Id">
-                            Unlock
+                        <a class="btn btn-sm btn-light rounded-circle text-success"
+                           href="/AdminUser/Unlock/@u.Id"
+                           title="Unlock">
+                            🔓
                         </a>
                     }
                     else
                     {
-                        <a class="btn btn-sm btn-danger"
-                               href="/AdminUser/Delete/@u.Id"
-                               onclick="return confirm('Lock this user?')">
-                            Lock
+                        <a class="btn btn-sm btn-light rounded-circle text-danger"
+                           href="/AdminUser/Delete/@u.Id"
+                           onclick="return confirm('Lock this user?')"
+                           title="Lock">
+                            🔒
                         </a>
                     }
 
+                    <!-- APPROVE -->
                     @if (u.PassportStatus == "Pending")
                     {
-                        <a class="btn btn-sm btn-primary"
-                               href="/AdminUser/Approve/@u.Id">
-                            Approve
+                        <a class="btn btn-sm btn-light rounded-circle text-primary"
+                           href="/AdminUser/Approve/@u.Id"
+                           title="Approve">
+                            ✔️
                         </a>
                     }
 
                 </td>
+
             </tr>
         }
+
     </tbody>
+
 </table>

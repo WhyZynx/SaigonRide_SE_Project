@@ -4,39 +4,95 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<div class="d-flex justify-content-between align-items-center mb-3">
-    <h3 class="mb-0">Vehicle Management</h3>
-    <a class="btn btn-primary" href="/AdminVehicle/Create">+ Add Vehicle</a>
-</div>
+<div class="container-fluid py-4">
 
-<div class="row g-2 mb-3">
+    <!-- HEADER -->
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4 gap-2">
+        <div>
+            <h3 class="fw-bold mb-0">🚲 Vehicle Management</h3>
+            <small class="text-muted">Manage all vehicles in system</small>
+        </div>
 
-    <div class="col-md-4">
-        <input type="text" id="searchBox" class="form-control"
-               placeholder="Search plate number..." />
+        <a class="btn btn-success rounded-3" href="/AdminVehicle/Create">
+            <i class="bi bi-plus-lg"></i> + Add Vehicle
+        </a>
     </div>
 
-    <div class="col-md-3">
-        <select id="vehicleType" class="form-select">
-            <option value="">All Types</option>
-            <option value="Bike">Bike</option>
-            <option value="E-Scooter">E-Scooter</option>
-        </select>
+    <!-- KPI -->
+    <div class="row g-3 mb-4">
+
+        <div class="col-6 col-md-4">
+            <div class="card border-0 shadow-sm rounded-4 p-3 text-center">
+                <small class="text-muted">Total Vehicles</small>
+                <h4>@Model.Count()</h4>
+            </div>
+        </div>
+
+        <div class="col-6 col-md-4">
+            <div class="card border-0 shadow-sm rounded-4 p-3 text-center">
+                <small class="text-muted">Available</small>
+                <h4 class="text-success">
+                    @Model.Count(v => v.Status == "Available")
+                </h4>
+            </div>
+        </div>
+
+        <div class="col-6 col-md-4">
+            <div class="card border-0 shadow-sm rounded-4 p-3 text-center">
+                <small class="text-muted">In Use</small>
+                <h4 class="text-warning">
+                    @Model.Count(v => v.Status == "InUse")
+                </h4>
+            </div>
+        </div>
+
     </div>
 
-    <div class="col-md-3">
-        <select id="status" class="form-select">
-            <option value="">All Status</option>
-            <option value="Available">Available</option>
-            <option value="InUse">In Use</option>
-            <option value="Maintenance">Maintenance</option>
-        </select>
+    <!-- FILTER -->
+    <div class="card border-0 shadow-sm rounded-4 p-3 mb-3">
+
+        <div class="row g-2">
+
+            <div class="col-12 col-md-4">
+                <input type="text" id="searchBox" class="form-control rounded-3"
+                       placeholder="🔍 Search plate number..." />
+            </div>
+
+            <div class="col-6 col-md-3">
+                <select id="vehicleType" class="form-select rounded-3">
+                    <option value="">All Types</option>
+                    <option value="Bike">🚲 Bike</option>
+                    <option value="E-Scooter">🛴 E-Scooter</option>
+                </select>
+            </div>
+
+            <div class="col-6 col-md-3">
+                <select id="status" class="form-select rounded-3">
+                    <option value="">All Status</option>
+                    <option value="Available">🟢 Available</option>
+                    <option value="InUse">🟡 In Use</option>
+                    <option value="Maintenance">⚙️ Maintenance</option>
+                </select>
+            </div>
+
+        </div>
+
     </div>
 
-</div>
+    <!-- TABLE -->
+    <div class="card border-0 shadow-sm rounded-4">
+        <div class="card-body">
 
-<div id="vehicleTable">
-    @Html.Partial("_VehicleTable", Model)
+            <!-- Responsive table wrapper -->
+            <div class="table-responsive">
+                <div id="vehicleTable">
+                    @Html.Partial("_VehicleTable", Model)
+                </div>
+            </div>
+
+        </div>
+    </div>
+
 </div>
 
 <script src="~/js/admin-vehicle.js"></script>

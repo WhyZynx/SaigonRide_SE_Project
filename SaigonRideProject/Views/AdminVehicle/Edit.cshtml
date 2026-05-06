@@ -4,54 +4,69 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h3>Edit Vehicle</h3>
+<div class="container py-4">
 
-<form method="post">
+    <h3 class="fw-bold mb-4">✏️ Edit Vehicle</h3>
 
-    <input type="hidden" name="Id" value="@Model.Id" />
+    <div class="card border-0 shadow-sm rounded-4 p-4">
 
-    <div class="mb-3">
-        <label>Vehicle Type</label>
-        <select class="form-control" name="VehicleType">
-            <option value ="Bike" selected="@(Model.VehicleType == "Bike")">Bike</option>
-            <option value="E-Scooter" selected="@(Model.VehicleType == "E-Scooter")">E-Scooter</option>
-        </select>
+        <form method="post">
+
+            <input type="hidden" name="Id" value="@Model.Id" />
+
+            <div class="row g-3">
+
+                <div class="col-md-6">
+                    <label class="form-label">Vehicle Type</label>
+                    <select class="form-select" name="VehicleType">
+                        <option value="Bike" selected="@(Model.VehicleType == "Bike")">🚲 Bike</option>
+                        <option value="E-Scooter" selected="@(Model.VehicleType == "E-Scooter")">🛴 E-Scooter</option>
+                    </select>
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label">Plate Number</label>
+                    <input class="form-control" name="PlateNumber" value="@Model.PlateNumber" />
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label">Status</label>
+                    <select class="form-select" name="Status">
+                        <option value="Available" selected="@(Model.Status == "Available")">🟢 Available</option>
+                        <option value="InUse" selected="@(Model.Status == "InUse")">🟡 In Use</option>
+                        <option value="Maintenance" selected="@(Model.Status == "Maintenance")">⚙️ Maintenance</option>
+                    </select>
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label">Price Per Minute</label>
+                    <select class="form-select" name="PricePerMinute">
+                        <option value="500" selected="@(Model.PricePerMinute == 500)">500 VND</option>
+                        <option value="1500" selected="@(Model.PricePerMinute == 1500)">1500 VND</option>
+                    </select>
+                </div>
+
+                <div class="col-md-12">
+                    <label class="form-label">Station</label>
+                    <select class="form-select" name="StationId">
+                        @foreach (var s in ViewBag.Stations)
+                        {
+                            <option value="@s.Id" selected="@(s.Id == Model.StationId)">
+                                @s.Name
+                            </option>
+                        }
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="mt-4 d-flex gap-2">
+                <button class="btn btn-primary">Save</button>
+                <a href="/AdminVehicle" class="btn btn-secondary">Cancel</a>
+            </div>
+
+        </form>
+
     </div>
 
-    <div class="mb-3">
-        <label>Plate Number</label>
-        <input class="form-control" name="PlateNumber" value="@Model.PlateNumber" />
-    </div>
-
-    <div class="mb-3">
-        <label>Status</label>
-        <select class="form-control" name="Status">
-            <option value="Available" selected="@(Model.Status == "Available")">Available</option>
-            <option value="InUse" selected="@(Model.Status == "InUse")">InUse</option>
-            <option value="Maintenance" selected="@(Model.Status == "Maintenance")">Maintenance</option>
-        </select>
-    </div>
-
-    <div class="mb-3">
-        <label>Price Per Minute</label>
-        <select class="form-control" name="PricePerMinute">
-            <option value="500" selected="@(Model.PricePerMinute == 500)">500 VND</option>
-            <option value="1500" selected="@(Model.PricePerMinute == 1500)">1500 VND</option>
-        </select>
-    </div>
-
-    <div class="mb-3">
-        <label>Station</label>
-        <select class="form-control" name="StationId">
-            @foreach (var s in ViewBag.Stations)
-            {
-                <option value="@s.Id" selected="@(s.Id == Model.StationId)">
-                    @s.Name
-                </option>
-            }
-        </select>
-    </div>
-
-    <button class="btn btn-primary">Save</button>
-
-</form>
+</div>
