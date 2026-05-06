@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
 using SaigonRideProject.Data;
 using SaigonRideProject.Services;
@@ -12,7 +13,6 @@ namespace SaigonRideProject
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            builder.Services.AddControllersWithViews();
 
             builder.Services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(
@@ -37,6 +37,28 @@ namespace SaigonRideProject
             });
 
             var app = builder.Build();
+
+            var supportedCultures = new[] { "en-US", "vi-VN" };
+
+            var localizationOptions = new RequestLocalizationOptions()
+                .SetDefaultCulture("en-US")
+                .AddSupportedCultures(supportedCultures)
+                .AddSupportedUICultures(supportedCultures);
+
+            localizationOptions.RequestCultureProviders.Insert(0, new CookieRequestCultureProvider());
+            app.UseRequestLocalization(localizationOptions);
+
+            app.Use(async (context, next) =>
+            {
+                var culture = context.Features.Get<IRequestCultureFeature>();
+                if (culture != null)
+                {
+                    var requestCulture = culture.RequestCulture;
+                    System.Globalization.CultureInfo.CurrentCulture = requestCulture.Culture;
+                    System.Globalization.CultureInfo.CurrentUICulture = requestCulture.UICulture;
+                }
+                await next();
+            });
 
             app.UseStaticFiles();
             app.UseRouting();

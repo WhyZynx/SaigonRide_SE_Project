@@ -5,10 +5,19 @@ public class LanguageController : Controller
 {
     public IActionResult SetLanguage(string culture, string returnUrl)
     {
+        var cookieValue = CookieRequestCultureProvider.MakeCookieValue(
+            new RequestCulture(culture)
+        );
+
         Response.Cookies.Append(
             CookieRequestCultureProvider.DefaultCookieName,
-            CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)),
-            new CookieOptions { Expires = DateTimeOffset.UtcNow.AddYears(1) }
+            cookieValue,
+            new CookieOptions
+            {
+                Expires = DateTimeOffset.UtcNow.AddYears(1),
+                Path = "/",
+                IsEssential = true
+            }
         );
 
         return LocalRedirect(returnUrl ?? "/");

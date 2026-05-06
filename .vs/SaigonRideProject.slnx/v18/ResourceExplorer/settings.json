@@ -1,6 +1,8 @@
 {
   "ShowEmptyProjects": false,
-  "SelectedGroups": [],
+  "SelectedGroups": [
+    "C:\\Users\\DELL\\OneDrive\\Documents\\SaigonRide_Project\\SaigonRideProject\\Resources\\SharedResource.resx"
+  ],
   "ExpandedProjects": [],
   "EnableSpellChecker": true,
   "ColumnOrder": [
@@ -9,9 +11,13 @@
     "neutral-value",
     "neutral-comment",
     "en-US",
-    "vi-VN"
+    "vi-VN",
+    "file-path",
+    "file-name"
   ],
   "VisibleColumnKeys": [
-    "name"
+    "name",
+    "en-US",
+    "vi-VN"
   ]
 }

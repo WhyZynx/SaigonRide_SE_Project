@@ -1,4 +1,10 @@
-﻿@{
+﻿@using SaigonRideProject.Data
+@using Microsoft.Extensions.Localization
+@using SaigonRideProject.Resources
+
+@inject IStringLocalizerFactory LocalizerFactory
+@{
+    var Localizer = LocalizerFactory.Create("SharedResource", "SaigonRideProject");
     Layout = "Account_Layout";
 }
 
@@ -23,12 +29,11 @@
             <div class="d-flex flex-column justify-content-end h-100 w-100 p-5">
                 <div class="mb-4">
                     <h1 class="display-4 fw-bold mb-3 lh-sm">
-                        The Kinetic Editorial of Urban Mobility.
+                        @Localizer["SelectionTitle"]
                     </h1>
 
                     <p class="lead opacity-75 mb-4 w-75">
-                        Discover Saigon's hidden gems through curated bike routes
-                        and sustainable travel experiences.
+                        @Localizer["SelectionSubTitle"]
                     </p>
 
                     <div class="d-flex align-items-center gap-2">
@@ -39,7 +44,7 @@
                         </div>
 
                         <small class="opacity-75 ms-2">
-                            Trusted by 500+ tourists monthly
+                            @Localizer["TrustedTourists"]
                         </small>
                     </div>
                 </div>
@@ -50,7 +55,7 @@
             <div class="w-100 px-4 px-lg-5" style="max-width: 550px;">
 
                 <h2 class="fw-bold mb-5 text-dark display-6">
-                    Who you are
+                    @Localizer["WhoYouAre"]
                 </h2>
 
                 <form method="post">
@@ -65,10 +70,9 @@
                         </div>
 
                         <div class="text-dark">
-                            <h6 class="fw-bold mb-1">Local User</h6>
+                            <h6 class="fw-bold mb-1">@Localizer["LocalUser"]</h6>
                             <p class="small text-muted mb-0">
-                                Integrated with Vietnam's leading digital wallets.
-                                Requires Phone OTP verification.
+                                @Localizer["LocalDesc"]
                             </p>
                         </div>
                     </button>
@@ -84,10 +88,9 @@
                         </div>
 
                         <div class="text-dark">
-                            <h6 class="fw-bold mb-1">Tourist</h6>
+                            <h6 class="fw-bold mb-1">@Localizer["TouristUser"]</h6>
                             <p class="small text-muted mb-0">
-                                Seamlessly explore with global payment standards.
-                                Requires Passport upload.
+                                @Localizer["TouristDesc"]
                             </p>
                         </div>
                     </button>

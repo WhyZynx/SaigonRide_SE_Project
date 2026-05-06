@@ -123,4 +123,124 @@
   <data name="Welcome" xml:space="preserve">
     <value>Xin chào</value>
   </data>
+  <data name="Homepage" xml:space="preserve">
+    <value>Trang Chủ</value>
+  </data>
+  <data name="CurrentlyRenting" xml:space="preserve">
+    <value>Đang Thuê</value>
+  </data>
+  <data name="History" xml:space="preserve">
+    <value>Lịch Sử</value>
+  </data>
+  <data name="Transactions" xml:space="preserve">
+    <value>Giao Dịch</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Ngôn Ngữ</value>
+  </data>
+  <data name="Support" xml:space="preserve">
+    <value>Hỗ Trợ</value>
+  </data>
+  <data name="LoginTitle" xml:space="preserve">
+    <value>Trải nghiệm Saigon Ride.</value>
+  </data>
+  <data name="LoginSubTitle" xml:space="preserve">
+    <value>Di chuyển khắp Sài Gòn dễ dàng với xe điện thân thiện môi trường và sự thoải mái cao cấp. Hành trình của bạn bắt đầu từ đây.</value>
+  </data>
+  <data name="ActiveRiders" xml:space="preserve">
+    <value>Tham gia cùng hơn 12.000 người dùng tại Sài Gòn</value>
+  </data>
+  <data name="WelcomeBack" xml:space="preserve">
+    <value>Chào mừng quay trở lại</value>
+  </data>
+  <data name="SignInPrompt" xml:space="preserve">
+    <value>Vui lòng nhập thông tin để đăng nhập</value>
+  </data>
+  <data name="EmailLabel" xml:space="preserve">
+    <value>ĐỊA CHỈ EMAIL</value>
+  </data>
+  <data name="PasswordLabel" xml:space="preserve">
+    <value>MẬT KHẨU</value>
+  </data>
+  <data name="ForgotPass" xml:space="preserve">
+    <value>QUÊN?</value>
+  </data>
+  <data name="LoginBtn" xml:space="preserve">
+    <value>Đăng Nhập</value>
+  </data>
+  <data name="SignUpBtn" xml:space="preserve">
+    <value>Đăng Ký</value>
+  </data>
+  <data name="TermsAgreement" xml:space="preserve">
+    <value>Bằng cách đăng nhập, bạn đồng ý với</value>
+  </data>
+  <data name="TermsOfService" xml:space="preserve">
+    <value>Điều khoản dịch vụ</value>
+  </data>
+  <data name="PrivacyPolicy" xml:space="preserve">
+    <value>Chính sách bảo mật</value>
+  </data>
+  <data name="RegisterTitle" xml:space="preserve">
+    <value>Sài Gòn luôn chờ bạn khám phá.</value>
+  </data>
+  <data name="AvailableFleet" xml:space="preserve">
+    <value>Đội xe sẵn sàng</value>
+  </data>
+  <data name="FleetBikes" xml:space="preserve">
+    <value>Hơn 2.400 xe</value>
+  </data>
+  <data name="FleetSubTitle" xml:space="preserve">
+    <value>Tham gia cùng hàng ngàn hành khách khám phá nhịp sống Sài Gòn một cách bền vững.</value>
+  </data>
+  <data name="TrustedTourists" xml:space="preserve">
+    <value>Được tin dùng bởi hơn 500 khách du lịch mỗi tháng</value>
+  </data>
+  <data name="CreateAccount" xml:space="preserve">
+    <value>Tạo tài khoản của bạn</value>
+  </data>
+  <data name="FullNameLabel" xml:space="preserve">
+    <value>Họ và Tên</value>
+  </data>
+  <data name="ConfirmPassLabel" xml:space="preserve">
+    <value>Xác nhận mật khẩu</value>
+  </data>
+  <data name="PassRequirements" xml:space="preserve">
+    <value>Mật khẩu phải bao gồm:</value>
+  </data>
+  <data name="ReqLength" xml:space="preserve">
+    <value>Ít nhất 8 ký tự</value>
+  </data>
+  <data name="ReqUpper" xml:space="preserve">
+    <value>1 chữ cái viết hoa</value>
+  </data>
+  <data name="ReqNumber" xml:space="preserve">
+    <value>1 chữ số</value>
+  </data>
+  <data name="RegisterBtn" xml:space="preserve">
+    <value>Đăng ký tài khoản</value>
+  </data>
+  <data name="HaveAccount" xml:space="preserve">
+    <value>Bạn đã có tài khoản?</value>
+  </data>
+  <data name="SelectionTitle" xml:space="preserve">
+    <value>Chuyển động không ngừng cùng giao thông đô thị.</value>
+  </data>
+  <data name="SelectionSubTitle" xml:space="preserve">
+    <value>Khám phá những góc khuất thú vị của Sài Gòn qua các lộ trình xe đạp và trải nghiệm du lịch bền vững.</value>
+  </data>
+  <data name="WhoYouAre" xml:space="preserve">
+    <value>Bạn là ai?</value>
+  </data>
+  <data name="LocalUser" xml:space="preserve">
+    <value>Người dùng địa phương</value>
+  </data>
+  <data name="LocalDesc" xml:space="preserve">
+    <value>Tích hợp các ví điện tử hàng đầu Việt Nam. Yêu cầu xác thực OTP qua số điện thoại.</value>
+  </data>
+  <data name="TouristUser" xml:space="preserve">
+    <value>Khách du lịch</value>
+  </data>
+  <data name="TouristDesc" xml:space="preserve">
+    <value>Khám phá dễ dàng với các tiêu chuẩn thanh toán quốc tế. Yêu cầu tải lên hộ chiếu.</value>
+  </data>
 </root>

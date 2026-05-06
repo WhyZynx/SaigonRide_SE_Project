@@ -123,4 +123,124 @@
   <data name="Welcome" xml:space="preserve">
     <value>Welcome</value>
   </data>
+  <data name="Homepage" xml:space="preserve">
+    <value>Homepage</value>
+  </data>
+  <data name="CurrentlyRenting" xml:space="preserve">
+    <value>CurrentlyRenting</value>
+  </data>
+  <data name="History" xml:space="preserve">
+    <value>History</value>
+  </data>
+  <data name="Transactions" xml:space="preserve">
+    <value>Transactions</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="Support" xml:space="preserve">
+    <value>Support</value>
+  </data>
+  <data name="LoginTitle" xml:space="preserve">
+    <value>Experience the Saigon Ride.</value>
+  </data>
+  <data name="LoginSubTitle" xml:space="preserve">
+    <value>Seamlessly navigate Saigon with eco-friendly rides and premium comfort. Your journey begins here.</value>
+  </data>
+  <data name="ActiveRiders" xml:space="preserve">
+    <value>Join 12k+ active riders in Saigon</value>
+  </data>
+  <data name="WelcomeBack" xml:space="preserve">
+    <value>Welcome back</value>
+  </data>
+  <data name="SignInPrompt" xml:space="preserve">
+    <value>Please enter your details to sign in</value>
+  </data>
+  <data name="EmailLabel" xml:space="preserve">
+    <value>EMAIL ADDRESS</value>
+  </data>
+  <data name="PasswordLabel" xml:space="preserve">
+    <value>PASSWORD</value>
+  </data>
+  <data name="ForgotPass" xml:space="preserve">
+    <value>FORGOT?</value>
+  </data>
+  <data name="LoginBtn" xml:space="preserve">
+    <value>Log In</value>
+  </data>
+  <data name="SignUpBtn" xml:space="preserve">
+    <value>Sign Up</value>
+  </data>
+  <data name="TermsAgreement" xml:space="preserve">
+    <value>By logging in, you agree to our</value>
+  </data>
+  <data name="TermsOfService" xml:space="preserve">
+    <value>Terms of Service</value>
+  </data>
+  <data name="PrivacyPolicy" xml:space="preserve">
+    <value>Privacy Policy</value>
+  </data>
+  <data name="RegisterTitle" xml:space="preserve">
+    <value>Saigon is yours to explore.</value>
+  </data>
+  <data name="AvailableFleet" xml:space="preserve">
+    <value>Available Fleet</value>
+  </data>
+  <data name="FleetBikes" xml:space="preserve">
+    <value>2,400+ Bikes</value>
+  </data>
+  <data name="FleetSubTitle" xml:space="preserve">
+    <value>Join thousands of travelers navigating the vibrant pulse of Ho Chi Minh City sustainably.</value>
+  </data>
+  <data name="TrustedTourists" xml:space="preserve">
+    <value>Trusted by 500+ tourists monthly</value>
+  </data>
+  <data name="CreateAccount" xml:space="preserve">
+    <value>Create your account</value>
+  </data>
+  <data name="FullNameLabel" xml:space="preserve">
+    <value>Full Name</value>
+  </data>
+  <data name="ConfirmPassLabel" xml:space="preserve">
+    <value>Confirm Password</value>
+  </data>
+  <data name="PassRequirements" xml:space="preserve">
+    <value>Password must contain:</value>
+  </data>
+  <data name="ReqLength" xml:space="preserve">
+    <value>At least 8 characters</value>
+  </data>
+  <data name="ReqUpper" xml:space="preserve">
+    <value>1 uppercase letter</value>
+  </data>
+  <data name="ReqNumber" xml:space="preserve">
+    <value>1 number</value>
+  </data>
+  <data name="RegisterBtn" xml:space="preserve">
+    <value>Register Account</value>
+  </data>
+  <data name="HaveAccount" xml:space="preserve">
+    <value>Already have an account?</value>
+  </data>
+  <data name="SelectionTitle" xml:space="preserve">
+    <value>The Kinetic Editorial of Urban Mobility.</value>
+  </data>
+  <data name="SelectionSubTitle" xml:space="preserve">
+    <value>Discover Saigon's hidden gems through curated bike routes and sustainable travel experiences.</value>
+  </data>
+  <data name="WhoYouAre" xml:space="preserve">
+    <value>Who you are</value>
+  </data>
+  <data name="LocalUser" xml:space="preserve">
+    <value>Local User</value>
+  </data>
+  <data name="LocalDesc" xml:space="preserve">
+    <value>Integrated with Vietnam's leading digital wallets. Requires Phone OTP verification.</value>
+  </data>
+  <data name="TouristUser" xml:space="preserve">
+    <value>Tourist</value>
+  </data>
+  <data name="TouristDesc" xml:space="preserve">
+    <value>Seamlessly explore with global payment standards. Requires Passport upload.</value>
+  </data>
 </root>

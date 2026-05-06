@@ -1,5 +1,13 @@
 ﻿@using SaigonRideProject.Data
+@using Microsoft.Extensions.Localization
 @inject AppDbContext _context
+@using SaigonRideProject.Resources
+
+@inject IStringLocalizerFactory LocalizerFactory
+@{
+    var Localizer = LocalizerFactory.Create("SharedResource", "SaigonRideProject");
+}
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,9 +22,9 @@
                 transition: color 0.2s;
             }
 
-                .nav-link-custom:hover {
-                    color: #075985;
-                }
+            .nav-link-custom:hover {
+                color: #075985;
+            }
     </style>
 </head>
 <body>
@@ -33,8 +41,30 @@
             <div class="ms-auto d-flex align-items-center gap-4">
                 
                 <div class="d-flex align-items-center gap-3">
-                    <a href="#" class="text-decoration-none text-secondary small">Language</a>
-                    <a href="#" class="text-decoration-none text-secondary small">Support</a>
+                    <div class="nav-item dropdown custom-nav">
+                        <a class="nav-link d-flex align-items-center gap-2 px-3 dropdown-toggle border-0 text-decoration-none text-secondary small"
+                               href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-translate"></i> <span>@Localizer["Language"]</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0 mt-2">
+                            <li>
+                                <a class="dropdown-item d-flex align-items-center gap-2 py-2"
+                                       href="/Language/SetLanguage?culture=vi-VN&returnUrl=@Uri.EscapeDataString(Context.Request.Path + Context.Request.QueryString)">
+                                    <span class="fi fi-vn"></span> Tiếng Việt
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item d-flex align-items-center gap-2 py-2"
+                                       href="/Language/SetLanguage?culture=en-US&returnUrl=@Uri.EscapeDataString(Context.Request.Path + Context.Request.QueryString)">
+                                    <span class="fi fi-us"></span> English
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="#"
+                           class="nav-link d-flex align-items-center gap-2 px-3 border-0 text-decoration-none text-secondary small">
+                        @Localizer["Support"]
+                    </a>
                 </div>
             </div>
         </div>
