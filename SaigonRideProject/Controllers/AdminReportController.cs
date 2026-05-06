@@ -96,7 +96,7 @@ namespace SaigonRideProject.Controllers
         public IActionResult ExportInventory()
         {
             var stations = _context.Stations
-                .Include(s => s.Vehicles) 
+                .Include(s => s.Vehicles)
                 .ToList();
 
             var csv = "Station,Capacity,Current,Status\n";
@@ -104,10 +104,7 @@ namespace SaigonRideProject.Controllers
             foreach (var s in stations)
             {
                 var current = s.Vehicles.Count();
-
-                var status = current < (s.Capacity * 0.2)
-                    ? "Low"
-                    : "Normal";
+                var status = GetStatus(s.Capacity, current);
 
                 csv += $"{s.Name},{s.Capacity},{current},{status}\n";
             }
@@ -117,6 +114,17 @@ namespace SaigonRideProject.Controllers
                 "text/csv",
                 "Inventory_Report.csv"
             );
+        }
+
+        private string GetStatus(int capacity, int current)
+        {
+            if (capacity == 0) return "Low";
+
+            double ratio = (double)current / capacity;
+
+            if (ratio < 0.2) return "Low";
+            if (ratio < 0.7) return "Normal";
+            return "Full";
         }
     }
 }
