@@ -95,20 +95,33 @@ namespace SaigonRideProject.Controllers
 
         public IActionResult ExportInventory()
         {
-            var stations = _context.Stations.ToList();
+            var stations = _context.Stations
+                .Include(s => s.Vehicles)
+                .ToList();
 
             var csv = "Station,Capacity,Current,Status\n";
 
             foreach (var s in stations)
             {
-                var status = s.Vehicles.Count() < (s.Capacity * 0.2) ? "Low" : "Normal";
+                var current = s.Vehicles.Count();
+                var status = GetStatus(s.Capacity, current);
 
-                csv += $"{s.Name},{s.Capacity},{s.Vehicles.Count()},{status}\n";
+                csv += $"{s.Name},{s.Capacity},{current},{status}\n";
             }
 
-            return File(System.Text.Encoding.UTF8.GetBytes(csv),
+            return File(
+                System.Text.Encoding.UTF8.GetBytes(csv),
                 "text/csv",
-                "Inventory_Report.csv");
+                "Inventory_Report.csv"
+            );
+        }
+
+        private string GetStatus(int capacity, int current)
+        {
+            if (capacity == 0) return "Low";
+            if (current == capacity) return "Full"; 
+            if ((double)current / capacity < 0.2) return "Low";
+            return "Normal";
         }
     }
 }
