@@ -372,4 +372,274 @@
   <data name="StartNowBtn" xml:space="preserve">
     <value>Start Now</value>
   </data>
+  <data name="Available" xml:space="preserve">
+    <value>Available</value>
+  </data>
+  <data name="InUse" xml:space="preserve">
+    <value>In Use</value>
+  </data>
+  <data name="Maintenance" xml:space="preserve">
+    <value>Maintenance</value>
+  </data>
+  <data name="Bike" xml:space="preserve">
+    <value>Bicycle</value>
+  </data>
+  <data name="E-Scooter" xml:space="preserve">
+    <value>Electric Scooter</value>
+  </data>
+  <data name="Station_1_Name" xml:space="preserve">
+    <value>Ben Thanh Station</value>
+  </data>
+  <data name="District 1" xml:space="preserve">
+    <value>District 1</value>
+  </data>
+  <data name="Completed" xml:space="preserve">
+    <value>Completed</value>
+  </data>
+  <data name="ReadyForRide" xml:space="preserve">
+    <value>Ready for a ride through the city?</value>
+  </data>
+  <data name="AccountLocked" xml:space="preserve">
+    <value>Account Locked</value>
+  </data>
+  <data name="ActiveAccount" xml:space="preserve">
+    <value>Active Account</value>
+  </data>
+  <data name="BalanceLabel" xml:space="preserve">
+    <value>Balance</value>
+  </data>
+  <data name="QuickTopUp" xml:space="preserve">
+    <value>Quick Top Up</value>
+  </data>
+  <data name="AmountPlaceholder" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="AddFundsBtn" xml:space="preserve">
+    <value>Add Funds</value>
+  </data>
+  <data name="ExploreStations" xml:space="preserve">
+    <value>Explore All Stations</value>
+  </data>
+  <data name="NearbyHubs" xml:space="preserve">
+    <value>Nearby Hubs</value>
+  </data>
+  <data name="MyLocation" xml:space="preserve">
+    <value>My Location</value>
+  </data>
+  <data name="StartRide" xml:space="preserve">
+    <value>Start Ride</value>
+  </data>
+  <data name="YouAreHere" xml:space="preserve">
+    <value>You are here</value>
+  </data>
+  <data name="CashAtStation" xml:space="preserve">
+    <value>Cash at Station</value>
+  </data>
+  <data name="StatusNormal" xml:space="preserve">
+    <value>Normal</value>
+  </data>
+  <data name="StatusAlmostEmpty" xml:space="preserve">
+    <value>Almost empty</value>
+  </data>
+  <data name="StationsNearestYou" xml:space="preserve">
+    <value>Stations Nearest You</value>
+  </data>
+  <data name="StationsCountUnit" xml:space="preserve">
+    <value>Stations</value>
+  </data>
+  <data name="FullLabel" xml:space="preserve">
+    <value>Full</value>
+  </data>
+  <data name="LowStockWarning" xml:space="preserve">
+    <value>LOW STOCK</value>
+  </data>
+  <data name="ViewStationDetail" xml:space="preserve">
+    <value>View Station Detail</value>
+  </data>
+  <data name="Station_2_Name" xml:space="preserve">
+    <value>District 3 Hub</value>
+  </data>
+  <data name="Station_3_Name" xml:space="preserve">
+    <value>Binh Thanh Station</value>
+  </data>
+  <data name="Station_4_Name" xml:space="preserve">
+    <value>Thu Duc Station</value>
+  </data>
+  <data name="Station_5_Name" xml:space="preserve">
+    <value>Tan Binh Station</value>
+  </data>
+  <data name="Station_6_Name" xml:space="preserve">
+    <value>District 7 Station</value>
+  </data>
+  <data name="Station_7_Name" xml:space="preserve">
+    <value>Phu Nhuan Station</value>
+  </data>
+  <data name="Station_8_Name" xml:space="preserve">
+    <value>Go Vap Station</value>
+  </data>
+  <data name="Station_9_Name" xml:space="preserve">
+    <value>District 5 Station</value>
+  </data>
+  <data name="Station_10_Name" xml:space="preserve">
+    <value>District 10 Station</value>
+  </data>
+  <data name="Station_11_Name" xml:space="preserve">
+    <value>Tan Phu Station</value>
+  </data>
+  <data name="Station_12_Name" xml:space="preserve">
+    <value>Binh Tan Station</value>
+  </data>
+  <data name="Vo Van Tan" xml:space="preserve">
+    <value>Vo Van Tan St.</value>
+  </data>
+  <data name="Dien Bien Phu" xml:space="preserve">
+    <value>Dien Bien Phu St.</value>
+  </data>
+  <data name="Vo Nguyen Giap" xml:space="preserve">
+    <value>Vo Nguyen Giap St.</value>
+  </data>
+  <data name="Cong Hoa" xml:space="preserve">
+    <value>Cong Hoa St.</value>
+  </data>
+  <data name="Nguyen Van Linh" xml:space="preserve">
+    <value>Nguyen Van Linh St.</value>
+  </data>
+  <data name="Phan Xich Long" xml:space="preserve">
+    <value>Phan Xich Long St.</value>
+  </data>
+  <data name="Quang Trung" xml:space="preserve">
+    <value>Quang Trung St.</value>
+  </data>
+  <data name="Tran Hung Dao" xml:space="preserve">
+    <value>Tran Hung Dao St.</value>
+  </data>
+  <data name="Su Van Hanh" xml:space="preserve">
+    <value>Su Van Hanh St.</value>
+  </data>
+  <data name="Lu Gia" xml:space="preserve">
+    <value>Lu Gia St.</value>
+  </data>
+  <data name="Kinh Duong Vuong" xml:space="preserve">
+    <value>Kinh Duong Vuong St.</value>
+  </data>
+  <data name="BackToStationList" xml:space="preserve">
+    <value>Back to station list</value>
+  </data>
+  <data name="LowInventoryPromotion" xml:space="preserve">
+    <value>Low Inventory — Return your vehicle here for 15% discount!</value>
+  </data>
+  <data name="TotalCapacity" xml:space="preserve">
+    <value>Total Capacity</value>
+  </data>
+  <data name="AvailableNow" xml:space="preserve">
+    <value>Available Now</value>
+  </data>
+  <data name="FillRate" xml:space="preserve">
+    <value>Fill Rate</value>
+  </data>
+  <data name="PricingTitle" xml:space="preserve">
+    <value>Pricing</value>
+  </data>
+  <data name="MinuteUnit" xml:space="preserve">
+    <value>minute</value>
+  </data>
+  <data name="AvailableVehiclesAt" xml:space="preserve">
+    <value>Available Vehicles at</value>
+  </data>
+  <data name="SearchIDPlaceholder" xml:space="preserve">
+    <value>Search ID...</value>
+  </data>
+  <data name="AllVehicles" xml:space="preserve">
+    <value>All Vehicles</value>
+  </data>
+  <data name="FilterBtn" xml:space="preserve">
+    <value>Filter</value>
+  </data>
+  <data name="ThVehicleType" xml:space="preserve">
+    <value>Vehicle Type</value>
+  </data>
+  <data name="ThVehicleID" xml:space="preserve">
+    <value>Vehicle ID</value>
+  </data>
+  <data name="ThPrice" xml:space="preserve">
+    <value>Price</value>
+  </data>
+  <data name="ThBattery" xml:space="preserve">
+    <value>Battery</value>
+  </data>
+  <data name="ThStatus" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="ThAction" xml:space="preserve">
+    <value>Action</value>
+  </data>
+  <data name="RentNowBtn" xml:space="preserve">
+    <value>Rent Now</value>
+  </data>
+  <data name="UnavailableBtn" xml:space="preserve">
+    <value>Unavailable</value>
+  </data>
+  <data name="RealTimeTracking" xml:space="preserve">
+    <value>Real-time location tracking</value>
+  </data>
+  <data name="VehicleID" xml:space="preserve">
+    <value>Vehicle ID</value>
+  </data>
+  <data name="RideTime" xml:space="preserve">
+    <value>Ride Time</value>
+  </data>
+  <data name="Estimated" xml:space="preserve">
+    <value>Estimated</value>
+  </data>
+  <data name="PickUp" xml:space="preserve">
+    <value>Pick-up</value>
+  </data>
+  <data name="StationTitle" xml:space="preserve">
+    <value>Station</value>
+  </data>
+  <data name="TripDetails" xml:space="preserve">
+    <value>Trip Details</value>
+  </data>
+  <data name="TotalEstimated" xml:space="preserve">
+    <value>Total Estimated</value>
+  </data>
+  <data name="ReturnStation" xml:space="preserve">
+    <value>Return Station</value>
+  </data>
+  <data name="DiscountNotice" xml:space="preserve">
+    <value>Returning to a low-inventory station earns you a 15% discount!</value>
+  </data>
+  <data name="AvailableStation" xml:space="preserve">
+    <value>Available station</value>
+  </data>
+  <data name="FullStatus" xml:space="preserve">
+    <value>full</value>
+  </data>
+  <data name="Discount" xml:space="preserve">
+    <value>discount</value>
+  </data>
+  <data name="ReturnToCaps" xml:space="preserve">
+    <value>RETURN TO</value>
+  </data>
+  <data name="SelectAStation" xml:space="preserve">
+    <value>Select a station</value>
+  </data>
+  <data name="EndRideBtn" xml:space="preserve">
+    <value>End Ride</value>
+  </data>
+  <data name="AlertSelectStation" xml:space="preserve">
+    <value>Please select a return station first!</value>
+  </data>
+  <data name="CurrentlyRent" xml:space="preserve">
+    <value>Currently Renting</value>
+  </data>
+  <data name="PricePerMinute" xml:space="preserve">
+    <value>Price per minute</value>
+  </data>
+  <data name="StartTime" xml:space="preserve">
+    <value>Start Time</value>
+  </data>
+  <data name="PaymentMethod" xml:space="preserve">
+    <value>Payment Method</value>
+  </data>
 </root>

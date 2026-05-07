@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Localization;
 using SaigonRideProject.Data;
 using SaigonRideProject.Services;
 using SaigonRideProject.Services.Pricing;
@@ -37,6 +38,12 @@ namespace SaigonRideProject
             });
 
             var app = builder.Build();
+
+            using (var scope = app.Services.CreateScope())
+            {
+                var factory = scope.ServiceProvider.GetRequiredService<IStringLocalizerFactory>();
+                SaigonRideProject.Helpers.Locale.Init(factory);
+            }
 
             var supportedCultures = new[] { "en-US", "vi-VN" };
 

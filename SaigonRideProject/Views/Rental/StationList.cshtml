@@ -1,4 +1,11 @@
 ﻿@model List<SaigonRideProject.ViewModels.StationMapViewModel>
+@using SaigonRideProject.Helpers @* Thêm namespace Helper *@
+@using Microsoft.Extensions.Localization
+@using SaigonRideProject.Resources
+@inject IStringLocalizerFactory LocalizerFactory
+@{
+    var Localizer = LocalizerFactory.Create("SharedResource", "SaigonRideProject");
+}
 
 <div class="container-fluid py-5">
     <div class="row g-4 justify-content-center">
@@ -9,11 +16,11 @@
                     <div class="d-flex gap-4 small fw-medium">
                         <div class="d-flex align-items-center gap-2">
                             <span class="rounded-circle" style="width:10px; height:10px; background-color:#22c55e;"></span>
-                            Normal
+                            @Localizer["StatusNormal"]
                         </div>
                         <div class="d-flex align-items-center gap-2">
                             <span class="rounded-circle" style="width:10px; height:10px; background-color:#dc3545;"></span>
-                            Almost empty
+                            @Localizer["StatusAlmostEmpty"]
                         </div>
                     </div>
                 </div>
@@ -22,8 +29,8 @@
 
         <div class="col-lg-5">
             <div class="d-flex justify-content-between align-items-center mb-4">
-                <h5 class="fw-bold mb-0">Stations Nearest You</h5>
-                <small class="text-muted">@Model.Count Stations</small>
+                <h5 class="fw-bold mb-0">@Localizer["StationsNearestYou"]</h5>
+                <small class="text-muted">@Model.Count @Localizer["StationsCountUnit"]</small>
             </div>
 
             <div class="overflow-auto pe-2 custom-scrollbar" style="max-height: 600px;">
@@ -39,8 +46,9 @@
                         <div class="card-body p-3">
                             <div class="d-flex justify-content-between align-items-start mb-2">
                                 <div class="pe-5">
-                                    <h6 class="fw-bold mb-0 text-dark">@s.Name</h6>
-                                    <p class="text-muted small mb-0 mt-1">@s.Address</p>
+                                    @* Dịch tên trạm và địa chỉ *@
+                                    <h6 class="fw-bold mb-0 text-dark">@Locale.StationName(s.Id, s.Name)</h6>
+                                    <p class="text-muted small mb-0 mt-1">@Locale.Translate(s.Address)</p>
                                 </div>
 
                                 <a href="/Rental/StationDetail/@s.Id" 
@@ -56,7 +64,7 @@
                                           style="background-color: @(isLow ? "#fff1f2" : "#f0fdf4"); 
                                                  color: @(isLow ? "#e11d48" : "#22c55e"); 
                                                  font-size: 0.7rem; padding: 0.4em 0.8em;">
-                                        @occupancyPercent% Full
+                                        @occupancyPercent% @Localizer["FullLabel"]
                                     </span>
                                     <span><i class="bi bi-bicycle me-1 text-primary"></i> @s.VehicleCount</span>
                                     <span><i class="bi bi-lightning-charge me-1 text-warning"></i> @s.AvailableCount</span>
@@ -65,7 +73,7 @@
                                 @if (isLow)
                                 {
                                     <span class="text-danger fw-bold" style="font-size: 0.65rem; letter-spacing: 0.5px;">
-                                        <i class="bi bi-exclamation-triangle-fill me-1"></i>LOW STOCK
+                                        <i class="bi bi-exclamation-triangle-fill me-1"></i>@Localizer["LowStockWarning"]
                                     </span>
                                 }
                             </div>
@@ -81,29 +89,9 @@
     body { background-color: #f8fafc; }
     .custom-scrollbar::-webkit-scrollbar { width: 5px; }
     .custom-scrollbar::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 10px; }
-    
-    .station-low { 
-        background-color: #fff1f2 !important; 
-        border-left: 3px solid #fda4af !important; 
-    }
-
-    
-    .btn-icon-link {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-decoration: none;
-        font-size: 1.8rem;
-        transition: 0.2s;
-        line-height: 1;
-        opacity: 0.6;
-    }
-
-    .btn-icon-link:hover {
-        transform: translateX(3px);
-        opacity: 1;
-    }
-
+    .station-low { background-color: #fff1f2 !important; border-left: 3px solid #fda4af !important; }
+    .btn-icon-link { display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.8rem; transition: 0.2s; line-height: 1; opacity: 0.6; }
+    .btn-icon-link:hover { transform: translateX(3px); opacity: 1; }
     .leaflet-popup-content-wrapper { border-radius: 16px !important; padding: 0; overflow: hidden; border: none; }
     .leaflet-popup-tip { display: none; }
 </style>
@@ -119,7 +107,16 @@
             attribution: '&copy; OpenStreetMap'
         }).addTo(map);
 
-        const stations = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model));
+        @* Chuẩn bị dữ liệu đã được dịch để truyền vào JavaScript *@
+        const stations = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.Select(s => new {
+            Id = s.Id,
+            Name = Locale.StationName(s.Id, s.Name),
+            Address = Locale.Translate(s.Address),
+            Latitude = s.Latitude,
+            Longitude = s.Longitude,
+            VehicleCount = s.VehicleCount,
+            Capacity = s.Capacity
+        })));
 
         stations.forEach(s => {
             const occupancyPercent = (s.VehicleCount * 100) / (s.Capacity > 0 ? s.Capacity : 1);
@@ -143,7 +140,7 @@
                     <a href="/Rental/StationDetail/${s.Id}" 
                        class="btn btn-dark w-100 rounded-pill py-2 fw-medium" 
                        style="font-size: 0.8rem; letter-spacing: 0.3px;">
-                        View Station Detail
+                        @Localizer["ViewStationDetail"]
                     </a>
                 </div>
             `;

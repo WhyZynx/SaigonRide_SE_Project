@@ -1,22 +1,28 @@
 ﻿@model SaigonRideProject.ViewModels.UserDashboardViewModel
+@using SaigonRideProject.Helpers
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizerFactory LocalizerFactory
+@{
+    var Localizer = LocalizerFactory.Create("SharedResource", "SaigonRideProject");
+}
 
 <div class="container py-4">
     <div class="row align-items-center mb-4">
         <div class="col-md-6 text-center text-md-start">
-            <h2 class="fw-bold mb-1">Welcome, @Model.User.FullName!</h2>
-            <p class="text-muted mb-0">Ready for a ride through the city?</p>
+            <h2 class="fw-bold mb-1">@Localizer["Welcome"], @Model.User.FullName!</h2>
+            <p class="text-muted mb-0">@Localizer["ReadyForRide"]</p>
         </div>
         <div class="col-md-6 text-center text-md-end mt-3 mt-md-0">
             @if (Model.User.IsLocked)
             {
                 <span class="badge bg-danger-subtle text-danger p-2 px-3 rounded-pill border border-danger border-opacity-10">
-                    <i class="bi bi-lock-fill me-1"></i> Account Locked
+                    <i class="bi bi-lock-fill me-1"></i> @Localizer["AccountLocked"]
                 </span>
             }
             else
             {
                 <span class="badge bg-success-subtle text-success p-2 px-3 rounded-pill border border-success border-opacity-10">
-                    <i class="bi bi-patch-check-fill me-1"></i> Active Account
+                    <i class="bi bi-patch-check-fill me-1"></i> @Localizer["ActiveAccount"]
                 </span>
             }
         </div>
@@ -32,16 +38,16 @@
                             <i class="bi bi-wallet2 text-primary fs-4"></i>
                         </div>
                         <div>
-                            <small class="text-uppercase fw-bold text-muted ls-1" style="font-size: 0.7rem;">Balance</small>
+                            <small class="text-uppercase fw-bold text-muted ls-1" style="font-size: 0.7rem;">@Localizer["BalanceLabel"]</small>
                             <h3 class="fw-bold mb-0">@Model.User.Balance.ToString("N0") <span class="fs-6 fw-normal">VND</span></h3>
                         </div>
                     </div>
 
                     <form method="post" action="/User/TopUp" class="bg-light p-3 rounded-4">
-                        <label class="small fw-bold text-muted mb-2">Quick Top Up</label>
+                        <label class="small fw-bold text-muted mb-2">@Localizer["QuickTopUp"]</label>
                         <div class="input-group mb-2">
                             <span class="input-group-text border-0 bg-white"><i class="bi-currency-dollar"></i></span>
-                            <input type="number" name="amount" class="form-control border-0 shadow-none" placeholder="Amount" required />
+                            <input type="number" name="amount" class="form-control border-0 shadow-none" placeholder="@Localizer["AmountPlaceholder"]" required />
                         </div>
 
                         <select name="method" class="form-select border-0 bg-white shadow-none mb-3">
@@ -49,18 +55,18 @@
                             {
                                 <option value="MoMo">MoMo Wallet</option>
                                 <option value="VNPay">VNPay Portal</option>
-                                <option value="Cash">Cash at Station</option>
+                                <option value="Cash">@Localizer["CashAtStation"]</option>
                             }
                             else
                             {
                                 <option value="PayPal">PayPal</option>
                                 <option value="ApplePay">Apple Pay</option>
-                                <option value="Cash">Cash at Station</option>
+                                <option value="Cash">@Localizer["CashAtStation"]</option>
                             }
                         </select>
 
                         <button class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">
-                            Add Funds
+                            @Localizer["AddFundsBtn"]
                         </button>
                     </form>
                 </div>
@@ -68,16 +74,16 @@
 
             <a href="/Rental/StationList" class="btn btn-dark w-100 rounded-4 py-3 shadow-sm d-flex align-items-center justify-content-center gap-2 hover-up">
                 <i class="bi bi-geo-alt-fill"></i>
-                <span class="fw-bold">Explore All Stations</span>
+                <span class="fw-bold">@Localizer["ExploreStations"]</span>
             </a>
         </div>
 
         <div class="col-lg-8">
             <div class="card border-0 shadow-sm rounded-4 overflow-hidden" style="height: 600px;">
                 <div class="card-header bg-white border-0 py-3 px-4 d-flex justify-content-between align-items-center">
-                    <h6 class="fw-bold mb-0 text-secondary"><i class="bi bi-map-fill me-2"></i>Nearby Hubs</h6>
+                    <h6 class="fw-bold mb-0 text-secondary"><i class="bi bi-map-fill me-2"></i>@Localizer["NearbyHubs"]</h6>
                     <button class="btn btn-sm btn-outline-primary rounded-pill px-3" onclick="getLocation()">
-                        <i class="bi bi-crosshair2 me-1"></i> My Location
+                        <i class="bi bi-crosshair2 me-1"></i> @Localizer["MyLocation"]
                     </button>
                 </div>
                 <div id="map" class="h-100"></div>
@@ -110,16 +116,20 @@
             attribution: '&copy; OpenStreetMap'
         }).addTo(map);
 
-        const stations = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.Stations));
+        const stations = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.Stations.Select(s => new {
+            Id = s.Id,
+            Name = Locale.StationName(s.Id, s.Name),
+            Address = Locale.Translate(s.Address),
+            Latitude = s.Latitude,
+            Longitude = s.Longitude
+        })));
 
         stations.forEach(s => {
             const popup = `
                 <div class="p-3">
                     <h6 class="fw-bold mb-1">${s.Name}</h6>
                     <p class="text-muted mb-3" style="font-size: 0.8rem;">${s.Address}</p>
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                    </div>
-                    <a href="/Rental/Scan/${s.Id}" class="btn btn-sm btn-primary w-100 rounded-pill text-white py-2">Start Ride</a>
+                    <a href="/Rental/Scan/${s.Id}" class="btn btn-sm btn-primary w-100 rounded-pill text-white py-2">@Localizer["StartRide"]</a>
                 </div>
             `;
             L.marker([s.Latitude, s.Longitude]).addTo(map).bindPopup(popup);
@@ -137,7 +147,7 @@
                         iconUrl: "https://cdn-icons-png.flaticon.com/512/7114/7114844.png",
                         iconSize: [36, 36]
                     })
-                }).addTo(map).bindPopup("<div class='p-2 fw-bold text-center'>You are here</div>");
+                }).addTo(map).bindPopup("<div class='p-2 fw-bold text-center'>@Localizer["YouAreHere"]</div>");
                 map.flyTo(userPos, 15);
             });
         }
