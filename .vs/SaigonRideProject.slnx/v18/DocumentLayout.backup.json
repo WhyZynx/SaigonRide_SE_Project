@@ -94,8 +94,20 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{79664857-03bf-4bca-aa54-ec998b3328f8}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -104,7 +116,7 @@
               "RelativeDocumentMoniker": "SaigonRideProject\\Views\\Account\\RegisterSuccess.cshtml",
               "ToolTip": "C:\\Users\\DELL\\OneDrive\\Documents\\SaigonRide_Project\\SaigonRideProject\\Views\\Account\\RegisterSuccess.cshtml",
               "RelativeToolTip": "SaigonRideProject\\Views\\Account\\RegisterSuccess.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAACAAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAACUAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-05-07T07:46:21.338Z",
               "EditorCaption": ""
@@ -119,16 +131,7 @@
               "RelativeToolTip": "SaigonRideProject\\Views\\Account\\IdentityVerification.cshtml",
               "ViewState": "AgIAAGcAAAAAAAAAAAAAAG8AAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-05-07T07:43:53.556Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{79664857-03bf-4bca-aa54-ec998b3328f8}"
+              "WhenOpened": "2026-05-07T07:43:53.556Z"
             },
             {
               "$type": "Document",
@@ -140,8 +143,7 @@
               "RelativeToolTip": "SaigonRideProject\\Views\\Account\\VerifyOtp.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-05-07T07:40:45.12Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-07T07:40:45.12Z"
             },
             {
               "$type": "Document",
@@ -153,8 +155,7 @@
               "RelativeToolTip": "SaigonRideProject\\Views\\Account\\ForgotPassword.cshtml",
               "ViewState": "AgIAAHcAAAAAAAAAAAAAAJsAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-05-07T07:22:51.16Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-07T07:22:51.16Z"
             },
             {
               "$type": "Document",
@@ -166,8 +167,7 @@
               "RelativeToolTip": "SaigonRideProject\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-05-05T23:49:24.697Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-05T23:49:24.697Z"
             },
             {
               "$type": "Document",
@@ -179,8 +179,7 @@
               "RelativeToolTip": "SaigonRideProject\\Controllers\\AccountController.cs",
               "ViewState": "AgIAACMAAAAAAAAAAAAgwBQAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-06T15:15:06.299Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-06T15:15:06.299Z"
             },
             {
               "$type": "Document",
@@ -192,8 +191,7 @@
               "RelativeToolTip": "SaigonRideProject\\Views\\User\\UserDashboard.cshtml",
               "ViewState": "AgIAAH4AAAAAAAAAAAAAAAAAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-05-06T01:20:52.624Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-06T01:20:52.624Z"
             },
             {
               "$type": "Document",
@@ -205,8 +203,7 @@
               "RelativeToolTip": "SaigonRideProject\\Views\\Account\\Login.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-05-06T01:19:15.855Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-06T01:19:15.855Z"
             },
             {
               "$type": "Document",
@@ -218,8 +215,7 @@
               "RelativeToolTip": "SaigonRideProject\\Views\\Account\\SelectUserType.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-05-06T14:48:52.58Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-06T14:48:52.58Z"
             },
             {
               "$type": "Document",
@@ -231,8 +227,7 @@
               "RelativeToolTip": "SaigonRideProject\\Views\\Account\\Register.cshtml",
               "ViewState": "AgIAADwAAAAAAAAAAAAAAHsAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-05-06T14:40:12.547Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-06T14:40:12.547Z"
             },
             {
               "$type": "Document",
@@ -244,8 +239,7 @@
               "RelativeToolTip": "SaigonRideProject\\ViewModels\\RegisterViewModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-06T14:57:46.894Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-06T14:57:46.894Z"
             },
             {
               "$type": "Document",
@@ -293,8 +287,7 @@
               "RelativeToolTip": "SaigonRideProject\\Views\\AdminReport\\Index.cshtml",
               "ViewState": "AgIAAFEAAAAAAAAAAAAAAAoAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-05-05T23:49:47.378Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-05T23:49:47.378Z"
             },
             {
               "$type": "Document",
@@ -307,10 +300,6 @@
               "ViewState": "AgIAACAAAAAAAAAAAAAuwDUAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-06T15:52:38.357Z"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
             },
             {
               "$type": "Document",
