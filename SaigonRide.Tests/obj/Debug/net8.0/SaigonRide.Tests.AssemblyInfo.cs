@@ -14,15 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SaigonRide.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-<<<<<<< HEAD
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b48b9063c42c4dd1260c4baf8154eec599adb3bb")]
-=======
-<<<<<<< HEAD
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e7063740964336cd80c20381725ba6c3e5ee6eb4")]
-=======
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ee33c480aabcc0d17fbde88e3fca1c7b63fd0ca0")]
->>>>>>> feature/admin-report
->>>>>>> 7fcb604ee7a782936cf895631d20cfb1001a806a
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+568151263b474dae8f748bf588022c41ae764696")]
 [assembly: System.Reflection.AssemblyProductAttribute("SaigonRide.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SaigonRide.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

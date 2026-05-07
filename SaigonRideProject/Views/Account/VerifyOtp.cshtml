@@ -1,27 +1,34 @@
-﻿@{
+﻿@using SaigonRideProject.Data
+@using Microsoft.Extensions.Localization
+@using SaigonRideProject.Resources
+
+@inject IStringLocalizerFactory LocalizerFactory
+@{
+    var Localizer = LocalizerFactory.Create("SharedResource", "SaigonRideProject");
     Layout = "Account_Layout";
 }
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
 <div class="vw-100 position-relative start-50 translate-middle-x">
     <div class="row g-0 min-vh-100">
         
         <div class="col-md-6 d-none d-md-flex position-relative h-100">
             <img src="/img/city.png"
                  class="w-100 h-100 object-fit-cover position-absolute top-0 start-0"
-                 alt="Saigon Background" >
+                 alt="Saigon Background">
             
             <div class="position-absolute top-0 start-0 w-100 h-100 p-5 d-flex flex-column justify-content-between text-white"
                  style="background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('/img/city.png') center/cover no-repeat; min-height: 750px;">
                 
                 <div class="mt-5 pt-5 px-3">
-                    <h1 class="display-4 fw-bold mb-4" style="line-height: 1.2;">Explore the city <br> your own way.</h1>
-                    <p class="fs-5 opacity-75 fw-light">Just one final step to begin your journey through the streets of Saigon.</p>
+                    <h1 class="display-4 fw-bold mb-4" style="line-height: 1.2;">@Html.Raw(Localizer["VerifyOtpTitle"].Value.Replace("city your", "city <br> your"))</h1>
+                    <p class="fs-5 opacity-75 fw-light">@Localizer["VerifyOtpDesc"]</p>
                 </div>
 
                 <div class="d-flex gap-4 px-3 mb-3 small opacity-75">
-                    <span><i class="bi bi-check-circle me-1"></i> Trusted Partner</span>
-                    <span><i class="bi bi-recycle me-1"></i> Green Mobility</span>
+                    <span><i class="bi bi-check-circle me-1"></i> @Localizer["TrustedPartner"]</span>
+                    <span><i class="bi bi-recycle me-1"></i> @Localizer["GreenMobility"]</span>
                 </div>
             </div>
         </div>
@@ -29,10 +36,10 @@
         <div class="col-md-6 d-flex align-items-start justify-content-center bg-white min-vh-100 pt-5 mt-lg-5">
             <div class="w-100 px-5" style="max-width: 500px;">
                 <div class="mb-5 text-center text-md-start">
-                    <h2 class="fw-bold text-dark mb-2" style="letter-spacing: -0.5px;">Email Verification</h2>
+                    <h2 class="fw-bold text-dark mb-2" style="letter-spacing: -0.5px;">@Localizer["VerifyOtpHeader"]</h2>
                     <p class="text-muted small">
-                        Please enter the 6-digit OTP sent to your email address <br>
-                        <span class="text-dark fw-bold">(example@email.com)</span>
+                        @Localizer["VerifyOtpSubTitle"] <br>
+                        <span class="text-dark fw-bold">(@Context.Session.GetString("VerifyEmail"))</span>
                     </p>
                 </div>
 
@@ -72,7 +79,7 @@
 
                     <button type="submit" class="btn btn-lg w-100 py-3 rounded-3 text-white shadow border-0"
                             style="background: linear-gradient(90deg, #72a1cd 0%, #9cbce0 100%); transition: 0.3s;">
-                        Submit <i class="bi bi-arrow-right ms-2"></i>
+                        @Localizer["SubmitBtn"] <i class="bi bi-arrow-right ms-2"></i>
                     </button>
                 </form>
 
@@ -97,7 +104,7 @@
                             });
 
                             input.addEventListener("paste", function (e) {
-                                if (index === 0) { 
+                                if (index === 0) {
                                     e.preventDefault();
                                     const data = e.clipboardData.getData("text").trim();
                                     if (/^\d{6}$/.test(data)) {
@@ -118,7 +125,7 @@
                             hiddenInput.value = fullCode;
                         });
                     });
-                </script>
+</script>
             </div>
         </div>
     </div>

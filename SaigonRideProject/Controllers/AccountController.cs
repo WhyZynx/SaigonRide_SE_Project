@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Localization;
 using SaigonRideProject.Data;
 using SaigonRideProject.Models;
 using SaigonRideProject.Services;
 using SaigonRideProject.ViewModels;
 using System.Text.RegularExpressions;
+using SaigonRideProject.Resources;
 
 namespace SaigonRideProject.Controllers
 {
@@ -11,11 +13,13 @@ namespace SaigonRideProject.Controllers
     {
         private readonly AppDbContext _context;
         private readonly EmailService _emailService;
+        private readonly IStringLocalizer _localizer;
 
-        public AccountController(AppDbContext context, EmailService emailService)
+        public AccountController(AppDbContext context, EmailService emailService, IStringLocalizerFactory localizerFactory)
         {
             _context = context;
             _emailService = emailService;
+            _localizer = localizerFactory.Create("SharedResource", "SaigonRideProject");
         }
 
         private void SetUserSession(User user)
@@ -42,7 +46,7 @@ namespace SaigonRideProject.Controllers
 
             if (emailExists)
             {
-                ModelState.AddModelError("Email", "Email already exists");
+                ModelState.AddModelError("Email", _localizer["EmailExists"].Value);
                 return View(model);
             }
 
@@ -66,19 +70,6 @@ namespace SaigonRideProject.Controllers
             return RedirectToAction("SelectUserType");
         }
 
-        private bool IsValidEmail(string email)
-        {
-            try
-            {
-                var addr = new System.Net.Mail.MailAddress(email);
-                return addr.Address == email;
-            }
-            catch
-            {
-                return false;
-            }
-        }
-
         public IActionResult SelectUserType()
         {
             return View();
@@ -89,7 +80,7 @@ namespace SaigonRideProject.Controllers
         {
             if (userType != "Local" && userType != "Tourist")
             {
-                ViewBag.Error = "Invalid user type";
+                ViewBag.Error = _localizer["InvalidUserType"].Value;
                 return View();
             }
             var userId = HttpContext.Session.GetInt32("TempUserId");
@@ -138,7 +129,7 @@ namespace SaigonRideProject.Controllers
 
             if (otp == null)
             {
-                ViewBag.Error = "Invalid or expired OTP";
+                ViewBag.Error = _localizer["InvalidOtp"].Value;
                 return View();
             }
 
@@ -174,30 +165,30 @@ namespace SaigonRideProject.Controllers
 
             if (string.IsNullOrWhiteSpace(identityNumber))
             {
-                ViewBag.Error = "Identity number is required";
+                ViewBag.Error = _localizer["IdentityRequired"].Value;
                 return View();
             }
 
             if (user.UserType == "Local")
             {
-                if (!System.Text.RegularExpressions.Regex.IsMatch(identityNumber, @"^\d{12}$"))
+                if (!Regex.IsMatch(identityNumber, @"^\d{12}$"))
                 {
-                    ViewBag.Error = "CCCD must be exactly 12 digits";
+                    ViewBag.Error = _localizer["CccdFormatError"].Value;
                     return View();
                 }
             }
             else if (user.UserType == "Tourist")
             {
-                if (!System.Text.RegularExpressions.Regex.IsMatch(identityNumber, @"^[A-Z0-9]{6,12}$"))
+                if (!Regex.IsMatch(identityNumber, @"^[A-Z0-9]{6,12}$"))
                 {
-                    ViewBag.Error = "Passport format is invalid";
+                    ViewBag.Error = _localizer["PassportFormatError"].Value;
                     return View();
                 }
             }
 
             if (file == null || file.Length == 0)
             {
-                ViewBag.Error = "File is required";
+                ViewBag.Error = _localizer["FileRequired"].Value;
                 return View();
             }
 
@@ -206,13 +197,13 @@ namespace SaigonRideProject.Controllers
 
             if (!allowed.Contains(extension))
             {
-                ViewBag.Error = "Invalid file format";
+                ViewBag.Error = _localizer["FileFormatError"].Value;
                 return View();
             }
 
             if (file.Length > 5 * 1024 * 1024)
             {
-                ViewBag.Error = "File too large (max 5MB)";
+                ViewBag.Error = _localizer["FileSizeError"].Value;
                 return View();
             }
 
@@ -230,10 +221,8 @@ namespace SaigonRideProject.Controllers
 
             user.IdentityNumber = identityNumber;
             user.IdentityImageUrl = "/uploads/identity/" + fileName;
-
             user.IdentityType = user.UserType == "Local" ? "CCCD" : "Passport";
-
-            user.PassportStatus = "Pending"; 
+            user.PassportStatus = "Pending";
 
             _context.SaveChanges();
 
@@ -260,37 +249,31 @@ namespace SaigonRideProject.Controllers
 
             if (user == null)
             {
-                ViewBag.Error = "Invalid email or password";
+                ViewBag.Error = _localizer["LoginError"].Value;
                 return View();
             }
 
             if (!BCrypt.Net.BCrypt.Verify(password, user.PasswordHash))
             {
-                ViewBag.Error = "Invalid email or password";
+                ViewBag.Error = _localizer["LoginError"].Value;
                 return View();
             }
 
             if (!user.IsVerified)
             {
-                ViewBag.Error = "Please verify OTP first";
+                ViewBag.Error = _localizer["VerifyOtpError"].Value;
                 return View();
             }
 
             if (string.IsNullOrEmpty(user.UserType))
             {
-                ViewBag.Error = "Please complete onboarding (User Type)";
+                ViewBag.Error = _localizer["OnboardingError"].Value;
                 return View();
             }
 
-            //if (string.IsNullOrEmpty(user.IdentityNumber))
-            //{
-            //    ViewBag.Error = "Please complete identity verification";
-            //    return View();
-            //}
-
             if (user.PassportStatus != "Approved")
             {
-                ViewBag.Error = "Identity verification is pending approval";
+                ViewBag.Error = _localizer["PendingApproval"].Value;
                 return View();
             }
             SetUserSession(user);
@@ -315,10 +298,8 @@ namespace SaigonRideProject.Controllers
         public IActionResult ForgotPassword(string email = null)
         {
             ViewBag.Email = email;
-
             ViewBag.Error = TempData["Error"];
             ViewBag.Success = TempData["Success"];
-
             return View();
         }
 
@@ -327,22 +308,20 @@ namespace SaigonRideProject.Controllers
         {
             if (string.IsNullOrWhiteSpace(email))
             {
-                TempData["Error"] = "Email is required";
+                TempData["Error"] = _localizer["EmailLabel"].Value;
                 return RedirectToAction("ForgotPassword");
             }
 
             email = email.Trim().ToLower();
-
             var user = _context.Users.FirstOrDefault(x => x.Email == email);
 
             if (user == null)
             {
-                TempData["Error"] = "Email not found";
+                TempData["Error"] = _localizer["LoginError"].Value;
                 return RedirectToAction("ForgotPassword");
             }
 
             var otp = GenerateOtp();
-
             _context.OtpVerifications.Add(new OtpVerification
             {
                 Email = email,
@@ -351,10 +330,9 @@ namespace SaigonRideProject.Controllers
             });
 
             _context.SaveChanges();
-
             _emailService.SendOtpEmail(email, otp);
 
-            TempData["Success"] = "OTP sent successfully";
+            TempData["Success"] = _localizer["OtpSent"].Value;
 
             return RedirectToAction("ForgotPassword", new { email = email });
         }
@@ -366,7 +344,7 @@ namespace SaigonRideProject.Controllers
 
             if (string.IsNullOrEmpty(email))
             {
-                TempData["Error"] = "Email is required";
+                TempData["Error"] = _localizer["EmailLabel"].Value;
                 return RedirectToAction("ForgotPassword", new { email });
             }
 
@@ -374,7 +352,7 @@ namespace SaigonRideProject.Controllers
 
             if (user == null)
             {
-                TempData["Error"] = "Email is not registered";
+                TempData["Error"] = _localizer["LoginError"].Value;
                 return RedirectToAction("ForgotPassword");
             }
 
@@ -385,25 +363,25 @@ namespace SaigonRideProject.Controllers
 
             if (otp == null)
             {
-                TempData["Error"] = "Invalid or expired OTP";
+                TempData["Error"] = _localizer["InvalidOtp"].Value;
                 return RedirectToAction("ForgotPassword", new { email });
             }
 
             if (BCrypt.Net.BCrypt.Verify(model.NewPassword, user.PasswordHash))
             {
-                TempData["Error"] = "New password cannot be the same as old password";
+                TempData["Error"] = _localizer["PassSameError"].Value;
                 return RedirectToAction("ForgotPassword", new { email });
             }
 
             if (model.NewPassword != model.ConfirmPassword)
             {
-                TempData["Error"] = "Passwords do not match";
+                TempData["Error"] = _localizer["PassMatchError"].Value;
                 return RedirectToAction("ForgotPassword", new { email });
             }
 
             if (!ModelState.IsValid)
             {
-                TempData["Error"] = "Password does not meet security requirements";
+                TempData["Error"] = _localizer["PassRequirements"].Value;
                 return RedirectToAction("ForgotPassword", new { email });
             }
 
@@ -411,13 +389,10 @@ namespace SaigonRideProject.Controllers
 
             var allOtp = _context.OtpVerifications.Where(x => x.Email == email);
             _context.OtpVerifications.RemoveRange(allOtp);
-
             _context.SaveChanges();
 
-            TempData["Success"] = "Password reset successful!";
+            TempData["Success"] = _localizer["LoginBtn"].Value;
             return RedirectToAction("Login");
         }
-
-
     }
 }

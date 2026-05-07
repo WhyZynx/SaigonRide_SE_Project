@@ -229,7 +229,7 @@
     <value>Khám phá những góc khuất thú vị của Sài Gòn qua các lộ trình xe đạp và trải nghiệm du lịch bền vững.</value>
   </data>
   <data name="WhoYouAre" xml:space="preserve">
-    <value>Bạn là ai?</value>
+    <value>Bạn là ai</value>
   </data>
   <data name="LocalUser" xml:space="preserve">
     <value>Người dùng địa phương</value>
@@ -242,5 +242,134 @@
   </data>
   <data name="TouristDesc" xml:space="preserve">
     <value>Khám phá dễ dàng với các tiêu chuẩn thanh toán quốc tế. Yêu cầu tải lên hộ chiếu.</value>
+  </data>
+  <data name="EmailExists" xml:space="preserve">
+    <value>Email này đã được đăng ký</value>
+  </data>
+  <data name="InvalidUserType" xml:space="preserve">
+    <value>Loại người dùng không hợp lệ</value>
+  </data>
+  <data name="InvalidOtp" xml:space="preserve">
+    <value>Mã OTP không đúng hoặc đã hết hạn</value>
+  </data>
+  <data name="IdentityRequired" xml:space="preserve">
+    <value>Vui lòng nhập số định danh (CCCD/Passport)</value>
+  </data>
+  <data name="CccdFormatError" xml:space="preserve">
+    <value>CCCD phải bao gồm đúng 12 chữ số</value>
+  </data>
+  <data name="PassportFormatError" xml:space="preserve">
+    <value>Định dạng hộ chiếu không hợp lệ</value>
+  </data>
+  <data name="FileRequired" xml:space="preserve">
+    <value>Vui lòng tải lên ảnh giấy tờ</value>
+  </data>
+  <data name="FileFormatError" xml:space="preserve">
+    <value>Định dạng file không hợp lệ (chỉ nhận JPG, PNG, PDF)</value>
+  </data>
+  <data name="FileSizeError" xml:space="preserve">
+    <value>File quá lớn (tối đa 5MB)</value>
+  </data>
+  <data name="LoginError" xml:space="preserve">
+    <value>Email hoặc mật khẩu không chính xác</value>
+  </data>
+  <data name="VerifyOtpError" xml:space="preserve">
+    <value>Vui lòng xác thực OTP trước khi đăng nhập</value>
+  </data>
+  <data name="OnboardingError" xml:space="preserve">
+    <value>Vui lòng hoàn tất thông tin cơ bản</value>
+  </data>
+  <data name="PendingApproval" xml:space="preserve">
+    <value>Tài khoản đang chờ quản trị viên phê duyệt giấy tờ</value>
+  </data>
+  <data name="OtpSent" xml:space="preserve">
+    <value>Mã OTP đã được gửi thành công</value>
+  </data>
+  <data name="PassSameError" xml:space="preserve">
+    <value>Mật khẩu mới không được trùng với mật khẩu cũ</value>
+  </data>
+  <data name="PassMatchError" xml:space="preserve">
+    <value>Mật khẩu xác nhận không khớp</value>
+  </data>
+  <data name="ForgotPasswordHeader" xml:space="preserve">
+    <value>Quên mật khẩu</value>
+  </data>
+  <data name="SendOtpBtn" xml:space="preserve">
+    <value>Gửi mã OTP</value>
+  </data>
+  <data name="OtpSentTo" xml:space="preserve">
+    <value>Mã OTP đã được gửi đến:</value>
+  </data>
+  <data name="ResetPassBtn" xml:space="preserve">
+    <value>Đặt lại mật khẩu</value>
+  </data>
+  <data name="BackToLogin" xml:space="preserve">
+    <value>Quay lại đăng nhập</value>
+  </data>
+  <data name="NewPasswordPlaceholder" xml:space="preserve">
+    <value>Mật khẩu mới</value>
+  </data>
+  <data name="OtpCodePlaceholder" xml:space="preserve">
+    <value>Mã OTP</value>
+  </data>
+  <data name="VerifyOtpHeader" xml:space="preserve">
+    <value>Xác thực Email</value>
+  </data>
+  <data name="VerifyOtpSubTitle" xml:space="preserve">
+    <value>Vui lòng nhập mã OTP 6 chữ số đã được gửi đến email</value>
+  </data>
+  <data name="VerifyOtpTitle" xml:space="preserve">
+    <value>Khám phá thành phố theo cách của riêng bạn.</value>
+  </data>
+  <data name="VerifyOtpDesc" xml:space="preserve">
+    <value>Chỉ còn một bước cuối cùng để bắt đầu hành trình trên những con phố Sài Gòn.</value>
+  </data>
+  <data name="SubmitBtn" xml:space="preserve">
+    <value>Xác nhận</value>
+  </data>
+  <data name="TrustedPartner" xml:space="preserve">
+    <value>Đối tác tin cậy</value>
+  </data>
+  <data name="GreenMobility" xml:space="preserve">
+    <value>Di chuyển xanh</value>
+  </data>
+  <data name="IdentityHeader" xml:space="preserve">
+    <value>Xác minh danh tính</value>
+  </data>
+  <data name="IdentitySubTitle" xml:space="preserve">
+    <value>Vui lòng xác minh danh tính để bắt đầu sử dụng dịch vụ và đảm bảo an toàn cho cộng đồng.</value>
+  </data>
+  <data name="LocalIdLabel" xml:space="preserve">
+    <value>Số CCCD (12 chữ số)</value>
+  </data>
+  <data name="PassportIdLabel" xml:space="preserve">
+    <value>Số Hộ chiếu</value>
+  </data>
+  <data name="IdNumberPlaceholder" xml:space="preserve">
+    <value>Nhập số của bạn...</value>
+  </data>
+  <data name="UploadDocLabel" xml:space="preserve">
+    <value>Tải lên giấy tờ</value>
+  </data>
+  <data name="UploadPrompt" xml:space="preserve">
+    <value>Nhấn hoặc kéo để tải ảnh lên.</value>
+  </data>
+  <data name="SecureTitle" xml:space="preserve">
+    <value>Mã hóa &amp; Bảo mật</value>
+  </data>
+  <data name="SecureDesc" xml:space="preserve">
+    <value>Dữ liệu của bạn được bảo vệ và chỉ sử dụng cho mục đích xác thực.</value>
+  </data>
+  <data name="BackBtn" xml:space="preserve">
+    <value>Quay lại</value>
+  </data>
+  <data name="RegSuccessTitle" xml:space="preserve">
+    <value>Đăng ký thành công!</value>
+  </data>
+  <data name="RegSuccessDesc" xml:space="preserve">
+    <value>Chào mừng bạn đến với cộng đồng SaigonRide. Bạn đã sẵn sàng bắt đầu hành trình xanh của mình.</value>
+  </data>
+  <data name="StartNowBtn" xml:space="preserve">
+    <value>Bắt đầu ngay</value>
   </data>
 </root>
