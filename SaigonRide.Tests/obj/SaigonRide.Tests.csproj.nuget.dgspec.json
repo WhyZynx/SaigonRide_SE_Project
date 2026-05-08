@@ -30,10 +30,6 @@
         },
         "frameworks": {
           "net8.0": {
-<<<<<<< HEAD
-=======
-            "framework": "net8.0",
->>>>>>> feature/admin-station
             "targetAlias": "net8.0",
             "projectReferences": {
               "C:\\TDTU\\CNPM - TH\\report\\Fe\\SaigonRide_SE_Project\\SaigonRideProject\\SaigonRideProject.csproj": {
@@ -51,14 +47,11 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "10.0.200"
       },
       "frameworks": {
         "net8.0": {
-<<<<<<< HEAD
-=======
-          "framework": "net8.0",
->>>>>>> feature/admin-station
           "targetAlias": "net8.0",
           "dependencies": {
             "Microsoft.EntityFrameworkCore.InMemory": {
@@ -104,7 +97,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.420/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.203/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
@@ -134,10 +127,6 @@
         },
         "frameworks": {
           "net8.0": {
-<<<<<<< HEAD
-=======
-            "framework": "net8.0",
->>>>>>> feature/admin-station
             "targetAlias": "net8.0",
             "projectReferences": {}
           }
@@ -151,14 +140,11 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "10.0.200"
       },
       "frameworks": {
         "net8.0": {
-<<<<<<< HEAD
-=======
-          "framework": "net8.0",
->>>>>>> feature/admin-station
           "targetAlias": "net8.0",
           "dependencies": {
             "BCrypt.Net-Next": {
@@ -178,13 +164,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[8.0.25, )"
-<<<<<<< HEAD
             },
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.1, )"
-=======
->>>>>>> feature/admin-station
             }
           },
           "imports": [
@@ -206,7 +189,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.420/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.203/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

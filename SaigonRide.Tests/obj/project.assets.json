@@ -2738,12 +2738,8 @@
         "dependencies": {
           "BCrypt.Net-Next": "4.1.0",
           "MailKit": "4.15.1",
-<<<<<<< HEAD
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.25",
           "Newtonsoft.Json": "13.0.1"
-=======
-          "Microsoft.EntityFrameworkCore.SqlServer": "8.0.25"
->>>>>>> feature/admin-station
         },
         "compile": {
           "bin/placeholder/SaigonRideProject.dll": {}
@@ -8304,7 +8300,6 @@
       },
       "frameworks": {
         "net8.0": {
-          "framework": "net8.0",
           "targetAlias": "net8.0",
           "projectReferences": {
             "C:\\TDTU\\CNPM - TH\\report\\Fe\\SaigonRide_SE_Project\\SaigonRideProject\\SaigonRideProject.csproj": {
@@ -8322,11 +8317,11 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      }
+      },
+      "SdkAnalysisLevel": "10.0.200"
     },
     "frameworks": {
       "net8.0": {
-        "framework": "net8.0",
         "targetAlias": "net8.0",
         "dependencies": {
           "Microsoft.EntityFrameworkCore.InMemory": {
@@ -8372,7 +8367,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.420/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.203/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
