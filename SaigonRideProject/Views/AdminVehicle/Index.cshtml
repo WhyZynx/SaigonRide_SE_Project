@@ -4,95 +4,100 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<div class="container-fluid py-4">
+<div class="container-fluid py-4" style="background-color: #f8f9fa; min-height: 100vh;">
 
-    <!-- HEADER -->
-    <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4 gap-2">
+    <div class="d-flex justify-content-between align-items-end mb-4">
         <div>
-            <h3 class="fw-bold mb-0">🚲 Vehicle Management</h3>
-            <small class="text-muted">Manage all vehicles in system</small>
+            <h2 class="fw-bold mb-1" style="color: #1a2e5a;">Vehicle Management</h2>
         </div>
 
-        <a class="btn btn-success rounded-3" href="/AdminVehicle/Create">
-            <i class="bi bi-plus-lg"></i> + Add Vehicle
+        <a class="btn btn-primary rounded-3 px-3 py-2 shadow-sm border-0" 
+           href="/AdminVehicle/Create" 
+           style="background: linear-gradient(to right, #548EB7);">
+            <i class="bi bi-plus-lg me-2"></i>Add Vehicle
         </a>
     </div>
 
-    <!-- KPI -->
     <div class="row g-3 mb-4">
-
-        <div class="col-6 col-md-4">
-            <div class="card border-0 shadow-sm rounded-4 p-3 text-center">
-                <small class="text-muted">Total Vehicles</small>
-                <h4>@Model.Count()</h4>
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm rounded-4 p-3 bg-white border-start border-primary border-4">
+                <div class="d-flex align-items-center">
+                    <div class="flex-grow-1">
+                        <small class="text-uppercase fw-bold text-muted" style="font-size: 0.75rem;">Total Fleet</small>
+                        <h3 class="fw-bold mb-0 mt-1">@Model.Count()</h3>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="col-6 col-md-4">
-            <div class="card border-0 shadow-sm rounded-4 p-3 text-center">
-                <small class="text-muted">Available</small>
-                <h4 class="text-success">
-                    @Model.Count(v => v.Status == "Available")
-                </h4>
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm rounded-4 p-3 bg-white border-start border-success border-4">
+                <div class="d-flex align-items-center">
+                    <div class="flex-grow-1">
+                        <small class="text-uppercase fw-bold text-muted" style="font-size: 0.75rem;">Available</small>
+                        <h3 class="fw-bold mb-0 mt-1 text-success">@Model.Count(v => v.Status == "Available")</h3>
+                    </div>
+                 </div>
             </div>
         </div>
 
-        <div class="col-6 col-md-4">
-            <div class="card border-0 shadow-sm rounded-4 p-3 text-center">
-                <small class="text-muted">In Use</small>
-                <h4 class="text-warning">
-                    @Model.Count(v => v.Status == "InUse")
-                </h4>
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm rounded-4 p-3 bg-white border-start border-warning border-4">
+                <div class="d-flex align-items-center">
+                    <div class="flex-grow-1">
+                        <small class="text-uppercase fw-bold text-muted" style="font-size: 0.75rem;">In Journey</small>
+                        <h3 class="fw-bold mb-0 mt-1 text-warning">@Model.Count(v => v.Status == "InUse")</h3>
+                    </div>
+                </div>
             </div>
         </div>
-
     </div>
 
-    <!-- FILTER -->
-    <div class="card border-0 shadow-sm rounded-4 p-3 mb-3">
-
-        <div class="row g-2">
-
-            <div class="col-12 col-md-4">
-                <input type="text" id="searchBox" class="form-control rounded-3"
-                       placeholder="🔍 Search plate number..." />
-            </div>
-
-            <div class="col-6 col-md-3">
-                <select id="vehicleType" class="form-select rounded-3">
-                    <option value="">All Types</option>
-                    <option value="Bike">🚲 Bike</option>
-                    <option value="E-Scooter">🛴 E-Scooter</option>
-                </select>
-            </div>
-
-            <div class="col-6 col-md-3">
-                <select id="status" class="form-select rounded-3">
-                    <option value="">All Status</option>
-                    <option value="Available">🟢 Available</option>
-                    <option value="InUse">🟡 In Use</option>
-                    <option value="Maintenance">⚙️ Maintenance</option>
-                </select>
-            </div>
-
-        </div>
-
-    </div>
-
-    <!-- TABLE -->
-    <div class="card border-0 shadow-sm rounded-4">
-        <div class="card-body">
-
-            <!-- Responsive table wrapper -->
-            <div class="table-responsive">
-                <div id="vehicleTable">
-                    @Html.Partial("_VehicleTable", Model)
+    <div class="card border-0 shadow-sm rounded-4 p-3 mb-4 bg-white">
+        <div class="row g-3">
+            <div class="col-md-5">
+                <div class="input-group">
+                    <span class="input-group-text bg-light border-0"><i class="bi bi-search text-muted"></i></span>
+                    <input type="text" id="searchBox" class="form-control bg-light border-0 shadow-none"/>
                 </div>
             </div>
 
+            <div class="col-md-3">
+                <div class="input-group">
+                    <span></span>
+                    <select id="vehicleType" class="form-select bg-light border-0 shadow-none">
+                        <option value="">All Types</option>
+                        <option value="Bike">🚲Bike</option>
+                        <option value="E-Scooter">🛴E-Scooter</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="input-group">
+                    <span></span>
+                    <select id="status" class="form-select bg-light border-0 shadow-none">
+                        <option value="">All Status</option>
+                        <option value="Available">Available</option>
+                        <option value="InUse">In Use</option>
+                        <option value="Maintenance">Maintenance</option>
+                    </select>
+                </div>
+            </div>
         </div>
     </div>
 
+    <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
+        <div class="card-header bg-white border-0 pt-4 px-4 d-flex justify-content-between align-items-center">
+            <h5 class="fw-bold mb-0" style="color: #1a2e5a;">Vehicle Inventory</h5>
+        </div>
+        <div class="card-body p-0">
+            <div id="vehicleTable">
+                @Html.Partial("_VehicleTable", Model)
+            </div>
+        </div>
+    </div>
 </div>
 
 <script src="~/js/admin-vehicle.js"></script>
+
