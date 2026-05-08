@@ -119,9 +119,12 @@ namespace SaigonRideProject.Controllers
         private string GetStatus(int capacity, int current)
         {
             if (capacity == 0) return "Low";
-            if (current == capacity) return "Full"; 
-            if ((double)current / capacity < 0.2) return "Low";
-            return "Normal";
+
+            double ratio = (double)current / capacity;
+
+            if (ratio < 0.2) return "Low";
+            if (ratio < 0.7) return "Normal";
+            return "Full";
         }
     }
 }
