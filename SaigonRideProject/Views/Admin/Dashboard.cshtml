@@ -2,89 +2,135 @@
 
 @{
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+    var totalFleet = (Model?.ActiveRentals ?? 0) + (Model?.AvailableVehicles ?? 0);
+    var isBusy = (Model?.ActiveRentals ?? 0) > (Model?.AvailableVehicles ?? 0);
 }
 
 <div class="container-fluid py-4">
 
     <!-- HEADER -->
-    <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4 gap-2">
+    <div class="d-flex justify-content-between align-items-start mb-4">
         <div>
-            <h2 class="fw-bold mb-1">📊 System Dashboard</h2>
+            <h2 class="fw-bold">System Dashboard</h2>
             <small class="text-muted">
                 Last updated: @DateTime.Now.ToString("dd/MM/yyyy HH:mm")
             </small>
         </div>
 
-        <button class="btn btn-success">
-            <i class="bi bi-download"></i> Export
-        </button>
+        @* <div class="d-flex gap-2">
+            <div class="btn-group">
+                <button class="btn btn-light border dropdown-toggle" data-bs-toggle="dropdown">
+                    Filter Time
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Today</a></li>
+                    <li><a class="dropdown-item" href="#">Yesterday</a></li>
+                    <li><a class="dropdown-item" href="#">Last 7 days</a></li>
+                    <li><a class="dropdown-item" href="#">Last 1 month</a></li>
+                </ul>
+            </div>
+        </div> *@
     </div>
 
-    <!-- KPI -->
-    <div class="row g-3 mb-4">
+    <!-- KPI ROW (FIXED) -->
+    <div class="row g-4">
 
-        <div class="col-6 col-md-3">
-            <div class="card border-0 shadow-sm rounded-4 p-3 h-100">
-                <small class="text-muted">💰 Revenue Today</small>
-                <h4 class="fw-bold text-success mt-2">
-                    @Model.TodayRevenue.ToString("N0") đ
-                </h4>
+        <!-- 📈 Active Rentals -->
+        <div class="col-lg-4">
+            <div class="card border-0 shadow-sm rounded-4 p-4 h-100">
+
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center gap-2">
+                        <div class="bg-primary bg-opacity-10 rounded-3 d-flex align-items-center justify-content-center"
+                             style="width:40px;height:40px;">
+                            📈
+                        </div>
+                        <div class="text-primary fw-medium">Live Rentals</div>
+                    </div>
+                </div>
+
+                <h2 class="fw-bold mt-3 mb-1">
+                    @(Model?.ActiveRentals ?? 0)/@totalFleet
+                </h2>
+
+                <small class="text-muted d-block">
+                    🚲 @(Model?.ActiveBikeRentals ?? 0) bikes and 🛴 @(Model?.ActiveScooterRentals ?? 0) scooters
+                </small>
+
             </div>
         </div>
 
-        <div class="col-6 col-md-3">
-            <div class="card border-0 shadow-sm rounded-4 p-3 h-100">
-                <small class="text-muted">📈 Active Rentals</small>
-                <h4 class="fw-bold mt-2">
-                    @Model.ActiveRentals
-                </h4>
+        <!-- 💰 Revenue -->
+        <div class="col-lg-4">
+            <div class="card border-0 shadow-sm rounded-4 p-4 h-100">
+
+                <div class="d-flex align-items-center gap-2">
+                    <div class="bg-success bg-opacity-10 rounded-3 d-flex align-items-center justify-content-center"
+                         style="width:40px;height:40px;">
+                        💰
+                    </div>
+                    <div>
+                        <div class="text-success fw-medium">Revenue Today</div>
+                        <small class="text-muted d-block">
+                            🎯 Target: 50,000,000 VND
+                        </small>
+                    </div>
+                </div>
+
+                <h2 class="fw-bold mt-4">
+                    @(Model?.TodayRevenue.ToString("N0") ?? "0") đ
+                </h2>
             </div>
         </div>
 
-        <div class="col-6 col-md-3">
-            <div class="card border-0 shadow-sm rounded-4 p-3 h-100">
-                <small class="text-muted">🚲 Available Vehicles</small>
-                <h4 class="fw-bold mt-2">
-                    @Model.AvailableVehicles
-                </h4>
-            </div>
-        </div>
+        <!-- 🚲 Fleet -->
+        <div class="col-lg-4">
+            <div class="card border-0 shadow-sm rounded-4 p-4 h-100 text-center">
 
-        <div class="col-6 col-md-3">
-            <div class="card border-0 shadow-sm rounded-4 p-3 h-100">
-                <small class="text-muted">🧾 Transactions</small>
-                <h4 class="fw-bold mt-2">
-                    @Model.TotalTransactions
-                </h4>
+                <div class="mb-2 fs-4">⚠️</div>
+
+                <p class="text-muted mb-0">
+                    Low inventory stations
+                </p>
+
+                <h2 class="fw-bold text-danger">
+                    @(Model?.LowStations?.Count() ?? 0)
+                </h2>
+
             </div>
         </div>
 
     </div>
 
     <!-- ALERT -->
-    @if (Model.LowStations != null && Model.LowStations.Any())
+    @if (Model?.LowStations?.Any() == true)
     {
-        <div class="alert alert-danger rounded-4 shadow-sm">
-            <strong>⚠️ Low Inventory:</strong><br />
+        <div class="alert alert-danger mt-4 rounded-4">
+            <strong>⚠️ Low Inventory Stations:</strong><br />
             @foreach (var s in Model.LowStations)
             {
-                <span class="badge bg-danger me-1">@s.StationName</span>
+                <span class="badge bg-danger me-2">@s.StationName</span>
             }
         </div>
     }
 
     <!-- TABLES -->
-    <div class="row g-4 mt-2">
+    <div class="row g-4 mt-3">
 
         <!-- LIVE RENTALS -->
         <div class="col-lg-6">
-            <div class="card border-0 shadow-sm rounded-4 h-100">
+            <div class="card rounded-4 shadow-sm h-100">
                 <div class="card-body">
-
-                    <h5 class="mb-3">📈 Live Rentals</h5>
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h5 class="mb-0">Live Rentals</h5>
+                        <a href="/AdminRental/Index" class="btn btn-sm btn-outline-primary rounded-pill px-3">
+                            View All <i class="bi bi-arrow-right small"></i>
+                        </a>
+                    </div>
 
                     <div class="table-responsive">
-                        <table class="table table-hover align-middle mb-0">
+                        <table class="table table-hover">
                             <thead class="table-light">
                                 <tr>
                                     <th>User</th>
@@ -93,48 +139,41 @@
                                 </tr>
                             </thead>
                             <tbody>
-
-                                @if (Model.LiveRentals != null && Model.LiveRentals.Any())
+                                @if (Model?.LiveRentals?.Any() == true)
                                 {
-                                    foreach (var r in Model.LiveRentals)
+                                    foreach (var r in Model.LiveRentals.Take(5)) // Chỉ hiện 5 cái mới nhất
                                     {
                                         <tr>
                                             <td>@r.UserName</td>
                                             <td>@r.Vehicle</td>
-                                            <td>
-                                                <small class="text-muted">
-                                                    @r.StartTime.ToString("HH:mm dd/MM")
-                                                </small>
-                                            </td>
+                                            <td>@r.StartTime.ToString("HH:mm dd/MM")</td>
                                         </tr>
                                     }
                                 }
                                 else
                                 {
-                                    <tr>
-                                        <td colspan="3" class="text-center text-muted py-3">
-                                            No active rentals
-                                        </td>
-                                    </tr>
+                                    <tr><td colspan="3" class="text-center text-muted">No active rentals</td></tr>
                                 }
-
                             </tbody>
                         </table>
                     </div>
-
                 </div>
             </div>
         </div>
 
         <!-- TRANSACTIONS -->
         <div class="col-lg-6">
-            <div class="card border-0 shadow-sm rounded-4 h-100">
+            <div class="card rounded-4 shadow-sm h-100">
                 <div class="card-body">
-
-                    <h5 class="mb-3">💳 Recent Transactions</h5>
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h5 class="mb-0">Recent Transactions</h5>
+                        <a href="/AdminTransaction/Index" class="btn btn-sm btn-outline-primary rounded-pill px-3">
+                            View All <i class="bi bi-arrow-right small"></i>
+                        </a>
+                    </div>
 
                     <div class="table-responsive">
-                        <table class="table table-hover align-middle mb-0">
+                        <table class="table table-hover">
                             <thead class="table-light">
                                 <tr>
                                     <th>User</th>
@@ -144,42 +183,28 @@
                                 </tr>
                             </thead>
                             <tbody>
-
-                                @if (Model.RecentTransactions != null && Model.RecentTransactions.Any())
+                                @if (Model?.RecentTransactions?.Any() == true)
                                 {
-                                    foreach (var t in Model.RecentTransactions)
+                                    foreach (var t in Model.RecentTransactions.Take(5)) // Chỉ hiện 5 cái mới nhất
                                     {
                                         <tr>
                                             <td>@t.UserName</td>
                                             <td>@t.Type</td>
-                                            <td class="fw-semibold text-success">
-                                                @t.Amount.ToString("N0")
-                                            </td>
-                                            <td>
-                                                <small class="text-muted">
-                                                    @t.CreatedAt.ToString("HH:mm dd/MM")
-                                                </small>
-                                            </td>
+                                            <td class="fw-semibold">@t.Amount</td>
+                                            <td>@t.CreatedAt.ToString("HH:mm dd/MM")</td>
                                         </tr>
                                     }
                                 }
                                 else
                                 {
-                                    <tr>
-                                        <td colspan="4" class="text-center text-muted py-3">
-                                            No transactions yet
-                                        </td>
-                                    </tr>
+                                    <tr><td colspan="4" class="text-center text-muted">No transactions yet</td></tr>
                                 }
-
                             </tbody>
                         </table>
                     </div>
-
                 </div>
             </div>
+
         </div>
 
     </div>
-
-</div>
