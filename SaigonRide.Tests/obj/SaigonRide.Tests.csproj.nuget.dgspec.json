@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Admin\\Documents\\A. Học tập\\2025-2026\\Công nghệ phần mềm\\Đồ án CK\\SaigonRideProject\\SaigonRide.Tests\\SaigonRide.Tests.csproj": {}
+    "C:\\TDTU\\CNPM - TH\\report\\Fe\\SaigonRide_SE_Project\\SaigonRide.Tests\\SaigonRide.Tests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Admin\\Documents\\A. Học tập\\2025-2026\\Công nghệ phần mềm\\Đồ án CK\\SaigonRideProject\\SaigonRide.Tests\\SaigonRide.Tests.csproj": {
+    "C:\\TDTU\\CNPM - TH\\report\\Fe\\SaigonRide_SE_Project\\SaigonRide.Tests\\SaigonRide.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\Documents\\A. Học tập\\2025-2026\\Công nghệ phần mềm\\Đồ án CK\\SaigonRideProject\\SaigonRide.Tests\\SaigonRide.Tests.csproj",
+        "projectUniqueName": "C:\\TDTU\\CNPM - TH\\report\\Fe\\SaigonRide_SE_Project\\SaigonRide.Tests\\SaigonRide.Tests.csproj",
         "projectName": "SaigonRide.Tests",
-        "projectPath": "C:\\Users\\Admin\\Documents\\A. Học tập\\2025-2026\\Công nghệ phần mềm\\Đồ án CK\\SaigonRideProject\\SaigonRide.Tests\\SaigonRide.Tests.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\Documents\\A. Học tập\\2025-2026\\Công nghệ phần mềm\\Đồ án CK\\SaigonRideProject\\SaigonRide.Tests\\obj\\",
+        "projectPath": "C:\\TDTU\\CNPM - TH\\report\\Fe\\SaigonRide_SE_Project\\SaigonRide.Tests\\SaigonRide.Tests.csproj",
+        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
+        "outputPath": "C:\\TDTU\\CNPM - TH\\report\\Fe\\SaigonRide_SE_Project\\SaigonRide.Tests\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -30,11 +30,10 @@
         },
         "frameworks": {
           "net8.0": {
-            "framework": "net8.0",
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Admin\\Documents\\A. Học tập\\2025-2026\\Công nghệ phần mềm\\Đồ án CK\\SaigonRideProject\\SaigonRideProject\\SaigonRideProject.csproj": {
-                "projectPath": "C:\\Users\\Admin\\Documents\\A. Học tập\\2025-2026\\Công nghệ phần mềm\\Đồ án CK\\SaigonRideProject\\SaigonRideProject\\SaigonRideProject.csproj"
+              "C:\\TDTU\\CNPM - TH\\report\\Fe\\SaigonRide_SE_Project\\SaigonRideProject\\SaigonRideProject.csproj": {
+                "projectPath": "C:\\TDTU\\CNPM - TH\\report\\Fe\\SaigonRide_SE_Project\\SaigonRideProject\\SaigonRideProject.csproj"
               }
             }
           }
@@ -52,7 +51,6 @@
       },
       "frameworks": {
         "net8.0": {
-          "framework": "net8.0",
           "targetAlias": "net8.0",
           "dependencies": {
             "Microsoft.EntityFrameworkCore.InMemory": {
@@ -102,20 +100,20 @@
         }
       }
     },
-    "C:\\Users\\Admin\\Documents\\A. Học tập\\2025-2026\\Công nghệ phần mềm\\Đồ án CK\\SaigonRideProject\\SaigonRideProject\\SaigonRideProject.csproj": {
+    "C:\\TDTU\\CNPM - TH\\report\\Fe\\SaigonRide_SE_Project\\SaigonRideProject\\SaigonRideProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\Documents\\A. Học tập\\2025-2026\\Công nghệ phần mềm\\Đồ án CK\\SaigonRideProject\\SaigonRideProject\\SaigonRideProject.csproj",
+        "projectUniqueName": "C:\\TDTU\\CNPM - TH\\report\\Fe\\SaigonRide_SE_Project\\SaigonRideProject\\SaigonRideProject.csproj",
         "projectName": "SaigonRideProject",
-        "projectPath": "C:\\Users\\Admin\\Documents\\A. Học tập\\2025-2026\\Công nghệ phần mềm\\Đồ án CK\\SaigonRideProject\\SaigonRideProject\\SaigonRideProject.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\Documents\\A. Học tập\\2025-2026\\Công nghệ phần mềm\\Đồ án CK\\SaigonRideProject\\SaigonRideProject\\obj\\",
+        "projectPath": "C:\\TDTU\\CNPM - TH\\report\\Fe\\SaigonRide_SE_Project\\SaigonRideProject\\SaigonRideProject.csproj",
+        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
+        "outputPath": "C:\\TDTU\\CNPM - TH\\report\\Fe\\SaigonRide_SE_Project\\SaigonRideProject\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -128,7 +126,6 @@
         },
         "frameworks": {
           "net8.0": {
-            "framework": "net8.0",
             "targetAlias": "net8.0",
             "projectReferences": {}
           }
@@ -146,7 +143,6 @@
       },
       "frameworks": {
         "net8.0": {
-          "framework": "net8.0",
           "targetAlias": "net8.0",
           "dependencies": {
             "BCrypt.Net-Next": {
