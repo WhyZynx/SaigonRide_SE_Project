@@ -1,6 +1,10 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "FiEI/TS6FOs=",
+=======
+  "dgSpecHash": "HURPNJdjUjM=",
+>>>>>>> feature/admin-station
   "success": true,
   "projectFilePath": "C:\\TDTU\\CNPM - TH\\report\\Fe\\SaigonRide_SE_Project\\SaigonRide.Tests\\SaigonRide.Tests.csproj",
   "expectedPackageFiles": [

@@ -2738,8 +2738,12 @@
         "dependencies": {
           "BCrypt.Net-Next": "4.1.0",
           "MailKit": "4.15.1",
+<<<<<<< HEAD
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.25",
           "Newtonsoft.Json": "13.0.1"
+=======
+          "Microsoft.EntityFrameworkCore.SqlServer": "8.0.25"
+>>>>>>> feature/admin-station
         },
         "compile": {
           "bin/placeholder/SaigonRideProject.dll": {}

@@ -30,6 +30,10 @@
         },
         "frameworks": {
           "net8.0": {
+<<<<<<< HEAD
+=======
+            "framework": "net8.0",
+>>>>>>> feature/admin-station
             "targetAlias": "net8.0",
             "projectReferences": {
               "C:\\TDTU\\CNPM - TH\\report\\Fe\\SaigonRide_SE_Project\\SaigonRideProject\\SaigonRideProject.csproj": {
@@ -51,6 +55,10 @@
       },
       "frameworks": {
         "net8.0": {
+<<<<<<< HEAD
+=======
+          "framework": "net8.0",
+>>>>>>> feature/admin-station
           "targetAlias": "net8.0",
           "dependencies": {
             "Microsoft.EntityFrameworkCore.InMemory": {
@@ -126,6 +134,10 @@
         },
         "frameworks": {
           "net8.0": {
+<<<<<<< HEAD
+=======
+            "framework": "net8.0",
+>>>>>>> feature/admin-station
             "targetAlias": "net8.0",
             "projectReferences": {}
           }
@@ -143,6 +155,10 @@
       },
       "frameworks": {
         "net8.0": {
+<<<<<<< HEAD
+=======
+          "framework": "net8.0",
+>>>>>>> feature/admin-station
           "targetAlias": "net8.0",
           "dependencies": {
             "BCrypt.Net-Next": {
@@ -162,10 +178,13 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[8.0.25, )"
+<<<<<<< HEAD
             },
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.1, )"
+=======
+>>>>>>> feature/admin-station
             }
           },
           "imports": [
