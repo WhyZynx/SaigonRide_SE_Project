@@ -46,7 +46,11 @@ namespace SaigonRideProject.Controllers
                     StationName = s.Name,
                     Capacity = s.Capacity,
                     Current = s.Vehicles.Count(),
-                    Status = s.Vehicles.Count() < (s.Capacity * 0.2) ? "Low" : "Normal"
+                    Status = s.Vehicles.Count() < (s.Capacity * 0.2) 
+                    ? "Low" 
+                    : s.Vehicles.Count() >= s.Capacity
+                        ? "Full" 
+                        : "Normal"
                 }).ToList();
 
             var vm = new ReportViewModel
