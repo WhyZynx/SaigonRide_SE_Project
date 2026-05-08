@@ -127,7 +127,7 @@
     <value>Homepage</value>
   </data>
   <data name="CurrentlyRenting" xml:space="preserve">
-    <value>CurrentlyRenting</value>
+    <value>Currently Renting</value>
   </data>
   <data name="History" xml:space="preserve">
     <value>History</value>
@@ -641,5 +641,92 @@
   </data>
   <data name="PaymentMethod" xml:space="preserve">
     <value>Payment Method</value>
+  </data>
+  <data name="TripSuccessTitle" xml:space="preserve">
+    <value>Trip Completed Successfully!</value>
+  </data>
+  <data name="TripSuccessDesc" xml:space="preserve">
+    <value>Thank you for riding with us. Please complete your payment.</value>
+  </data>
+  <data name="VehicleLabel" xml:space="preserve">
+    <value>Vehicle</value>
+  </data>
+  <data name="PaymentMethodLabel" xml:space="preserve">
+    <value>PAYMENT VIA</value>
+  </data>
+  <data name="ContentLabel" xml:space="preserve">
+    <value>Content:</value>
+  </data>
+  <data name="AmountLabel" xml:space="preserve">
+    <value>Payment:</value>
+  </data>
+  <data name="ChangeBtn" xml:space="preserve">
+    <value>Change</value>
+  </data>
+  <data name="SaveBtn" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="PaymentPickUp" xml:space="preserve">
+    <value>Pickup Location</value>
+  </data>
+  <data name="PaymentReturnStation" xml:space="preserve">
+    <value>Return Location</value>
+  </data>
+  <data name="RideDuration" xml:space="preserve">
+    <value>Duration</value>
+  </data>
+  <data name="RateLabel" xml:space="preserve">
+    <value>Rate</value>
+  </data>
+  <data name="PaymentBreakdown" xml:space="preserve">
+    <value>Payment Breakdown</value>
+  </data>
+  <data name="RentalFeeLabel" xml:space="preserve">
+    <value>Rental Fee</value>
+  </data>
+  <data name="PaymentHeader" xml:space="preserve">
+    <value>Confirm Your Pay</value>
+  </data>
+  <data name="PaymentSecureTitle" xml:space="preserve">
+    <value>Transfer Information</value>
+  </data>
+  <data name="PaymentSecureDesc" xml:space="preserve">
+    <value>Please keep this page open to confirm your payment.</value>
+  </data>
+  <data name="ConfirmPaidBtn" xml:space="preserve">
+    <value>I Have Paid</value>
+  </data>
+  <data name="PayBtn" xml:space="preserve">
+    <value>Pay Now</value>
+  </data>
+  <data name="SecUnit" xml:space="preserve">
+    <value>sec</value>
+  </data>
+  <data name="SuccessHeader" xml:space="preserve">
+    <value>Payment Successful!</value>
+  </data>
+  <data name="SuccessSubHeader" xml:space="preserve">
+    <value>Your transaction has been processed successfully.</value>
+  </data>
+  <data name="TotalPaidLabel" xml:space="preserve">
+    <value>Total Amount Paid</value>
+  </data>
+  <data name="ThankYouMsg" xml:space="preserve">
+    <value>Thank you for riding with</value>
+  </data>
+  <data name="MethodLabel" xml:space="preserve">
+    <value>Method</value>
+  </data>
+  <data name="TransactionIDLabel" xml:space="preserve">
+    <value>Transaction ID</value>
+  </data>
+  <data name="DateLabel" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="BackHomeBtn" xml:space="preserve">
+    <value>Back Home</value>
+  </data>
+  <data name="ViewHistoryBtn" xml:space="preserve">
+    <value>View History</value>
   </data>
 </root>

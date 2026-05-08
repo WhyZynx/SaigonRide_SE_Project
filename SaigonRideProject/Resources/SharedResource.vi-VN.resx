@@ -571,7 +571,7 @@
     <value>Trạng thái</value>
   </data>
   <data name="ThAction" xml:space="preserve">
-    <value>Hành động</value>
+    <value>Thuê xe</value>
   </data>
   <data name="RentNowBtn" xml:space="preserve">
     <value>Thuê ngay</value>
@@ -601,7 +601,7 @@
     <value>Chi tiết chuyến đi</value>
   </data>
   <data name="TotalEstimated" xml:space="preserve">
-    <value>Tổng cộng ước tính</value>
+    <value>Tổng cộng</value>
   </data>
   <data name="ReturnStation" xml:space="preserve">
     <value>Trạm trả xe</value>
@@ -641,5 +641,92 @@
   </data>
   <data name="PaymentMethod" xml:space="preserve">
     <value>Phương thức thanh toán</value>
+  </data>
+  <data name="TripSuccessTitle" xml:space="preserve">
+    <value>Chuyến đi hoàn tất!</value>
+  </data>
+  <data name="TripSuccessDesc" xml:space="preserve">
+    <value>Cảm ơn bạn đã đồng hành. Vui lòng thanh toán.</value>
+  </data>
+  <data name="VehicleLabel" xml:space="preserve">
+    <value>Phương tiện số</value>
+  </data>
+  <data name="PaymentMethodLabel" xml:space="preserve">
+    <value>THANH TOÁN QUA</value>
+  </data>
+  <data name="ContentLabel" xml:space="preserve">
+    <value>Nội dung:</value>
+  </data>
+  <data name="AmountLabel" xml:space="preserve">
+    <value>Số tiền:</value>
+  </data>
+  <data name="ChangeBtn" xml:space="preserve">
+    <value>Thay đổi</value>
+  </data>
+  <data name="SaveBtn" xml:space="preserve">
+    <value>Lưu</value>
+  </data>
+  <data name="PaymentPickUp" xml:space="preserve">
+    <value>Điểm nhận xe</value>
+  </data>
+  <data name="PaymentReturnStation" xml:space="preserve">
+    <value>Điểm trả xe</value>
+  </data>
+  <data name="RideDuration" xml:space="preserve">
+    <value>Thời gian đi</value>
+  </data>
+  <data name="RateLabel" xml:space="preserve">
+    <value>Đơn giá</value>
+  </data>
+  <data name="PaymentBreakdown" xml:space="preserve">
+    <value>Chi tiết thanh toán</value>
+  </data>
+  <data name="RentalFeeLabel" xml:space="preserve">
+    <value>Phí thuê xe</value>
+  </data>
+  <data name="PaymentHeader" xml:space="preserve">
+    <value>Xác nhận thanh toán</value>
+  </data>
+  <data name="PaymentSecureTitle" xml:space="preserve">
+    <value>Thông tin chuyển khoản</value>
+  </data>
+  <data name="PaymentSecureDesc" xml:space="preserve">
+    <value>Vui lòng giữ trang này để xác nhận.</value>
+  </data>
+  <data name="ConfirmPaidBtn" xml:space="preserve">
+    <value>Tôi đã thanh toán</value>
+  </data>
+  <data name="PayBtn" xml:space="preserve">
+    <value>Thanh Toán Ngay</value>
+  </data>
+  <data name="SecUnit" xml:space="preserve">
+    <value>giây</value>
+  </data>
+  <data name="SuccessHeader" xml:space="preserve">
+    <value>Thanh toán thành công!</value>
+  </data>
+  <data name="SuccessSubHeader" xml:space="preserve">
+    <value>Giao dịch của bạn đã được xử lý hoàn tất.</value>
+  </data>
+  <data name="TotalPaidLabel" xml:space="preserve">
+    <value>Tổng tiền thanh toán</value>
+  </data>
+  <data name="ThankYouMsg" xml:space="preserve">
+    <value>Cảm ơn bạn đã đồng hành cùng</value>
+  </data>
+  <data name="MethodLabel" xml:space="preserve">
+    <value>Phương thức thanh toán</value>
+  </data>
+  <data name="TransactionIDLabel" xml:space="preserve">
+    <value>Mã giao dịch</value>
+  </data>
+  <data name="DateLabel" xml:space="preserve">
+    <value>Ngày thực hiện</value>
+  </data>
+  <data name="BackHomeBtn" xml:space="preserve">
+    <value>Về trang chủ</value>
+  </data>
+  <data name="ViewHistoryBtn" xml:space="preserve">
+    <value>Xem lịch sử</value>
   </data>
 </root>

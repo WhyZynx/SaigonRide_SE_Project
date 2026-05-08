@@ -31,8 +31,19 @@
                                 <i class="bi bi-bicycle text-success fs-2"></i>
                             </div>
                             <div>
-                                <h5 class="fw-bold mb-0">@Model.VehicleName</h5>
-                                <small class="text-muted">@Localizer["VehicleID"]: #@Model.Id</small>
+                                <h5 class="fw-bold mb-0">
+                                    @if (Model.VehicleName.Contains("Bike"))
+                                    {
+                                        @Localizer["Bike"]
+                                    }
+                                    else
+                                    {
+                                        @Localizer["E-Scooter"]
+                                    }
+                                </h5>
+                                <small class="text-muted">
+                                    @Localizer["VehicleID"]: @Model.PlateNumber
+                                </small>
                             </div>
                         </div>
                         <span class="badge bg-success-subtle text-success px-3 py-2 rounded-pill border border-success border-opacity-10">@Localizer["CurrentlyRent"]</span>
@@ -49,7 +60,7 @@
                         <div class="col-4">
                             <div class="bg-light p-3 rounded-4 h-100">
                                 <i class="bi bi-currency-dollar text-success fs-4 mb-2 d-block"></i>
-                                <h6 class="fw-bold mb-0 total-val">0đ</h6>
+                                <h6 class="fw-bold mb-0 total-val">0VND</h6>
                                 <small class="text-muted small-text">@Localizer["Estimated"]</small>
                             </div>
                         </div>
@@ -68,7 +79,7 @@
                     <div class="d-flex flex-column gap-3">
                         <div class="d-flex justify-content-between align-items-center small">
                             <span class="text-muted">@Localizer["PricePerMinute"]</span>
-                            <span class="fw-medium">@Model.PricePerMinute.ToString("N0")đ / @Localizer["MinuteUnit"]</span>
+                            <span class="fw-medium">@Model.PricePerMinute.ToString("N0") VND / @Localizer["MinuteUnit"]</span>
                         </div>
                         <div class="d-flex justify-content-between align-items-center small border-top pt-3">
                             <span class="text-muted">@Localizer["StartTime"]</span>
@@ -86,7 +97,7 @@
                         </div>
                         <div class="d-flex justify-content-between align-items-center border-top pt-3 mt-2">
                             <span class="fw-bold h5 mb-0">@Localizer["TotalEstimated"]</span>
-                            <span class="fw-bold h5 mb-0 text-success total-val">0đ</span>
+                            <span class="fw-bold h5 mb-0 text-success total-val">0VND</span>
                         </div>
                     </div>
                 </div>
@@ -109,7 +120,7 @@
                 bool isLow = (bool)s.isLow;
                 <div class="col-md-6 col-xl-4">
                     <div id="station-@s.id" class="card station-card h-100 border-0 shadow-sm rounded-4 p-4 @(isFull ? "opacity-50" : "")"
-                         onclick="selectStation(@s.id, '@s.name', @s.vehicleCount, @s.capacity)"
+                         onclick="selectStation(@s.id, '@Html.Raw(Locale.StationName((int)s.id, (string)s.name))', @s.vehicleCount, @s.capacity)"
                          style="background-color: @(isLow ? "#FFFBEB" : "white"); cursor: @(isFull ? "not-allowed" : "pointer");">
                         <div class="d-flex justify-content-between align-items-start mb-3">
                             <div>
@@ -153,7 +164,7 @@
             <div class="d-flex align-items-center gap-4">
                 <div class="text-end d-none d-sm-block">
                     <span class="fw-bold h5 mb-0 me-2">@Localizer["TotalEstimated"]:</span>
-                    <span class="fw-bold h5 mb-0 text-success total-val">0đ</span>
+                    <span class="fw-bold h5 mb-0 text-success total-val">0VND</span>
                 </div>
                 <button class="btn btn-danger rounded-pill px-4 py-2 fw-bold" onclick="endTrip()">@Localizer["EndRideBtn"]</button>
             </div>
@@ -198,7 +209,7 @@
         const pricePerSec = window.pricePerMin / 60;
         const currentCost = diffSec * pricePerSec;
 
-        const formattedCost = Math.floor(currentCost).toLocaleString('vi-VN') + "đ";
+        const formattedCost = Math.floor(currentCost).toLocaleString('vi-VN') + " VND";
 
         document.getElementById('timer').innerText = timeString;
         document.getElementById('durationSeconds').value = diffSec;
@@ -215,22 +226,47 @@
     function selectStation(id, name, count, cap) {
         if (count >= cap) return;
         document.querySelectorAll('.station-card').forEach(c => c.classList.remove('active'));
-        document.getElementById('station-' + id).classList.add('active');
-        document.getElementById('rs').value = id;
-        document.getElementById('selectedStationNameBottom').innerText = name;
+
+        const card = document.getElementById('station-' + id);
+        if (card) card.classList.add('active');
+
+        const input = document.getElementById('rs');
+        if (input) input.value = id;
+
+        const display = document.getElementById('selectedStationNameBottom');
+        if (display) display.innerText = name;
     }
 
     function endTrip() {
-        if (!document.getElementById('rs').value) return alert("@Localizer["AlertSelectStation"]");
+        if (!document.getElementById('rs').value) {
+            return alert("@Html.Raw(Localizer["AlertSelectStation"].Value)");
+        }
         document.getElementById('form').submit();
     }
 
     function initMap() {
+        @{
+            var stationsData = ((IEnumerable<dynamic>)ViewBag.Stations).Select(s => new {
+                id = (int)s.id,
+                name = Locale.StationName((int)s.id, (string)s.name),
+                lat = (double)s.latitude,
+                lng = (double)s.longitude,
+                low = (bool)s.isLow
+            });
+        }
+
+        const stations = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(stationsData));
+
         const map = L.map('map', { zoomControl: false }).setView([10.7769, 106.7009], 15);
         L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png').addTo(map);
-        window.stations.forEach(s => {
-            const icon = L.divIcon({ className: 'm', html: `<div style="background:${s.isLow?'#f59e0b':'#10b981'};width:12px;height:12px;border-radius:50%;border:2px solid white;"></div>` });
-            L.marker([s.latitude, s.longitude], { icon }).addTo(map).bindPopup(s.name);
+
+        stations.forEach(s => {
+            const icon = L.divIcon({ 
+                className: 'm', 
+                html: `<div style="background:${s.low ? '#f59e0b' : '#10b981'};width:12px;height:12px;border-radius:50%;border:2px solid white;"></div>` 
+            });
+
+            L.marker([s.lat, s.lng], { icon }).addTo(map).bindPopup(s.name);
         });
     }
 
