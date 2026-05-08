@@ -13,8 +13,7 @@
     <!-- HEADER -->
     <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4 gap-2">
         <div>
-            <h3 class="fw-bold mb-1">💰 Transaction Management</h3>
-            <p class="text-muted mb-0">Monitor all financial activities in the system</p>
+            <h3 class="fw-bold mb-1">Transaction Management</h3>
         </div>
     </div>
 
@@ -56,9 +55,16 @@
 
                 <!-- SEARCH -->
                 <div class="col-12 col-md-6">
-                    <input id="searchBox"
-                           class="form-control"
-                           placeholder="🔍 Search user or transaction ID..." />
+                    <div class="input-group shadow-sm rounded-3 overflow-hidden">
+                        <span class="input-group-text border-0 bg-white ps-3">
+                            <i class="bi bi-search text-muted"></i>
+                        </span>
+        
+                        <input id="searchBox"
+                               type="text"
+                               class="form-control border-0 py-2 shadow-none"
+                               style="font-size: 0.9rem;" />
+                    </div>
                 </div>
 
                 <!-- TYPE -->
