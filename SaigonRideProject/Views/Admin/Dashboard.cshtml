@@ -53,11 +53,6 @@
                 <h2 class="fw-bold mt-3 mb-1">
                     @(Model?.ActiveRentals ?? 0)/@totalFleet
                 </h2>
-
-                <small class="text-muted d-block">
-                    🚲 @(Model?.ActiveBikeRentals ?? 0) bikes and 🛴 @(Model?.ActiveScooterRentals ?? 0) scooters
-                </small>
-
             </div>
         </div>
 
@@ -124,9 +119,6 @@
                 <div class="card-body">
                     <div class="d-flex justify-content-between align-items-center mb-3">
                         <h5 class="mb-0">Live Rentals</h5>
-                        <a href="/AdminRental/Index" class="btn btn-sm btn-outline-primary rounded-pill px-3">
-                            View All <i class="bi bi-arrow-right small"></i>
-                        </a>
                     </div>
 
                     <div class="table-responsive">

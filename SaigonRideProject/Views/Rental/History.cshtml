@@ -1,41 +1,105 @@
 ﻿@model List<SaigonRideProject.ViewModels.RentalHistoryViewModel>
-<div class="container mt-4">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
-    <h2>Trip History</h2>
+<div class="container mt-5 py-4" style="font-family: 'Segoe UI', Roboto, sans-serif;">
+    <div class="d-flex align-items-center justify-content-between mb-4">
+        <h2 class="fw-bold m-0" style="color: #1e293b;">Trip History</h2>
+        <span class="badge bg-white text-dark border px-3 py-2 rounded-3 shadow-sm">Total: @Model.Count Trips</span>
+    </div>
 
-    <table class="table table-striped mt-3">
-
-        <thead>
-            <tr>
-                <th>Vehicle Type</th>
-                <th>Plate Number</th>
-                <th>Start</th>
-                <th>End</th>
-                <th>Base</th>
-                <th>Discount</th>
-                <th>Total</th>
-                <th>Payment</th>
-            </tr>
-        </thead>
-
-        <tbody>
-
-            @foreach (var r in Model)
-            {
-                <tr>
-                    <td>@r.VehicleType</td>
-                    <td>@r.PlateNumber</td>
-                    <td>@r.StartTime</td>
-                    <td>@r.EndTime</td>
-                    <td>@r.BaseAmount.ToString("N0")</td>
-                    <td>@(r.DiscountPercent * 100)%</td>
-                    <td><b>@r.FinalAmount.ToString("N0")</b></td>
-                    <td>@r.PaymentMethod</td>
-                </tr>
-            }
-
-        </tbody>
-
-    </table>
-
+    <div class="card border-0 shadow-sm" style="border-radius: 1.25rem; background: white;">
+        <div class="table-responsive" style="max-height: 500px; overflow-y: auto; border-radius: 1.25rem;">
+            <table class="table align-middle mb-0">
+                <thead style="position: sticky; top: 0; z-index: 10; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    <tr style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px;">
+                        <th class="ps-4 py-3 border-0 text-white" style="background-color:#5E96BD">Vehicle</th>
+                        <th class="py-3 border-0 text-white" style="background-color:#5E96BD">Plate Number</th>
+                        <th class="py-3 border-0 text-white" style="background-color:#5E96BD">Duration</th>
+                        <th class="py-3 border-0 text-white" style="background-color:#5E96BD">Billing</th>
+                        <th class="py-3 border-0 text-white" style="background-color:#5E96BD">Status</th>
+                        <th class="py-3 border-0 pe-4 text-end text-white" style="background-color:#5E96BD">Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var r in Model)
+                    {
+                        <tr style="border-bottom: 1px solid #f1f5f9; transition: all 0.2s;" onmouseover="this.style.backgroundColor='#fcfcfc'" onmouseout="this.style.backgroundColor='transparent'">
+                            <td class="ps-4 py-4" style="border: none;">
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="rounded-3 d-flex align-items-center justify-content-center" style="width: 45px; height: 45px; background-color: #f0fdf4;">
+                                        <i class="bi @(r.VehicleType.Contains("Scooter") ? "bi-scooter" : "bi-bicycle") fs-4" style="color: #10b981;"></i>
+                                    </div>
+                                    <div>
+                                        <span class="fw-bold d-block text-dark">@r.VehicleType</span>
+                                        <small class="text-muted">@r.PaymentMethod</small>
+                                    </div>
+                                </div>
+                            </td>
+                            <td style="border: none;">
+                                <span class="badge bg-light text-secondary border fw-medium px-2 py-1">@r.PlateNumber</span>
+                            </td>
+                            <td style="border: none;">
+                                <div style="font-size: 0.9rem;">
+                                    <span class="d-block fw-medium text-nowrap">@r.StartTime.ToString("HH:mm") - @r.EndTime?.ToString("HH:mm")</span>
+                                    @{
+                                        var duration = (r.EndTime - r.StartTime);
+                                        var totalMins = (int)(duration?.TotalMinutes ?? 0);
+                                        <small class="text-muted">@totalMins mins</small>
+                                    }
+                                </div>
+                            </td>
+                            <td style="border: none;">
+                                <div class="d-flex flex-column">
+                                    <span class="fw-bold text-dark">@r.FinalAmount.ToString("N0")đ</span>
+                                    @if (r.DiscountPercent > 0)
+                                    {
+                                        <small style="color: #16a34a; font-size: 0.75rem;">
+                                            <i class="bi bi-tag-fill me-1"></i>Saved @((r.BaseAmount * r.DiscountPercent).ToString("N0"))đ
+                                        </small>
+                                    }
+                                </div>
+                            </td>
+                            <td style="border: none;">
+                                <span class="badge rounded-pill px-3 py-2" style="font-weight: 600; font-size: 0.7rem; letter-spacing: 0.3px; background-color: #ecfdf5; color: #059669;">
+                                    <i class="bi bi-check-circle-fill me-1"></i> SUCCESS
+                                </span>
+                            </td>
+                            <td class="pe-4 text-end" style="border: none;">
+                                <div class="text-dark fw-medium text-nowrap" style="font-size: 0.9rem;">@r.StartTime.ToString("dd MMM yyyy")</div>
+                                <small class="text-muted" style="font-size: 0.8rem;">ID: #@r.StartTime.Ticks.ToString().Substring(12)</small>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
+
+<style>
+    body {
+        background-color: #f4f7f9;
+    }
+    
+    .table-responsive::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .table-responsive::-webkit-scrollbar-track {
+        background: #f1f5f9;
+        border-radius: 10px;
+    }
+
+    .table-responsive::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 10px;
+    }
+
+    .table-responsive::-webkit-scrollbar-thumb:hover {
+        background: #94a3b8;
+    }
+
+    .text-nowrap {
+        white-space: nowrap;
+    }
+</style>

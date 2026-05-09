@@ -3,53 +3,82 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
-<h3 class="mb-4">My Transactions</h3>
+<div class="container py-5" style="max-width: 900px; font-family: 'Inter', system-ui, sans-serif;">
+    <div class="d-flex align-items-center justify-content-between mb-4">
+        <div>
+            <h2 class="fw-bold text-dark mb-1">My Transactions</h2>
+            <p class="text-muted small mb-0">Track your wallet history and payments</p>
+        </div>
+        <div class="d-flex align-items-center px-2 border-start border-secondary border-4">
+            <div class="me-3 ps-2">
+                <i class="bi bi-receipt fs-1 text-secondary"></i>
+            </div>
+            <div>
+                <span class="text-muted d-block small fw-bold text-uppercase" style="letter-spacing: 1px;">Total Activities</span>
+                <span class="fw-bold text-dark fs-4">@Model.Count <small class="text-secondary fw-normal fs-6">Transactions</small></span>
+            </div>
+        </div>
+    </div>
 
-<table class="table table-striped table-hover table-bordered align-middle">
-    <thead class="table-dark">
-        <tr>
-            <th>Date</th>
-            <th>Type</th>
-            <th>Method</th>
-            <th>Amount</th>
-        </tr>
-    </thead>
-
-    <tbody>
-        @foreach (var t in Model)
-        {
-            <tr>
-                <td>@t.CreatedAt.ToString("dd/MM/yyyy HH:mm")</td>
-
-                <td>
-                    @if (t.Type == "TopUp")
+    <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
+        <div class="table-responsive" style="max-height: 450px; overflow-y: auto;">
+            <table class="table align-middle mb-0">
+                <thead class="sticky-top bg-white" style="z-index: 10; box-shadow: inset 0 -1px 0 #e2e8f0;">
+                    <tr>
+                        <th class="ps-4 py-3 text-white small fw-bold text-uppercase" style="background-color:#5E96BD">Activity</th>
+                        <th class="py-3 text-white small fw-bold text-uppercase" style="background-color:#5E96BD">Method</th>
+                        <th class="py-3 text-white small fw-bold text-uppercase" style="background-color:#5E96BD">Date</th>
+                        <th class="pe-4 py-3 text-white small fw-bold text-uppercase text-end" style="background-color:#5E96BD">Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var t in Model)
                     {
-                        <span class="badge bg-success">TopUp</span>
+                        <tr class="transaction-row">
+                            <td class="ps-4 py-3">
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="rounded-circle d-flex align-items-center justify-content-center" 
+                                         style="width: 40px; height: 40px; background-color: @(t.Type == "TopUp" ? "#f0fdf4" : "#fef2f2"); color: @(t.Type == "TopUp" ? "#16a34a" : "#dc2626");">
+                                        <i class="bi @(t.Type == "TopUp" ? "bi-arrow-down-left-circle" : "bi-cart-check") fs-5"></i>
+                                    </div>
+                                    <div>
+                                        <span class="fw-bold d-block text-dark">@(t.Type == "TopUp" ? "Wallet Top Up" : "Ride Payment")</span>
+                                        <span class="text-muted" style="font-size: 0.75rem;">#TRX-@t.CreatedAt.Ticks.ToString().Substring(12)</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <span class="badge bg-light text-dark border fw-medium px-2 py-1">
+                                    <i class="bi bi-wallet2 me-1"></i> @t.Method
+                                </span>
+                            </td>
+                            <td>
+                                <div class="text-dark small fw-medium">@t.CreatedAt.ToString("dd MMM, yyyy")</div>
+                                <div class="text-muted small">@t.CreatedAt.ToString("HH:mm")</div>
+                            </td>
+                            <td class="pe-4 text-end">
+                                <span class="fw-bold fs-5 @(t.Type == "TopUp" ? "text-success" : "text-danger")">
+                                    @(t.Type == "TopUp" ? "+" : "-")@Math.Abs(t.Amount).ToString("N0")<small class="ms-1 fs-6">đ</small>
+                                </span>
+                            </td>
+                        </tr>
                     }
-                    else
-                    {
-                        <span class="badge bg-danger">Payment</span>
-                    }
-                </td>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 
-                <td>@t.Method</td>
-
-                <td>
-                    @if (t.Type == "TopUp")
-                    {
-                        <span class="text-success">
-                            +@Math.Abs(t.Amount).ToString("N0")
-                        </span>
-                    }
-                    else
-                    {
-                        <span class="text-danger">
-                            -@Math.Abs(t.Amount).ToString("N0")
-                        </span>
-                    }
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+<style>
+    body { background-color: #f8fafc; }
+    .rounded-4 { border-radius: 1rem !important; }
+    .transaction-row { transition: background 0.2s; border-bottom: 1px solid #f1f5f9; }
+    .transaction-row:hover { background-color: #fcfcfc; }
+    
+    .table-responsive::-webkit-scrollbar { width: 6px; }
+    .table-responsive::-webkit-scrollbar-track { background: #f1f5f9; }
+    .table-responsive::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+    .table-responsive::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+</style>

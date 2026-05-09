@@ -1,37 +1,64 @@
 ﻿@model SaigonRideProject.ViewModels.AdminStationViewModel
-
 @{
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Create Station</h2>
+<div class="container py-4">
 
-<form method="post">
-
-    <div>
-        <label>Name</label>
-        <input asp-for="Name" class="form-control" />
+    <div class="d-flex align-items-center gap-3 mb-4">
+        <a href="/AdminStation" class="btn btn-outline-secondary rounded-circle shadow-sm d-flex align-items-center justify-content-center"
+               style="width: 40px; height: 40px;" title="Back to List">
+            <i class="bi bi-arrow-left"></i>
+        </a>
+        <h3 class="fw-bold mb-0" style="color: #1a2e5a;">Create Station</h3>
     </div>
 
-    <div>
-        <label>Address</label>
-        <input asp-for="Address" class="form-control" />
-    </div>
+    <form method="post" class="card border-0 p-4 shadow-sm rounded-4" style="background-color: #e3f0ff;">
 
-    <div>
-        <label>Capacity</label>
-        <input asp-for="Capacity" class="form-control" />
-    </div>
+        <div class="mb-3">
+            <label class="small fw-bold text-muted mb-1 text-uppercase">Name</label>
+            <input asp-for="Name" class="form-control border-0 py-2 shadow-sm rounded-3" />
+        </div>
 
-    <div>
-        <label>Latitude</label>
-        <input asp-for="Latitude" class="form-control" />
-    </div>
+        <div class="mb-3">
+            <label class="small fw-bold text-muted mb-1 text-uppercase">Address</label>
+            <input asp-for="Address" class="form-control border-0 py-2 shadow-sm rounded-3" />
+        </div>
 
-    <div>
-        <label>Longitude</label>
-        <input asp-for="Longitude" class="form-control" />
-    </div>
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <label class="small fw-bold text-muted mb-1 text-uppercase">Capacity</label>
+                <input asp-for="Capacity" class="form-control border-0 py-2 shadow-sm rounded-3" />
+            </div>
+            <div class="col-md-4 mb-3">
+                <label class="small fw-bold text-muted mb-1 text-uppercase">Latitude</label>
+                <input asp-for="Latitude" class="form-control border-0 py-2 shadow-sm rounded-3" />
+            </div>
+            <div class="col-md-4 mb-3">
+                <label class="small fw-bold text-muted mb-1 text-uppercase">Longitude</label>
+                <input asp-for="Longitude" class="form-control border-0 py-2 shadow-sm rounded-3" />
+            </div>
+        </div>
 
-    <button type="submit" class="btn btn-success mt-2">Save</button>
-</form>
+        <div class="d-flex gap-2 mt-3">
+            <button type="submit" class="btn btn-primary px-4 shadow-sm border-0 rounded-3"
+                    style="background: linear-gradient(to right, #548EB7);">
+                Creat Station
+            </button>
+            
+            <a href="/AdminStation" class="btn btn-light px-4 rounded-3 border-0 shadow-sm"
+                   style="background-color: #cbdbe6; color: #1a2e5a;">
+                Cancel
+            </a>
+        </div>
+
+    </form>
+</div>
+
+<style>
+    .form-control:focus {
+        background-color: #ffffff;
+        box-shadow: 0 0 0 0.25rem rgba(26, 46, 90, 0.1);
+        border: none;
+    }
+</style>

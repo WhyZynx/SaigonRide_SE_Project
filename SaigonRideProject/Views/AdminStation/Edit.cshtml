@@ -1,42 +1,118 @@
 ﻿@model SaigonRideProject.ViewModels.AdminStationViewModel
-
 @{
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Edit Station</h2>
-
-<form method="post">
-
-    <input type="hidden" asp-for="Id" />
-
-    <div>
-        <label>Name</label>
-        <input asp-for="Name" class="form-control" />
+<div class="container-fluid py-4" style="background-color: #f0f7ff; min-height: 100vh;">
+    <div class="d-flex align-items-center gap-3 mb-4">
+        <a href="/AdminStation" class="btn btn-white rounded-circle shadow-sm border">
+            <i class="bi bi-arrow-left"></i>
+        </a>
+        <div>
+            <h2 class="fw-bold mb-0" style="color: #1a2e5a;">Edit Station</h2>
+        </div>
     </div>
 
-    <div>
-        <label>Address</label>
-        <input asp-for="Address" class="form-control" />
-    </div>
+    <form method="post">
+        <input type="hidden" asp-for="Id" />
 
-    <div>
-        <label>Capacity</label>
-        <input asp-for="Capacity" class="form-control" />
-    </div>
+        <div class="row g-4">
+            <div class="col-lg-8">
+                <div class="card border-0 shadow-sm rounded-4 p-4" style="background-color: #e3f0ff;">
+                    
+                    <div class="mb-4">
+                        <div class="d-flex align-items-center gap-2 mb-3">
+                            <div class="p-2 bg-white rounded-3 shadow-sm">
+                                <i class="bi bi-geo-alt-fill text-primary"></i>
+                            </div>
+                            <h5 class="mb-0 fw-bold" style="color: #1a2e5a;">Station Identity</h5>
+                        </div>
+                        
+                        <div class="row g-3">
+                            <div class="col-md-12">
+                                <label class="small fw-bold text-muted mb-1">STATION NAME</label>
+                                <input asp-for="Name" class="form-control border-0 py-2 shadow-sm rounded-3" placeholder="Ví dụ: Bến Thành Station" />
+                            </div>
+                            <div class="col-md-12">
+                                <label class="small fw-bold text-muted mb-1">STREET ADDRESS</label>
+                                <input asp-for="Address" class="form-control border-0 py-2 shadow-sm rounded-3" placeholder="Số nhà, tên đường, quận..." />
+                            </div>
+                        </div>
+                    </div>
 
-    <div>
-        <label>Current Inventory</label>
-        <input asp-for="VehicleCount" class="form-control" />
-    </div>
-    <div>
-        <label>Latitude</label>
-        <input asp-for="Latitude" class="form-control" />
-    </div>
-    <div>
-        <label>Longitude</label>
-        <input asp-for="Longitude" class="form-control" />
-    </div>
+                    <hr class="opacity-10 my-4">
 
-    <button type="submit" class="btn btn-primary mt-2">Update</button>
-</form>
+                    <div class="mb-2">
+                        <div class="d-flex align-items-center gap-2 mb-3">
+                            <div class="p-2 bg-white rounded-3 shadow-sm">
+                                <i class="bi bi-sliders2-vertical text-primary"></i>
+                            </div>
+                            <h5 class="mb-0 fw-bold" style="color: #1a2e5a;">Logistics & Location</h5>
+                        </div>
+
+                        <div class="row g-3">
+                            <div class="col-md-4">
+                                <label class="small fw-bold text-muted mb-1">CAPACITY</label>
+                                <div class="input-group shadow-sm rounded-3 overflow-hidden">
+                                    <span class="input-group-text border-0 bg-white"><i class="bi bi-box"></i></span>
+                                    <input asp-for="Capacity" class="form-control border-0 py-2" />
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="small fw-bold text-muted mb-1">LATITUDE</label>
+                                <input asp-for="Latitude" class="form-control border-0 py-2 shadow-sm rounded-3" />
+                            </div>
+                            <div class="col-md-4">
+                                <label class="small fw-bold text-muted mb-1">LONGITUDE</label>
+                                <input asp-for="Longitude" class="form-control border-0 py-2 shadow-sm rounded-3" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-5 d-flex gap-3">
+                        <button type="submit" class="btn btn-primary px-3 py-2 shadow-sm border-0 rounded-3"
+                                style="background: linear-gradient(to right, #548EB7);">
+                            Update Station
+                        </button>
+                        <a href="/AdminStation" class="btn btn-light px-4 py-2 rounded-3 border-0 shadow-sm"
+                               style="background-color: #cbdbe6; color: #1a2e5a;">
+                            Cancel
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden mb-4">
+                    <div class="p-4 bg-white border-bottom">
+                        <h6 class="fw-bold mb-3" style="color: #1a2e5a;">Current Inventory</h6>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <div class="text-center">
+                                <h2 class="fw-bold mb-0">@Model.VehicleCount</h2>
+                                <small class="text-muted text-uppercase" style="font-size: 10px;">Vehicles</small>
+                            </div>
+                            <div class="vr mx-3"></div>
+                            <div class="flex-grow-1">
+                                <div class="progress" style="height: 10px;">
+                                    @{
+                                        var percent = (Model.Capacity > 0) ? (Model.VehicleCount * 100 / Model.Capacity) : 0;
+                                        var colorClass = percent > 80 ? "bg-danger" : "bg-success";
+                                    }
+                                    <div class="progress-bar @colorClass" style="width: @percent%"></div>
+                                </div>
+                                <small class="text-muted mt-1 d-block">Remaining: @percent%</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden" style="height: 250px; background-color: #b8d0e8;">
+                    <div class="h-100 d-flex flex-column align-items-center justify-content-center text-primary opacity-50">
+                        <i class="bi bi-map-fill" style="font-size: 4rem;"></i>
+                        <span class="fw-bold mt-2">Map Preview</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

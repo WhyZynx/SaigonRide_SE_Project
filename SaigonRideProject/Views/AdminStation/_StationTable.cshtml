@@ -1,42 +1,90 @@
 ﻿@model List<SaigonRideProject.ViewModels.AdminStationViewModel>
 
-<table class="table table-striped table-hover table-bordered align-middle">
-    <thead class="table-dark">
+<table class="table table-hover align-middle">
+
+    <thead class="table-light">
         <tr>
             <th>ID</th>
-            <th>Name</th>
-            <th>Address</th>
+            <th>Station</th>
             <th>Capacity</th>
-            <th>Current</th>
-            <th>Lat</th>
-            <th>Lng</th>
+            <th>Inventory</th>
+            <th>Location</th>
             <th>Status</th>
-            <th>Action</th>
+            <th class="text-end">Action</th>
         </tr>
     </thead>
 
     <tbody>
         @foreach (var s in Model)
         {
+            var percent = s.Capacity == 0 ? 0 : (int)((double)s.VehicleCount / s.Capacity * 100);
+
             <tr>
                 <td>@s.Id</td>
-                <td>@s.Name</td>
-                <td>@s.Address</td>
-                <td>@s.Capacity</td>
-                <td>@s.VehicleCount</td>
-                <td>@s.Latitude</td>
-                <td>@s.Longitude</td>
 
+                <!-- Name -->
                 <td>
-                    <span class="badge bg-success">@s.Status</span>
+                    <div class="fw-semibold">@s.Name</div>
+                    <small class="text-muted">@s.Address</small>
                 </td>
 
-                <td class="text-nowrap">
-                    <a class="btn btn-sm btn-warning" href="/AdminStation/Edit/@s.Id">Edit</a>
-                    <a class="btn btn-sm btn-info" href="/AdminStation/Detail/@s.Id">Detail</a>
-                    <a class="btn btn-sm btn-danger" href="/AdminStation/Delete/@s.Id">Delete</a>
+                <!-- Capacity -->
+                <td>@s.Capacity</td>
+
+                <!-- Inventory + progress -->
+                <td>
+                    <div class="progress" style="height:6px;">
+                        <div class="progress-bar bg-success"
+                             style="width:@percent%"></div>
+                    </div>
+                    <small>@s.VehicleCount / @s.Capacity</small>
+                </td>
+
+                <!-- Location -->
+                <td>
+                    <small>@s.Latitude, @s.Longitude</small>
+                </td>
+
+                <!-- Status -->
+                <td>
+                    @if (s.Status == "Active")
+                    {
+                        <span class="badge bg-success">
+                            <i class="bi bi-check-circle"></i> Active
+                        </span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-secondary">
+                            <i class="bi bi-x-circle"></i> Inactive
+                        </span>
+                    }
+                </td>
+
+                <!-- Action -->
+                <td class="text-end">
+
+                    <a class="btn btn-sm text-primary"
+                           href="/AdminStation/Edit/@s.Id"
+                           title="Edit">
+                        <i class="bi bi-pencil-square"></i>
+                    </a>
+
+                    <a class="btn btn-sm text-info"
+                           href="/AdminStation/Detail/@s.Id"
+                           title="Detail">
+                        <i class="bi bi-eye"></i>
+                    </a>
+
+                    <a class="btn btn-sm text-danger"
+                           href="/AdminStation/Delete/@s.Id"
+                           title="Delete">
+                        <i class="bi bi-trash"></i>
+                    </a>
+
                 </td>
             </tr>
         }
     </tbody>
+
 </table>
