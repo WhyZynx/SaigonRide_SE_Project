@@ -28,7 +28,7 @@
                         <div class="text-center text-md-start pe-md-5 mb-4 mb-md-0 flex-grow-1">
                             <span class="text-uppercase text-muted fw-bold small">@Localizer["TotalPaidLabel"]</span>
                             <h1 class="display-4 fw-bold mt-2 mb-0 text-success">
-                                @ViewBag.Amount.ToString("N0")<span class="fs-2">đ</span>
+                                @ViewBag.Amount.ToString("N0")<span class="fs-2"> VND</span>
                             </h1>
                             <p class="text-muted mt-2">@Localizer["ThankYouMsg"] <span class="fw-bold" style="color: #6d93ac;">Saigon Ride</span></p>
                         </div>
@@ -39,7 +39,16 @@
                             <div class="bg-light rounded-4 p-4">
                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                     <span class="text-muted small">@Localizer["MethodLabel"]</span>
-                                    <span class="fw-bold text-dark">@(ViewBag.Method == "CashMethod" ? Localizer["CashMethod"] : ViewBag.Method)</span>
+                                    <span class="fw-bold text-dark">
+                                        @if (ViewBag.Method == "Cash")
+                                        {
+                                            @Localizer["PaymentMethodCash"]
+                                        }
+                                        else
+                                        {
+                                            @Localizer[ViewBag.Method ?? "Default"]
+                                        }
+                                    </span>
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                     <span class="text-muted small">@Localizer["TransactionIDLabel"]</span>

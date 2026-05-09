@@ -88,16 +88,24 @@
                         <div class="d-flex justify-content-between align-items-center small border-top pt-3">
                             <span class="text-muted">@Localizer["PaymentMethod"]</span>
                             <select id="paymentMethod" 
-                                    class="form-select form-select-sm border-0 bg-light rounded-pill px-4 shadow-none" 
-                                    style="width: auto; min-width: 120px; cursor: pointer;">
-                                @foreach (var m in ViewBag.PaymentMethods) {
-                                    <option value="@m" class="py-2">@m</option>
+                                class="form-select form-select-sm border-0 bg-light rounded-pill px-4 shadow-none" 
+                                style="width: auto; min-width: 120px; cursor: pointer;">
+                            @foreach (var m in ViewBag.PaymentMethods)
+                            {
+                                if (m == "Cash")
+                                {
+                                    <option value="Cash">@Localizer["PaymentMethodCash"]</option>
                                 }
-                            </select>
+                                else
+                                {
+                                    <option value="@m" class="py-2">@Localizer[m]</option>
+                                }
+                            }
+                        </select>
                         </div>
                         <div class="d-flex justify-content-between align-items-center border-top pt-3 mt-2">
                             <span class="fw-bold h5 mb-0">@Localizer["TotalEstimated"]</span>
-                            <span class="fw-bold h5 mb-0 text-success total-val">0VND</span>
+                            <span class="fw-bold h5 mb-0 text-success total-val">0 VND</span>
                         </div>
                     </div>
                 </div>
@@ -263,7 +271,7 @@
         stations.forEach(s => {
             const icon = L.divIcon({ 
                 className: 'm', 
-                html: `<div style="background:${s.low ? '#f59e0b' : '#10b981'};width:12px;height:12px;border-radius:50%;border:2px solid white;"></div>` 
+                html: `<div style="background:${s.low ? '#f59e0b' : '#10b981'};width:18px;height:18px;border-radius:50%;border:2px solid white;"></div>` 
             });
 
             L.marker([s.lat, s.lng], { icon }).addTo(map).bindPopup(s.name);

@@ -658,7 +658,7 @@
     <value>Content:</value>
   </data>
   <data name="AmountLabel" xml:space="preserve">
-    <value>Payment:</value>
+    <value>Payment</value>
   </data>
   <data name="ChangeBtn" xml:space="preserve">
     <value>Change</value>
@@ -728,5 +728,146 @@
   </data>
   <data name="ViewHistoryBtn" xml:space="preserve">
     <value>View History</value>
+  </data>
+  <data name="TripHistoryTitle" xml:space="preserve">
+    <value>Trip History</value>
+  </data>
+  <data name="TotalTrips" xml:space="preserve">
+    <value>Total: {0} Trips</value>
+  </data>
+  <data name="ColVehicle" xml:space="preserve">
+    <value>Vehicle</value>
+  </data>
+  <data name="ColPlateNumber" xml:space="preserve">
+    <value>Plate Number</value>
+  </data>
+  <data name="ColBilling" xml:space="preserve">
+    <value>Billing</value>
+  </data>
+  <data name="MinsUnit" xml:space="preserve">
+    <value>mins</value>
+  </data>
+  <data name="SavedAmount" xml:space="preserve">
+    <value>Saved {0}</value>
+  </data>
+  <data name="SuccessStatus" xml:space="preserve">
+    <value>SUCCESS</value>
+  </data>
+  <data name="ColDuration" xml:space="preserve">
+    <value>Duration</value>
+  </data>
+  <data name="ColStatus" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="ColDate" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="MyTransactions" xml:space="preserve">
+    <value>My Transactions</value>
+  </data>
+  <data name="TransactionSubTitle" xml:space="preserve">
+    <value>Track your wallet history and payments</value>
+  </data>
+  <data name="TotalActivities" xml:space="preserve">
+    <value>Total Activities</value>
+  </data>
+  <data name="ColActivity" xml:space="preserve">
+    <value>Activity</value>
+  </data>
+  <data name="WalletTopUp" xml:space="preserve">
+    <value>Wallet Top Up</value>
+  </data>
+  <data name="RidePayment" xml:space="preserve">
+    <value>Ride Payment</value>
+  </data>
+  <data name="ProfileTitle" xml:space="preserve">
+    <value>My Profile</value>
+  </data>
+  <data name="ProfileSubTitle" xml:space="preserve">
+    <value>Manage your personal account information</value>
+  </data>
+  <data name="StatusActive" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="StatusLocked" xml:space="preserve">
+    <value>Locked</value>
+  </data>
+  <data name="AccountTypeLabel" xml:space="preserve">
+    <value>Account Type</value>
+  </data>
+  <data name="RoleLabel" xml:space="preserve">
+    <value>Role</value>
+  </data>
+  <data name="AvailableBalance" xml:space="preserve">
+    <value>Available Balance</value>
+  </data>
+  <data name="TopUpPrompt" xml:space="preserve">
+    <value>Need more balance?</value>
+  </data>
+  <data name="TopUpDesc" xml:space="preserve">
+    <value>Add funds to your wallet to continue using our services</value>
+  </data>
+  <data name="TopUpBtn" xml:space="preserve">
+    <value>Top Up Now</value>
+  </data>
+  <data name="Local" xml:space="preserve">
+    <value>Local</value>
+  </data>
+  <data name="RoleUser" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="TopUpTitle" xml:space="preserve">
+    <value>Top Up Wallet</value>
+  </data>
+  <data name="TopUpSubTitle" xml:space="preserve">
+    <value>Quickly add funds to your account</value>
+  </data>
+  <data name="RechargeAmountLabel" xml:space="preserve">
+    <value>Recharge Amount</value>
+  </data>
+  <data name="MinDepositMsg" xml:space="preserve">
+    <value>Min deposit: {0} VND</value>
+  </data>
+  <data name="ConfirmTopUpBtn" xml:space="preserve">
+    <value>Confirm Top Up</value>
+  </data>
+  <data name="SecuredSSL" xml:space="preserve">
+    <value>Secured 256-bit SSL connection</value>
+  </data>
+  <data name="PaymentMethodCash" xml:space="preserve">
+    <value>Cash</value>
+  </data>
+  <data name="FullNameRequired" xml:space="preserve">
+    <value>Vui lòng nhập họ tên.</value>
+  </data>
+  <data name="FullNameMinLength" xml:space="preserve">
+    <value>Họ tên phải từ 3 ký tự trở lên.</value>
+  </data>
+  <data name="EmailRequired" xml:space="preserve">
+    <value>Vui lòng nhập email.</value>
+  </data>
+  <data name="InvalidEmail" xml:space="preserve">
+    <value>Định dạng email không hợp lệ.</value>
+  </data>
+  <data name="EmailNoSpaces" xml:space="preserve">
+    <value>Email không được chứa khoảng trắng.</value>
+  </data>
+  <data name="PasswordRequired" xml:space="preserve">
+    <value>Vui lòng nhập mật khẩu.</value>
+  </data>
+  <data name="PassMinLength" xml:space="preserve">
+    <value>Mật khẩu phải có ít nhất 8 ký tự.</value>
+  </data>
+  <data name="PassUppercase" xml:space="preserve">
+    <value>Mật khẩu phải có ít nhất 1 chữ hoa.</value>
+  </data>
+  <data name="PassNumber" xml:space="preserve">
+    <value>Mật khẩu phải có ít nhất 1 chữ số.</value>
+  </data>
+  <data name="ConfirmPasswordRequired" xml:space="preserve">
+    <value>Vui lòng xác nhận mật khẩu.</value>
+  </data>
+  <data name="PasswordMismatch" xml:space="preserve">
+    <value>Mật khẩu không trùng khớp.</value>
   </data>
 </root>
