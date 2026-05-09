@@ -1,23 +1,27 @@
 ﻿@model List<SaigonRideProject.Models.WalletTransaction>
-
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizerFactory LocalizerFactory
 @{
+    var Localizer = LocalizerFactory.Create("SharedResource", "SaigonRideProject");
     Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = Localizer["Transactions"];
 }
+
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
 <div class="container py-5" style="max-width: 900px; font-family: 'Inter', system-ui, sans-serif;">
     <div class="d-flex align-items-center justify-content-between mb-4">
         <div>
-            <h2 class="fw-bold text-dark mb-1">My Transactions</h2>
-            <p class="text-muted small mb-0">Track your wallet history and payments</p>
+            <h2 class="fw-bold text-dark mb-1">@Localizer["MyTransactions"]</h2>
+            <p class="text-muted small mb-0">@Localizer["TransactionSubTitle"]</p>
         </div>
         <div class="d-flex align-items-center px-2 border-start border-secondary border-4">
             <div class="me-3 ps-2">
                 <i class="bi bi-receipt fs-1 text-secondary"></i>
             </div>
             <div>
-                <span class="text-muted d-block small fw-bold text-uppercase" style="letter-spacing: 1px;">Total Activities</span>
-                <span class="fw-bold text-dark fs-4">@Model.Count <small class="text-secondary fw-normal fs-6">Transactions</small></span>
+                <span class="text-muted d-block small fw-bold text-uppercase" style="letter-spacing: 1px;">@Localizer["TotalActivities"]</span>
+                <span class="fw-bold text-dark fs-4">@Model.Count <small class="text-secondary fw-normal fs-6">@Localizer["Transactions"]</small></span>
             </div>
         </div>
     </div>
@@ -25,42 +29,52 @@
     <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
         <div class="table-responsive" style="max-height: 450px; overflow-y: auto;">
             <table class="table align-middle mb-0">
-                <thead class="sticky-top bg-white" style="z-index: 10; box-shadow: inset 0 -1px 0 #e2e8f0;">
+                <thead class="sticky-top" style="z-index: 10;">
                     <tr>
-                        <th class="ps-4 py-3 text-white small fw-bold text-uppercase" style="background-color:#5E96BD">Activity</th>
-                        <th class="py-3 text-white small fw-bold text-uppercase" style="background-color:#5E96BD">Method</th>
-                        <th class="py-3 text-white small fw-bold text-uppercase" style="background-color:#5E96BD">Date</th>
-                        <th class="pe-4 py-3 text-white small fw-bold text-uppercase text-end" style="background-color:#5E96BD">Amount</th>
+                        <th class="ps-4 py-3 text-white small fw-bold text-uppercase" style="background-color:#5E96BD; min-width: 250px;">@Localizer["ColActivity"]</th>
+                        <th class="py-3 text-white small fw-bold text-uppercase" style="background-color:#5E96BD; min-width: 150px;">@Localizer["MethodLabel"]</th>
+                        <th class="py-3 text-white small fw-bold text-uppercase" style="background-color:#5E96BD; min-width: 150px;">@Localizer["DateLabel"]</th>
+                        <th class="pe-4 py-3 text-white small fw-bold text-uppercase text-end" style="background-color:#5E96BD; min-width: 150px;">@Localizer["AmountLabel"]</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach (var t in Model)
                     {
                         <tr class="transaction-row">
-                            <td class="ps-4 py-3">
+                            <td class="ps-4 py-3 border-0">
                                 <div class="d-flex align-items-center gap-3">
-                                    <div class="rounded-circle d-flex align-items-center justify-content-center" 
+                                    <div class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" 
                                          style="width: 40px; height: 40px; background-color: @(t.Type == "TopUp" ? "#f0fdf4" : "#fef2f2"); color: @(t.Type == "TopUp" ? "#16a34a" : "#dc2626");">
                                         <i class="bi @(t.Type == "TopUp" ? "bi-arrow-down-left-circle" : "bi-cart-check") fs-5"></i>
                                     </div>
-                                    <div>
-                                        <span class="fw-bold d-block text-dark">@(t.Type == "TopUp" ? "Wallet Top Up" : "Ride Payment")</span>
+                                    <div class="text-truncate">
+                                        <span class="fw-bold d-block text-dark lh-sm">
+                                            @(t.Type == "TopUp" ? Localizer["WalletTopUp"] : Localizer["RidePayment"])
+                                        </span>
                                         <span class="text-muted" style="font-size: 0.75rem;">#TRX-@t.CreatedAt.Ticks.ToString().Substring(12)</span>
                                     </div>
                                 </div>
                             </td>
-                            <td>
-                                <span class="badge bg-light text-dark border fw-medium px-2 py-1">
-                                    <i class="bi bi-wallet2 me-1"></i> @t.Method
+                            <td class="border-0">
+                                <span class="badge bg-light text-dark border fw-medium px-2 py-1 text-nowrap">
+                                    <i class="bi bi-wallet2 me-1"></i>
+                                    @if (t.Method == "Cash")
+                                    {
+                                        @Localizer["PaymentMethodCash"]
+                                    }
+                                    else
+                                    {
+                                        @t.Method
+                                    }
                                 </span>
                             </td>
-                            <td>
-                                <div class="text-dark small fw-medium">@t.CreatedAt.ToString("dd MMM, yyyy")</div>
+                            <td class="border-0">
+                                <div class="text-dark small fw-medium text-nowrap">@t.CreatedAt.ToString("dd MMM, yyyy")</div>
                                 <div class="text-muted small">@t.CreatedAt.ToString("HH:mm")</div>
                             </td>
-                            <td class="pe-4 text-end">
-                                <span class="fw-bold fs-5 @(t.Type == "TopUp" ? "text-success" : "text-danger")">
-                                    @(t.Type == "TopUp" ? "+" : "-")@Math.Abs(t.Amount).ToString("N0")<small class="ms-1 fs-6">đ</small>
+                            <td class="pe-4 text-end border-0">
+                                <span class="fw-bold fs-5 text-nowrap @(t.Type == "TopUp" ? "text-success" : "text-danger")">
+                                    @(t.Type == "TopUp" ? "+" : "-")@Math.Abs(t.Amount).ToString("N0")<small class="ms-1 fs-6"> VND</small>
                                 </span>
                             </td>
                         </tr>
@@ -74,11 +88,17 @@
 <style>
     body { background-color: #f8fafc; }
     .rounded-4 { border-radius: 1rem !important; }
-    .transaction-row { transition: background 0.2s; border-bottom: 1px solid #f1f5f9; }
-    .transaction-row:hover { background-color: #fcfcfc; }
+    
+    .transaction-row { 
+        transition: background 0.2s; 
+        border-bottom: 1px solid #f1f5f9 !important; 
+    }
+    .transaction-row:hover { background-color: #f8fafc; }
     
     .table-responsive::-webkit-scrollbar { width: 6px; }
     .table-responsive::-webkit-scrollbar-track { background: #f1f5f9; }
     .table-responsive::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
     .table-responsive::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    
+    .text-nowrap { white-space: nowrap; }
 </style>

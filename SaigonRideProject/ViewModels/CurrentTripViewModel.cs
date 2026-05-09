@@ -8,6 +8,8 @@
 
         public string VehicleName { get; set; } = string.Empty;
 
+        public string PlateNumber { get; set; }
+
         public decimal PricePerMinute { get; set; }
 
         public double PickupLat { get; set; }

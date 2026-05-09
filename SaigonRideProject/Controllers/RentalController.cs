@@ -211,6 +211,7 @@ namespace SaigonRideProject.Controllers
                 StartTime = rental.StartTime,
                 VehicleName = rental.Vehicle.VehicleType,
                 PricePerMinute = rental.Vehicle.PricePerMinute,
+                PlateNumber = rental.Vehicle.PlateNumber,
                 PickupLat = pickup.Latitude,
                 PickupLng = pickup.Longitude
             };

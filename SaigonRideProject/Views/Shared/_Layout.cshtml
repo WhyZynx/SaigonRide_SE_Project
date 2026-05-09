@@ -1,7 +1,12 @@
 ﻿@using SaigonRideProject.Data
+@using Microsoft.Extensions.Localization
 @inject AppDbContext _context
+@using SaigonRideProject.Resources
 
+@inject IStringLocalizerFactory LocalizerFactory
 @{
+    var Localizer = LocalizerFactory.Create("SharedResource", "SaigonRideProject");
+
     var userId = Context.Session.GetInt32("UserId");
 
     var user = userId != null
@@ -76,7 +81,7 @@
                     <div class="navbar-nav mx-auto gap-2 gap-lg-4 mt-3 mt-lg-0 custom-nav">
                         <a class="nav-link d-flex align-items-center gap-2 px-3 @(currentPath == "/User/UserDashboard" ? "active" : "")"
                                href="/User/UserDashboard">
-                            <i class="bi bi-house-door"></i> Homepage
+                            <i class="bi bi-house-door"></i> @Localizer["Homepage"]
                         </a>
 
                         @if (ViewBag.HasActiveRental == true && ViewBag.ActiveRentalId != null)
@@ -84,33 +89,35 @@
                             var currentRentalPath = "/Rental/Current/" + ViewBag.ActiveRentalId;
                             <a class="nav-link d-flex align-items-center gap-2 px-3 @(currentPath.StartsWith("/Rental/Current") ? "active" : "")"
                                    href="@currentRentalPath">
-                                <i class="bi bi-bicycle"></i> Currently Renting
+                                <i class="bi bi-bicycle"></i> @Localizer["CurrentlyRenting"]
                             </a>
                         }
 
                         <a class="nav-link d-flex align-items-center gap-2 px-3 @(currentPath == "/Rental/History" ? "active" : "")"
                                href="/Rental/History">
-                            <i class="bi bi-clock-history"></i> History
+                            <i class="bi bi-clock-history"></i> @Localizer["History"]
                         </a>
 
                         <a class="nav-link d-flex align-items-center gap-2 px-3 @(currentPath == "/User/Transactions" ? "active" : "")"
                                href="/User/Transactions">
-                            <i class="bi bi-wallet2"></i> Transactions
+                            <i class="bi bi-wallet2"></i> @Localizer["Transactions"]
                         </a>
 
                         <div class="nav-item dropdown custom-nav">
                             <a class="nav-link d-flex align-items-center gap-2 px-3 dropdown-toggle border-0"
                                    href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="bi bi-translate"></i> <span>Language</span>
+                                <i class="bi bi-translate"></i> <span>@Localizer["Language"]</span>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0 mt-2">
                                 <li>
-                                    <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="?culture=vi-VN">
+                                    <a class="dropdown-item d-flex align-items-center gap-2 py-2"
+                                           href="/Language/SetLanguage?culture=vi-VN&returnUrl=@Uri.EscapeDataString(Context.Request.Path + Context.Request.QueryString)">
                                         <span class="fi fi-vn"></span> Tiếng Việt
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="?culture=en-US">
+                                    <a class="dropdown-item d-flex align-items-center gap-2 py-2"
+                                           href="/Language/SetLanguage?culture=en-US&returnUrl=@Uri.EscapeDataString(Context.Request.Path + Context.Request.QueryString)">
                                         <span class="fi fi-us"></span> English
                                     </a>
                                 </li>
@@ -164,7 +171,7 @@
                 <div class="ms-auto d-flex align-items-center gap-4">
                 
                     <div class="d-flex align-items-center gap-3">
-                        <a class="text-decoration-none fw-bold small" href="/Account/Login" style="color:#075985;">Log In</a>
+                        <a class="text-decoration-none fw-bold small" href="/Account/Login" style="color:#075985;">Login</a>
                     
                         <a class="btn rounded-pill px-4 py-2 fw-bold shadow-sm text-white" href="/Account/Register" style="background-color:#5E96BD;">
                             Sign Up

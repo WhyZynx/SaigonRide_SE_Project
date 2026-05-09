@@ -1,4 +1,11 @@
 ﻿@model SaigonRideProject.Models.Rental
+@using System.Text.Json
+@using SaigonRideProject.Helpers
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizerFactory LocalizerFactory
+@{
+    var Localizer = LocalizerFactory.Create("SharedResource", "SaigonRideProject");
+}
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
@@ -7,8 +14,8 @@
         <div class="mb-3">
             <i class="bi bi-check-circle-fill text-success" style="font-size: 4.5rem;"></i>
         </div>
-        <h2 class="fw-bold text-dark">Trip Completed Successfully!</h2>
-        <p class="text-muted">Thank you for riding with us. Please complete your payment.</p>
+        <h2 class="fw-bold text-dark">@Localizer["TripSuccessTitle"]</h2>
+        <p class="text-muted">@Localizer["TripSuccessDesc"]</p>
     </div>
 
     <div class="row g-4">
@@ -19,36 +26,43 @@
                         <i class="bi bi-bicycle text-success fs-1"></i>
                     </div>
                     <div>
-                        <h4 class="fw-bold mb-0">Vehicle #@Model.VehicleId</h4>
+                        <h4 class="fw-bold mb-0">@(Model.Vehicle?.PlateNumber ?? "N/A")</h4>
                         <small class="text-muted">Green Edition • SaigonRide</small>
                     </div>
                 </div>
 
                 <div class="row g-3">
                     <div class="col-6">
-                        <small class="text-muted d-block mb-1">Pickup Location</small>
-                        <span class="fw-bold d-block">@(Model.PickupStation?.Name ?? "Station " + Model.PickupStationId)</span>
+                        <small class="text-muted d-block mb-1">@Localizer["PickUp"]</small>
+                        <span class="fw-bold d-block">@(Model.PickupStation?.Name ?? @Localizer["StationTitle"] + " " + Model.PickupStationId)</span>
                     </div>
                     <div class="col-6">
-                        <small class="text-muted d-block mb-1">Return Location</small>
-                        <span class="fw-bold d-block">@(Model.ReturnStation?.Name ?? "Station " + Model.ReturnStationId)</span>
+                        <small class="text-muted d-block mb-1">@Localizer["ReturnStation"]</small>
+                        <span class="fw-bold d-block">@(Model.ReturnStation?.Name ?? @Localizer["StationTitle"] + " " + Model.ReturnStationId)</span>
                     </div>
                     <div class="col-6 mt-3">
-                        <small class="text-muted d-block mb-1">Duration</small>
+                        <small class="text-muted d-block mb-1">@Localizer["RideTime"]</small>
                         <span class="fw-bold">
                             @{
-                                var end = Model.EndTime.Value;
+                                var end = Model.EndTime ?? DateTime.Now;
                                 var diff = end - Model.StartTime;
                                 int totalMinutes = (int)diff.TotalMinutes;
                                 int seconds = diff.Seconds;
-                                if (totalMinutes > 0) { @($"{totalMinutes} min {(seconds > 0 ? seconds + " sec" : "")}") }
-                                else { @($"{Math.Max(1, seconds)} sec") }
+        
+                                if (totalMinutes > 0)
+                                {
+                                    @($"{totalMinutes} {Localizer["MinuteUnit"]} {(seconds > 0 ? seconds + " " + Localizer["SecUnit"] : "")}")
+                                }
+                                else
+                                {
+                                    @($"{Math.Max(1, seconds)} {Localizer["SecUnit"]}")
+                                }
                             }
                         </span>
                     </div>
                     <div class="col-6 mt-3">
-                        <small class="text-muted d-block mb-1">Rate</small>
-                        <span class="fw-bold">500đ / minute</span>
+                        <small class="text-muted d-block mb-1">@Localizer["PricePerMinute"]</small>
+                        <span class="fw-bold">500 VND / @Localizer["MinuteUnit"]</span>
                     </div>
                 </div>
             </div>
@@ -56,19 +70,19 @@
 
         <div class="col-md-6">
             <div class="card border-0 shadow-sm rounded-4 p-4 h-100">
-                <h5 class="fw-bold mb-4">Payment Breakdown</h5>
+                <h5 class="fw-bold mb-4">@Localizer["TripDetails"]</h5>
                 <div class="d-flex justify-content-between mb-3">
-                    <span class="text-muted">Rental Fee</span>
-                    <span class="fw-bold text-dark">@Model.BaseAmount.ToString("N0")đ</span>
+                    <span class="text-muted">@Localizer["ThPrice"]</span>
+                    <span class="fw-bold text-dark">@Model.BaseAmount.ToString("N0") VND</span>
                 </div>
                 <div class="d-flex justify-content-between mb-3 text-success">
-                    <span>@(Model.DiscountPercent * 100)% Discount</span>
-                    <span class="fw-bold">-@((Model.BaseAmount * Model.DiscountPercent).ToString("N0"))đ</span>
+                    <span>@(Model.DiscountPercent * 100)% @Localizer["Discount"]</span>
+                    <span class="fw-bold">-@((Model.BaseAmount * Model.DiscountPercent).ToString("N0")) VND</span>
                 </div>
                 <hr class="my-4" style="border-top: 1px dashed #cbd5e1; opacity: 1;">
                 <div class="d-flex justify-content-between align-items-center">
-                    <h4 class="fw-bold mb-0">Total Amount</h4>
-                    <h3 class="fw-bold mb-0 text-success">@Model.FinalAmount.ToString("N0")đ</h3>
+                    <h4 class="fw-bold mb-0">@Localizer["TotalEstimated"]</h4>
+                    <h3 class="fw-bold mb-0 text-success">@Model.FinalAmount.ToString("N0") VND</h3>
                 </div>
             </div>
         </div>
@@ -80,22 +94,30 @@
                         <i class="bi bi-wallet2 fs-4"></i>
                     </div>
                     <div>
-                        <small class="text-muted d-block mb-1" style="font-size: 0.65rem; font-weight: 800; letter-spacing: 0.5px;">PAYMENT VIA</small>
+                        <small class="text-muted d-block mb-1" style="font-size: 0.65rem; font-weight: 800; letter-spacing: 0.5px;">@Localizer["PaymentMethodLabel"]</small>
                         <div id="methodDisplay" class="fw-bold text-dark" style="font-size: 1rem;">@ViewBag.PaymentMethods[0]</div>
                         <select id="paymentMethod" class="form-select form-select-sm border-0 bg-light rounded-pill px-4 shadow-none d-none fw-bold" style="width: auto; min-width: 120px; cursor: pointer;">
-                            @foreach (var m in ViewBag.PaymentMethods) {
-                                <option value="@m">@m</option>
+                            @foreach (var m in ViewBag.PaymentMethods)
+                            {
+                                if (m == "Cash")
+                                {
+                                    <option value="Cash">@Localizer["PaymentMethodCash"]</option>
+                                }
+                                else
+                                {
+                                    <option value="@m">@Localizer[m]</option>
+                                }
                             }
                         </select>
                     </div>
                 </div>
-                <small id="toggleBtn" class="fw-bold px-3 py-1 rounded-pill" style="cursor: pointer; font-size: 1rem; color: #059669;">Change</small>
+                <small id="toggleBtn" class="fw-bold px-3 py-1 rounded-pill" style="cursor: pointer; font-size: 1rem; color: #059669;">@Localizer["ChangeBtn"]</small>
             </div>
         </div>
 
         <div class="col-md-6">
             <button class="btn btn-success w-100 py-3 rounded-4 fw-bold shadow-sm" style="background-color: #10B981; border: none; font-size: 1.25rem;" onclick="openQR(@Model.Id)">
-                Pay Now • @Model.FinalAmount.ToString("N0")đ
+                @Localizer["PayBtn"] • @Model.FinalAmount.ToString("N0") VND
             </button>
         </div>
     </div>
@@ -105,55 +127,16 @@
 <div class="modal fade" id="qrModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content border-0 bg-transparent">
-            <div class="card border-0 shadow-lg rounded-4 overflow-hidden" style="background-color: #f1f5f9;">
-                <div class="modal-header border-0 d-flex justify-content-center position-relative pt-4">
-                    <h5 class="fw-bold text-dark m-0">Confirm Your Pay</h5>
-                    <button type="button" class="btn-close position-absolute end-0 me-3 shadow-none" data-bs-dismiss="modal" aria-label="Close" style="font-size: 0.8rem;"></button>
-                </div>
-                <div class="modal-body p-4">
-                    <div class="bg-white rounded-4 shadow-sm p-4 text-center">
-                        <h4 class="fw-bold mb-4" style="color: #1e293b; letter-spacing: -0.5px;">Transfer Information</h4>
-                        <div class="d-inline-block p-2 border rounded-4 mb-4 bg-white shadow-sm">
-                            <img id="qrImage" class="img-fluid" style="width: 240px; height: 240px; object-fit: contain;" alt="QR Code" />
-                        </div>
-                        <div class="text-start mx-auto" style="max-width: 280px;">
-                            <div class="d-flex justify-content-between mb-2">
-                                <span class="text-muted">Content:</span>
-                                <span class="fw-bold text-dark">Payment_SGRide</span>
-                            </div>
-                            <div class="d-flex justify-content-between mb-4">
-                                <span class="text-muted">Payment:</span>
-                                <span id="qrMethodDisplay" class="fw-bold text-dark">@ViewBag.PaymentMethods[0]</span>
-                            </div>
-                        </div>
-                        <p class="text-danger small fw-bold mb-0" style="font-size: 0.75rem;">
-                            Please keep this page open to confirm your payment.
-                        </p>
-                    </div>
-                    <div class="mt-4">
-                        <button class="btn btn-success w-100 py-3 rounded-3 fw-bold border-0 shadow-sm" style="background-color: #059669;" onclick="confirmPaid()">
-                            I Have Paid
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="modal fade" id="qrModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content border-0 bg-transparent">
             
             <div class="card border-0 shadow-lg rounded-4 overflow-hidden" style="background-color: #f1f5f9;">
                 <div class="modal-header border-0 d-flex justify-content-center position-relative pt-4">
-                    <h5 class="fw-bold text-dark m-0">Confirm Your Pay</h5>
+                    <h5 class="fw-bold text-dark m-0">@Localizer["PaymentHeader"]</h5>
                     <button type="button" class="btn-close position-absolute end-0 me-3 shadow-none" data-bs-dismiss="modal" aria-label="Close" style="font-size: 0.8rem;"></button>
                 </div>
 
                 <div class="modal-body p-4">
                     <div class="bg-white rounded-4 shadow-sm p-4 text-center">
-                        <h4 class="fw-bold mb-4" style="color: #1e293b; letter-spacing: -0.5px;">Transfer Information</h4>
+                        <h4 class="fw-bold mb-4" style="color: #1e293b; letter-spacing: -0.5px;">@Localizer["PaymentSecureTitle"]</h4>
                         
                         <div class="d-inline-block p-2 border rounded-4 mb-4 bg-white shadow-sm">
                             <img id="qrImage" class="img-fluid" style="width: 240px; height: 240px; object-fit: contain;" alt="QR Code" />
@@ -161,17 +144,17 @@
 
                         <div class="text-start mx-auto" style="max-width: 280px;">
                             <div class="d-flex justify-content-between mb-2">
-                                <span class="text-muted">Content:</span>
+                                <span class="text-muted">@Localizer["ContentLabel"]</span>
                                 <span class="fw-bold text-dark">Payment_SGRide</span>
                             </div>
                             <div class="d-flex justify-content-between mb-4">
-                                <span class="text-muted">Payment:</span>
+                                <span class="text-muted">@Localizer["AmountLabel"]:</span>
                                 <span id="qrAmount" class="fw-bold text-dark"></span>
                             </div>
                         </div>
 
                         <p class="text-danger small fw-bold mb-0" style="font-size: 0.75rem;">
-                            Please keep this page open to confirm your payment.
+                            @Localizer["PaymentSecureDesc"]
                         </p>
                     </div>
 
@@ -179,7 +162,7 @@
                         <button class="btn btn-success w-100 py-3 rounded-3 fw-bold border-0 shadow-sm" 
                                 style="background-color: #059669;" 
                                 onclick="confirmPaid()">
-                            I Have Paid
+                            @Localizer["ConfirmPaidBtn"]
                         </button>
                     </div>
                 </div>
@@ -194,14 +177,14 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content text-center p-4">
 
-            <h4>Scan to Pay</h4>
+            <h4>@Localizer["ScanTitle"]</h4>
 
             <img id="qrImage" style="width:200px;" />
 
             <p id="qrAmount" class="mt-2"></p>
 
             <button class="btn btn-success mt-3" onclick="confirmPaid()">
-                I Have Paid
+                @Localizer["ConfirmPaidBtn"]
             </button>
 
         </div>
@@ -239,11 +222,14 @@
         const display = document.getElementById('methodDisplay');
         const qrMethodDisplay = document.getElementById('qrMethodDisplay');
 
+        const labelChange = "@Html.Raw(Localizer["ChangeBtn"].Value)";
+        const labelSave = "@Html.Raw(Localizer["SaveBtn"].Value)";
+
         toggleBtn.addEventListener('click', function () {
             if (select.classList.contains('d-none')) {
                 select.classList.remove('d-none');
                 display.classList.add('d-none');
-                toggleBtn.innerText = 'Save';
+                toggleBtn.innerText = labelSave;
                 toggleBtn.style.color = '#059669';
             } else {
                 const selectedText = select.options[select.selectedIndex].text;
@@ -251,7 +237,7 @@
                 if(qrMethodDisplay) qrMethodDisplay.innerText = selectedText;
                 select.classList.add('d-none');
                 display.classList.remove('d-none');
-                toggleBtn.innerText = 'Change';
+                toggleBtn.innerText = labelChange;
                 toggleBtn.style.color = '#059669';
             }
         });
