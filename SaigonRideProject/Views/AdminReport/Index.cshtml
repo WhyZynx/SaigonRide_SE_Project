@@ -11,23 +11,23 @@
 
     <div class="d-flex justify-content-between align-items-end mb-4 flex-wrap gap-3">
         <div>
-            <h2 class="fw-bold mb-1" style="color: #1a2e5a;">📊 System Report</h2>
+            <h2 class="fw-bold mb-1" style="color: #1a2e5a;">System Report</h2>
         </div>
 
         <div class="bg-white p-2 rounded-4 shadow-sm border d-flex gap-2">
             <a href="?days=1"
                    class="btn btn-sm px-3 rounded-pill @(currentDays == "1" ? "btn-primary shadow-sm" : "btn-light text-muted")"
-                   style="@(currentDays == "1" ? "background: #1a2e5a; border:none;" : "")">
+                   style="@(currentDays == "1" ? "background: #548EB7; border:none;" : "")">
                 Today
             </a>
             <a href="?days=7"
                    class="btn btn-sm px-3 rounded-pill @(currentDays == "7" ? "btn-primary shadow-sm" : "btn-light text-muted")"
-                   style="@(currentDays == "7" ? "background: #1a2e5a; border:none;" : "")">
+                   style="@(currentDays == "7" ? "background: #548EB7; border:none;" : "")">
                 7 Days
             </a>
             <a href="?days=30"
                    class="btn btn-sm px-3 rounded-pill @(currentDays == "30" ? "btn-primary shadow-sm" : "btn-light text-muted")"
-                   style="@(currentDays == "30" ? "background: #1a2e5a; border:none;" : "")">
+                   style="@(currentDays == "30" ? "background: #548EB7; border:none;" : "")">
                 30 Days
             </a>
         </div>
@@ -74,7 +74,7 @@
                 <div class="card-header bg-white border-0 p-4 d-flex justify-content-between align-items-center">
                     <h5 class="fw-bold mb-0" style="color: #1a2e5a;"><i class="bi bi-bar-chart-line me-2"></i>Revenue by Station</h5>
                     <a href="/AdminReport/ExportRevenue?days=@currentDays" class="btn btn-sm btn-outline-success rounded-pill px-3">
-                        <i class="bi bi-download me-1"></i> Export CSV
+                        <i class="bi bi-download me-1"></i> Export 
                     </a>
                 </div>
                 <div class="card-body p-0">
@@ -114,7 +114,7 @@
                 <div class="card-header bg-white border-0 p-4 d-flex justify-content-between align-items-center">
                     <h5 class="fw-bold mb-0" style="color: #1a2e5a;"><i class="bi bi-box-seam me-2"></i>Inventory Status</h5>
                     <a href="/AdminReport/ExportInventory" class="btn btn-sm btn-outline-success rounded-pill px-3">
-                        <i class="bi bi-file-earmark-excel me-1"></i> Export
+                        <i class="bi bi-download me-1"></i> Export 
                     </a>
                 </div>
                 <div class="card-body p-0">
