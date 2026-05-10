@@ -76,7 +76,7 @@ namespace SaigonRideProject.Controllers
         }
 
         [HttpPost]
-        public IActionResult SelectUserType(string userType)
+        public async Task<IActionResult> SelectUserType(string userType)
         {
             if (userType != "Local" && userType != "Tourist")
             {
@@ -102,7 +102,7 @@ namespace SaigonRideProject.Controllers
             _context.OtpVerifications.Add(otp);
             _context.SaveChanges();
 
-            _emailService.SendOtpEmail(user.Email, otp.OtpCode);
+            await _emailService.SendOtpEmail(user.Email, otp.OtpCode);
 
             HttpContext.Session.SetString("VerifyEmail", user.Email);
 
@@ -304,7 +304,7 @@ namespace SaigonRideProject.Controllers
         }
 
         [HttpPost]
-        public IActionResult SendForgotOtp(string email)
+        public async Task<IActionResult> SendForgotOtp(string email)
         {
             if (string.IsNullOrWhiteSpace(email))
             {
@@ -330,7 +330,7 @@ namespace SaigonRideProject.Controllers
             });
 
             _context.SaveChanges();
-            _emailService.SendOtpEmail(email, otp);
+            await _emailService.SendOtpEmail(email, otp);
 
             TempData["Success"] = _localizer["OtpSent"].Value;
 

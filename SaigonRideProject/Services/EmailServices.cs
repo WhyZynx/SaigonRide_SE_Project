@@ -17,38 +17,34 @@ namespace SaigonRideProject.Services
         {
             var email = _configuration["EmailSettings:Email"];
             var password = _configuration["EmailSettings:AppPassword"];
-            var host = _configuration["EmailSettings:Host"];
-            var port = int.Parse(_configuration["EmailSettings:Port"]);
+            var host = _configuration["EmailSettings:Host"] ?? "smtp.gmail.com";
+            var port = int.Parse(_configuration["EmailSettings:Port"] ?? "587");
+
+            if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password)) return;
 
             var message = new MimeMessage();
-
             message.From.Add(new MailboxAddress("SaigonRide", email));
             message.To.Add(MailboxAddress.Parse(toEmail));
             message.Subject = "SaigonRide OTP";
-
-            message.Body = new TextPart("plain")
-            {
-                Text = $"Your OTP code is: {otpCode}"
-            };
+            message.Body = new TextPart("plain") { Text = $"Your OTP code is: {otpCode}" };
 
             using var client = new SmtpClient();
             try
             {
-                client.Timeout = 30000;
+                client.Timeout = 10000;
+                client.ServerCertificateValidationCallback = (s, c, h, e) => true;
 
-                client.CheckCertificateRevocation = false;
+                await client.ConnectAsync(host, port, SecureSocketOptions.StartTls);
 
-                client.Connect(host, port, SecureSocketOptions.SslOnConnect);
-
-                client.Authenticate(email, password.Replace(" ", ""));
-                client.Send(message);
-                client.Disconnect(true);
+                await client.AuthenticateAsync(email, password.Replace(" ", ""));
+                await client.SendAsync(message);
+                await client.DisconnectAsync(true);
 
                 Console.WriteLine("Email sent successfully");
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"SMTP ERROR: {ex}");
+                Console.WriteLine($"SMTP ERROR: {ex.Message}");
             }
         }
     }
