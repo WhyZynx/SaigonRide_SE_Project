@@ -15,13 +15,12 @@ namespace SaigonRideProject.Services
 
         public void SendOtpEmail(string toEmail, string otpCode)
         {
-            var email = _configuration["EmailSettings:Email"];
-            var password = _configuration["EmailSettings:AppPassword"];
-            var host = _configuration["EmailSettings:Host"];
-            var portString = _configuration["EmailSettings:Port"];
+            var email = _configuration["EmailSettings:Email"] ?? _configuration["EmailSettings__Email"];
+            var password = _configuration["EmailSettings:AppPassword"] ?? _configuration["EmailSettings__AppPassword"];
+            var host = _configuration["EmailSettings:Host"] ?? _configuration["EmailSettings__Host"] ?? "smtp.gmail.com";
+            var portString = _configuration["EmailSettings:Port"] ?? _configuration["EmailSettings__Port"] ?? "587";
 
-            if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password) ||
-                string.IsNullOrEmpty(host) || string.IsNullOrEmpty(portString)) return;
+            if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password)) return;
 
             var port = int.Parse(portString);
             var message = new MimeMessage();
@@ -33,15 +32,17 @@ namespace SaigonRideProject.Services
             using var client = new SmtpClient();
             try
             {
-                client.Timeout = 5000;
+                client.Timeout = 10000;
+                client.ServerCertificateValidationCallback = (s, c, h, e) => true;
+
                 client.Connect(host, port, SecureSocketOptions.StartTls);
-                client.Authenticate(email, password);
+                client.Authenticate(email, password.Replace(" ", "")); 
                 client.Send(message);
                 client.Disconnect(true);
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine("SMTP Error: " + ex.Message);
             }
         }
     }
