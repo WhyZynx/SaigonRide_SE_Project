@@ -1,0 +1,128 @@
+﻿@{
+    ViewData["Title"] = "Admin Settings";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid py-4">
+
+    <h2 class="fw-bold mb-4 text-dark">
+        Admin Settings
+    </h2>
+
+    <div class="row g-4">
+
+        <!-- LEFT PROFILE -->
+        <div class="col-lg-4">
+            <div class="card border-0 shadow-sm rounded-4 h-100">
+                <div class="card-body p-4">
+
+                    <div class="d-flex align-items-start gap-3 mb-4">
+
+                        <div class="bg-danger text-white fw-bold rounded-3 d-flex align-items-center justify-content-center"
+                             style="width:48px; height:48px;">
+                            AD
+                        </div>
+
+                        <div>
+                            <span class="badge bg-success-subtle text-success rounded-pill mb-2">
+                                SUPERADMIN
+                            </span>
+
+                            <h4 class="fw-bold mb-1">ridewith</h4>
+
+                            <p class="text-muted small mb-0">
+                                ridewith.saigonride@gmail.com
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div class="mb-4">
+
+                        <div class="d-flex justify-content-between mb-3">
+                            <small class="text-muted">
+                                Employee ID
+                            </small>
+                            <div class="fw-semibold">SR-ADMIN-99</div>
+                        </div>
+
+                        <div class="d-flex justify-content-between">
+                            <small class="text-muted">
+                                Last Login
+                            </small>
+                            <div class="fw-semibold">Today, 08:42 AM</div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT SETTINGS -->
+        <div class="col-lg-8">
+            <div class="card border-0 shadow-sm rounded-4">
+                <div class="card-body p-4">
+
+                    <h5 class="fw-bold mb-4 d-flex align-items-center gap-2">
+                        <i class="bi bi-gear text-success"></i>
+                        System Settings
+                    </h5>
+
+                    <!-- Company -->
+                    <div class="mb-4">
+                        <label class="form-label text-uppercase small text-muted fw-semibold">
+                            Company Name
+                        </label>
+
+                        <input type="text"
+                               class="form-control rounded-3"
+                               value="SaigonRide"
+                               readonly />
+                    </div>
+
+                    <!-- Currency + Language -->
+                    <div class="row">
+
+                        <div class="col-md-6 mb-4">
+                            <label class="form-label text-uppercase small text-muted fw-semibold">
+                                Currency
+                            </label>
+
+                            <input type="text"
+                                   class="form-control rounded-3"
+                                   value="USD ($)"
+                                   readonly />
+                        </div>
+
+                        <div class="col-md-6 mb-4">
+                            <label class="form-label text-uppercase small text-muted fw-semibold">
+                                Language
+                            </label>
+
+                            <input type="text"
+                                   class="form-control rounded-3"
+                                   value="English"
+                                   readonly />
+                        </div>
+
+                    </div>
+
+                    <!-- Timezone -->
+                    <div class="mb-4">
+                        <label class="form-label text-uppercase small text-muted fw-semibold">
+                            Time Zone
+                        </label>
+
+                        <input type="text"
+                               class="form-control rounded-3"
+                               value="(GMT+07:00) Ho Chi Minh City"
+                               readonly />
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

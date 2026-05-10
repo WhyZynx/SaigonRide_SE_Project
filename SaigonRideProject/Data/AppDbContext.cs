@@ -9,7 +9,7 @@ namespace SaigonRideProject.Data
             : base(options)
         {
         }
-
+        public DbSet<SystemSetting> SystemSettings { get; set; }
         public DbSet<User> Users { get; set; }
 
         public DbSet<Vehicle> Vehicles { get; set; }

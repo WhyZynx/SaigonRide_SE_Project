@@ -88,7 +88,7 @@ namespace SaigonRideProject.Controllers
                 user.IsLocked = true;
                 _context.SaveChanges();
             }
-            return RedirectToAction("Index");
+            return RedirectToAction("Dashboard");
         }
 
         public IActionResult Unlock(int id)
@@ -99,7 +99,7 @@ namespace SaigonRideProject.Controllers
                 user.IsLocked = false;
                 _context.SaveChanges();
             }
-            return RedirectToAction("Index");
+            return RedirectToAction("Dashboard");
         }
     }
 }
