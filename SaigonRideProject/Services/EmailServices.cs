@@ -15,14 +15,13 @@ namespace SaigonRideProject.Services
 
         public void SendOtpEmail(string toEmail, string otpCode)
         {
-            var email = _configuration["EmailSettings:Email"] ?? _configuration["EmailSettings__Email"];
-            var password = _configuration["EmailSettings:AppPassword"] ?? _configuration["EmailSettings__AppPassword"];
-            var host = _configuration["EmailSettings:Host"] ?? _configuration["EmailSettings__Host"] ?? "smtp.gmail.com";
-            var portString = _configuration["EmailSettings:Port"] ?? _configuration["EmailSettings__Port"] ?? "587";
+            var email = _configuration["EmailSettings:Email"];
+            var password = _configuration["EmailSettings:AppPassword"];
+            var host = _configuration["EmailSettings:Host"] ?? "smtp.gmail.com";
+            var port = int.Parse(_configuration["EmailSettings:Port"] ?? "587");
 
             if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password)) return;
 
-            var port = int.Parse(portString);
             var message = new MimeMessage();
             message.From.Add(new MailboxAddress("SaigonRide", email));
             message.To.Add(MailboxAddress.Parse(toEmail));
@@ -32,11 +31,9 @@ namespace SaigonRideProject.Services
             using var client = new SmtpClient();
             try
             {
-                client.Timeout = 10000;
-                client.ServerCertificateValidationCallback = (s, c, h, e) => true;
-
-                client.Connect(host, port, SecureSocketOptions.StartTls);
-                client.Authenticate(email, password.Replace(" ", "")); 
+                client.Timeout = 5000;
+                client.Connect(host, port, MailKit.Security.SecureSocketOptions.StartTls);
+                client.Authenticate(email, password.Replace(" ", ""));
                 client.Send(message);
                 client.Disconnect(true);
             }
