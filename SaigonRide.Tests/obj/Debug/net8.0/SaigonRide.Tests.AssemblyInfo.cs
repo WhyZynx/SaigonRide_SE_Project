@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SaigonRide.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+aaf129f43474429bc09be6b2554e7cbdc40270f8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b19bc75b31dbfd4c8b04cdb1fa93e4bf54feab32")]
 [assembly: System.Reflection.AssemblyProductAttribute("SaigonRide.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SaigonRide.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
