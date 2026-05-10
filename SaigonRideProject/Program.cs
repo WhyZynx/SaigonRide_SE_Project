@@ -16,7 +16,7 @@ namespace SaigonRideProject
 
 
             builder.Services.AddDbContext<AppDbContext>(options =>
-                options.UseSqlServer(
+                options.UseSqlite(
                     builder.Configuration.GetConnectionString("DefaultConnection")
                 ));
 

@@ -169,6 +169,7 @@ C:\Users\DELL\OneDrive\Documents\SaigonRide_Project\SaigonRide.Tests\bin\Debug\n
 C:\Users\DELL\OneDrive\Documents\SaigonRide_Project\SaigonRide.Tests\bin\Debug\net8.0\appsettings.json
 C:\Users\DELL\OneDrive\Documents\SaigonRide_Project\SaigonRide.Tests\bin\Debug\net8.0\global.json
 C:\Users\DELL\OneDrive\Documents\SaigonRide_Project\SaigonRide.Tests\bin\Debug\net8.0\SaigonRideProject.staticwebassets.runtime.json
+C:\Users\DELL\OneDrive\Documents\SaigonRide_Project\SaigonRide.Tests\bin\Debug\net8.0\SaigonRideProject.staticwebassets.endpoints.json
 C:\Users\DELL\OneDrive\Documents\SaigonRide_Project\SaigonRide.Tests\bin\Debug\net8.0\SaigonRideProject.exe
 C:\Users\DELL\OneDrive\Documents\SaigonRide_Project\SaigonRide.Tests\bin\Debug\net8.0\testhost.exe
 C:\Users\DELL\OneDrive\Documents\SaigonRide_Project\SaigonRide.Tests\bin\Debug\net8.0\xunit.runner.visualstudio.testadapter.dll

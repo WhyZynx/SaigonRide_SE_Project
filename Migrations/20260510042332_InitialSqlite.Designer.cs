@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SaigonRideProject.Data;
 
@@ -10,9 +11,11 @@ using SaigonRideProject.Data;
 namespace SaigonRideProject.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260510042332_InitialSqlite")]
+    partial class InitialSqlite
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.25");
@@ -463,7 +466,7 @@ namespace SaigonRideProject.Migrations
                             IsLocked = false,
                             IsVerified = true,
                             PassportStatus = "Approved",
-                            PasswordHash = "$2a$11$ezOfuiqbBU74noyChjdUeuy5vx44Dmqm62ERnQDl5dqLhPTKp/.K6",
+                            PasswordHash = "$2a$11$5UtYLRdUrCYrsxdDsWtuY.eUiVE9Rs2ugJQSE.al/OqZZak39owgy",
                             Role = "Admin",
                             UserType = "Local"
                         },
@@ -477,7 +480,7 @@ namespace SaigonRideProject.Migrations
                             IsLocked = false,
                             IsVerified = true,
                             PassportStatus = "Pending",
-                            PasswordHash = "$2a$11$tyLSpWmGvuFr3PWTtInbNeDRVHUb9Y7XoXQKsWkWyyQSU1ctFeV2G",
+                            PasswordHash = "$2a$11$kpylL.ksXcETF8Pv68w65.dSJ.Wx9C5u0zzi8gAXUDokip/eeAE3y",
                             Role = "User",
                             UserType = "Local"
                         },
@@ -491,7 +494,7 @@ namespace SaigonRideProject.Migrations
                             IsLocked = false,
                             IsVerified = true,
                             PassportStatus = "Pending",
-                            PasswordHash = "$2a$11$RWLRTFtTEahesPi02mxgpOfbMOwZgu9no8aQilhnt5nWnH1G4YFnK",
+                            PasswordHash = "$2a$11$keEGBTVGAAE5jQ6RM5/kDOzpQ2B0LGTlOZkaSaTdcHQzTjQjDq.GW",
                             Role = "User",
                             UserType = "Local"
                         },
@@ -505,7 +508,7 @@ namespace SaigonRideProject.Migrations
                             IsLocked = false,
                             IsVerified = true,
                             PassportStatus = "Pending",
-                            PasswordHash = "$2a$11$BZ0hqIXcA7Ryu47oU4IQPONZ8Ov5LsflaXS7ogP.jBlmVih5R0RW2",
+                            PasswordHash = "$2a$11$si0XBAfj49SDwJUTY.FT/OxK23Cp.PcLUi5Vjob4wBTiWXMMPY0zm",
                             Role = "User",
                             UserType = "Tourist"
                         },
@@ -519,7 +522,7 @@ namespace SaigonRideProject.Migrations
                             IsLocked = false,
                             IsVerified = true,
                             PassportStatus = "Pending",
-                            PasswordHash = "$2a$11$XBO.jOXFamBoi2Qf2yxdrurFzmvRZP0Y1HW5mr8oPCOwqkn3LBNIe",
+                            PasswordHash = "$2a$11$oyuNqHg.Z0gdptJRh08KveGPQc4n2Vyetagn8rD.t2yNuOGEWNbeO",
                             Role = "User",
                             UserType = "Tourist"
                         });
