@@ -13,33 +13,42 @@ namespace SaigonRideProject.Services
             _configuration = configuration;
         }
 
-        public void SendOtpEmail(string toEmail, string otpCode)
+        public async Task SendOtpEmail(string toEmail, string otpCode)
         {
             var email = _configuration["EmailSettings:Email"];
             var password = _configuration["EmailSettings:AppPassword"];
-            var host = _configuration["EmailSettings:Host"] ?? "smtp.gmail.com";
-            var port = int.Parse(_configuration["EmailSettings:Port"] ?? "587");
-
-            if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password)) return;
+            var host = _configuration["EmailSettings:Host"];
+            var port = int.Parse(_configuration["EmailSettings:Port"]);
 
             var message = new MimeMessage();
+
             message.From.Add(new MailboxAddress("SaigonRide", email));
             message.To.Add(MailboxAddress.Parse(toEmail));
             message.Subject = "SaigonRide OTP";
-            message.Body = new TextPart("plain") { Text = $"Your OTP code is: {otpCode}" };
+
+            message.Body = new TextPart("plain")
+            {
+                Text = $"Your OTP code is: {otpCode}"
+            };
 
             using var client = new SmtpClient();
             try
             {
-                client.Timeout = 5000;
-                client.Connect(host, port, MailKit.Security.SecureSocketOptions.StartTls);
+                client.Timeout = 30000;
+
+                client.CheckCertificateRevocation = false;
+
+                client.Connect(host, port, SecureSocketOptions.SslOnConnect);
+
                 client.Authenticate(email, password.Replace(" ", ""));
                 client.Send(message);
                 client.Disconnect(true);
+
+                Console.WriteLine("Email sent successfully");
             }
             catch (Exception ex)
             {
-                Console.WriteLine("SMTP Error: " + ex.Message);
+                Console.WriteLine($"SMTP ERROR: {ex}");
             }
         }
     }
