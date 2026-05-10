@@ -20,35 +20,29 @@ namespace SaigonRideProject.Services
             var host = _configuration["EmailSettings:Host"];
             var portString = _configuration["EmailSettings:Port"];
 
-            if (string.IsNullOrEmpty(email) ||
-                string.IsNullOrEmpty(password) ||
-                string.IsNullOrEmpty(host) ||
-                string.IsNullOrEmpty(portString))
-            {
-                throw new Exception("Email configuration is missing in appsettings.json");
-            }
+            if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password) ||
+                string.IsNullOrEmpty(host) || string.IsNullOrEmpty(portString)) return;
 
             var port = int.Parse(portString);
-
             var message = new MimeMessage();
-
             message.From.Add(new MailboxAddress("SaigonRide", email));
             message.To.Add(MailboxAddress.Parse(toEmail));
             message.Subject = "SaigonRide OTP";
-            message.Body = new TextPart("plain")
+            message.Body = new TextPart("plain") { Text = $"Your OTP code is: {otpCode}" };
+
+            using var client = new SmtpClient();
+            try
             {
-                Text = $"Your OTP code is: {otpCode}"
-            };
-
-            using var client = new MailKit.Net.Smtp.SmtpClient();
-
-            client.Connect(host, port, MailKit.Security.SecureSocketOptions.StartTls);
-
-            client.Authenticate(email, password);
-
-            client.Send(message);
-
-            client.Disconnect(true);
+                client.Timeout = 5000;
+                client.Connect(host, port, SecureSocketOptions.StartTls);
+                client.Authenticate(email, password);
+                client.Send(message);
+                client.Disconnect(true);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 }

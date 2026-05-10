@@ -14,14 +14,14 @@ namespace SaigonRideProject.Controllers
             _context = context;
         }
 
-
         public IActionResult Dashboard()
         {
             var today = DateTime.Today;
 
-            var todayRevenue = _context.Rentals
+            var todayRevenue = (decimal)_context.Rentals
                 .Where(r => r.Status == "Completed" && r.EndTime >= today)
-                .Sum(r => (decimal?)r.FinalAmount) ?? 0;
+                .Select(r => (double)r.FinalAmount)
+                .Sum();
 
             var activeRentals = _context.Rentals
                 .Count(r => r.Status == "InProgress");
