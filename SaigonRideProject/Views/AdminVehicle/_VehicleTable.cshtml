@@ -50,18 +50,18 @@
                             <i class="bi bi-gear"></i> Maintenance
                         </span>
                     }
-            </td>
+                </td>
 
-            <!-- PRICE -->
-            <td>@String.Format("{0:N0}", v.PricePerMinute) đ</td>
+                <!-- PRICE -->
+                <td>@String.Format("{0:N0}", v.PricePerMinute) đ</td>
 
-            <!-- BATTERY -->
-            <td style="min-width:120px;">
-                <div class="progress" style="height:6px;">
-                    <div class="progress-bar
+                <!-- BATTERY -->
+                <td style="min-width:120px;">
+                    <div class="progress" style="height:6px;">
+                        <div class="progress-bar
                             @(v.BatteryLevel < 20 ? "bg-danger"
-                                                       : v.BatteryLevel < 50 ? "bg-warning"
-                                                       : "bg-success")"
+                                                                                : v.BatteryLevel < 50 ? "bg-warning"
+                                                                                : "bg-success")"
                              style="width:@v.BatteryLevel%">
                         </div>
                     </div>
@@ -79,24 +79,24 @@
 
                     <!-- Edit -->
                     <a href="/AdminVehicle/Edit/@v.Id"
-                       class="text-decoration-none me-2"
-                       title="Edit">
-                        ✏️
+                           class="text-decoration-none me-2"
+                           title="Edit">
+                        <i class="bi bi-pencil-square"></i>
                     </a>
 
                     <!-- Detail -->
                     <a href="/AdminVehicle/Detail/@v.Id"
-                         class="text-decoration-none me-2"
-                         title="View">
-                        🔍
+                           class="text-decoration-none me-2"
+                           title="View">
+                        <i class="bi bi-eye"></i>
                     </a>
 
 
                     <!-- Delete -->
                     <a href="/AdminVehicle/Delete/@v.Id"
-                       class="text-decoration-none text-danger"
-                       title="Delete">
-                        🗑️
+                           class="text-decoration-none text-danger"
+                           title="Delete">
+                        <i class="bi bi-trash"></i>
                     </a>
 
                 </td>

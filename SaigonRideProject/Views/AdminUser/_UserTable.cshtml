@@ -1,139 +1,127 @@
 ﻿@model List<SaigonRideProject.ViewModels.UserViewModel>
 
-<table class="table table-hover align-middle border">
-
-    <thead class="table-light">
-        <tr>
-            <th>ID</th>
-            <th>User</th>
-            <th>Type</th>
-            <th>Contact</th>
-            <th>Verification</th>
-            <th>Status</th>
-            <th>Balance</th>
-            <th class="text-end">Action</th>
-        </tr>
-    </thead>
-
-    <tbody>
-
-        @foreach (var u in Model)
-        {
-            <tr>
-
-                <!-- ID -->
-                <td class="text-muted">@u.Id</td>
-
-                <!-- USER -->
-                <td>
-                    <div class="fw-semibold">@u.FullName</div>
-                    <small class="text-muted">@u.Email</small>
-                </td>
-
-                <!-- TYPE -->
-                <td>
-                    @u.UserType
-                </td>
-
-                <!-- CONTACT -->
-                <td>@u.Email</td>
-
-                <!-- VERIFICATION -->
-                <td>
-                    @if (u.PassportStatus == "Approved")
-                    {
-                        <span class="text-success fw-semibold">
-                            <i class="bi bi-check-circle-fill"></i> Verified
-                        </span>
-                    }
-                    else if (u.PassportStatus == "Pending")
-                    {
-                        <span class="text-warning fw-semibold">
-                            <i class="bi bi-hourglass-split"></i> Pending
-                        </span>
-                    }
-                    else
-                    {
-                        <span class="text-secondary fw-semibold">
-                            <i class="bi bi-x-circle-fill"></i> Not Submitted
-                        </span>
-                    }
-                </td>
-
-                <!-- STATUS -->
-                <td>
-                    @if (u.IsLocked)
-                    {
-                        <span class="text-danger fw-semibold">
-                            <i class="bi bi-lock-fill"></i> Suspended
-                        </span>
-                    }
-                    else
-                    {
-                        <span class="text-success fw-semibold">
-                            <i class="bi bi-check-circle-fill"></i> Active
-                        </span>
-                    }
-                </td>
-
-                <!-- BALANCE -->
-                <td>
-                    <span class="fw-bold text-success">
-                        @String.Format("{0:N0} đ", u.Balance)
-                    </span>
-                </td>
-
-                <!-- ACTION -->
-                <td class="text-end">
-
-                    <!-- DETAIL -->
-                    <a class="btn btn-sm btn-light rounded-circle"
-                       href="/AdminUser/Detail/@u.Id"
-                       title="Detail">
-                        🔍
-                    </a>
-
-                    <!-- EDIT -->
-                    <a class="btn btn-sm btn-light rounded-circle"
-                       href="/AdminUser/Edit/@u.Id"
-                       title="Edit">
-                        ✏️
-                    </a>
-
-                    <!-- LOCK / UNLOCK -->
-                    @if (u.IsLocked)
-                    {
-                        <a class="btn btn-sm btn-light rounded-circle text-success"
-                           href="/AdminUser/Unlock/@u.Id"
-                           title="Unlock">
-                            🔓
-                        </a>
-                    }
-                    else
-                    {
-                        <a class="btn btn-sm btn-light rounded-circle text-danger"
-                           href="/AdminUser/Delete/@u.Id"
-                           onclick="return confirm('Lock this user?')"
-                           title="Lock">
-                            🔒
-                        </a>
-                    }
-
-                    <!-- APPROVE -->
-                    @if (u.PassportStatus == "Pending")
-                    {
-                        <a class="btn btn-sm btn-light rounded-circle text-primary"
-                           href="/AdminUser/Approve/@u.Id"
-                           title="Approve">
-                            ✔️
-                        </a>
-                    }
-
-                </td>
-
+<div class="table-responsive">
+    <table class="table table-hover align-middle mb-0">
+        <thead class="bg-light">
+            <tr class="text-muted small text-uppercase">
+                <th class="ps-4 py-3" style="width: 80px;">ID</th>
+                <th class="py-3">User Identity</th>
+                <th class="py-3">Role</th>
+                <th class="py-3 text-center">Verification</th>
+                <th class="py-3 text-center">Account Status</th>
+                <th class="py-3">Wallet Balance</th>
+                <th class="text-end pe-4 py-3">Actions</th>
             </tr>
-        }
+        </thead>
 
-    </tbody>
+        <tbody>
+            @foreach (var u in Model)
+            {
+                <tr>
+                    <td class="ps-4 text-muted small">@u.Id</td>
 
-</table>
+                    <td>
+                        <div class="d-flex align-items-center gap-2">
+                            <div class="bg-primary-subtle text-primary rounded-circle d-flex align-items-center justify-content-center fw-bold" 
+                                 style="width: 35px; height: 35px; font-size: 0.8rem;">
+                                @u.FullName.Substring(0, 1).ToUpper()
+                            </div>
+                            <div>
+                                <div class="fw-bold mb-0" style="color: #1a2e5a;">@u.FullName</div>
+                                <small class="text-muted">@u.Email</small>
+                            </div>
+                        </div>
+                    </td>
+
+                    <td>
+                        <span class="badge @(u.UserType == "Admin" ? "bg-dark" : "bg-light text-dark border") rounded-pill px-3">
+                            @u.UserType
+                        </span>
+                    </td>
+
+                    <td class="text-center">
+                        @if (u.PassportStatus == "Approved")
+                        {
+                            <span class="badge bg-success-subtle text-success rounded-pill px-3">
+                                <i class="bi bi-patch-check-fill me-1"></i> Verified
+                            </span>
+                        }
+                        else if (u.PassportStatus == "Pending")
+                        {
+                            <span class="badge bg-warning-subtle text-warning rounded-pill px-3">
+                                <i class="bi bi-hourglass-split me-1"></i> Pending
+                            </span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-secondary-subtle text-secondary rounded-pill px-3">
+                                <i class="bi bi-x-circle me-1"></i> Not Submitted
+                            </span>
+                        }
+                    </td>
+
+                    <td class="text-center">
+                        @if (u.IsLocked)
+                        {
+                            <span class="badge bg-danger-subtle text-danger rounded-pill px-3">
+                                <i class="bi bi-lock-fill me-1"></i> Suspended
+                            </span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-success-subtle text-success rounded-pill px-3">
+                                <i class="bi bi-person-check-fill me-1"></i> Active
+                            </span>
+                        }
+                    </td>
+
+                    <td>
+                        <div class="fw-bold" style="color: #1a2e5a;">
+                            @String.Format("{0:N0}", u.Balance) <small>đ</small>
+                        </div>
+                    </td>
+
+                    <td class="text-end pe-4">
+                        <div class="d-flex justify-content-end gap-1">
+                            <a class="btn btn-sm btn-white border shadow-sm rounded-3" 
+                               href="/AdminUser/Detail/@u.Id" title="View Detail">
+                                <i class="bi bi-eye text-primary"></i>
+                            </a>
+
+                            <a class="btn btn-sm btn-white border shadow-sm rounded-3" 
+                               href="/AdminUser/Edit/@u.Id" title="Edit Profile">
+                                <i class="bi bi-pencil-square text-secondary"></i>
+                            </a>
+
+                            @if (u.PassportStatus == "Pending")
+                            {
+                                <a class="btn btn-sm btn-white border shadow-sm rounded-3" 
+                                   href="/AdminUser/Approve/@u.Id" title="Verify User">
+                                    <i class="bi bi-check-lg text-success"></i>
+                                </a>
+                            }
+
+                            @if (u.IsLocked)
+                            {
+                                <a class="btn btn-sm btn-light border shadow-sm rounded-3 text-success" 
+                                   href="/AdminUser/Unlock/@u.Id" title="Unlock Account">
+                                    <i class="bi bi-unlock-fill"></i>
+                                </a>
+                            }
+                            else
+                            {
+                                <a class="btn btn-sm btn-light border shadow-sm rounded-3 text-danger" 
+                                   href="/AdminUser/Delete/@u.Id" 
+                                       onclick="return confirm('Are you sure you want to lock this account?')"
+                                   title="Suspend Account">
+                                    <i class="bi bi-lock-fill"></i>
+                                </a>
+                            }
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

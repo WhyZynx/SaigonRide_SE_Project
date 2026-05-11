@@ -4,65 +4,101 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<div class="container py-4">
+<div class="container-fluid py-4" style="background-color: #f0f7ff; min-height: 100vh;">
+    <div class="mb-5">
 
-    <h3 class="fw-bold mb-4">➕ Add Vehicle</h3>
-
-    <div class="card border-0 shadow-sm rounded-4 p-4">
-
-        <form method="post">
-
-            <div class="row g-3">
-
-                <div class="col-md-6">
-                    <label class="form-label">Vehicle Type</label>
-                    <select class="form-select" name="VehicleType">
-                        <option value="Bike">🚲 Bike</option>
-                        <option value="E-Scooter">🛴 E-Scooter</option>
-                    </select>
-                </div>
-
-                <div class="col-md-6">
-                    <label class="form-label">Plate Number</label>
-                    <input class="form-control" name="PlateNumber" required />
-                </div>
-
-                <div class="col-md-6">
-                    <label class="form-label">Status</label>
-                    <select class="form-select" name="Status">
-                        <option value="Available">🟢 Available</option>
-                        <option value="InUse">🟡 In Use</option>
-                        <option value="Maintenance">⚙️ Maintenance</option>
-                    </select>
-                </div>
-
-                <div class="col-md-6">
-                    <label class="form-label">Price Per Minute</label>
-                    <select class="form-select" name="PricePerMinute">
-                        <option value="500">500 VND</option>
-                        <option value="1500">1500 VND</option>
-                    </select>
-                </div>
-
-                <div class="col-md-12">
-                    <label class="form-label">Station</label>
-                    <select class="form-select" name="StationId">
-                        @foreach (var s in ViewBag.Stations)
-                        {
-                            <option value="@s.Id">@s.Name</option>
-                        }
-                    </select>
-                </div>
-
-            </div>
-
-            <div class="mt-4 d-flex gap-2">
-                <button class="btn btn-success">Create</button>
-                <a href="/AdminVehicle" class="btn btn-secondary">Cancel</a>
-            </div>
-
-        </form>
-
+        <h1 class="fw-bold" style="color: #1a2e5a; font-size: 2.5rem;">Add New Vehicle</h1>
     </div>
 
+    <form method="post">
+        <div class="row g-4">
+            <div class="col-lg-7">
+                <div class="card border-0 shadow-sm rounded-4 p-4" style="background-color: #e3f0ff;">
+                    
+                    <div class="mb-4">
+                        <div class="d-flex align-items-center gap-2 mb-3">
+                            <i class="bi bi-person-vcard text-primary opacity-50"></i>
+                            <h5 class="mb-0 fw-bold" style="color: #1a2e5a;">Vehicle Identity</h5>
+                        </div>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="small fw-bold text-muted mb-1">VEHICLE CODE (PLATE)</label>
+                                <input class="form-control border-0 py-2 shadow-sm" name="PlateNumber" required />
+                            </div>
+                            <div class="col-md-6">
+                                <label class="small fw-bold text-muted mb-1">STATION ASSIGNMENT</label>
+                                <select class="form-select border-0 py-2 shadow-sm" name="StationId">
+                                    @foreach (var s in ViewBag.Stations)
+                                    {
+                                        <option value="@s.Id">@s.Name</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <div class="d-flex align-items-center gap-2 mb-3">
+                            <i class="bi bi-gear-fill text-primary" style="opacity:0.5;"></i>
+                            <span class="fw-semibold fs-6" style="color:#1a2e5a;">
+                                Configuration & Status
+                            </span>
+                        </div>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="small fw-bold text-muted mb-1">VEHICLE TYPE</label>
+                                <select class="form-select border-0 py-2 shadow-sm" name="VehicleType">
+                                    <option value="Bike">🚲Bike</option>
+                                    <option value="E-Scooter" selected> 🛴 E-Scooter</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="small fw-bold text-muted mb-1">INITIAL STATUS</label>
+                                <select class="form-select border-0 py-2 shadow-sm" name="Status">
+                                    <option value="Available">Available</option>
+                                    <option value="Maintenance">Maintenance</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="small fw-bold text-muted mb-1">PRICE PER MINUTE</label>
+                                <select class="form-select border-0 py-2 shadow-sm" name="PricePerMinute">
+                                    <option value="500">500 VND</option>
+                                    <option value="1500" selected>1,500 VND</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 d-flex gap-3">
+                        <button type="submit" class="btn btn-primary px-4 py-2 shadow-sm border-0 rounded-3"
+                                style="background: linear-gradient(to right, #6ba3d1, #a1c8e9); min-width: 150px;">
+                            Save Vehicle
+                        </button>
+                        <a href="/AdminVehicle" class="btn btn-light px-4 py-2 rounded-3 border-0 shadow-sm"
+                               style="background-color: #cbdbe6; color: #1a2e5a; min-width: 120px;">
+                            Cancel
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-5">
+                <div class="card border-0 shadow-sm rounded-4 h-100 overflow-hidden" style="background-color: #e3f0ff;">
+                    <div class="p-0 position-relative" style="height: 300px; background: linear-gradient(to bottom, #b8d0e8, #e3f0ff);">
+                        <div class="h-100 d-flex align-items-center justify-content-center">
+                            <i class="bi bi-scooter text-white" style="font-size: 10rem; opacity: 0.8; transform: rotate(-15deg);"></i>
+                        </div>
+                    </div>
+                    <div class="card-body p-4">
+                        <h4 class="fw-bold" style="color: #1a2e5a;">Fleet Integration Specs</h4>
+                        <p class="text-muted">
+                            Adding this vehicle will automatically register it to the local geo-fence of the selected Station ID.
+                            Fleet analytics will begin tracking efficiency metrics 15 minutes after deployment.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
 </div>
+
