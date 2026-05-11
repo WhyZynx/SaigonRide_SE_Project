@@ -4,69 +4,133 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<div class="container py-4">
+<div class="container-fluid py-4 px-4" style="background-color:#f0f4f8; min-height:100vh;">
 
-    <h3 class="fw-bold mb-4">✏️ Edit Vehicle</h3>
+    <!-- HEADER -->
+    <div class="d-flex align-items-center justify-content-between mb-4">
 
-    <div class="card border-0 shadow-sm rounded-4 p-4">
+        <div class="d-flex align-items-center gap-3">
 
-        <form method="post">
+            <a href="/AdminVehicle"
+                   class="btn btn-light rounded-circle shadow-sm border d-flex align-items-center justify-content-center"
+                   style="width:42px;height:42px;">
+                <i class="bi bi-arrow-left"></i>
+            </a>
 
-            <input type="hidden" name="Id" value="@Model.Id" />
-
-            <div class="row g-3">
-
-                <div class="col-md-6">
-                    <label class="form-label">Vehicle Type</label>
-                    <select class="form-select" name="VehicleType">
-                        <option value="Bike" selected="@(Model.VehicleType == "Bike")">🚲 Bike</option>
-                        <option value="E-Scooter" selected="@(Model.VehicleType == "E-Scooter")">🛴 E-Scooter</option>
-                    </select>
-                </div>
-
-                <div class="col-md-6">
-                    <label class="form-label">Plate Number</label>
-                    <input class="form-control" name="PlateNumber" value="@Model.PlateNumber" />
-                </div>
-
-                <div class="col-md-6">
-                    <label class="form-label">Status</label>
-                    <select class="form-select" name="Status">
-                        <option value="Available" selected="@(Model.Status == "Available")">🟢 Available</option>
-                        <option value="InUse" selected="@(Model.Status == "InUse")">🟡 In Use</option>
-                        <option value="Maintenance" selected="@(Model.Status == "Maintenance")">⚙️ Maintenance</option>
-                    </select>
-                </div>
-
-                <div class="col-md-6">
-                    <label class="form-label">Price Per Minute</label>
-                    <select class="form-select" name="PricePerMinute">
-                        <option value="500" selected="@(Model.PricePerMinute == 500)">500 VND</option>
-                        <option value="1500" selected="@(Model.PricePerMinute == 1500)">1500 VND</option>
-                    </select>
-                </div>
-
-                <div class="col-md-12">
-                    <label class="form-label">Station</label>
-                    <select class="form-select" name="StationId">
-                        @foreach (var s in ViewBag.Stations)
-                        {
-                            <option value="@s.Id" selected="@(s.Id == Model.StationId)">
-                                @s.Name
-                            </option>
-                        }
-                    </select>
-                </div>
-
+            <div>
+                <h2 class="fw-bold mb-0" style="color:#1a2e5a;">Edit Vehicle</h2>
             </div>
 
-            <div class="mt-4 d-flex gap-2">
-                <button class="btn btn-primary">Save</button>
-                <a href="/AdminVehicle" class="btn btn-secondary">Cancel</a>
-            </div>
-
-        </form>
+        </div>
 
     </div>
 
+    <div class="row g-4">
+
+        <!-- Left: Form Card -->
+        <div class="col-lg-6">
+            <div class="rounded-4 p-4" style="background-color:#dce8f5;">
+
+                <form method="post">
+                    <input type="hidden" name="Id" value="@Model.Id" />
+
+                    <!-- Section: Vehicle Identity -->
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                        <i class="bi bi-person-vcard text-primary opacity-50"></i>
+                        <h5 class="mb-0 fw-bold" style="color: #1a2e5a;">Vehicle Identity</h5>
+                    </div>
+                    <div class="row g-3 mb-4">
+                        <div class="col-md-6">
+                            <label class="form-label text-uppercase fw-semibold" style="font-size:0.7rem; letter-spacing:0.08em; color:#5a7a9a;">Vehicle Code</label>
+                            <input class="form-control bg-white border-0 rounded-3 shadow-none"
+                                   name="PlateNumber" value="@Model.PlateNumber"
+                                   style="color:#1a2e5a; font-size:0.95rem;" />
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label text-uppercase fw-semibold" style="font-size:0.7rem; letter-spacing:0.08em; color:#5a7a9a;">Station ID</label>
+                            <select class="form-select bg-white border-0 rounded-3 shadow-none"
+                                    name="StationId" style="color:#1a2e5a; font-size:0.95rem;">
+                                @foreach (var s in ViewBag.Stations)
+                                {
+                                    <option value="@s.Id" selected="@(s.Id == Model.StationId)">@s.Name</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Section: Configuration & Status -->
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                        <div class="d-flex align-items-center gap-2 mb-3">
+                            <i class="bi bi-gear-fill text-primary" style="opacity:0.5;"></i>
+                            <span class="fw-semibold fs-6" style="color:#1a2e5a;">
+                                Configuration & Status
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="row g-3 mb-4">
+                        <div class="col-md-6">
+                            <label class="form-label text-uppercase fw-semibold" style="font-size:0.7rem; letter-spacing:0.08em; color:#5a7a9a;">Vehicle Type</label>
+                            <select class="form-select bg-white border-0 rounded-3 shadow-none"
+                                    name="VehicleType" style="color:#1a2e5a; font-size:0.95rem;">
+                                <option value="Bike" selected="@(Model.VehicleType == "Bike")">🚲Bike</option>
+                                <option value="E-Scooter" selected="@(Model.VehicleType == "E-Scooter")">🛴E-Scooter</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label text-uppercase fw-semibold" style="font-size:0.7rem; letter-spacing:0.08em; color:#5a7a9a;">Initial Status</label>
+                            <select class="form-select bg-white border-0 rounded-3 shadow-none"
+                                    name="Status" style="color:#1a2e5a; font-size:0.95rem;">
+                                <option value="Available" selected="@(Model.Status == "Available")">Available</option>
+                                <option value="InUse" selected="@(Model.Status == "InUse")">In Use</option>
+                                <option value="Maintenance" selected="@(Model.Status == "Maintenance")">Maintenance</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Buttons -->
+                    <div class="d-flex gap-2 mt-2">
+                        <button type="submit" class="btn px-4 py-2 rounded-3 fw-semibold text-white border-0"
+                                style="background: linear-gradient(135deg, #5a8fc4, #3a6ea8);">
+                            Save Change
+                        </button>
+                        <a href="/AdminVehicle" class="btn px-4 py-2 rounded-3 fw-semibold border-0"
+                               style="background-color:#c8d8e8; color:#1a2e5a;">
+                            Cancel
+                        </a>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+        <!-- Right: Image + Info Card -->
+        <div class="col-lg-6">
+            <div class="rounded-4 overflow-hidden" style="background-color:#c8ddf0;">
+
+                <!-- Vehicle Image -->
+                <div class="d-flex align-items-center justify-content-center" style="height:260px; background-color:#b8d0e8;">
+                    @if (Model.VehicleType == "Bike")
+                    {
+                        <i class="bi bi-bicycle text-primary" style="font-size:7rem; opacity:0.6;"></i>
+                    }
+                    else
+                    {
+                        <i class="bi bi-scooter text-primary" style="font-size:7rem; opacity:0.6;"></i>
+                    }
+                </div>
+
+                <!-- Fleet Info -->
+                <div class="p-4">
+                    <h6 class="fw-bold mb-2" style="color:#1a2e5a;">Fleet Integration Specs</h6>
+                    <p class="mb-0 text-secondary" style="font-size:0.88rem; line-height:1.6;">
+                        Adding this vehicle will automatically register it to the local geo-fence of the selected
+                        Station ID. Fleet analytics will begin tracking efficiency metrics 15 minutes after deployment.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
 </div>

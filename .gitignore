@@ -1,0 +1,18 @@
+<<<<<<< HEAD
+# .NET build folders
+bin/
+obj/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# OS files
+.DS_Store
+Thumbs.db
+=======
+bin/
+obj/
+.vs/
+>>>>>>> d0c7cba3a1c882816ce444f08b23c29c95d5b558
