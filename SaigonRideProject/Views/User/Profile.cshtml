@@ -19,7 +19,7 @@
 
     <div class="card border-0 shadow-sm rounded-4 p-4 mb-4 bg-white">
 
-        <div class="d-flex align-items-center gap-3 mb-4">
+        <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-3 mb-4">
             <div class="avatar-box main-app-gradient text-white shadow-sm">
                 <i class="bi bi-person-fill fs-3"></i>
             </div>
@@ -29,7 +29,7 @@
                 <div class="text-muted small">@Model.Email</div>
             </div>
 
-            <div class="ms-auto">
+            <div class="ms-sm-auto">
                 @if (Model.IsLocked)
                 {
                     <span class="badge rounded-pill px-3 py-2 fw-semibold bg-danger bg-opacity-10 text-danger border border-danger border-opacity-10">

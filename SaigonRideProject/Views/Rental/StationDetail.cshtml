@@ -104,56 +104,58 @@
         </div>
 
         <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
-            <table class="table mb-0 align-middle" id="vehicleTable">
-                <thead style="background-color: #cbd5e1;">
-                    <tr class="small text-uppercase fw-bold text-secondary">
-                        <th class="ps-4 border-0 py-3">@Localizer["ThVehicleType"]</th>
-                        <th class="border-0 py-3">@Localizer["ThVehicleID"]</th>
-                        <th class="border-0 py-3">@Localizer["ThPrice"]</th>
-                        <th class="border-0 py-3">@Localizer["ThBattery"]</th>
-                        <th class="border-0 py-3">@Localizer["ThStatus"]</th>
-                        <th class="text-end pe-4 border-0 py-3">@Localizer["ThAction"]</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var v in Model.Vehicles)
-                    {
-                        <tr class="vehicle-item" data-type="@v.VehicleType" data-id="@v.PlateNumber">
-                        <td class="ps-4 border-bottom-0 py-3 small">@Locale.Translate(v.VehicleType)</td>
-                        <td class="border-bottom-0 py-3 small text-muted text-uppercase">@v.PlateNumber</td>
-                        <td class="border-bottom-0 py-3 small">@v.PricePerMinute VND / @Localizer["MinuteUnit"]</td>
-                        <td class="border-bottom-0 py-3 small fw-bold @(v.BatteryLevel <= 20 ? "text-danger" : v.BatteryLevel < 50 ? "text-warning" : "text-success")">
-                            @v.BatteryLevel%
-                        </td>
-                        <td class="border-bottom-0 py-3">
-                            @if (v.Status == "Available" && v.BatteryLevel > 20)
-                            {
-                                <span class="badge rounded-pill fw-normal" style="background-color: #f0fdf4; color: #22c55e; padding: 0.5em 1em;">@Localizer["Available"]</span>
-                            }
-                            else if (v.BatteryLevel <= 20)
-                            {
-                                <span class="badge rounded-pill fw-normal" style="background-color: #fef2f2; color: #dc2626; padding: 0.5em 1em;">@Localizer["Maintenance"]</span>
-                            }
-                            else
-                            {
-                                <span class="badge rounded-pill fw-normal" style="background-color: #f8fafc; color: #64748b; padding: 0.5em 1em;">@Locale.Translate(v.Status)</span>
-                            }
-                        </td>
-                        <td class="text-end pe-4 border-bottom-0 py-3">
-                            @if (v.Status == "Available" && v.BatteryLevel >= 20)
-                            {
-                                <a class="btn btn-primary btn-sm rounded-3 px-4 py-2 fw-medium" 
-                                   href="/Rental/Start?vehicleId=@v.Id&stationId=@Model.Station.Id">@Localizer["RentNowBtn"]</a>
-                            }
-                            else
-                            {
-                                <button class="btn btn-light btn-sm rounded-3 px-4 py-2 text-muted" disabled>@Localizer["UnavailableBtn"]</button>
-                            }
-                        </td>
-                    </tr>
-                    }
-                </tbody>
-            </table>
+            <div class="table-responsive">
+                <table class="table mb-0 align-middle" id="vehicleTable">
+                    <thead style="background-color: #cbd5e1;">
+                        <tr class="small text-uppercase fw-bold text-secondary">
+                            <th class="ps-4 border-0 py-3">@Localizer["ThVehicleType"]</th>
+                            <th class="border-0 py-3">@Localizer["ThVehicleID"]</th>
+                            <th class="border-0 py-3">@Localizer["ThPrice"]</th>
+                            <th class="border-0 py-3">@Localizer["ThBattery"]</th>
+                            <th class="border-0 py-3">@Localizer["ThStatus"]</th>
+                            <th class="text-end pe-4 border-0 py-3">@Localizer["ThAction"]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var v in Model.Vehicles)
+                        {
+                            <tr class="vehicle-item" data-type="@v.VehicleType" data-id="@v.PlateNumber">
+                            <td class="ps-4 border-bottom-0 py-3 small">@Locale.Translate(v.VehicleType)</td>
+                            <td class="border-bottom-0 py-3 small text-muted text-uppercase">@v.PlateNumber</td>
+                            <td class="border-bottom-0 py-3 small">@v.PricePerMinute VND / @Localizer["MinuteUnit"]</td>
+                            <td class="border-bottom-0 py-3 small fw-bold @(v.BatteryLevel <= 20 ? "text-danger" : v.BatteryLevel < 50 ? "text-warning" : "text-success")">
+                                @v.BatteryLevel%
+                            </td>
+                            <td class="border-bottom-0 py-3">
+                                @if (v.Status == "Available" && v.BatteryLevel > 20)
+                                {
+                                    <span class="badge rounded-pill fw-normal" style="background-color: #f0fdf4; color: #22c55e; padding: 0.5em 1em;">@Localizer["Available"]</span>
+                                }
+                                else if (v.BatteryLevel <= 20)
+                                {
+                                    <span class="badge rounded-pill fw-normal" style="background-color: #fef2f2; color: #dc2626; padding: 0.5em 1em;">@Localizer["Maintenance"]</span>
+                                }
+                                else
+                                {
+                                    <span class="badge rounded-pill fw-normal" style="background-color: #f8fafc; color: #64748b; padding: 0.5em 1em;">@Locale.Translate(v.Status)</span>
+                                }
+                            </td>
+                            <td class="text-end pe-4 border-bottom-0 py-3">
+                                @if (v.Status == "Available" && v.BatteryLevel >= 20)
+                                {
+                                    <a class="btn btn-primary btn-sm rounded-3 px-4 py-2 fw-medium" 
+                                       href="/Rental/Start?vehicleId=@v.Id&stationId=@Model.Station.Id">@Localizer["RentNowBtn"]</a>
+                                }
+                                else
+                                {
+                                    <button class="btn btn-light btn-sm rounded-3 px-4 py-2 text-muted" disabled>@Localizer["UnavailableBtn"]</button>
+                                }
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>
