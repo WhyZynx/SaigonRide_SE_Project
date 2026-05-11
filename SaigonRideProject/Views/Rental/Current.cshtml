@@ -1,5 +1,11 @@
 ﻿@model SaigonRideProject.ViewModels.CurrentTripViewModel
 @using System.Text.Json
+@using SaigonRideProject.Helpers
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizerFactory LocalizerFactory
+@{
+    var Localizer = LocalizerFactory.Create("SharedResource", "SaigonRideProject");
+}
 
 <div class="container py-4" style="margin-bottom: 100px;">
     <div class="row g-4 align-items-stretch mb-5">
@@ -9,7 +15,7 @@
                 <div class="position-absolute bottom-0 start-50 translate-middle-x mb-4 text-center z-3 pointer-events-none">
                     <div class="bg-white bg-opacity-75 px-4 py-2 rounded-pill shadow-sm">
                         <p class="text-success fw-bold mb-0" style="font-size: 0.9rem;">
-                            <i class="bi bi-geo-alt-fill me-1"></i> Real-time location tracking
+                            <i class="bi bi-geo-alt-fill me-1"></i> @Localizer["RealTimeTracking"]
                         </p>
                     </div>
                 </div>
@@ -25,11 +31,22 @@
                                 <i class="bi bi-bicycle text-success fs-2"></i>
                             </div>
                             <div>
-                                <h5 class="fw-bold mb-0">@Model.VehicleName</h5>
-                                <small class="text-muted">Vehicle ID: #@Model.Id</small>
+                                <h5 class="fw-bold mb-0">
+                                    @if (Model.VehicleName.Contains("Bike"))
+                                    {
+                                        @Localizer["Bike"]
+                                    }
+                                    else
+                                    {
+                                        @Localizer["E-Scooter"]
+                                    }
+                                </h5>
+                                <small class="text-muted">
+                                    @Localizer["VehicleID"]: @Model.PlateNumber
+                                </small>
                             </div>
                         </div>
-                        <span class="badge bg-success-subtle text-success px-3 py-2 rounded-pill border border-success border-opacity-10">Currently Renting</span>
+                        <span class="badge bg-success-subtle text-success px-3 py-2 rounded-pill border border-success border-opacity-10">@Localizer["CurrentlyRent"]</span>
                     </div>
 
                     <div class="row g-2 text-center mb-0">
@@ -37,50 +54,58 @@
                             <div class="bg-light p-3 rounded-4 h-100">
                                 <i class="bi bi-clock text-success fs-4 mb-2 d-block"></i>
                                 <h6 class="fw-bold mb-0" id="timer">00:00</h6>
-                                <small class="text-muted small-text">Ride Time</small>
+                                <small class="text-muted small-text">@Localizer["RideTime"]</small>
                             </div>
                         </div>
                         <div class="col-4">
                             <div class="bg-light p-3 rounded-4 h-100">
                                 <i class="bi bi-currency-dollar text-success fs-4 mb-2 d-block"></i>
-                                <h6 class="fw-bold mb-0 total-val">0đ</h6>
-                                <small class="text-muted small-text">Estimated</small>
+                                <h6 class="fw-bold mb-0 total-val">0VND</h6>
+                                <small class="text-muted small-text">@Localizer["Estimated"]</small>
                             </div>
                         </div>
                         <div class="col-4">
                             <div class="bg-light p-3 rounded-4 h-100">
                                 <i class="bi bi-geo-alt text-success fs-4 mb-2 d-block"></i>
-                                <h6 class="fw-bold mb-0 text-truncate px-1" style="font-size: 0.85rem;">Pick-up</h6>
-                                <small class="text-muted small-text">Station</small>
+                                <h6 class="fw-bold mb-0 text-truncate px-1" style="font-size: 0.85rem;">@Localizer["PickUp"]</h6>
+                                <small class="text-muted small-text">@Localizer["StationTitle"]</small>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="card border-0 shadow-sm rounded-4 p-4 flex-grow-1">
-                    <h6 class="fw-bold mb-4">Trip Details</h6>
+                    <h6 class="fw-bold mb-4">@Localizer["TripDetails"]</h6>
                     <div class="d-flex flex-column gap-3">
                         <div class="d-flex justify-content-between align-items-center small">
-                            <span class="text-muted">Price per minute</span>
-                            <span class="fw-medium">@Model.PricePerMinute.ToString("N0")đ / minute</span>
+                            <span class="text-muted">@Localizer["PricePerMinute"]</span>
+                            <span class="fw-medium">@Model.PricePerMinute.ToString("N0") VND / @Localizer["MinuteUnit"]</span>
                         </div>
                         <div class="d-flex justify-content-between align-items-center small border-top pt-3">
-                            <span class="text-muted">Start Time</span>
+                            <span class="text-muted">@Localizer["StartTime"]</span>
                             <span class="fw-medium">@Model.StartTime.ToString("HH:mm")</span>
                         </div>
                         <div class="d-flex justify-content-between align-items-center small border-top pt-3">
-                            <span class="text-muted">Payment Method</span>
+                            <span class="text-muted">@Localizer["PaymentMethod"]</span>
                             <select id="paymentMethod" 
-                                    class="form-select form-select-sm border-0 bg-light rounded-pill px-4 shadow-none" 
-                                    style="width: auto; min-width: 120px; cursor: pointer;">
-                                @foreach (var m in ViewBag.PaymentMethods) {
-                                    <option value="@m" class="py-2">@m</option>
+                                class="form-select form-select-sm border-0 bg-light rounded-pill px-4 shadow-none" 
+                                style="width: auto; min-width: 120px; cursor: pointer;">
+                            @foreach (var m in ViewBag.PaymentMethods)
+                            {
+                                if (m == "Cash")
+                                {
+                                    <option value="Cash">@Localizer["PaymentMethodCash"]</option>
                                 }
-                            </select>
+                                else
+                                {
+                                    <option value="@m" class="py-2">@Localizer[m]</option>
+                                }
+                            }
+                        </select>
                         </div>
                         <div class="d-flex justify-content-between align-items-center border-top pt-3 mt-2">
-                            <span class="fw-bold h5 mb-0">Total Estimated</span>
-                            <span class="fw-bold h5 mb-0 text-success total-val">0đ</span>
+                            <span class="fw-bold h5 mb-0">@Localizer["TotalEstimated"]</span>
+                            <span class="fw-bold h5 mb-0 text-success total-val">0 VND</span>
                         </div>
                     </div>
                 </div>
@@ -89,8 +114,8 @@
     </div>
 
     <div class="mb-5">
-        <h3 class="fw-bold mb-2">Return Station</h3>
-        <p class="text-muted mb-4">Returning to a low-inventory station earns you a <span class="text-success fw-bold">15% discount.</span></p>
+        <h3 class="fw-bold mb-2">@Localizer["ReturnStation"]</h3>
+        <p class="text-muted mb-4">@Html.Raw(Localizer["DiscountNotice"].Value)</p>
 
         <div class="row g-4">
             @{
@@ -103,19 +128,19 @@
                 bool isLow = (bool)s.isLow;
                 <div class="col-md-6 col-xl-4">
                     <div id="station-@s.id" class="card station-card h-100 border-0 shadow-sm rounded-4 p-4 @(isFull ? "opacity-50" : "")"
-                         onclick="selectStation(@s.id, '@s.name', @s.vehicleCount, @s.capacity)"
+                         onclick="selectStation(@s.id, '@Html.Raw(Locale.StationName((int)s.id, (string)s.name))', @s.vehicleCount, @s.capacity)"
                          style="background-color: @(isLow ? "#FFFBEB" : "white"); cursor: @(isFull ? "not-allowed" : "pointer");">
                         <div class="d-flex justify-content-between align-items-start mb-3">
                             <div>
-                                <h5 class="fw-bold mb-1">@s.name</h5>
-                                <p class="text-muted small mb-0">Available station</p>
+                                <h5 class="fw-bold mb-1">@Locale.StationName((int)s.id, (string)s.name)</h5>
+                                <p class="text-muted small mb-0">@Localizer["AvailableStation"]</p>
                             </div>
                             @if (isLow) { <div class="bg-warning bg-opacity-25 rounded-3 p-2"><i class="bi bi-gift-fill text-warning"></i></div> }
                         </div>
                         <div class="mt-4">
                             <div class="d-flex justify-content-between mb-2">
-                                <span class="small @(isLow ? "text-warning" : "text-success") fw-bold">@(Math.Round((double)s.fillPercent * 100))% full</span>
-                                @if (isLow) { <span class="text-success small fw-bold">-15% discount</span> }
+                                <span class="small @(isLow ? "text-warning" : "text-success") fw-bold">@(Math.Round((double)s.fillPercent * 100))% @Localizer["FullStatus"]</span>
+                                @if (isLow) { <span class="text-success small fw-bold">-15% @Localizer["Discount"]</span> }
                             </div>
                             <div class="progress rounded-pill" style="height: 6px;">
                                 <div class="progress-bar @(isLow ? "bg-warning" : "bg-success")" style="width:@((double)s.fillPercent * 100)%"></div>
@@ -140,16 +165,16 @@
             <div class="d-flex align-items-center gap-3">
                 <div class="d-none d-md-block bg-light p-2 rounded-3"><i class="bi bi-geo-alt text-primary"></i></div>
                 <div>
-                    <small class="text-muted d-block" style="font-size: 0.65rem;">RETURN TO</small>
-                    <span id="selectedStationNameBottom" class="fw-bold text-dark">Select a station...</span>
+                    <small class="text-muted d-block" style="font-size: 0.65rem;">@Localizer["ReturnToCaps"]</small>
+                    <span id="selectedStationNameBottom" class="fw-bold text-dark">@Localizer["SelectAStation"]...</span>
                 </div>
             </div>
             <div class="d-flex align-items-center gap-4">
                 <div class="text-end d-none d-sm-block">
-                    <span class="fw-bold h5 mb-0 me-2">Total Estimated:</span>
-                    <span class="fw-bold h5 mb-0 text-success total-val">0đ</span>
+                    <span class="fw-bold h5 mb-0 me-2">@Localizer["TotalEstimated"]:</span>
+                    <span class="fw-bold h5 mb-0 text-success total-val">0VND</span>
                 </div>
-                <button class="btn btn-danger rounded-pill px-4 py-2 fw-bold" onclick="endTrip()">End Ride</button>
+                <button class="btn btn-danger rounded-pill px-4 py-2 fw-bold" onclick="endTrip()">@Localizer["EndRideBtn"]</button>
             </div>
         </div>
     </div>
@@ -192,7 +217,7 @@
         const pricePerSec = window.pricePerMin / 60;
         const currentCost = diffSec * pricePerSec;
 
-        const formattedCost = Math.floor(currentCost).toLocaleString('vi-VN') + "đ";
+        const formattedCost = Math.floor(currentCost).toLocaleString('vi-VN') + " VND";
 
         document.getElementById('timer').innerText = timeString;
         document.getElementById('durationSeconds').value = diffSec;
@@ -209,22 +234,47 @@
     function selectStation(id, name, count, cap) {
         if (count >= cap) return;
         document.querySelectorAll('.station-card').forEach(c => c.classList.remove('active'));
-        document.getElementById('station-' + id).classList.add('active');
-        document.getElementById('rs').value = id;
-        document.getElementById('selectedStationNameBottom').innerText = name;
+
+        const card = document.getElementById('station-' + id);
+        if (card) card.classList.add('active');
+
+        const input = document.getElementById('rs');
+        if (input) input.value = id;
+
+        const display = document.getElementById('selectedStationNameBottom');
+        if (display) display.innerText = name;
     }
 
     function endTrip() {
-        if (!document.getElementById('rs').value) return alert("Please select a return station first.");
+        if (!document.getElementById('rs').value) {
+            return alert("@Html.Raw(Localizer["AlertSelectStation"].Value)");
+        }
         document.getElementById('form').submit();
     }
 
     function initMap() {
+        @{
+            var stationsData = ((IEnumerable<dynamic>)ViewBag.Stations).Select(s => new {
+                id = (int)s.id,
+                name = Locale.StationName((int)s.id, (string)s.name),
+                lat = (double)s.latitude,
+                lng = (double)s.longitude,
+                low = (bool)s.isLow
+            });
+        }
+
+        const stations = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(stationsData));
+
         const map = L.map('map', { zoomControl: false }).setView([10.7769, 106.7009], 15);
         L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png').addTo(map);
-        window.stations.forEach(s => {
-            const icon = L.divIcon({ className: 'm', html: `<div style="background:${s.isLow?'#f59e0b':'#10b981'};width:12px;height:12px;border-radius:50%;border:2px solid white;"></div>` });
-            L.marker([s.latitude, s.longitude], { icon }).addTo(map).bindPopup(s.name);
+
+        stations.forEach(s => {
+            const icon = L.divIcon({ 
+                className: 'm', 
+                html: `<div style="background:${s.low ? '#f59e0b' : '#10b981'};width:18px;height:18px;border-radius:50%;border:2px solid white;"></div>` 
+            });
+
+            L.marker([s.lat, s.lng], { icon }).addTo(map).bindPopup(s.name);
         });
     }
 

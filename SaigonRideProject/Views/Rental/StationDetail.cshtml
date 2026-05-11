@@ -1,18 +1,21 @@
 ﻿@model SaigonRideProject.ViewModels.StationDetailViewModel
-
+@using SaigonRideProject.Helpers
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizerFactory LocalizerFactory
 @{
+    var Localizer = LocalizerFactory.Create("SharedResource", "SaigonRideProject");
     var occupancyPercent = (Model.Station.VehicleCount * 100) / (Model.Capacity > 0 ? Model.Capacity : 1);
     var isLow = occupancyPercent < 20;
 }
 
 <div class="container py-4">
     <a href="/Rental/StationList" class="text-decoration-none text-muted small mb-3 d-inline-block">
-        <i class="bi bi-arrow-left"></i> Back to station list
+        <i class="bi bi-arrow-left"></i> @Localizer["BackToStationList"]
     </a>
 
     <div class="mb-4">
-        <h1 class="fw-bold mb-1">@Model.Station.Name</h1>
-        <p class="text-muted">@Model.Station.Address</p>
+        <h1 class="fw-bold mb-1">@Locale.StationName(Model.Station.Id, Model.Station.Name)</h1>
+        <p class="text-muted">@Locale.Translate(Model.Station.Address)</p>
     </div>
 
     <div class="row g-4 align-items-stretch">
@@ -21,7 +24,7 @@
             {
                 <div class="alert alert-danger border-0 rounded-3 d-flex align-items-center mb-4" style="background-color: #fff1f2; color: #e11d48;">
                     <i class="bi bi-exclamation-triangle me-2"></i>
-                    <span class="small fw-medium">Low Inventory — Return your vehicle here for 15% discount!</span>
+                    <span class="small fw-medium">@Localizer["LowInventoryPromotion"]</span>
                 </div>
             }
 
@@ -37,12 +40,12 @@
                         <div class="d-flex gap-3 justify-content-center align-items-center">
                             <div class="flex-fill rounded-4 p-3 text-center" style="background-color: #f8fafc; min-width: 0;">
                                 <div class="h2 fw-bold mb-0 text-dark">@Model.Capacity</div>
-                                <div class="text-muted small" style="font-size: 0.75rem;">Total Capacity</div>
+                                <div class="text-muted small" style="font-size: 0.75rem;">@Localizer["TotalCapacity"]</div>
                             </div>
 
                             <div class="flex-fill rounded-4 p-3 text-center" style="background-color: #f8fafc; min-width: 0;">
                                 <div class="h2 fw-bold mb-0 text-primary">@Model.AvailableCount</div>
-                                <div class="text-muted small" style="font-size: 0.75rem;">Available Now</div>
+                                <div class="text-muted small" style="font-size: 0.75rem;">@Localizer["AvailableNow"]</div>
                             </div>
                         </div>
                     </div>
@@ -51,20 +54,20 @@
                 <div class="col-12">
                     <div class="card border-0 shadow-sm rounded-4 p-4 text-center" style="background-color: #fff1f2;">
                         <div class="display-4 fw-bold mb-0" style="color: #e11d48;">@occupancyPercent%</div>
-                        <div class="fw-medium" style="color: #e11d48;">Fill Rate</div>
+                        <div class="fw-medium" style="color: #e11d48;">@Localizer["FillRate"]</div>
                     </div>
                 </div>
 
                 <div class="col-12">
                     <div class="card border-0 shadow-sm rounded-4 p-4 h-100">
-                        <h6 class="fw-bold mb-3">Pricing</h6>
+                        <h6 class="fw-bold mb-3">@Localizer["PricingTitle"]</h6>
                         <div class="d-flex justify-content-between mb-2 small">
-                            <span><i class="bi bi-bicycle me-2"></i>Standard Bike</span>
-                            <span class="fw-bold">500đ / minute</span>
+                            <span><i class="bi bi-bicycle me-2"></i>@Localizer["Bike"]</span>
+                            <span class="fw-bold">500 VND / @Localizer["MinuteUnit"]</span>
                         </div>
                         <div class="d-flex justify-content-between small">
-                            <span><i class="bi bi-scooter me-2"></i>E-Scooter</span>
-                            <span class="fw-bold">1,500đ / minute</span>
+                            <span><i class="bi bi-scooter me-2"></i>@Localizer["E-Scooter"]</span>
+                            <span class="fw-bold">1,500 VND / @Localizer["MinuteUnit"]</span>
                         </div>
                     </div>
                 </div>
@@ -76,26 +79,26 @@
         <div class="row align-items-center mb-4 g-3">
             <div class="col-md-auto flex-grow-1">
                 <h4 class="fw-bold mb-0 text-truncate">
-                    Available Vehicles at @Model.Station.Name
+                    @Localizer["AvailableVehiclesAt"] @Locale.StationName(Model.Station.Id, Model.Station.Name)
                 </h4>
             </div>
-    
+
             <div class="col-md-auto">
                 <div class="d-flex gap-2 flex-nowrap justify-content-start justify-content-md-end">
                     <input type="text" id="vehicleSearch" 
                            class="form-control form-control-sm rounded-3 flex-fill flex-md-grow-0" 
-                           placeholder="Search ID..." 
+                           placeholder="@Localizer["SearchIDPlaceholder"]" 
                            style="width: 100%; max-width: 180px;">
-            
+
                     <select id="vehicleTypeFilter" 
-                            class="form-select form-select-sm rounded-3 flex-fill flex-md-grow-0" 
-                            style="width: auto; max-width: 150px; background-color: #f8f9fa; border-color: #dee2e6; color: #495057; font-weight: 500;">
-                        <option value="" style="color: #6c757d;">All Vehicles</option>
-                        <option value="Bike" style="color: #212529;">Bicycle</option>
-                        <option value="Scooter" style="color: #212529;">E-Scooter</option>
+                             class="form-select form-select-sm rounded-3 flex-fill flex-md-grow-0" 
+                             style="width: auto; max-width: 150px; background-color: #f8f9fa; border-color: #dee2e6; color: #495057; font-weight: 500;">
+                        <option value="" style="color: #6c757d;">@Localizer["AllVehicles"]</option>
+                        <option value="Bike" style="color: #212529;">@Localizer["Bike"]</option>
+                        <option value="Scooter" style="color: #212529;">@Localizer["E-Scooter"]</option>
                     </select>
-            
-                    <button class="btn btn-primary btn-sm rounded-3 px-3 flex-shrink-0" onclick="applyFilters()">Filter</button>
+
+                    <button class="btn btn-primary btn-sm rounded-3 px-3 flex-shrink-0" onclick="applyFilters()">@Localizer["FilterBtn"]</button>
                 </div>
             </div>
         </div>
@@ -104,47 +107,47 @@
             <table class="table mb-0 align-middle" id="vehicleTable">
                 <thead style="background-color: #cbd5e1;">
                     <tr class="small text-uppercase fw-bold text-secondary">
-                        <th class="ps-4 border-0 py-3">Vehicle Type</th>
-                        <th class="border-0 py-3">Vehicle ID</th>
-                        <th class="border-0 py-3">Price</th>
-                        <th class="border-0 py-3">Battery</th>
-                        <th class="border-0 py-3">Status</th>
-                        <th class="text-end pe-4 border-0 py-3">Action</th>
+                        <th class="ps-4 border-0 py-3">@Localizer["ThVehicleType"]</th>
+                        <th class="border-0 py-3">@Localizer["ThVehicleID"]</th>
+                        <th class="border-0 py-3">@Localizer["ThPrice"]</th>
+                        <th class="border-0 py-3">@Localizer["ThBattery"]</th>
+                        <th class="border-0 py-3">@Localizer["ThStatus"]</th>
+                        <th class="text-end pe-4 border-0 py-3">@Localizer["ThAction"]</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach (var v in Model.Vehicles)
                     {
                         <tr class="vehicle-item" data-type="@v.VehicleType" data-id="@v.PlateNumber">
-                        <td class="ps-4 border-bottom-0 py-3 small">@v.VehicleType</td>
+                        <td class="ps-4 border-bottom-0 py-3 small">@Locale.Translate(v.VehicleType)</td>
                         <td class="border-bottom-0 py-3 small text-muted text-uppercase">@v.PlateNumber</td>
-                        <td class="border-bottom-0 py-3 small">@v.PricePerMinute đ / min</td>
+                        <td class="border-bottom-0 py-3 small">@v.PricePerMinute VND / @Localizer["MinuteUnit"]</td>
                         <td class="border-bottom-0 py-3 small fw-bold @(v.BatteryLevel <= 20 ? "text-danger" : v.BatteryLevel < 50 ? "text-warning" : "text-success")">
                             @v.BatteryLevel%
                         </td>
                         <td class="border-bottom-0 py-3">
                             @if (v.Status == "Available" && v.BatteryLevel > 20)
                             {
-                                <span class="badge rounded-pill fw-normal" style="background-color: #f0fdf4; color: #22c55e; padding: 0.5em 1em;">Available</span>
+                                <span class="badge rounded-pill fw-normal" style="background-color: #f0fdf4; color: #22c55e; padding: 0.5em 1em;">@Localizer["Available"]</span>
                             }
                             else if (v.BatteryLevel <= 20)
                             {
-                                <span class="badge rounded-pill fw-normal" style="background-color: #fef2f2; color: #dc2626; padding: 0.5em 1em;">Maintenance</span>
+                                <span class="badge rounded-pill fw-normal" style="background-color: #fef2f2; color: #dc2626; padding: 0.5em 1em;">@Localizer["Maintenance"]</span>
                             }
                             else
                             {
-                                <span class="badge rounded-pill fw-normal" style="background-color: #f8fafc; color: #64748b; padding: 0.5em 1em;">@v.Status</span>
+                                <span class="badge rounded-pill fw-normal" style="background-color: #f8fafc; color: #64748b; padding: 0.5em 1em;">@Locale.Translate(v.Status)</span>
                             }
                         </td>
                         <td class="text-end pe-4 border-bottom-0 py-3">
                             @if (v.Status == "Available" && v.BatteryLevel >= 20)
                             {
                                 <a class="btn btn-primary btn-sm rounded-3 px-4 py-2 fw-medium" 
-                                   href="/Rental/Start?vehicleId=@v.Id&stationId=@Model.Station.Id">Rent Now</a>
+                                   href="/Rental/Start?vehicleId=@v.Id&stationId=@Model.Station.Id">@Localizer["RentNowBtn"]</a>
                             }
                             else
                             {
-                                <button class="btn btn-light btn-sm rounded-3 px-4 py-2 text-muted" disabled>Unavailable</button>
+                                <button class="btn btn-light btn-sm rounded-3 px-4 py-2 text-muted" disabled>@Localizer["UnavailableBtn"]</button>
                             }
                         </td>
                     </tr>
@@ -168,7 +171,10 @@
 <script>
     let map;
     function initMap() {
-        const stationPos = [@Model.Station.Latitude, @Model.Station.Longitude];
+        const lat = @Html.Raw(Model.Station.Latitude.ToString(System.Globalization.CultureInfo.InvariantCulture));
+        const lng = @Html.Raw(Model.Station.Longitude.ToString(System.Globalization.CultureInfo.InvariantCulture));
+        
+        const stationPos = [lat, lng];
         map = L.map('map', { zoomControl: false }).setView(stationPos, 16);
         
         L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
