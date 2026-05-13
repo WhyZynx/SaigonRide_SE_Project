@@ -16,9 +16,12 @@ namespace SaigonRideProject
 
 
             builder.Services.AddDbContext<AppDbContext>(options =>
-                options.UseSqlite(
+            options.UseMySql(
+                builder.Configuration.GetConnectionString("DefaultConnection"),
+                ServerVersion.AutoDetect(
                     builder.Configuration.GetConnectionString("DefaultConnection")
-                ));
+                )
+            ));
 
             builder.Services.AddScoped<EmailService>();
             builder.Services.AddScoped<IPricingStrategy, DefaultPricingService>();

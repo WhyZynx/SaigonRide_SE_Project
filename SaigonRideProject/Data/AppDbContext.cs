@@ -72,10 +72,6 @@ namespace SaigonRideProject.Data
                 .Property(r => r.DiscountPercent)
                 .HasPrecision(5, 2);
 
-            modelBuilder.Entity<Rental>()
-                .HasIndex(r => r.UserId)
-                .HasFilter("[Status] = 'InProgress'")
-                .IsUnique();
 
             modelBuilder.Entity<Rental>()
                 .HasOne(r => r.User)
