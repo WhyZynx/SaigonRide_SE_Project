@@ -15,7 +15,7 @@ https://github.com/WhyZynx/SaigonRide_SE_Project.git
 ## Video Demo
 
 ```text
-[https://github.com/WhyZynx/SaigonRide_SE_Project.git](https://drive.google.com/file/d/1JoNp0LZ8Xd2Kqiy2enGE9iE4h93nJagN/view?usp=drive_link)
+https://drive.google.com/file/d/1JoNp0LZ8Xd2Kqiy2enGE9iE4h93nJagN/view?usp=drive_link
 ```
 
 ---
