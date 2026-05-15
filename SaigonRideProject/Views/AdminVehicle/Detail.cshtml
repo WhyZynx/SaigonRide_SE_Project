@@ -4,31 +4,121 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<div class="container py-4">
-
-    <h3 class="fw-bold mb-4">🔍 Vehicle Detail</h3>
-
-    <div class="card border-0 shadow-sm rounded-4 p-4">
-
-        <div class="row g-3">
-
-            <div class="col-md-6"><strong>ID:</strong> @Model.Id</div>
-            <div class="col-md-6"><strong>Type:</strong> @Model.VehicleType</div>
-
-            <div class="col-md-6"><strong>Plate:</strong> @Model.PlateNumber</div>
-            <div class="col-md-6"><strong>Status:</strong> @Model.Status</div>
-
-            <div class="col-md-6"><strong>Battery:</strong> @Model.BatteryLevel%</div>
-            <div class="col-md-6"><strong>Price:</strong> @Model.PricePerMinute VND</div>
-
-            <div class="col-md-12"><strong>Station:</strong> @Model.StationId</div>
-
-        </div>
-
-        <div class="mt-4">
-            <a href="/AdminVehicle" class="btn btn-secondary">Back</a>
-        </div>
-
+<div class="container-fluid py-4">
+    <div class="d-flex align-items-center gap-3 mb-4">
+        <a href="/AdminVehicle" class="btn btn-light rounded-circle shadow-sm border">
+            <i class="bi bi-arrow-left"></i>
+        </a>
+        <h3 class="fw-bold mb-0" style="color:#1a2e5a;">Vehicle Detail</h3>
     </div>
 
+    <div class="row g-4">
+        <div class="col-lg-5">
+            <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100">
+                <div class="d-flex flex-column align-items-center justify-content-center" style="height:350px; background-color:#c8ddf0;">
+                    
+                    @if (Model.VehicleType == "Bike")
+                    {
+                        <i class="bi bi-bicycle text-primary" style="font-size:10rem; opacity:0.7;"></i>
+                        <span class="fw-bold text-primary mt-2">BICYCLE UNIT</span>
+                    }
+                    else
+                    {
+                        <i class="bi bi-scooter text-primary" style="font-size:10rem; opacity:0.7;"></i>
+                        <span class="fw-bold text-primary mt-2">SCOOTER UNIT</span>
+                    }
+                    
+                </div>
+                <div class="card-body bg-white text-center border-top">
+                    <div class="d-flex justify-content-center align-items-center gap-2">
+                        <span class="badge @(Model.Status == "Available" ? "bg-success" : "bg-warning") rounded-pill px-4 py-2">
+                            @Model.Status
+                        </span>
+                    </div>
+                    <p class="text-muted small mt-2 mb-0">System Serial: @Model.Id</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-7">
+            <div class="card border-0 shadow-sm rounded-4 p-4 h-100">
+                
+                <div class="d-flex align-items-center gap-2 mb-3">
+                    <i class="bi bi-person-vcard fs-5" style="color:#1a2e5a;"></i>
+                    <span class="fw-semibold fs-6" style="color:#1a2e5a;">Vehicle Identity</span>
+                </div>
+                <div class="row g-3 mb-4">
+                    <div class="col-6">
+                        <label class="text-muted small d-block">Plate Number</label>
+                        <span class="fw-bold fs-5 text-dark">@Model.PlateNumber</span>
+                    </div>
+                    <div class="col-6">
+                        <label class="text-muted small d-block">Vehicle Category</label>
+                        <span class="fw-semibold text-dark">@Model.VehicleType</span>
+                    </div>
+                </div>
+
+                <hr class="opacity-25">
+
+                <div class="d-flex align-items-center gap-2 mb-3 mt-2">
+                    <i class="bi bi-gear-fill fs-5" style="color:#1a2e5a;"></i>
+                    <span class="fw-semibold fs-6" style="color:#1a2e5a;">Configuration & Status</span>
+                </div>
+                <div class="row g-3 mb-4">
+                    <div class="col-6">
+                        <label class="text-muted small d-block">Battery Level</label>
+                        <div class="d-flex align-items-center gap-2 mt-1">
+                            <div class="progress flex-grow-1" style="height: 10px; background-color: #e9ecef;">
+                                <div class="progress-bar @(Model.BatteryLevel < 20 ? "bg-danger" : "bg-success") shadow-sm"
+                                     style="width: @Model.BatteryLevel%"></div>
+                            </div>
+                            <span class="fw-bold @(Model.BatteryLevel < 20 ? "text-danger" : "text-dark")">@Model.BatteryLevel%</span>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <label class="text-muted small d-block">Price Per Minute</label>
+                        <span class="fw-bold text-primary fs-5">@Model.PricePerMinute.ToString("N0") <small class="fs-6 text-muted">đ/min</small></span>
+                    </div>
+                </div>
+
+                <div class="p-3 rounded-3 mb-3 bg-light border">
+
+                    <div class="d-flex justify-content-between align-items-center">
+
+                        <div class="text-muted">
+                            <i class="bi bi-geo-alt-fill text-danger me-1"></i>
+                            Station Assignment
+                        </div>
+
+                        <div class="text-end">
+                            @if (!string.IsNullOrEmpty(Model.StationName))
+                            {
+                                <div class="fw-bold">@Model.StationName</div>
+                                <small class="text-muted">ID: @Model.StationId</small>
+                            }
+                            else if (Model.StationId.HasValue)
+                            {
+                                <div class="fw-bold">Station @Model.StationId</div>
+                            }
+                            else
+                            {
+                                <span class="text-muted">Not assigned</span>
+                            }
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="mt-auto pt-3 d-flex gap-2">
+                    <a href="/AdminVehicle/Edit/@Model.Id" class="btn btn-primary rounded-3 px-4 shadow-sm">
+                        <i class="bi bi-pencil-square me-2"></i>Edit Vehicle
+                    </a>
+                    <a href="/AdminVehicle" class="btn btn-outline-secondary rounded-3 px-4">
+                        Return to Inventory
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

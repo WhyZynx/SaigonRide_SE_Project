@@ -46,7 +46,11 @@ namespace SaigonRideProject.Controllers
                     StationName = s.Name,
                     Capacity = s.Capacity,
                     Current = s.Vehicles.Count(),
-                    Status = s.Vehicles.Count() < (s.Capacity * 0.2) ? "Low" : "Normal"
+                    Status = s.Vehicles.Count() < (s.Capacity * 0.2) 
+                    ? "Low" 
+                    : s.Vehicles.Count() >= s.Capacity
+                        ? "Full" 
+                        : "Normal"
                 }).ToList();
 
             var vm = new ReportViewModel
@@ -119,9 +123,12 @@ namespace SaigonRideProject.Controllers
         private string GetStatus(int capacity, int current)
         {
             if (capacity == 0) return "Low";
-            if (current == capacity) return "Full"; 
-            if ((double)current / capacity < 0.2) return "Low";
-            return "Normal";
+
+            double ratio = (double)current / capacity;
+
+            if (ratio < 0.2) return "Low";
+            if (ratio < 0.7) return "Normal";
+            return "Full";
         }
     }
 }

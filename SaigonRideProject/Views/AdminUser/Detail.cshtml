@@ -4,109 +4,123 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<div class="container py-4">
+<div class="container-fluid py-4" style="background-color: #f8f9fa; min-height: 100vh;">
 
-    <!-- HEADER -->
-    <div class="d-flex justify-content-between align-items-center mb-4">
+    <div class="d-flex align-items-center gap-3 mb-4">
+        <a href="/AdminUser" class="btn btn-white rounded-circle shadow-sm border">
+            <i class="bi bi-arrow-left"></i>
+        </a>
         <div>
-            <h3 class="fw-bold mb-1">👤 User Detail</h3>
-            <p class="text-muted mb-0">Detailed information about user account</p>
+            <h2 class="fw-bold mb-0" style="color: #1a2e5a;">User Detail</h2>
+            <nav aria-label="breadcrumb">
+            </nav>
         </div>
     </div>
 
-    <div class="card border-0 shadow-sm rounded-4">
+    <div class="row g-4">
+        <div class="col-lg-4">
+            <div class="card border-0 shadow-sm rounded-4 overflow-hidden mb-4">
+                <div class="p-4 text-center" style="background: linear-gradient(135deg, #1a2e5a, #2a4a8e); color: white;">
+                    <div class="position-relative d-inline-block mb-3">
+                        <div class="bg-white rounded-circle d-flex align-items-center justify-content-center fw-bold text-primary shadow" 
+                             style="width: 100px; height: 100px; font-size: 2.5rem; border: 4px solid rgba(255,255,255,0.2);">
+                            @Model.FullName.Substring(0, 1).ToUpper()
+                        </div>
+                        <span class="position-absolute bottom-0 end-0 badge rounded-circle p-2 @(Model.IsLocked ? "bg-danger" : "bg-success") border border-2 border-white shadow">
+                            <span class="visually-hidden">Status</span>
+                        </span>
+                    </div>
+                    <h4 class="fw-bold mb-0">@Model.FullName</h4>
+                    <p class="opacity-75 small mb-0">@Model.Email</p>
+                </div>
 
-        <div class="card-header bg-primary text-white fw-semibold">
-            User Profile
+                <div class="card-body p-4 bg-white text-center">
+                    <div class="row g-2 mb-4">
+                        <div class="col-6 border-end">
+                            <small class="text-muted d-block text-uppercase fw-bold" style="font-size: 0.65rem;">User Role</small>
+                            <span class="badge bg-light text-dark border rounded-pill px-3 mt-1">@Model.UserType</span>
+                        </div>
+                        <div class="col-6">
+                            <small class="text-muted d-block text-uppercase fw-bold" style="font-size: 0.65rem;">Account ID</small>
+                            <span class="fw-bold text-dark">@Model.Id</span>
+                        </div>
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <a href="/AdminUser/Edit/@Model.Id" class="btn btn-primary rounded-3 shadow-sm py-2">
+                            <i class="bi bi-pencil-square me-2"></i>Edit Profile
+                        </a>
+                        @if (Model.IsLocked)
+                        {
+                            <a href="/AdminUser/Unlock/@Model.Id" class="btn btn-outline-success rounded-3 py-2">
+                                <i class="bi bi-unlock-fill me-2"></i>Unlock Account
+                            </a>
+                        }
+                        else
+                        {
+                            <button class="btn btn-outline-danger rounded-3 py-2" onclick="if(confirm('Lock this user?')) window.location.href='/AdminUser/Delete/@Model.Id'">
+                                <i class="bi bi-lock-fill me-2"></i>Suspend Account
+                            </button>
+                        }
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div class="card-body p-4">
-
-            <div class="row g-4">
-
-                <!-- LEFT INFO -->
-                <div class="col-md-6">
-
-                    <div class="mb-3">
-                        <div class="text-muted small">ID</div>
-                        <div class="fw-semibold">@Model.Id</div>
+        <div class="col-lg-8">
+            <div class="card border-0 shadow-sm rounded-4 bg-white p-4 h-100">
+                <div class="d-flex align-items-center gap-2 mb-4">
+                    <div class="p-2 bg-light rounded-3 shadow-sm">
+                        <i class="bi bi-shield-lock-fill text-primary"></i>
                     </div>
-
-                    <div class="mb-3">
-                        <div class="text-muted small">Full Name</div>
-                        <div class="fw-semibold">@Model.FullName</div>
-                    </div>
-
-                    <div class="mb-3">
-                        <div class="text-muted small">Email</div>
-                        <div class="fw-semibold">@Model.Email</div>
-                    </div>
-
-                    <div>
-                        <div class="text-muted small">User Type</div>
-                        <div class="fw-semibold">@Model.UserType</div>
-                    </div>
-
+                    <h5 class="mb-0 fw-bold" style="color: #1a2e5a;">Account & Security Details</h5>
                 </div>
 
-                <!-- RIGHT INFO -->
-                <div class="col-md-6">
-
-                    <div class="mb-3">
-                        <div class="text-muted small">Balance</div>
-                        <div class="fw-semibold">@Model.Balance</div>
-                    </div>
-
-                    <div class="mb-3">
-                        <div class="text-muted small">Status</div>
-                        <div>
-                            @if (Model.IsLocked)
-                            {
-                                <span class="badge bg-danger px-3 py-2">
-                                    Suspended
-                                </span>
-                            }
-                            else
-                            {
-                                <span class="badge bg-success px-3 py-2">
-                                    Active
-                                </span>
-                            }
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="p-3 rounded-4 border bg-light bg-opacity-50">
+                            <small class="text-muted text-uppercase fw-bold" style="font-size: 0.7rem;">Available Balance</small>
+                            <div class="d-flex align-items-center gap-2 mt-1">
+                                <h3 class="fw-bold text-success mb-0">@Model.Balance.ToString("N0") đ</h3>
+                                <i class="bi bi-wallet2 fs-4 text-muted"></i>
+                            </div>
                         </div>
                     </div>
 
-                    <div>
-                        <div class="text-muted small">Verification</div>
-                        <div>
-                            @if (Model.IsVerified)
-                            {
-                                <span class="badge bg-success px-3 py-2">
-                                    Verified
-                                </span>
-                            }
-                            else
-                            {
-                                <span class="badge bg-warning text-dark px-3 py-2">
-                                    Pending
-                                </span>
-                            }
+                    <div class="col-md-6">
+                        <div class="p-3 rounded-4 border bg-light bg-opacity-50">
+                            <small class="text-muted text-uppercase fw-bold" style="font-size: 0.7rem;">Verification Status</small>
+                            <div class="mt-1">
+                                @if (Model.IsVerified)
+                                {
+                                    <span class="badge bg-success-subtle text-success rounded-pill px-3 py-2 fw-bold">
+                                        <i class="bi bi-patch-check-fill me-1"></i> VERIFIED USER
+                                    </span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-warning-subtle text-warning rounded-pill px-3 py-2 fw-bold">
+                                        <i class="bi bi-exclamation-triangle-fill me-1"></i> PENDING VERIFICATION
+                                    </span>
+                                }
+                            </div>
                         </div>
                     </div>
 
+                    <div class="col-md-7">
+                        <div class="card border-0 bg-light rounded-4 p-3">
+                            <h6 class="fw-bold mb-3" style="color: #1a2e5a;">Contact Information</h6>
+                            <div class="row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <small class="text-muted d-block">Primary Email</small>
+                                    <span class="fw-semibold">@Model.Email</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
             </div>
-
-            <!-- ACTION -->
-            <hr class="my-4" />
-
-            <div class="d-flex justify-content-end">
-                <a href="/AdminUser" class="btn btn-secondary">
-                    Back
-                </a>
-            </div>
-
         </div>
     </div>
-
 </div>
+

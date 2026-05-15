@@ -3,93 +3,164 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<div class="container py-4">
+<div class="container-fluid py-4" style="background-color: #f8f9fa; min-height: 100vh;">
 
-    <div class="mb-4">
-        <h3 class="fw-bold mb-2">🔍 Station Detail</h3>
-        <a href="/AdminStation" class="btn btn-light">
-            ← Back
+    <div class="d-flex align-items-center gap-3 mb-4">
+        <a href="/AdminStation" class="btn btn-white rounded-circle shadow-sm border">
+            <i class="bi bi-arrow-left"></i>
         </a>
+        <div>
+            <h2 class="fw-bold mb-0" style="color: #1a2e5a;">Station Detail</h2>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb mb-0">
+                </ol>
+            </nav>
+        </div>
     </div>
 
-    <div class="card border-0 shadow-sm rounded-4 p-4">
+    <div class="row g-4">
+        <div class="col-lg-4">
+            <div class="card border-0 shadow-sm rounded-4 overflow-hidden mb-4">
+                <div class="p-4" style="background: linear-gradient(135deg, #1a2e5a); color: white;">
+                    <div class="d-flex align-items-center gap-3">
+                        <div>
+                            <i class="bi bi-geo-alt-fill fs-2"></i>
+                        </div>
+                        <div>
+                            <h4 class="fw-bold mb-0">@Model.Name</h4>
+                            <small class="opacity-75">ID: @Model.Id</small>
+                        </div>
+                    </div>
+                </div>
 
-        <div class="row g-4">
+                <div class="card-body p-4 bg-white">
+                    <div class="mb-4">
+                        <label class="small text-muted text-uppercase fw-bold">Address</label>
+                        <p class="fw-semibold mb-0 text-dark">@Model.Address</p>
+                    </div>
 
-            <div class="col-md-6">
-                <p><b>Name:</b><br /> @Model.Name</p>
-                <p><b>Address:</b><br /> @Model.Address</p>
-                <p><b>Capacity:</b><br /> @Model.Capacity</p>
+                    <div class="row g-3">
+
+                        <div class="col-6">
+                            <label class="small text-muted text-uppercase fw-bold">Coordinates</label>
+                            <p class="small mb-0">Lat: @Model.Latitude</p>
+                            <p class="small mb-0">Lng: @Model.Longitude</p>
+                        </div>
+                        <div class="col-6 text-end">
+                            <a href="https://www.google.com/maps?q=@Model.Latitude,@Model.Longitude" target="_blank" class="btn btn-sm btn-outline-primary rounded-pill">
+                                <i class="bi bi-map me-1"></i> View Map
+                            </a>
+                        </div>
+                    </div>
+
+                    <hr class="my-4 opacity-10">
+
+                    @{
+                        var percent = Model.Capacity == 0 ? 0 : (int)((double)Model.VehicleCount / Model.Capacity * 100);
+                        var barColor = percent > 85 ? "bg-danger" : (percent > 50 ? "bg-primary" : "bg-success");
+                    }
+                    <div class="mb-2 d-flex justify-content-between align-items-end">
+                        <label class="small text-muted text-uppercase fw-bold">Station Load</label>
+                        <span style="color: #1a2e5a;">@Model.VehicleCount / @Model.Capacity</span>
+                    </div>
+                    <div class="progress rounded-pill" style="height:12px;">
+                        <div class="progress-bar @barColor shadow-none" role="progressbar" style="width: @percent%"></div>
+                    </div>
+                    <small class="text-muted d-block mt-2">@percent% of total capacity occupied</small>
+
+                    <div class="mt-4 pt-2">
+                        <a href="/AdminStation/Edit/@Model.Id"
+                               class="btn w-100 rounded-3 py-2"
+                               style="background-color:#548EB7; border-color:#548EB7; color:white;">
+                            <i class="bi bi-pencil-square me-2"></i>Edit Information
+                        </a>
+                    </div>
+                </div>
             </div>
-
-            <div class="col-md-6">
-                <p><b>Inventory:</b><br /> @Model.VehicleCount</p>
-                <p><b>Latitude:</b><br /> @Model.Latitude</p>
-                <p><b>Longitude:</b><br /> @Model.Longitude</p>
-            </div>
-
         </div>
 
-        <!-- INVENTORY BAR -->
-        @{
-            var percent = Model.Capacity == 0 ? 0 : (int)((double)Model.VehicleCount / Model.Capacity * 100);
-        }
-
-        <div class="mt-4">
-            <label class="fw-semibold">Usage</label>
-            <div class="progress" style="height:8px;">
-                <div class="progress-bar bg-success" style="width:@percent%"></div>
-            </div>
-            <small>@Model.VehicleCount / @Model.Capacity</small>
-        </div>
-
-    </div>
-
-    <!-- VEHICLE LIST -->
-    <ul class="list-group">
-
-        @if (Model.Vehicles != null && Model.Vehicles.Any())
-        {
-            foreach (var v in Model.Vehicles)
-            {
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-
-                    <!-- LEFT -->
-                    <span>
-                        @(v.VehicleType == "Bike" ? "🚲" : "🛴")
-                        @v.VehicleType - @v.PlateNumber
+        <div class="col-lg-8">
+            <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100">
+                <div class="card-header bg-white border-0 p-4 d-flex justify-content-between align-items-center">
+                    <h5 class="fw-bold mb-0" style="color: #1a2e5a;">
+                        <i></i>Vehicles at this Station
+                    </h5>
+                    <span class="badge bg-light text-dark border px-3 py-2 rounded-pill">
+                        Total: @(Model.Vehicles?.Count() ?? 0)
                     </span>
+                </div>
 
-                    <!-- RIGHT STATUS -->
-                    @if (v.Status == "Available")
-                    {
-                        <span class="badge bg-success">
-                            <i class="bi bi-check-circle"></i> Available
-                        </span>
-                    }
-                    else if (v.Status == "InUse")
-                    {
-                        <span class="badge bg-warning text-dark">
-                            <i class="bi bi-lightning"></i> In Use
-                        </span>
-                    }
-                    else
-                    {
-                        <span class="badge bg-secondary">
-                            <i class="bi bi-gear"></i> Maintenance
-                        </span>
-                    }
-
-                </li>
-            }
-        }
-        else
-        {
-            <li class="list-group-item text-center text-muted">
-                No vehicles in this station
-            </li>
-        }
-
-    </ul>
-
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle mb-0">
+                            <thead class="bg-light">
+                                <tr>
+                                    <th class="ps-4 py-3 text-muted small text-uppercase">Type</th>
+                                    <th class="py-3 text-muted small text-uppercase">Plate Number</th>
+                                    <th class="py-3 text-muted small text-uppercase">Battery</th>
+                                    <th class="py-3 text-muted small text-uppercase">Status</th>
+                                    <th class="py-3 text-end pe-4 text-muted small text-uppercase">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Model.Vehicles != null && Model.Vehicles.Any())
+                                {
+                                    foreach (var v in Model.Vehicles)
+                                    {
+                                        <tr>
+                                            <td class="ps-4">
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <span class="fs-4">@(v.VehicleType == "Bike" ? "🚲" : "🛴")</span>
+                                                    <span class="fw-semibold">@v.VehicleType</span>
+                                                </div>
+                                            </td>
+                                            <td class="text-black">@v.PlateNumber</td>
+                                            <td>
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <div class="progress flex-grow-1" style="height: 6px; min-width: 50px;">
+                                                        <div class="progress-bar @(v.BatteryLevel < 20 ? "bg-danger" : "bg-success")"
+                                                             style="width: @v.BatteryLevel%"></div>
+                                                    </div>
+                                                    <small class="fw-bold">@v.BatteryLevel%</small>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                @if (v.Status == "Available")
+                                                {
+                                                    <span class="badge bg-success-subtle text-success rounded-pill px-3">Available</span>
+                                                }
+                                                else if (v.Status == "InUse")
+                                                {
+                                                    <span class="badge bg-warning-subtle text-warning rounded-pill px-3">In Use</span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="badge bg-secondary-subtle text-secondary rounded-pill px-3">Maintenance</span>
+                                                }
+                                            </td>
+                                            <td class="text-end pe-4">
+                                                <a href="/AdminVehicle/Detail/@v.Id" class="btn btn-sm btn-light border rounded-3">
+                                                    <i class="bi bi-eye"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                                else
+                                {
+                                    <tr>
+                                        <td colspan="5" class="text-center py-5 text-muted italic">
+                                            <i class="bi bi-inbox fs-1 d-block mb-2 opacity-25"></i>
+                                            No vehicles are currently stationed here
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
